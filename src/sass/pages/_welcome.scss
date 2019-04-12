@@ -1,4 +1,4 @@
-.login {
+.welcome {
   background-image: 
     linear-gradient(rgba(0, 0, 0, .20), rgba(0, 0, 0, .70)),
     url(./img/isorepublic-coffee-mug-1.jpg);
@@ -24,5 +24,9 @@
 
   &__btn {
     width: 17rem;
+  }
+
+  &__why { 
+    font-size: 2.5rem; 
   }
 }

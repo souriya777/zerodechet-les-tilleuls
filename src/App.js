@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+
 import './sass/main.scss';
-import Login from './components/Login';
+import Welcome from './components/Welcome';
+
+// TODO lazy loading
+// TODO error handling
+// TODO state management
 
 class App extends Component {
   render() {
     return (
       <div className="spa-container">
-        <Login />
+        <Welcome />
       </div>
     );
   }
