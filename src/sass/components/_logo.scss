@@ -1,0 +1,17 @@
+.logo {
+  background-color: #000;
+  color: #fff;
+  border: .1rem solid #fff;
+  border-radius: 1rem;
+  height: 3rem;
+  width: 3rem;
+  padding: 3rem 3.2rem;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:after {
+    content: "ZD"
+  }
+}

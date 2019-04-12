@@ -1,34 +1,10 @@
-// SASS VARIABLES
-
 // COLOR VARIABLES
-$color-primary: #299d3d;
-$color-primary-light: #62cf6a;
-$color-primary-dark: #006d0c;
-
-$color-secondary: #9d2f29;
-$color-secondary-light: #d35f52;
-$color-secondary-dark: #680000;
-
-$color-primary-button: $color-primary;
-$color-primary-button-light: #2daa42;
-$color-secondary-button: $color-secondary;
-$color-secondary-button-light: #aa332d;
-
-// white is weird, so avoid to use that
-$color-grey-light-1: #f7f7f7; // subtil contrast to white
-$color-grey-light-2: #eee;
-
-$color-grey-dark-1: #999;
-$color-grey-dark-2: #777;
-$color-grey-dark-3: #333;
-$color-grey-dark-4: #2f2f2f;
-
-// $color-primary-text: $color-grey-dark-3;
+$color-primary: #222;
 $color-primary-text: #fff;
-$color-secondary-text: $color-grey-light-2;
+$color-secondary: #ccc;
+$color-secondary-text: #000;
 
 // FONT VARIABLES
-// FIXME
 // $font-primary: 'Oxygen', sans-serif;
 // $font-display: 'Open Sans', sans-serif;
 $font-primary: 'Lato', 'Arial', sans-serif;
@@ -40,5 +16,3 @@ $default-line-height: 1.6;
 
 // BORDER
 $default-border-size: .3rem;
-
-// TODO RESPONSIVE BREAKPOINTS

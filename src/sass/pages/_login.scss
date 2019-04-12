@@ -5,6 +5,24 @@
   background-size: cover;
   background-position: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding: 10rem;
+  text-align: center;
+
+  &__box {
+    &--top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &--bottom {
+    }
+  }
+
+  &__btn {
+    width: 17rem;
+  }
 }

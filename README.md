@@ -4,6 +4,8 @@ afficher mon "switch des 3 moyenne"
 
 # zerodechet-les-tilleuls
 (Gérer sa production de déchets ménagers [au quotidien ]en toute simplicité.)
+Moins de déchets pour retrouver sa nature.
+
 
 ## but
 1/ Soutenir au jour le jour les efforts des aventuriers du Défi Famille.

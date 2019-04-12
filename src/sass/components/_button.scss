@@ -1,6 +1,34 @@
-.button {
+$loc-border-size: .1rem;
 
-  &--active {
-    
+.btn {
+
+  &,
+  &:link,
+  &:visited {
+    display: inline-block;
+    font-family: inherit;
+    text-decoration: none;
+    font-size: $default-font-size;
+    border: $loc-border-size solid $color-primary-text;
+    border-radius: 3rem;
+    margin-right: 1.6rem;
+    padding: 1rem 3rem;
+  }
+
+  &:active,
+  &:focus {
+
+  }
+
+  &--ghost {
+  // FIXME with PALETTE
+  background-color: transparent;
+  color: $color-primary-text;
+  }
+
+  &--full {
+    // FIXME with PALETTE
+    background-color: $color-primary-text;
+    color: $color-secondary-text;
   }
 }
