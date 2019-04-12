@@ -3,7 +3,7 @@ afficher mon "switch des 3 moyenne"
 - 'challenge' : design dashboard
 
 # zerodechet-les-tilleuls
-(Gérer sa production de déchets ménagers au q   uotidien en toute simplicité.)
+(Gérer sa production de déchets ménagers [au quotidien ]en toute simplicité.)
 
 ## but
 1/ Soutenir au jour le jour les efforts des aventuriers du Défi Famille.
@@ -31,7 +31,7 @@ https://www.gloomaps.com/
 pour PC (1366x768), Ipad, Iphone
 
 ## philosophie
-desktop-1st
+desktop-1st, "simple, efficace, beau et moderne"
 
 ## typographie
 Lato
@@ -39,10 +39,11 @@ Lato
 ## couleur
 https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=299d3c&secondary.color=9d2f29
 
-## textes/images/vidéos/icônes/etc...
+## médias (textes/images/vidéos/icônes/etc...)
 texte : zerodechet
 images : logo zerodechet
-vidéos : vidéo didactiques?
+vidéos:
+*nature promo : https://www.youtube.com/watch?v=pPODTlVRr5A
 icônes : pour chaque menu, ???
 
 ## résolution écran

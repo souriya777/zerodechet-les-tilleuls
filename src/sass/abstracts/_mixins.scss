@@ -1,0 +1,7 @@
+@mixin nav-selected {
+  border-bottom: $default-border-size solid $color-secondary;
+}
+
+@mixin nav-not-selected {
+  border-bottom: $default-border-size solid transparent;
+}

@@ -1,0 +1,40 @@
+// TYPOGRAPHY RULES
+
+%heading {
+  font-family: $font-display;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.heading-1 {
+  @extend %heading;
+  font-size: 4.5rem;
+  color: $color-primary-text;
+}
+
+.heading-2 {
+  @extend %heading;
+  font-size: 4rem;
+  color: $color-primary-text;
+}
+
+.heading-3 {
+  @extend %heading;
+  font-size: 2.5rem;
+}
+
+.heading-4 {
+  @extend %heading;
+  font-size: 1.9rem;
+}
+
+.heading-login {
+  @extend %heading;
+  font-size: 4.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  color: $color-primary-text;
+}
+
+.paragraph { font-size: $default-font-size; }
