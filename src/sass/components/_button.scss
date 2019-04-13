@@ -7,13 +7,16 @@ $loc-border-size: .1rem;
   &:visited {
     display: inline-block;
     font-family: inherit;
-    text-decoration: none;
     font-size: $default-font-size;
-    border: $loc-border-size solid $color-primary-text;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: $loc-border-size solid $color-secondary;
     border-radius: 3rem;
     margin-right: 1.6rem;
-    padding: 1rem 3rem;
-    text-align: center;
+    padding: 1.6rem 3rem;
+    width: 17rem;
+    cursor: pointer;
   }
 
   &:active,
@@ -22,14 +25,17 @@ $loc-border-size: .1rem;
   }
 
   &--ghost {
-  // FIXME with PALETTE
   background-color: transparent;
   color: $color-primary-text;
   }
 
-  &--full {
-    // FIXME with PALETTE
-    background-color: $color-primary-text;
+  &--primary {
+    background-color: $color-primary;
+    color: $color-primary-text;
+  }
+
+  &--secondary {
+    background-color: $color-secondary;
     color: $color-secondary-text;
   }
 }

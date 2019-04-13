@@ -1,4 +1,19 @@
 .form {
+
+  &__group {
+    margin-bottom: 4rem;
+  }
+
+  &__input {
+    font-family: inherit;
+    font-size: $default-font-size;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-bottom: $default-border-size solid $color-secondary-text;
+    padding-bottom: .7rem;
+    width: 30rem;
+  }
   
   &--router {
     position: absolute;

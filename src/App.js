@@ -19,14 +19,14 @@ class App extends Component {
     
 
     return (
-      <div className="spa-container">
+      <>
         <FormRouter.WrappedComponent />
         <React.Suspense fallback={<Loading />}>
           <Switch>
             <Route path="/" component={LazyWelcome} />
           </Switch>
         </React.Suspense>
-      </div>
+      </>
     );
   }
 }

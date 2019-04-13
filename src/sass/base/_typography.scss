@@ -1,7 +1,7 @@
 // TYPOGRAPHY RULES
 
 %heading {
-  font-family: $font-display;
+  font-family: $font-primary;
   font-weight: 300;
   line-height: 1;
 }
@@ -10,4 +10,20 @@
   @extend %heading;
   font-size: 5.5rem;
   color: $color-primary-text;
+}
+
+.heading-2 {
+  @extend %heading;
+  font-size: 3rem;
+  color: $color-secondary-text;
+}
+
+%paragraph {
+  font-family: $font-secondary;
+}
+
+.asterix {
+  @extend %paragraph;
+  font-size: 1rem;
+  color: $color-secondary-text;
 }

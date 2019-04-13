@@ -9,8 +9,8 @@ const FormRouter = (props) => {
   return(
     <>
       <div className='form form--router'>
-        {/* <Link className='btn btn--ghost welcome__btn' to="/signin">Se connecter</Link>
-        <Link className='btn btn--full welcome__btn' to="/signup">Créer un profil</Link> */}
+        {/* <Link className='btn btn--ghost' to="/signin">Se connecter</Link>
+        <Link className='btn btn--primary' to="/signup">Créer un profil</Link> */}
 
         {/* add if statement based on route */}
         {/* hide btn when we are on signin or signup */}

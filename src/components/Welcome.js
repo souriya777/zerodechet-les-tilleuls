@@ -11,7 +11,7 @@ const LazySignup = React.lazy(() => import('./Signup'));
 
 const Welcome = () => {
   return (
-    <div className='welcome'>
+    <div className='spa-container welcome'>
       <div className='welcome__box--top'>
         <div className='logo u-margin-bottom-small'></div>
         <h1 className='heading-1 u-margin-bottom-small'>Zéro Déchet App</h1>

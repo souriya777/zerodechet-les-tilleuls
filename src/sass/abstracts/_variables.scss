@@ -1,18 +1,19 @@
 // COLOR VARIABLES
-$color-primary: #222;
+// FIXME with PALETTE
+$color-primary: #000;
 $color-primary-text: #fff;
-$color-secondary: #ccc;
+$color-secondary: #fff;
 $color-secondary-text: #000;
 
 // FONT VARIABLES
 // $font-primary: 'Oxygen', sans-serif;
 // $font-display: 'Open Sans', sans-serif;
 $font-primary: 'Lato', 'Arial', sans-serif;
-$font-display: 'Lato', 'Arial', sans-serif;
+$font-secondary: 'Lato', 'Arial', sans-serif;
 $default-font-size: 1.6rem;
 
 // SPACING
 $default-line-height: 1.6;
 
 // BORDER
-$default-border-size: .3rem;
+$default-border-size: .1rem;
