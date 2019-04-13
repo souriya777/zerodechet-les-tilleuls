@@ -1,13 +1,11 @@
 import React from 'react';
 import { 
-  BrowserRouter as Router, 
   Route, 
-  Switch,
-  Link } from 'react-router-dom';
+  Switch } from 'react-router-dom';
 
-  import Loading from '../pages/Loading';
-  const LazySignin = React.lazy(() => import('./Signin'));
-  const LazySignup = React.lazy(() => import('./Signup'));
+import Loading from '../pages/Loading';
+const LazySignin = React.lazy(() => import('./Signin'));
+const LazySignup = React.lazy(() => import('./Signup'));
 
 
 
@@ -20,8 +18,14 @@ const Welcome = () => {
         <p className='welcome__why'>Moins de déchets pour retrouver sa nature.</p>
       </div>
 
-      {/* FIXME delete? */}
       <div className="welcome__box--bottom">
+        {/* FIXME factorize */}
+        <React.Suspense fallback={<Loading />}>
+          <Switch>
+            <Route path="/signin" component={LazySignin} />
+            <Route path="/signup" component={LazySignup} />
+          </Switch>
+        </React.Suspense>
       </div>
     </div>
   );

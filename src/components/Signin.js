@@ -1,9 +1,12 @@
 import React from 'react'
+import Form from './Form';
 
-const Signin = () => {
+const Signin = ({ match }) => {
     return (
       <div className='signin'>
-        signin
+        <div className="card">
+          <Form />
+        </div>
       </div>
     );
 };
