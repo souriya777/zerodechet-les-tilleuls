@@ -1,7 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-import Signin from './Signin';
-import Signup from './Signup';
+import { 
+  BrowserRouter as Router, 
+  Route, 
+  Switch,
+  Link } from 'react-router-dom';
+
+  import Loading from '../pages/Loading';
+  const LazySignin = React.lazy(() => import('./Signin'));
+  const LazySignup = React.lazy(() => import('./Signup'));
+
+
 
 const Welcome = () => {
   return (
@@ -12,15 +20,8 @@ const Welcome = () => {
         <p className='welcome__why'>Moins de déchets pour retrouver sa nature.</p>
       </div>
 
+      {/* FIXME delete? */}
       <div className="welcome__box--bottom">
-        <Router>
-          <Link className='btn btn--ghost welcome__btn' to="/signin">Se connecter</Link>
-          <Link className='btn btn--full welcome__btn' to="/signup">Créer un profil</Link>
-
-          <Route path="/signin" component={Signin} />
-          <Route path="/signup" component={Signup} />
-          {/* <Route exact path="/" component={Welcome} /> */}
-        </Router>
       </div>
     </div>
   );
