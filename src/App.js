@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { 
-  Route} from 'react-router-dom';
+  Route,
+  Switch } from 'react-router-dom';
 
 import './sass/main.scss';
 
-import Loading from './pages/Loading';
+import Loading from './components/Loading';
 
-const LazyWelcome = React.lazy(() => import('./components/Welcome'));
+const LazyWelcome = React.lazy(() => import('./pages/Welcome'));
+const LazyDashboard = React.lazy(() => import('./pages/Dashboard'));
 
 // TODO error handling
 // TODO state management
@@ -17,18 +19,19 @@ class App extends Component {
   }
 
   render() {
-    // if (this.state.user === null) {
-    //   return <Redirect to='/welcome' />
-    // }
-    const user = this.state.user;
-
     return (
       <>
         <React.Suspense fallback={<Loading />}>
+          <Switch>
+            <Route 
+              path="/dashboard" 
+              component={LazyDashboard}
+            />
             <Route 
               path="/" 
-              render={(props) => <LazyWelcome {...props} user={user} /> }
+              render={(props) => <LazyWelcome {...props} /> }
             />
+          </Switch>
         </React.Suspense>
       </>
     );

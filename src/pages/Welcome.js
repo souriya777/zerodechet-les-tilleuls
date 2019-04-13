@@ -1,12 +1,10 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
-const LazySignin = React.lazy(() => import('./Signin'));
-const LazySignup = React.lazy(() => import('./Signup'));
+const LazySignin = React.lazy(() => import('../components/Signin'));
+const LazySignup = React.lazy(() => import('../components/Signup'));
 
 const Welcome = (props) => {
-
-  const user = props.user;
 
   return (
     <div className='spa-container welcome'>
@@ -19,12 +17,6 @@ const Welcome = (props) => {
       </div>
 
       <div className="welcome__box--bottom">
-
-        {/* FIXME use API? */}
-        {/* { (user === null) ? 
-          : 
-          null
-        } */}
 
         <Route exact path='/' render={() =>
           <>

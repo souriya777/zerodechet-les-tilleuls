@@ -7,7 +7,7 @@ import Asterix from './Asterix';
 const Signup = () => {
   
   const title = 'Créer un profil';
-  const action = 'testa';
+  const action = 'dashboard'; // FIXME factorize
   const submitLabel = 'Réduire mes déchets';
 
   const fields = [

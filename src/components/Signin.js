@@ -7,7 +7,7 @@ import Asterix from './Asterix';
 const Signin = () => {
   
   const title = 'Se connecter';
-  const action = 'testa';
+  const action = 'dashboard'; // FIXME factorize
   const submitLabel = 'Fait!';
 
   const fields = [

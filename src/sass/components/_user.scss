@@ -1,0 +1,36 @@
+.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 14vh;
+  width: 100%;
+  background-color: $color-primary;
+
+  &__link:link,
+  &__link:visited {
+    display: flex;
+    margin-left: 3rem;
+    text-decoration: none;
+    color: inherit;
+    font: inherit;
+    // TODO factorize
+    transition: all .4s;
+
+    &:hover,
+    &:active {
+      // TODO factorize
+      transform: translateX(2rem);
+    }
+  }
+
+  &__photo {
+    border-radius: 50%;
+    height: 7rem;
+    width: 7rem;
+    margin-right: 2rem;
+  }
+
+  &__name {
+    line-height: 2;
+  }
+}
