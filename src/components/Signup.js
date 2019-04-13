@@ -8,7 +8,7 @@ const Signup = () => {
   
   const title = 'Créer un profil';
   const action = 'testa';
-  const submitLabel = 'Fait!';
+  const submitLabel = 'Réduire mes déchets';
 
   const fields = [
     {id: 'name', label: 'Nom', type: 'text'},

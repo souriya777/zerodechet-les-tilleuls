@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { 
-  Route,
-  Switch } from 'react-router-dom';
+  Route} from 'react-router-dom';
 
 import './sass/main.scss';
 
 import Loading from './pages/Loading';
-import FormRouter from './components/FormRouter';
 
 const LazyWelcome = React.lazy(() => import('./components/Welcome'));
 
@@ -14,14 +12,23 @@ const LazyWelcome = React.lazy(() => import('./components/Welcome'));
 // TODO state management
 
 class App extends Component {
+  state = {
+    user: null,
+  }
+
   render() {
+    // if (this.state.user === null) {
+    //   return <Redirect to='/welcome' />
+    // }
+    const user = this.state.user;
+
     return (
       <>
-        <FormRouter.WrappedComponent />
         <React.Suspense fallback={<Loading />}>
-          <Switch>
-            <Route path="/" component={LazyWelcome} />
-          </Switch>
+            <Route 
+              path="/" 
+              render={(props) => <LazyWelcome {...props} user={user} /> }
+            />
         </React.Suspense>
       </>
     );
