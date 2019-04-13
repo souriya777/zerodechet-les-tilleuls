@@ -1,7 +1,12 @@
 .form {
 
-  &__group {
+  // FIXME factorize
+  &__margin-bottom-medium {
     margin-bottom: 4rem;
+  }
+  
+  &__margin-bottom-small {
+    margin-bottom: 2rem;
   }
 
   &__input {

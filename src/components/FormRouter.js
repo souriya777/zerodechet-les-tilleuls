@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { withRouter } from "react-router";
+import { Link } from "react-router-dom";
 
 // FIXME keep this solution?
 const FormRouter = (props) => {
-  const { match, location, history } = props;
-  console.log(props);
   return(
     <>
       <div className='form form--router'>

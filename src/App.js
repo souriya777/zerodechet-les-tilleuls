@@ -15,9 +15,6 @@ const LazyWelcome = React.lazy(() => import('./components/Welcome'));
 
 class App extends Component {
   render() {
-    console.log(this.props);
-    
-
     return (
       <>
         <FormRouter.WrappedComponent />
