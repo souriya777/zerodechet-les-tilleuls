@@ -4,37 +4,37 @@ import User from './User'
 
 const Navigation = () => {
   return (
-    <nav class="main-nav">
+    <nav className='main-nav'>
       <User />
-      <ul class="main-nav__list">
-        <li class="main-nav__item">
-          <a href="/garbage" class="main-nav__link">
-            {/* <svg class="main-nav__i.con">
-              <use xlink:href="img/sprite.svg#icon-cup"></use>
+      <ul className='main-nav__list'>
+        <li className='main-nav__item'>
+          <a href="/garbage" className='main-nav__link'>
+            {/* <svg className='main-nav__i.con'>
+              <use xlink:href="img/sprite.svg#icon-cup'></use>
             </svg> */}
             Déchets
           </a>
         </li>
-        <li class="main-nav__item">
-          <a href="/challenge" class="main-nav__link">
-            {/* <svg class="main-nav__icon">
-              <use xlink:href="img/sprite.svg#icon-medal"></use>
+        <li className='main-nav__item'>
+          <a href="/challenge" className='main-nav__link'>
+            {/* <svg className='main-nav__icon'>
+              <use xlink:href="img/sprite.svg#icon-medal'></use>
             </svg> */}
             Défi
           </a>
         </li>
-        <li class="main-nav__item">
-          <a href="/event" class="main-nav__link">
-            {/* <svg class="main-nav__icon">
-              <use xlink:href="img/sprite.svg#icon-calendar"></use>
+        <li className='main-nav__item'>
+          <a href="/event" className='main-nav__link'>
+            {/* <svg className='main-nav__icon'>
+              <use xlink:href="img/sprite.svg#icon-calendar'></use>
             </svg> */}
             Événements
           </a>
         </li>
-        <li class="main-nav__item">
-          <a href="/info" class="main-nav__link">
-            {/* <svg class="main-nav__icon">
-              <use xlink:href="img/sprite.svg#icon-open-book"></use>
+        <li className='main-nav__item'>
+          <a href="/info" className='main-nav__link'>
+            {/* <svg className='main-nav__icon'>
+              <use xlink:href="img/sprite.svg#icon-open-book'></use>
             </svg> */}
             Infos
           </a>

@@ -1,0 +1,20 @@
+.my-404 {
+  background-image: 
+  linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)),
+  url(./img/dark-fall-forest-isorepublic.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: inherit;
+  color: inherit;
+  font-size: 2rem;
+
+  &__btn {
+    width: 27rem !important;
+  }
+}

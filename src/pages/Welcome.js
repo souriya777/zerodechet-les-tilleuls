@@ -6,6 +6,9 @@ const LazySignup = React.lazy(() => import('../components/Signup'));
 
 const Welcome = (props) => {
 
+  console.log(props);
+  const path = props.match.path;
+
   return (
     <div className='spa-container welcome'>
       <div className='welcome__box--top'>
@@ -18,16 +21,17 @@ const Welcome = (props) => {
 
       <div className="welcome__box--bottom">
 
-        <Route exact path='/' render={() =>
+        <Route exact path={path} render={() =>
           <>
-            <Link className='btn btn--ghost' to='/signin'>Se connecter</Link>
-            <Link className='btn btn--primary' to='/signup'>Créer un profil</Link>
+            <Link className='btn btn--ghost' to={`${path}/signin`}>Se connecter</Link>
+            <Link className='btn btn--primary' to={`${path}/signup`}>Créer un profil</Link>
           </>
           }
         />
-        <Route path='/signin' component={LazySignin} />
-        <Route path="/signup" component={LazySignup} />
-        
+        <Route path={`${path}/signin`} render={() => 
+            <LazySignin {...props} onSubmit={props.onSignin} />} 
+          />
+        <Route path={`${path}/signup`} component={LazySignup} />
       </div>
     </div>
   );

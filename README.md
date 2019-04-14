@@ -11,12 +11,12 @@ Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en 
 ## fonctionnalités (le quoi)
 - Aider les aventuriers du Défi Famille à réduire leurs déchets;
 - Mesurer leur progression
-- Informer et être informé des bonnes pratiques (réunions, ateliers, newsletter...);
-- Organiser et participer à des échanges live;
+[- Informer et être informé des bonnes pratiques;]
+- Organiser et participer à des échanges live (réunions, ateliers, newsletter...);
 
 ## audience (qui)
 - Les familles participant au défi, qui ont besoin d'une application simple et efficace pour gérer au quotidien leur production de déchet
-- Les administrateurs pour la gestion des utilisateurs et des progressions.
+[- Les administrateurs pour la gestion des utilisateurs et des progressions.]
 
 # DESIGN
 
@@ -24,6 +24,9 @@ Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en 
 - PC (résolution standard 1366x768 => cf. https://www.w3schools.com/browsers/browsers_display.asp)
 - tablettes
 - smartphones
+
+## navigateurs cibles
+????
 
 ## philosophie
 - responsive design en utilisant une stratégie "desktop-1st"
@@ -68,6 +71,12 @@ icônes : pour chaque menu, ???
 - KISS / DRY
 
 ## useful links
+Fonts
+https://fonts.google.com
+
+Free photo
+https://isorepublic.com
+
 BEM naming convention
 http://getbem.com/naming/
 
@@ -76,6 +85,3 @@ https://sass-guidelin.es/#architecture
 
 Sass architecture (boilerplate)
 https://github.com/HugoGiraudel/sass-boilerplate/tree/master/stylesheets
-
-Fonts
-https://fonts.google.com
