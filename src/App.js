@@ -9,8 +9,6 @@ import './sass/main.scss';
 import Loading from './components/Loading';
 import LocationUtils from './components/LocationUtils';
 
-import { signinUser } from './api/UserApi';
-
 const LazyWelcome = React.lazy(() => import('./pages/Welcome'));
 const LazyDashboard = React.lazy(() => import('./pages/Dashboard'));
 const LazyMy404 = React.lazy(() => import('./pages/My404'));
@@ -19,24 +17,7 @@ const LazyMy404 = React.lazy(() => import('./pages/My404'));
 // TODO state management
 
 class App extends Component {
-  state = {
-    user: null,
-  }
-
-  handleSignin = async (user, pwd) => {
-    const authenticatedOK = await signinUser(user, pwd);
-    if (authenticatedOK === true) {
-      this.setState({ user: 'souriya' })
-    }
-  }
-
   render() {
-    const user = this.state.user;
-
-    if (user !== null) {
-      return <Redirect to='/testa' />
-    }
-
     return (
       <>
         <div className="dev-info">
@@ -46,12 +27,12 @@ class App extends Component {
 
         <React.Suspense fallback={<Loading />}>
           <Switch>
-            <Route 
-              path="/dashboard" 
+            <Redirect exact from='/' to='/welcome' />
+            <Route path="/dashboard" 
               component={LazyDashboard}
             />
             <Route 
-              path="/welcome" 
+              path={['/welcome', '/welcome/signin', '/welcome/signup']} 
               render={(props) => 
                 <LazyWelcome {...props} onSignin={this.handleSignin} /> }
             />

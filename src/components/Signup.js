@@ -6,8 +6,6 @@ import Asterix from './Asterix';
 
 const Signup = (props) => {
 
-  console.log(props);
-  
   const title = 'Créer un profil';
   const action = 'dashboard'; // FIXME factorize
   const submitLabel = 'Réduire mes déchets';
@@ -17,8 +15,6 @@ const Signup = (props) => {
     {id: 'email', label: 'E-mail', type: 'email'},
     {id: 'pwd', label: 'Mot de passe', type: 'password'}
   ]
-
-  const path = props.match.path;
 
   return (
     <div className='signup'>
@@ -32,7 +28,7 @@ const Signup = (props) => {
             <Asterix>En vous inscrivant vous acceptez les <Link className='link' to='/terms'>termes et les conditions</Link>.</Asterix>
           }
           asterixBottom={
-            <Asterix>Déjà un compte?<br /><Link className='link' to={`${path}/signin`}>Se connecter</Link></Asterix>
+            <Asterix>Déjà un compte?<br /><Link className='link' to='/welcome/signin'>Se connecter</Link></Asterix>
           } />
       </div>
     </div>

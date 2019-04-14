@@ -15,7 +15,6 @@ class LocationUtils extends Component {
     const params = this.state.params;
     return (
       <div>
-        Params : 
         { (params !== null) 
           ? Object.keys(params).map((key, i) => <span key={i}>{key}={params[key]}|</span> )
           : null

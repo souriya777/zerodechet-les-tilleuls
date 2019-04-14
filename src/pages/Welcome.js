@@ -5,8 +5,6 @@ const LazySignin = React.lazy(() => import('../components/Signin'));
 const LazySignup = React.lazy(() => import('../components/Signup'));
 
 const Welcome = (props) => {
-
-  console.log(props);
   const path = props.match.path;
 
   return (
