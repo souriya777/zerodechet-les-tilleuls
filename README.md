@@ -85,3 +85,9 @@ https://sass-guidelin.es/#architecture
 
 Sass architecture (boilerplate)
 https://github.com/HugoGiraudel/sass-boilerplate/tree/master/stylesheets
+
+SVG "scalables" en react
+https://css-tricks.com/creating-svg-icon-system-react/
+
+react, react-router and code splitting (loading optimization)
+https://tylermcginnis.com/react-router-code-splitting/

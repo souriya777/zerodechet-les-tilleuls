@@ -1,4 +1,4 @@
-.main-nav {
+.menu {
   background-color: $color-primary;
   color: $color-primary-text;
 
@@ -7,7 +7,8 @@
 
   &__list {
     list-style: none;
-    padding: 3rem 3rem 3rem 1.5rem;
+    // padding: 3rem 3rem 3rem 1.5rem;
+    padding: 3rem 2.5rem 3rem 1rem;
   }
 
   &__item {
@@ -21,12 +22,13 @@
     width: 2.5rem;
     height: 2.5rem;
     fill: currentColor;
+    margin-right: 1rem;
   }
   
   &__link {
     color: inherit;
     padding: 1rem 2rem;
-    width: 29rem;
+    width: 100%;
 
     &:link,
     &:visited {

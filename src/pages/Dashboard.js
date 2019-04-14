@@ -1,16 +1,19 @@
 import React from 'react'
-import Navigation from '../components/Navigation';
+import { Route } from 'react-router-dom'
 
-const Dashboard = () => {
-  console.log('in Dashboard');
+import Menu from '../components/Menu';
+
+const Dashboard = (props) => {
+  const path = props.location.path;
   
   return (
     <div className='spa-container dashboard'>
-      <Navigation />
+      <Menu />
       <main className='content'>
-        MON CONTENU
+        <Route path={`${path}/garbage`} component={Garbage} />
       </main>
     </div>
+
   )
 }
 
