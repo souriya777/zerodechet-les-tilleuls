@@ -1,44 +1,39 @@
-#TODAY
-afficher mon "switch des 3 moyenne"
-- 'challenge' : design dashboard
+# LE PROJET
 
-# zerodechet-les-tilleuls
-(Gérer sa production de déchets ménagers [au quotidien ]en toute simplicité.)
+Démo https://zerodechet-les-tilleuls.firebaseapp.com
+
+## leitmotiv (la mission)
 Moins de déchets pour retrouver sa nature.
 
+## but (le pourquoi)
+Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en développant une application utile.
 
-## but
-1/ Soutenir au jour le jour les efforts des aventuriers du Défi Famille.
-2/ Mesurer sa progression.
-3/ Informer et être informé des bonnes pratiques.
-4/ Organiser et participer à des échanges live.
-5/ Contacter l'équipe Zéro Déchet.
+## fonctionnalités (le quoi)
+- Aider les aventuriers du Défi Famille à réduire leurs déchets;
+- Mesurer leur progression
+- Informer et être informé des bonnes pratiques (réunions, ateliers, newsletter...);
+- Organiser et participer à des échanges live;
 
+## audience (qui)
+- Les familles participant au défi, qui ont besoin d'une application simple et efficace pour gérer au quotidien leur production de déchet
+- Les administrateurs pour la gestion des utilisateurs et des progressions.
 
-## audience
-Les aventuriers du Défi, qui ont fort affaire en mesurant quotidiennement leur déchet, et les administrateur.
+# DESIGN
 
-## fonctionnalités
-Gestion des utilisateurs
-Quizz sur les habitudes de consommation des utilisateurs
-Gestion des pesées des utilisateurs
-Suivi de la progression des pesées des utilisateurs
-Gestion de newsletters
-Gestion de l'organisation, de la planification et des inscriptions aux ateliers
-
-## sitemap???
-https://www.gloomaps.com/
-
-# web design
-pour PC (1366x768), Ipad, Iphone
+## terminaux cibles
+- PC (résolution standard 1366x768 => cf. https://www.w3schools.com/browsers/browsers_display.asp)
+- tablettes
+- smartphones
 
 ## philosophie
-desktop-1st, "simple, efficace, beau et moderne"
+- responsive design en utilisant une stratégie "desktop-1st"
+- le design doit être : "simple, efficace, beau et moderne"
 
-## typographie
-Lato
+## typographies
+- Lato
+- ???
 
-## couleur
+## couleurs
 https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=299d3c&secondary.color=9d2f29
 
 ## médias (textes/images/vidéos/icônes/etc...)
@@ -48,32 +43,29 @@ vidéos:
 *nature promo : https://www.youtube.com/watch?v=pPODTlVRr5A
 icônes : pour chaque menu, ???
 
-## résolution écran
-1280x1024
+## technologies
+- CSS (flexbox, grid, media queries)
+- Préprocesseur (SASS)
 
-## conversion
-
-##css
-flexbox, grid...
-
-## inspiration (à enlever)
-https://zd.valmetropole.fr/#!/page/signin
-https://dribbble.com/shots/2125879-Day-001-Login-Form
-
-# dev
+# DÉVELOPPEMENT
 
 ## technologies
-CSS/HTML/JS(ES+) & react
+- JS(ES+)
+- react 16.X, react-router
 
 ## tools
-webpack, babel, sass
+- papier/crayon (pour le maquettage)
+- Create React App (mon usine de production)
+- firebase (hosting)
+- node-sass (sass in react)
+- npm
+- git / github
+- Visual Studio Code + extensions (correction syntaxique, snippets, theme, refactoring)
 
 ## best practices
-BEM (Block Element Modifier)
-The 7-1 Pattern
-KISS
-DRY
-"comprehensible sans police, sans couleur... juste en noir et blanc"
+- BEM (Block Element Modifier)
+- The 7-1 Pattern
+- KISS / DRY
 
 ## useful links
 BEM naming convention
@@ -85,12 +77,5 @@ https://sass-guidelin.es/#architecture
 Sass architecture (boilerplate)
 https://github.com/HugoGiraudel/sass-boilerplate/tree/master/stylesheets
 
-# marketing
-1. Build trust with your future customer
-2. Repeat your primary action
-3. Grab your user's attention
-4. Tell your user the benefit
-5. Don't ask for too much information
-6. Use social proof
-7. Use urgency
-8. Use scarcity
+Fonts
+https://fonts.google.com

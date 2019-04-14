@@ -21,6 +21,9 @@ class App extends Component {
   render() {
     return (
       <>
+        <div className="dev-info">
+          React v{React.version}
+        </div>
         <React.Suspense fallback={<Loading />}>
           <Switch>
             <Route 

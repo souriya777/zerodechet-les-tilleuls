@@ -20,3 +20,11 @@ body {
   color: $color-primary-text;
   line-height: $default-line-height;
 }
+
+.dev-info {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  color: $color-primary;
+  background-color: transparent;
+}
