@@ -15,7 +15,8 @@ const ICON_MAP = [
 
 const MenuItems = (props) => {
   return ICON_MAP.map(({id, component, label, linkTo}) => {
-    return generateLI(id, component, label, linkTo);
+    const fullLinkTo = props.match.path + linkTo;
+    return generateLI(id, component, label, fullLinkTo);
   })
 }
 

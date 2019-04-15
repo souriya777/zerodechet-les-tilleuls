@@ -3,12 +3,13 @@ import React from 'react'
 import User from './User'
 import MenuItems from './MenuItems'
 
-const Menu = () => {
+const Menu = (props) => {
+  
   return (
     <nav className='menu'>
-      <User />
+      <User {...props} />
       <ul className='menu__list'>
-        <MenuItems />
+        <MenuItems {...props}  />
       </ul>
     </nav>
   )

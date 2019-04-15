@@ -1,15 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-// FIXME
+// TODO call it dynamically
+// TODO move to bdd
 import photo from '../img/souriya-photo.png'
 
-const User = () => {
+const User = (props) => {
+  const path = props.match.path;
   return (
     <div className='user'>
-      <a href="/profile" className="user__link">
+      <Link to={`${path}/profile`} className="user__link">
         <img src={photo} alt="Utilisateur Souriya" className="user__photo" />
         <div className="user__name">Souriya</div>
-      </a>
+      </Link>
     </div>
   )
 }

@@ -26,9 +26,7 @@ const Welcome = (props) => {
           </>
           }
         />
-        <Route path={`${path}/signin`} render={() => 
-            <LazySignin {...props} onSubmit={props.onSignin} />} 
-          />
+        <Route path={`${path}/signin`} component={LazySignin} />
         <Route path={`${path}/signup`} component={LazySignup} />
       </div>
     </div>
