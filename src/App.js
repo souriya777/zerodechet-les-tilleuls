@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { 
+  BrowserRouter as Router,
   Route,
   Switch,
   Redirect } from 'react-router-dom';
 
-import './sass/main.scss';
+import './_resources/sass/main.scss';
 
 import Loading from './components/Loading';
 import BrowserUtils from './components/BrowserUtils';
@@ -14,6 +15,7 @@ const LazyWelcome = React.lazy(() => import('./pages/Welcome'));
 const LazyDashboard = React.lazy(() => import('./pages/Dashboard'));
 const LazyMy404 = React.lazy(() => import('./pages/My404'));
 
+// FIXME rendre Signup & Contact 'generiques'
 // TODO logout button
 // TODO nous contacter boutton + form
 
@@ -28,7 +30,7 @@ const LazyMy404 = React.lazy(() => import('./pages/My404'));
 class App extends Component {
   render() {
     return (
-      <>
+      <Router>
         <div className="dev-info">
           React v{React.version}
           <Route path='/' component={BrowserUtils} />
@@ -48,7 +50,7 @@ class App extends Component {
             <Route component={LazyMy404} />
           </Switch>
         </React.Suspense>
-      </>
+      </Router>
     );
   }
 }

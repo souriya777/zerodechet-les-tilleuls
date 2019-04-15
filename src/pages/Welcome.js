@@ -1,8 +1,10 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
-const LazySignin = React.lazy(() => import('../components/Signin'));
-const LazySignup = React.lazy(() => import('../components/Signup'));
+import Card from '../components/Card';
+
+const FormSignin = React.lazy(() => import('../components/FormSignin'));
+const FormSignup = React.lazy(() => import('../components/FormSignup'));
 
 const Welcome = (props) => {
   const path = props.match.path;
@@ -26,8 +28,8 @@ const Welcome = (props) => {
           </>
           }
         />
-        <Route path={`${path}/signin`} component={LazySignin} />
-        <Route path={`${path}/signup`} component={LazySignup} />
+        <Route path={`${path}/signin`} component={FormSignin} />
+        <Route path={`${path}/signup`} component={FormSignup} />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import Menu from '../components/Menu';
+import Contact from '../components/Contact';
 
 const Profile = React.lazy(() => import('./Profile'));
 const Garbage = React.lazy(() => import('./Garbage'));
@@ -24,8 +25,9 @@ const Dashboard = (props) => {
           <Route path={`${path}/infos`} component={Infos} />
         </Switch>
       </main>
-    </div>
 
+      <Contact />
+    </div>
   )
 }
 

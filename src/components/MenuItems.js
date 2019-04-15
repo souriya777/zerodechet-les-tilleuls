@@ -26,7 +26,7 @@ const generateLI = (id, component, label, linkTo) => {
     <li className='menu__item' key={id}>
       <Link className='menu__link' to={linkTo}>
         <MyComponent className='menu__icon' />
-        {label}
+        <span className='menu__label'>{label}</span>
       </Link>
     </li>
   )
