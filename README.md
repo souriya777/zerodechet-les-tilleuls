@@ -69,6 +69,10 @@ icônes : pour chaque menu, ???
 - BEM (Block Element Modifier)
 - The 7-1 Pattern
 - KISS / DRY
+- redux : make state more predictable
+(1/ State Tree 2/Get 3/Listen 4/Update)
+separate UI logic from fetch data
+UI driving by state
 
 ## useful links
 Fonts
@@ -91,3 +95,6 @@ https://css-tricks.com/creating-svg-icon-system-react/
 
 react, react-router and code splitting (loading optimization)
 https://tylermcginnis.com/react-router-code-splitting/
+
+optimistic update in react
+https://medium.com/@_erikaybar/optimistic-ui-updates-in-react-9e139ffa2e45
