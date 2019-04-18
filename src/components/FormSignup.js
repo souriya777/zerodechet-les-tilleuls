@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import Form from './Form';
 import FormInput from './FormInput'
 import Asterix from './Asterix';
-import { signupUser } from '../_resources/js/user-api';
-import { getValueFrom } from '../_resources/js/form-utils';
+import { signupUser } from '../utils/user-api';
+import { getValueFrom } from '../utils/form-utils';
 
 class FormSignup extends Component {
 

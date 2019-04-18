@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import Menu from '../components/Menu';
-import Contact from '../components/Contact';
+import Menu from '../Menu';
+import Contact from '../Contact';
 
 const Profile = React.lazy(() => import('./Profile'));
 const Garbage = React.lazy(() => import('./Garbage'));

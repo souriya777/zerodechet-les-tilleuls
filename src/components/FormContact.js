@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom';
 
 import Form from './Form';
-import FormInput from './FormInput'
-import { sendMsg } from '../_resources/js/user-api';
-import { getValueFrom } from '../_resources/js/form-utils';
+import { sendMsg } from '../utils/user-api';
+import { getValueFrom } from '../utils/form-utils';
 
 class FormContact extends Component {
 

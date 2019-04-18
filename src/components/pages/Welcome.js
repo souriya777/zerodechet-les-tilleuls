@@ -1,10 +1,8 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
-import Card from '../components/Card';
-
-const FormSignin = React.lazy(() => import('../components/FormSignin'));
-const FormSignup = React.lazy(() => import('../components/FormSignup'));
+const FormSignin = React.lazy(() => import('../FormSignin'));
+const FormSignup = React.lazy(() => import('../FormSignup'));
 
 const Welcome = (props) => {
   const path = props.match.path;

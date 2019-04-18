@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { detectBrowser } from '../_resources/js/browser-utils.js'
+import { detectBrowser } from '../utils/browser-utils.js'
 
 const BrowserUtils = () => <div>browser {detectBrowser()}</div>
 
