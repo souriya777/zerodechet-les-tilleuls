@@ -1,11 +1,9 @@
-import { SIGNIN } from '../actions/user'
+import {  GET_USER} from '../actions/user'
 
-export default function user (state = {}, action) {
+export default function user (state = null, action) {
   switch (action.type) {
-    case SIGNIN:
-      return {
-        user: action.user
-      }
+    case GET_USER:
+      return action.user
     default:
       return state;
   }

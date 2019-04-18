@@ -69,7 +69,8 @@ class App extends Component {
   }
 }
 
-function mapStateProps ({ user }) {
+function mapStateProps (state) {
+  const user = state.user
   return {
     user,
     loading: user === null

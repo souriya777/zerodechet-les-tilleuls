@@ -4,9 +4,12 @@ let user = {
   photoURL: 'https://lh3.googleusercontent.com/a-/AAuE7mC-1369yY_uKJPs-C4bJm2tRZCnGWQtKxQMctZsnFg=s192'
 }
 
-export const _signin = (email, pwd) => {
+const _simulateServerLatency = async (ms) => {
+  return new Promise( resolve => setTimeout(resolve, ms))
+}
+
+export const _signin = async (email, pwd) => {
   // TODO call firebase instead
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {resolve(user)}, 1000);
-  })
+  await _simulateServerLatency(2000)
+  return user
 }

@@ -98,3 +98,10 @@ https://tylermcginnis.com/react-router-code-splitting/
 
 optimistic update in react
 https://medium.com/@_erikaybar/optimistic-ui-updates-in-react-9e139ffa2e45
+
+#FOR ME
+Promise - async await
+https://javascript.info/async-await
+
+REDUX
+ACTION=what happened

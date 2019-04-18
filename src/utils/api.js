@@ -2,18 +2,21 @@ import {
   _signin
 } from './_DATA'
 
-export const signinUser = (login, pwd) => {
+let API = {};
+
+API.signinUser = async (login, pwd) => {
   // TODO test
   //  FIXME format user
-   return _signin(login, pwd)
-    .then((user) => user)
+  return await _signin(login, pwd)
 }
 
-export const signupUser = (name, login, pwd) => {
+API.signupUser = (name, login, pwd) => {
   // TODO test
   return true;
 }
 
-export const sendMsg = (login, msg)  => {
+API.sendMsg = (login, msg)  => {
   // TODO test
 }
+
+export default API
