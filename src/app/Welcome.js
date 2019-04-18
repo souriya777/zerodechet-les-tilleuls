@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
-const FormSignin = React.lazy(() => import('../FormSignin'));
-const FormSignup = React.lazy(() => import('../FormSignup'));
+import ROUTES from './routes'
 
-const Welcome = (props) => {
-  const path = props.match.path;
+const FormSignin = React.lazy(() => import('../user/FormSignin'));
+const FormSignup = React.lazy(() => import('../user/FormSignup'));
+
+const Welcome = () => {
 
   return (
     <div className='spa-container welcome'>
@@ -19,15 +20,15 @@ const Welcome = (props) => {
 
       <div className="welcome__box--bottom">
 
-        <Route exact path={path} render={() =>
+        <Route exact path={ROUTES.welcome} render={() =>
           <>
-            <Link className='btn btn--ghost' to={`${path}/signin`}>Se connecter</Link>
-            <Link className='btn btn--primary' to={`${path}/signup`}>Créer un profil</Link>
+            <Link className='btn btn--ghost' to={ROUTES.welcome + ROUTES.signin}>Se connecter</Link>
+            <Link className='btn btn--primary' to={ROUTES.welcome + ROUTES.signup}>Créer un profil</Link>
           </>
           }
         />
-        <Route path={`${path}/signin`} component={FormSignin} />
-        <Route path={`${path}/signup`} component={FormSignup} />
+        <Route path={ROUTES.welcome + ROUTES.signin} component={FormSignin} />
+        <Route path={ROUTES.welcome + ROUTES.signup} component={FormSignup} />
       </div>
     </div>
   );

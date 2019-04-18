@@ -1,7 +1,7 @@
 import React from 'react'
 
-import IconContact from './icons/IconContact'
-import FormContact from './FormContact';
+import IconContact from '../common-ui/IconContact'
+import FormContact from '../utils/FormContact';
 
 const Contact = () => {
   return (

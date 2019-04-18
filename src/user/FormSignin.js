@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux'
 
-import Form from './Form';
-import FormInput from './FormInput'
-import Asterix from './Asterix';
+import Form from '../common-ui/Form';
+import FormInput from '../common-ui/FormInput'
+import Asterix from '../common-ui/Asterix';
 import { getValueFrom } from '../utils/form-utils';
+import { handleSignin } from '../user/userActions'
 
 class FormSignin extends Component {
 
@@ -23,16 +25,18 @@ class FormSignin extends Component {
   handleSubmit = async(e) => {
     const email = this.state.email;
     const pwd = this.state.pwd;
-
-    // const signinOK = await signinUser(email, pwd);
-    // if (signinOK === true) {
-    //   this.setState({ formValid: true});
-    // }
+    this.props.dispatch(handleSignin(email, pwd))
   };
 
   render () {
-    if (this.state.formValid === true) {
-      return <Redirect to='/dashboard' />
+    const { user } = this.props
+    console.log(this.props);
+    console.log(this.state);
+    
+    if (user !== null) {
+      console.log('FormSignin-redirect');
+      
+      // return <Redirect to='/dashboard' />
     }
 
     return (
@@ -56,4 +60,10 @@ class FormSignin extends Component {
   }
 };
 
-export default FormSignin;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(FormSignin);

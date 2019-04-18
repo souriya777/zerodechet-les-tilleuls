@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Form from './Form';
+import Form from '../common-ui/Form';
 import { getValueFrom } from '../utils/form-utils';
 
 class FormContact extends Component {

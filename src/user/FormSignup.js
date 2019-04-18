@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-import Form from './Form';
-import FormInput from './FormInput'
-import Asterix from './Asterix';
+import Form from '../common-ui/Form';
+import FormInput from '../common-ui/FormInput'
+import Asterix from '../common-ui/Asterix';
 import { getValueFrom } from '../utils/form-utils';
 
 class FormSignup extends Component {

@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import { loadingBarReducer } from 'react-redux-loading'
-import user from './user'
+import userReducer from '../user/userReducer'
 
 export default combineReducers({
-  user,
+  user: userReducer,
   loadingBar: loadingBarReducer,
 })

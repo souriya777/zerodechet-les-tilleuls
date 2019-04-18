@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import IconGarbage from './icons/IconGarbage';
-import IconProgress from './icons/IconProgress';
-import IconEvent from './icons/IconEvent';
-import IconInfo from './icons/IconInfo';
+import IconGarbage from './IconGarbage';
+import IconProgress from './IconProgress';
+import IconEvent from './IconEvent';
+import IconInfo from './IconInfo';
 
 const ICON_MAP = [
   { id: 1,  component: IconGarbage, label: 'Déchets', linkTo: '/garbage' },
