@@ -4,7 +4,6 @@ import { Link, Redirect } from 'react-router-dom';
 import Form from './Form';
 import FormInput from './FormInput'
 import Asterix from './Asterix';
-import { signinUser } from '../utils/user-api';
 import { getValueFrom } from '../utils/form-utils';
 
 class FormSignin extends Component {
@@ -25,10 +24,10 @@ class FormSignin extends Component {
     const email = this.state.email;
     const pwd = this.state.pwd;
 
-    const signinOK = await signinUser(email, pwd);
-    if (signinOK === true) {
-      this.setState({ formValid: true});
-    }
+    // const signinOK = await signinUser(email, pwd);
+    // if (signinOK === true) {
+    //   this.setState({ formValid: true});
+    // }
   };
 
   render () {

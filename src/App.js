@@ -4,12 +4,17 @@ import {
   Route,
   Switch,
   Redirect } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 import './_resources/sass/main.scss';
-
 import Loading from './components/Loading';
 import BrowserUtils from './components/BrowserUtils';
 import LocationUtils from './components/LocationUtils';
+import { handleSignin } from './actions/user'
+
+
+// FIXME move in container
+import LoadingBar from 'react-redux-loading'
 
 const LazyWelcome = React.lazy(() => import('./pages/Welcome'));
 const LazyDashboard = React.lazy(() => import('./pages/Dashboard'));
@@ -20,17 +25,26 @@ const LazyMy404 = React.lazy(() => import('./pages/My404'));
 // TODO nous contacter boutton + form
 
 // TODO TECHNICAL ASPECTS:
+// - state management :
+// which data? login id
 // - authent
 // - firebase DB
 // - error handling
-// - state management
 // - optimize : minification
 // - offline mode
 
+
 class App extends Component {
+
+  // FIXME move in container ?
+  componentDidMount() {
+    this.props.dispatch(handleSignin())
+  }
+
   render() {
     return (
       <Router>
+        <LoadingBar />
         <div className="dev-info">
           React v{React.version}
           <Route path='/' component={BrowserUtils} />
@@ -55,4 +69,11 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapStateProps ({ user }) {
+  return {
+    user,
+    loading: user === null
+  }
+}
+
+export default connect(mapStateProps)(App);

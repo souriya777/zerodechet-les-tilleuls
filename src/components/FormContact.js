@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import Form from './Form';
-import { sendMsg } from '../utils/user-api';
 import { getValueFrom } from '../utils/form-utils';
 
 class FormContact extends Component {
@@ -22,10 +21,10 @@ class FormContact extends Component {
     const email = this.state.email;
     const msg = this.state.msg;
 
-    const signinOK = await sendMsg(email, msg);
-    if (signinOK === true) {
-      this.setState({ formValid: true});
-    }
+    // const signinOK = await sendMsg(email, msg);
+    // if (signinOK === true) {
+    //   this.setState({ formValid: true});
+    // }
   };
 
   render () {

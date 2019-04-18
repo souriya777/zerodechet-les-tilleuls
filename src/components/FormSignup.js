@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Form from './Form';
 import FormInput from './FormInput'
 import Asterix from './Asterix';
-import { signupUser } from '../utils/user-api';
 import { getValueFrom } from '../utils/form-utils';
 
 class FormSignup extends Component {
@@ -27,10 +26,10 @@ class FormSignup extends Component {
     const email = this.state.email;
     const pwd = this.state.pwd;
 
-    const signupOK = await signupUser(name, email, pwd);
-    if (signupOK === true) {
-      this.setState({ formValid: true});
-    }
+    // const signupOK = await signupUser(name, email, pwd);
+    // if (signupOK === true) {
+    //   this.setState({ formValid: true});
+    // }
   };
 
   render () {
