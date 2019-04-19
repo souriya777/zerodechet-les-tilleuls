@@ -11,6 +11,14 @@ const getUser = (user) => {
   }
 }
 
+// FIXME factoriz
+const removeUser = (user) => {
+  return {
+    type: GET_USER,
+    user: null
+  }
+}
+
 export const handleSignin = (login, pwd) => {
   return async (dispatch) => {
     dispatch(showLoading())
@@ -20,8 +28,11 @@ export const handleSignin = (login, pwd) => {
   }
 }
 
-export const handleSignout = (uid) => {
-  return {
-    type: SIGNOUT,
+export const handleSignout = () => {
+  return async (dispatch) => {
+    dispatch(showLoading())
+    await API.signout()
+    dispatch(removeUser())
+    dispatch(hideLoading())
   }
 }

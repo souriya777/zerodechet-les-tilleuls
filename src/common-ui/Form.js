@@ -5,6 +5,7 @@ import Dialog from './Dialog';
 
 class Form extends Component {
 
+  // TODO use hook to factorize 
   handleSubmit = e => {
     e.preventDefault();
     this.props.onSubmit();
@@ -12,7 +13,9 @@ class Form extends Component {
 
   render () {
     return (
-      <Dialog title={this.props.title}>
+      <Dialog title={this.props.title} msg={this.props.error} isError={true}>
+        {/* FIXME Slot */}
+        <div>{this.props.header}</div>
         <form className="form" onSubmit={this.handleSubmit}>
           <div className="form__body">
             {this.props.inputs}

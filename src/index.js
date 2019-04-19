@@ -6,12 +6,15 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './app/reducers'
 import middleware from './app/middleware'
+import {Firebase, FirebaseContext }  from './app/firebase'
 
 const store = createStore(reducers, middleware)
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <FirebaseContext.Provider value={new Firebase()}>
+      <App />
+    </FirebaseContext.Provider>
   </Provider>,
   document.getElementById('root'))
 

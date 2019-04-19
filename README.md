@@ -26,25 +26,26 @@ Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en 
 - smartphones
 
 ## navigateurs cibles
-????
+???? récent?
 
 ## philosophie
 - responsive design en utilisant une stratégie "desktop-1st"
 - le design doit être : "simple, efficace, beau et moderne"
 
 ## typographies
-- Lato
-- ???
+- titre : lato?
+- texte : ???
 
 ## couleurs
 https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=299d3c&secondary.color=9d2f29
+autre?
 
 ## médias (textes/images/vidéos/icônes/etc...)
-texte : zerodechet
-images : logo zerodechet
+texte : reprise de l'existant zerodechet
+images : logo (reprise de l'existant zerodechet)
 vidéos:
 *nature promo : https://www.youtube.com/watch?v=pPODTlVRr5A
-icônes : pour chaque menu, ???
+icônes : pour chaque menu
 
 ## technologies
 - CSS (flexbox, grid, media queries)

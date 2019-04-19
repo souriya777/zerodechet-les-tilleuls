@@ -3,7 +3,16 @@
     margin-bottom: 4rem;
   }
 
-  &__msg {
+  // FIXME manage space for the msg between "displayed" & "not displayed"
 
+  &__msg {
+    font-family: inherit;
+    font-size: inherit;
+    color: $color-secondary-text;
+    margin-bottom: 2.5rem;
+
+    &--error {
+      color: $color-error-text;
+    }
   }
 }

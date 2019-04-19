@@ -2,6 +2,9 @@
   position: fixed;
   bottom: 3rem;
   right: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
   font-family: inherit;
   background-color: $color-secondary;
@@ -62,5 +65,10 @@
   }
 
   &__form {
+    display: none;
+
+    &--visible {
+      display: block;
+    }
   }
 }

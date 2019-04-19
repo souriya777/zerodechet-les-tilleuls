@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Form from '../common-ui/Form';
 import { getValueFrom } from '../utils/form-utils';
 
-class FormContact extends Component {
+class ContactForm extends Component {
 
   state = {
     email: null,
@@ -34,17 +34,25 @@ class FormContact extends Component {
     }
 
     return (
-      <Form 
-        title=''
-        submitLabel='Envoyer!'
-        inputs={
-          <>
-            <textarea name="" id="" cols="30" rows="10"></textarea>
-          </>
-        }
-        onSubmit={this.handleSubmit} />
+      <div>
+        <Form 
+          title=''
+          submitLabel='Envoyer!'
+          header={
+            <>
+              <div>Bienvenue Souriya,</div>
+              <div>Quel est votre message?</div>
+            </>
+          }
+          inputs={
+            <>
+              <textarea name="" id="" cols="30" rows="10"></textarea>
+            </>
+          }
+          onSubmit={this.handleSubmit} />
+      </div>
     );
   }
 };
 
-export default FormContact;
+export default ContactForm;

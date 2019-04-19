@@ -3,8 +3,9 @@ import { Route, Link } from 'react-router-dom';
 
 import ROUTES from './routes'
 
-const FormSignin = React.lazy(() => import('../user/FormSignin'));
-const FormSignup = React.lazy(() => import('../user/FormSignup'));
+const Signin = React.lazy(() => import('../user/Signin'));
+const Signup = React.lazy(() => import('../user/Signup'));
+const ForgottenPwd = React.lazy(() => import('../user/ForgottenPwd'));
 
 const Welcome = () => {
 
@@ -27,8 +28,9 @@ const Welcome = () => {
           </>
           }
         />
-        <Route path={ROUTES.welcome + ROUTES.signin} component={FormSignin} />
-        <Route path={ROUTES.welcome + ROUTES.signup} component={FormSignup} />
+        <Route path={ROUTES.welcome + ROUTES.signin} component={Signin} />
+        <Route path={ROUTES.welcome + ROUTES.signup} component={Signup} />
+        <Route path={ROUTES.welcome + ROUTES.forgottenPwd} component={ForgottenPwd} />
       </div>
     </div>
   );

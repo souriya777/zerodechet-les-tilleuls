@@ -9,8 +9,8 @@ const Dialog = (props) => {
           <h2 className="dialog__title heading-2">
             {props.title}
           </h2>
-          <p className="dialog__msg">
-            {props.message}
+          <p className={`dialog__msg dialog__msg${props.isError? '--error' : ''}`}>
+            {props.msg}
           </p>
           {props.children}
       </div>

@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 
+import ROUTES from '../app/routes'
 import Form from '../common-ui/Form';
 import FormInput from '../common-ui/FormInput'
 import Asterix from '../common-ui/Asterix';
 import { getValueFrom } from '../utils/form-utils';
 import { handleSignin } from '../user/userActions'
 
-class FormSignin extends Component {
+// FIXME container-component
+class Signin extends Component {
 
   state = {
     email: null,
@@ -30,13 +32,11 @@ class FormSignin extends Component {
 
   render () {
     const { user } = this.props
-    console.log(this.props);
-    console.log(this.state);
     
-    if (user !== null) {
-      console.log('FormSignin-redirect');
+    if (user !== null && user.uid !== undefined) {
+      console.log('Signin-redirect');
       
-      // return <Redirect to='/dashboard' />
+      return <Redirect to='/dashboard' />
     }
 
     return (
@@ -50,10 +50,10 @@ class FormSignin extends Component {
           </>
         }
         asterixTop={
-          <Asterix><Link className='link' to='/forgotten-pwd'>Mot de passe oublié</Link></Asterix>
+          <Asterix><Link className='link' to={ROUTES.welcome + ROUTES.forgottenPwd}>Mot de passe oublié</Link></Asterix>
         }
         asterixBottom={
-          <Asterix>Pas encore de compte?<br /><Link className='link' to='/welcome/signup'>Créer un profil</Link></Asterix>
+          <Asterix>Pas encore de compte?<br /><Link className='link' to={ROUTES.welcome + ROUTES.signup}>Créer un profil</Link></Asterix>
         } 
         onSubmit={this.handleSubmit} />
     );
@@ -66,4 +66,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(FormSignin);
+export default connect(mapStateToProps)(Signin);

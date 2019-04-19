@@ -35,7 +35,11 @@ const My404 = React.lazy(() => import('../utils/My404'));
 
 class App extends Component {
 
+  
   render() {
+    const myStyle = {
+      backgroundColor: 'pink'
+    }
     return (
       <Router>
         <LoadingBar />
@@ -50,7 +54,9 @@ class App extends Component {
             <Redirect exact from={ROUTES.landing} to={ROUTES.welcome} />
 
             <Route path={ROUTES.welcome} component={Welcome} />
-            <PrivateRoute path={ROUTES.dashboard} component={Dashboard} />
+            {/* FIXME user authentication checking */}
+            {/* <PrivateRoute path={ROUTES.dashboard} component={Dashboard} /> */}
+            <Route path={ROUTES.dashboard} component={Dashboard} />
             <Route component={My404} />
           </Switch>
         </React.Suspense>
@@ -62,8 +68,6 @@ class App extends Component {
 // FIXME
 function mapStateToProps (state) {
   const user = state.user
-  console.log(user);
-  
   return {
     user,
     loading: user === null

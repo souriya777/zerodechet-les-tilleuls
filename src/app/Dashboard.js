@@ -3,11 +3,11 @@ import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Menu from '../common-ui/Menu';
-import Contact from './Contact';
+import Contact from '../contact/Contact';
 import { handleSignout } from '../user/userActions';
 import ROUTES from './routes'
 
-const Profile = React.lazy(() => import('../user/Profile'));
+const UserProfile = React.lazy(() => import('../user/UserProfile'));
 const Garbage = React.lazy(() => import('../garbage/Garbage'));
 const Progress = React.lazy(() => import('../progress/Progress'));
 const Events = React.lazy(() => import('../event/Events'));
@@ -15,17 +15,21 @@ const Infos = React.lazy(() => import('../infos/Infos'));
 
 class Dashboard extends React.Component {
 
+  // FIXME right place?
   handleSignout = () => {
-    console.log('signout', this.state);
-    // this.dispatch(handleSignout(this.state.user.uid))
+    this.props.dispatch(handleSignout())
   }
 
   render () {
     const path = this.props.match.path;
-    console.log(this.state, this.props);
+    // console.log(this.props);
+    // console.log(this.state);
+    console.log(this.props.match.path);
+    
 
     const { user } = this.props
-    if (user === null) {
+    // FIXME checking
+    if (user === null || user === undefined || user.uid === null || user.uid === undefined) {
       return <Redirect to={ROUTES.landing} />
     }
     
@@ -34,12 +38,14 @@ class Dashboard extends React.Component {
       <div className='spa-container dashboard'>
         <Menu {...this.props} onSignout={this.handleSignout} />
         <main className='dashboard__content'>
+          {/* <Redirect from={ROUTES.dashboard} to={ROUTES.dashboard + ROUTES.profile} /> */}
           <Switch>
-            <Route path={`${path + ROUTES.profile}`} component={Profile} />
-            <Route path={`${path + ROUTES.garbage}`} component={Garbage} />
-            <Route path={`${path + ROUTES.progress}`} component={Progress} />
-            <Route path={`${path + ROUTES.events}`} component={Events} />
-            <Route path={`${path + ROUTES.infos}`} component={Infos} />
+            <Route exact path={ROUTES.dashboard} component={Garbage} />
+            <Route path={ROUTES.dashboard + ROUTES.profile} component={UserProfile} />
+            <Route path={ROUTES.dashboard + ROUTES.garbage} component={Garbage} />
+            <Route path={ROUTES.dashboard + ROUTES.progress} component={Progress} />
+            <Route path={ROUTES.dashboard + ROUTES.events} component={Events} />
+            <Route path={ROUTES.dashboard + ROUTES.infos} component={Infos} />
           </Switch>
         </main>
   

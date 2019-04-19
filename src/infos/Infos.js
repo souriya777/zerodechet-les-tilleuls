@@ -2,7 +2,7 @@ import React from 'react'
 
 const Infos = () => {
   return (
-    <div className='infos'>
+    <div className='spa-container u-center-content infos'>
       Infos
     </div>
   )

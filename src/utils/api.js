@@ -15,7 +15,7 @@ API.signupUser = (name, login, pwd) => {
   return true;
 }
 
-API.signout = async (uid) => {
+API.signout = async () => {
   return null
 }
 

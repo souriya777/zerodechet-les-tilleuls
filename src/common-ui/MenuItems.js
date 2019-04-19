@@ -1,27 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import IconGarbage from './IconGarbage';
-import IconProgress from './IconProgress';
-import IconEvent from './IconEvent';
-import IconInfo from './IconInfo';
+import ROUTES from '../app/routes'
+import IconGarbage from './IconGarbage'
+import IconProgress from './IconProgress'
+import IconEvent from './IconEvent'
+import IconInfo from './IconInfo'
 
 const ICON_MAP = [
-  { id: 1,  component: IconGarbage, label: 'Déchets', linkTo: '/garbage' },
-  { id: 2,  component: IconProgress, label: 'Progression', linkTo: '/progress' },
-  { id: 3,  component: IconEvent, label: 'Événements', linkTo: '/events' },
-  { id: 4,  component: IconInfo, label: 'Infos', linkTo: '/infos' },
+  { id: 1,  component: IconGarbage, label: 'Déchets', linkTo: ROUTES.garbage },
+  { id: 2,  component: IconProgress, label: 'Progression', linkTo: ROUTES.progress },
+  { id: 3,  component: IconEvent, label: 'Événements', linkTo: ROUTES.events },
+  { id: 4,  component: IconInfo, label: 'Infos', linkTo: ROUTES.infos },
 ]
 
 const MenuItems = (props) => {
   return ICON_MAP.map(({id, component, label, linkTo}) => {
-    const fullLinkTo = props.match.path + linkTo;
-    return generateLI(id, component, label, fullLinkTo);
+    // const fullLinkTo = props.match.path + linkTo
+    // FIXME routes
+    const fullLinkTo = ROUTES.dashboard + linkTo
+    return generateLI(id, component, label, fullLinkTo)
   })
 }
 
 const generateLI = (id, component, label, linkTo) => {
-  const MyComponent = component;
+  const MyComponent = component
   return (
     <li className='menu__item' key={id}>
       <Link className='menu__link' to={linkTo}>
@@ -32,4 +35,4 @@ const generateLI = (id, component, label, linkTo) => {
   )
 }
 
-export default MenuItems;
+export default MenuItems
