@@ -32,6 +32,9 @@ const My404 = React.lazy(() => import('../utils/My404'));
 // TODO logout button
 // TODO nous contacter boutton + form
 
+// TODO extra
+// firebase : configurer les messages reset/update pwd 
+
 
 class App extends Component {
 
