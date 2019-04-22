@@ -6,6 +6,10 @@ import Menu from '../common-ui/Menu';
 import Contact from '../contact/Contact';
 import { handleSignout } from '../user/userActions';
 import ROUTES from './routes'
+import BrowserDetection from '../utils/BrowserDetection';
+import LocationUtils from '../utils/LocationUtils';
+
+import LoadingBar from 'react-redux-loading'
 
 const UserProfile = React.lazy(() => import('../user/UserProfile'));
 const Garbage = React.lazy(() => import('../garbage/Garbage'));
@@ -38,6 +42,12 @@ class Dashboard extends React.Component {
       <div className='spa-container dashboard'>
         <Menu {...this.props} onSignout={this.handleSignout} />
         <main className='dashboard__content'>
+          <LoadingBar />
+          <div className="dev-info">
+            React v{React.version}
+            <Route path={ROUTES.landing} component={BrowserDetection} />
+            <Route path={ROUTES.landing} component={LocationUtils} />
+          </div>
           {/* <Redirect from={ROUTES.dashboard} to={ROUTES.dashboard + ROUTES.profile} /> */}
           <Switch>
             <Route exact path={ROUTES.dashboard} component={Garbage} />

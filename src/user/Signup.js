@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import ROUTES from '../app/routes'
 import Form from '../common-ui/Form';
-import FormInput from '../common-ui/FormInput'
+import Input from '../common-ui/Input'
 import Asterix from '../common-ui/Asterix';
 import { getValueFrom } from '../utils/form-utils';
 import { handleSignup } from '../user/userActions'
@@ -55,9 +55,9 @@ render () {
         error={errorMsg}
         inputs={
           <>
-            <FormInput id='name' label='Nom' type='text' handleInputChange={this.handleInputChange} />
-            <FormInput id='email' label='E-mail' type='email' handleInputChange={this.handleInputChange} />
-            <FormInput id='pwd' label='Mot de passe' type='password' handleInputChange={this.handleInputChange} />
+            <Input id='name' label='Nom' type='text' handleInputChange={this.handleInputChange} />
+            <Input id='email' label='E-mail' type='email' handleInputChange={this.handleInputChange} />
+            <Input id='pwd' label='Mot de passe' type='password' handleInputChange={this.handleInputChange} />
           </>
         }
         asterixTop={

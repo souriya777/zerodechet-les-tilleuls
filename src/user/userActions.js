@@ -25,19 +25,46 @@ const signout = () => {
   }
 }
 
-export const handleSignin = (login, pwd) => {
+const handleSignIn = (type, login, pwd) => {
   return async (dispatch) => {
-    dispatch(showLoading())
+    // dispatch(showLoading())
+    let user
+
     try {
-      const user = await API.signinUser(login, pwd)
+      
+      switch (type) {
+        case 'google' :
+          user = await API.signinWithGoogle()
+          break
+        case 'facebook':
+          user = await API.signinWithFacebook()
+          break
+        default:
+          user = await API.signinUser(login, pwd)
+      } 
+
       dispatch(getUser(user))
+
     } catch (error) {
       dispatch(addError(error.message))
     } finally {
-      dispatch(hideLoading())
+      // dispatch(hideLoading())
     }
   }
 }
+
+export const handleSigninWithEmailAndPwd = (login, pwd) => {
+  return handleSignIn ('default', login, pwd)
+}
+
+export const handleSigninWithGoogle = () => {
+  return handleSignIn ('google')
+}
+
+export const handleSigninWithFacebook = () => {
+  return handleSignIn ('facebook')
+}
+
 
 export const handleSignup = (name, login, pwd) => {
   return async (dispatch) => {

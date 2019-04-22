@@ -13,9 +13,8 @@ html {
 
 body {
   font-family: $font-primary;
-  // FIXME
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   color: $color-primary-text;
   line-height: $default-line-height;

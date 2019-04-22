@@ -8,22 +8,14 @@ import { connect } from 'react-redux'
 
 import '../_resources/sass/main.scss';
 import Loading from '../utils/Loading';
-import BrowserDetection from '../utils/BrowserDetection';
-import LocationUtils from '../utils/LocationUtils';
 import ROUTES from './routes'
-import { PrivateRoute } from './PrivateRoute'
-
-
-// FIXME move in container
-import LoadingBar from 'react-redux-loading'
+// import { PrivateRoute } from './PrivateRoute'
 
 const Welcome = React.lazy(() => import('./Welcome'));
 const Dashboard = React.lazy(() => import('./Dashboard'));
 const My404 = React.lazy(() => import('../utils/My404'));
 
 // TODO firebase DB
-// TODO code splitting, analyzing the bundle size, making a progressive web app, advanced configuration
-// see. https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md
 // - error handling
 // IoC, KISS, DRY => container, component, hook and ...?
 // - optimize : minification
@@ -40,18 +32,8 @@ class App extends Component {
 
   
   render() {
-    const myStyle = {
-      backgroundColor: 'pink'
-    }
     return (
       <Router>
-        <LoadingBar />
-        <div className="dev-info">
-          React v{React.version}
-          <Route path={ROUTES.landing} component={BrowserDetection} />
-          <Route path={ROUTES.landing} component={LocationUtils} />
-        </div>
-
         <React.Suspense fallback={<Loading />}>
           <Switch>
             <Redirect exact from={ROUTES.landing} to={ROUTES.welcome} />

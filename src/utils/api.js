@@ -26,6 +26,16 @@ API.signinUser = async (login, pwd) => {
   return formatUser(user)
 }
 
+API.signinWithGoogle = async () => {
+  const user = await getDBInstance().signinWithGoogle()
+  return formatUser(user)
+}
+
+API.signinWithFacebook = async () => {
+  const user = await getDBInstance().signinWithFacebook()
+  return formatUser(user)
+}
+
 API.signupUser = async (login, pwd) => {
   return await getDBInstance().signup(login, pwd)
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FormInput = (props) => {
+const Input = (props) => {
   const id = props.id;
   const label = props.label;
   const type = props.type;
@@ -12,4 +12,4 @@ const FormInput = (props) => {
   )
 }
 
-export default FormInput;
+export default Input;

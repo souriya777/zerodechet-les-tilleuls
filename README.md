@@ -29,7 +29,13 @@ Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en 
 ???? récent?
 
 ## philosophie
-- responsive design en utilisant une stratégie "desktop-1st"
+- responsive design en utilisant une stratégie "mobile-1st"
+iPhone 320px
+iPhone landscape 480px
+tables 600px
+standard website 992px
+iPad landscape 1024px
+wide website 1224px
 - le design doit être : "simple, efficace, beau et moderne"
 
 ## typographies
@@ -99,6 +105,9 @@ https://tylermcginnis.com/react-router-code-splitting/
 
 optimistic update in react
 https://medium.com/@_erikaybar/optimistic-ui-updates-in-react-9e139ffa2e45
+
+mobile 1st strategy
+https://www.uxpin.com/studio/blog/a-hands-on-guide-to-mobile-first-design/
 
 #FOR ME
 Promise - async await

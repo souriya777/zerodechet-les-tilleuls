@@ -1,4 +1,3 @@
-import React from 'react'
 import app from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
@@ -23,18 +22,24 @@ export class Firebase {
 
     this.auth = app.auth()
     this.db = app.database()
+    this.googleProvider = new app.auth.GoogleAuthProvider()
+    this.facebookProvider = new app.auth.FacebookAuthProvider()
   }
 
   // API
   signin = (email, pwd) => 
     this.auth.signInWithEmailAndPassword(email, pwd)
 
+  signinWithGoogle = () => this.auth.signInWithPopup(this.googleProvider)
+
+  signinWithFacebook = () => this.auth.signInWithPopup(this.facebookProvider)
+
   signup = (email, pwd) => 
     this.auth.createUserWithEmailAndPassword(email, pwd)
 
   signout = () => this.auth.signOut()
 
-  resetPwd = email => {console.log(email);this.auth.sendPasswordResetEmail(email)}
+  resetPwd = email => this.auth.sendPasswordResetEmail(email)
 
   updatePwd = pwd => this.auth.currentUser.updatePassword(pwd)
 
@@ -45,10 +50,3 @@ export class Firebase {
 
   getUser = uid => this.db.ref(`users/${uid}`)
 }
-
-export const FirebaseContext = React.createContext(null)
-export const withFirebase = Component => props => (
-  <FirebaseContext.Consumer>
-    {firebase => <Component {...props} firebase={firebase} />}
-  </FirebaseContext.Consumer>
-)

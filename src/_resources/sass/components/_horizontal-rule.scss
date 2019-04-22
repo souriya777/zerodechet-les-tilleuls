@@ -1,0 +1,25 @@
+.hr {
+  &__content {
+    position: relative;
+  }
+
+  &__content:before,
+  &__content:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 45vw;
+    height: .1rem;
+    background: $color-primary-text;
+  }
+
+  &__content:before {
+    right: 100%;
+    margin-right: 1.5rem;
+  }
+
+  &__content:after {
+    left: 100%;
+    margin-left: 1.5rem;
+  }
+}

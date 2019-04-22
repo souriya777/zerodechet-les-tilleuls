@@ -1,7 +1,6 @@
 .welcome {
   background-image: 
-    linear-gradient(rgba(0, 0, 0, .20), rgba(0, 0, 0, .70)),
-    url(./img/isorepublic-coffee-mug-1.jpg);
+    linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
   background-size: cover;
   background-position: center;
   display: flex;
@@ -10,17 +9,19 @@
   align-items: center;
   text-align: center;
 
-  &__box {
-    &--top {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 3rem;
-    }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 3rem;
+  }
 
-    &--bottom {
-      padding-bottom: 3rem;
-    }
+  &__body {
+
+  }
+
+  &__footer {
+    
   }
 
   &__btn {
@@ -28,6 +29,6 @@
   }
 
   &__why { 
-    font-size: 2.5rem; 
+    font-size: 1.6rem; 
   }
 }

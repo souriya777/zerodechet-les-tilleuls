@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import Form from '../common-ui/Form';
-import FormInput from '../common-ui/FormInput'
+import Input from '../common-ui/Input'
 import Asterix from '../common-ui/Asterix';
 import { getValueFrom } from '../utils/form-utils';
 import { handleResetPwd } from '../user/userActions'
@@ -39,7 +39,7 @@ class ResetPwd extends Component {
         submitLabel={`M'aider`}
         inputs={
           <>
-            <FormInput id='email' label='E-mail' type='email' handleInputChange={this.handleInputChange} />
+            <Input id='email' label='E-mail' type='email' handleInputChange={this.handleInputChange} />
           </>
         }
         asterixTop={
