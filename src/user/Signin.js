@@ -33,16 +33,23 @@ class Signin extends Component {
   render () {
     const { user } = this.props
     
-    if (user !== null && user.uid !== undefined) {
+    if (user !== null && user !== undefined && user.uid !== undefined) {
       console.log('Signin-redirect');
       
       return <Redirect to='/dashboard' />
     }
 
+    // TODO factorize
+    const { error } = this.props;
+    const errorMsg = (error !== null && error !== undefined && error.errorMsg !== undefined)
+      ? error.errorMsg
+      : ''
+
     return (
       <Form 
         title='Se connecter'
         submitLabel='Fait!'
+        error={errorMsg}
         inputs={
           <>
             <FormInput id='email' label='E-mail' type='email' handleInputChange={this.handleInputChange} />
@@ -62,7 +69,8 @@ class Signin extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    error: state.error
   }
 }
 

@@ -1,25 +1,24 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 import ROUTES from '../app/routes'
 import Form from '../common-ui/Form';
 import FormInput from '../common-ui/FormInput'
 import Asterix from '../common-ui/Asterix';
 import { getValueFrom } from '../utils/form-utils';
-import { withFirebase } from '../app/firebase'
+import { handleSignup } from '../user/userActions'
 
-const Signup = () => (<SignupForm />)
+// const Signup = () => (<SignupForm />)
 
-class SignupFormBase extends Component {
+// class SignupFormBase extends Component {
+class Signup extends Component {
 
   state = {
     name: null,
     email: null,
     pwd: null,
     formValid: false,
-
-    // FIXME with error handling
-    error: '',
   }
 
   // FIXME how to make it more generic?
@@ -32,26 +31,28 @@ class SignupFormBase extends Component {
     const name = this.state.name;
     const email = this.state.email;
     const pwd = this.state.pwd;
+    this.props.dispatch(handleSignup(name, email, pwd))
+}
 
-    // TODO dispatch an action
-    console.log(name, email, pwd);
-    try {
-      const { user } = await this.props.firebase.signup(email, pwd)
-      console.log(user.uid);
-      this.setState({error: ''})
-    } catch(error) {
-      console.log(error.message);
-      // TODO msg in french
-      this.setState({error: error.message})
-    }
+render () {
+  // FIXME duplicate code
+  const { user } = this.props
+  if (user !== null && user !== undefined && user.uid !== undefined) {
+    console.log('Signup-redirect');
+    return <Redirect to='/dashboard' />
   }
+  
+    // TODO factorize
+    const { error } = this.props;
+    const errorMsg = (error !== null && error !== undefined && error.errorMsg !== undefined)
+      ? error.errorMsg
+      : ''
 
-  render () {
     return (
       <Form 
         title='Créer un profil'
         submitLabel='Réduire mes déchets'
-        error={this.state.error}
+        error={errorMsg}
         inputs={
           <>
             <FormInput id='name' label='Nom' type='text' handleInputChange={this.handleInputChange} />
@@ -70,6 +71,10 @@ class SignupFormBase extends Component {
   }
 }
 
-const SignupForm = withFirebase(SignupFormBase)
+const mapStateToProps = (state) => {
+  return {
+    error: state.error
+  }
+}
 
-export default Signup;
+export default connect(mapStateToProps)(Signup)

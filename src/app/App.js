@@ -21,12 +21,12 @@ const Welcome = React.lazy(() => import('./Welcome'));
 const Dashboard = React.lazy(() => import('./Dashboard'));
 const My404 = React.lazy(() => import('../utils/My404'));
 
-// TODO TECHNICAL ASPECTS:
-// - authent
-// - firebase DB
+// TODO firebase DB
+// TODO code splitting, analyzing the bundle size, making a progressive web app, advanced configuration
+// see. https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md
 // - error handling
+// IoC, KISS, DRY => container, component, hook and ...?
 // - optimize : minification
-// - offline mode
 
 // FIXME rendre Signup & Contact 'generiques'
 // TODO logout button

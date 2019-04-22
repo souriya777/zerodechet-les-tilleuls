@@ -35,6 +35,11 @@ export class Firebase {
   resetPwd = email => this.auth.sendPasswordResetEmail(email)
 
   updatePwd = pwd => this.auth.currentUser.updatePassword(pwd)
+
+  updateProfile = name => {
+    this.auth.currentUser.updateProfile({displayName: name})
+    return this.auth.currentUser
+  }
 }
 
 export const FirebaseContext = React.createContext(null)
