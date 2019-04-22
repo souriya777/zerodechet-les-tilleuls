@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 import Form from '../common-ui/Form';
 import FormInput from '../common-ui/FormInput'
 import Asterix from '../common-ui/Asterix';
 import { getValueFrom } from '../utils/form-utils';
+import { handleResetPwd } from '../user/userActions'
 
 // FIXME container-component
-class ForgottenPwd extends Component {
+class ResetPwd extends Component {
 
   state = {
     email: null,
@@ -22,9 +24,8 @@ class ForgottenPwd extends Component {
   }
 
   handleSubmit = async(e) => {
-    // const email = this.state.email;
-    console.log('handlesubmit')
-    this.setState({formValid: true})
+    const email = this.state.email;
+    this.props.dispatch(handleResetPwd(email))
   };
 
   render () {
@@ -52,4 +53,9 @@ class ForgottenPwd extends Component {
   }
 };
 
-export default ForgottenPwd;
+const mapStateToProps = state => {
+  return {
+    error: state.error
+  }
+}
+export default connect(mapStateToProps)(ResetPwd);

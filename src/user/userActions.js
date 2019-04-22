@@ -63,3 +63,11 @@ export const handleSignout = () => {
     dispatch(hideLoading())
   }
 }
+
+export const handleResetPwd = email => {
+  return async (dispatch) => {
+    dispatch(showLoading())
+    await API.resetPwd(email)
+    dispatch(hideLoading())
+  }
+}

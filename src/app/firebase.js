@@ -32,7 +32,7 @@ export class Firebase {
 
   signout = () => this.auth.signOut()
 
-  resetPwd = email => this.auth.sendPasswordResetEmail(email)
+  resetPwd = email => {console.log(email);this.auth.sendPasswordResetEmail(email)}
 
   updatePwd = pwd => this.auth.currentUser.updatePassword(pwd)
 

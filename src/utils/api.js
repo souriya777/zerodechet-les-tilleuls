@@ -38,6 +38,10 @@ API.updateProfile = async (name) => {
   return await getDBInstance().updateProfile(name)
 }
 
+API.resetPwd = async (email) => {
+  return await getDBInstance().resetPwd(email)
+}
+
 API.sendMsg = (login, msg)  => {
   // TODO test
 }

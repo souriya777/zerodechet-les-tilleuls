@@ -5,7 +5,7 @@ import ROUTES from './routes'
 
 const Signin = React.lazy(() => import('../user/Signin'));
 const Signup = React.lazy(() => import('../user/Signup'));
-const ForgottenPwd = React.lazy(() => import('../user/ForgottenPwd'));
+const ResetPwd = React.lazy(() => import('../user/ResetPwd'));
 
 const Welcome = () => {
 
@@ -30,7 +30,7 @@ const Welcome = () => {
         />
         <Route path={ROUTES.welcome + ROUTES.signin} component={Signin} />
         <Route path={ROUTES.welcome + ROUTES.signup} component={Signup} />
-        <Route path={ROUTES.welcome + ROUTES.forgottenPwd} component={ForgottenPwd} />
+        <Route path={ROUTES.welcome + ROUTES.resetPwd} component={ResetPwd} />
       </div>
     </div>
   );

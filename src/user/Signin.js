@@ -57,7 +57,7 @@ class Signin extends Component {
           </>
         }
         asterixTop={
-          <Asterix><Link className='link' to={ROUTES.welcome + ROUTES.forgottenPwd}>Mot de passe oublié</Link></Asterix>
+          <Asterix><Link className='link' to={ROUTES.welcome + ROUTES.resetPwd}>Mot de passe oublié</Link></Asterix>
         }
         asterixBottom={
           <Asterix>Pas encore de compte?<br /><Link className='link' to={ROUTES.welcome + ROUTES.signup}>Créer un profil</Link></Asterix>
