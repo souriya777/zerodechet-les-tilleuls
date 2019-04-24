@@ -4,8 +4,8 @@ $breakpoint-m: 48rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: min-content auto 6.4rem;
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
+  grid-column-gap: $gutter-column;
+  grid-row-gap: $gutter-row;
 }
 
 .width-1\/12 { grid-column: span 1; }
@@ -101,12 +101,4 @@ $breakpoint-m: 48rem;
   &--visible {
     background-color: #aaaaaa;
   }
-}
-
-h2 {
-  margin-top: 0;
-}
-
-section:not(:first-child) {
-  margin-top: 3rem;
 }

@@ -1,8 +1,8 @@
 // COLOR VARIABLES
-$color-primary: #000;
-$color-primary-text: #fff;
-$color-secondary: #fff;
-$color-secondary-text: #000;
+$color-primary: #fff;
+$color-primary-text: #000;
+$color-secondary: #000;
+$color-secondary-text: #fff;
 $color-error-text: #ff0000;
 
 // FONT VARIABLES
@@ -14,6 +14,8 @@ $default-font-size: 1.6rem;
 
 // SPACING
 $default-line-height: 1.6;
+$gutter-row: 1rem;
+$gutter-column: 1rem;
 
 // BORDER
 $default-border-size: .1rem;

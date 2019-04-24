@@ -1,51 +1,50 @@
+$border-radius: .8rem;
+
 .btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &,
   &:link,
   &:visited {
-    display: inline-block;
     font-family: inherit;
-    color: inherit;
     font-size: $default-font-size;
+    line-height: 2.4rem;
+    letter-spacing: normal;
+    padding: 1.1rem 2.2rem;
+    border-radius: $border-radius;
+    border: .1rem solid transparent;
     text-align: center;
     text-decoration: none;
     outline: none;
-    border-radius: 3rem;
-    margin-right: 1.6rem;
-    padding: 1rem 2rem;
-    width: 22rem;
-    cursor: pointer;
-  }
-
-  &:active,
-  &:focus {
-
+    width: 100%;
   }
 
   &--raised {
-    background-color: $color-primary;
-    color: $color-primary-text;
-    border: .1rem solid $color-primary;
+    color: $color-secondary-text;
+    background-color: $color-secondary;
   }
 }
 
-.btn-social {
-  display: inline-block;
+.btn-rich {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
 
   &__icon {
     font-family: inherit;
     color: inherit;
     fill: $color-primary-text;
-    border: .1rem solid $color-primary-text;
-    border-radius: 50%;
+    border-width: .1rem;
+    border-style: solid; 
+    border-color: inherit;
+    border-radius: $border-radius;
     height: 5rem;
     width: 5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  &__legend {
-    
   }
 }

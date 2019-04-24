@@ -1,0 +1,30 @@
+.content {
+  grid-column: 1 / 13;
+  grid-row: 2;
+
+  font-size: $default-font-size;
+  color: $color-primary-text;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; // here??
+  padding: 1rem;
+
+  background-color: burlywood;
+
+  &__border-box {
+    width: 100%;
+    border-left: .1rem solid $color-primary-text;
+    border-color: $color-primary-text;
+    padding: 0 2rem;
+    margin-left: 1rem;
+  }
+
+  &__or {
+    height: 7rem;
+    display: flex;
+    align-items: center;
+  }
+}

@@ -4,8 +4,8 @@ import ROUTES from './routes'
 
 const Logo = () => {
   return (
-    <Link className='link--logo' to={ROUTES.landing}>
-      <div className='logo u-margin-bottom-small'></div>
+    <Link className='link' to={ROUTES.landing}>
+      <div className='logo'></div>
     </Link>
   )
 }

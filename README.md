@@ -109,6 +109,9 @@ https://medium.com/@_erikaybar/optimistic-ui-updates-in-react-9e139ffa2e45
 mobile 1st strategy
 https://www.uxpin.com/studio/blog/a-hands-on-guide-to-mobile-first-design/
 
+grid css ?
+https://markus.oberlehner.net/blog/building-a-good-old-12-column-css-grid-framework-with-css-grid-layout/
+
 #FOR ME
 Promise - async await
 https://javascript.info/async-await

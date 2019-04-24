@@ -1,34 +1,23 @@
 .welcome {
-  background-image: 
-    linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-
+  width: 100%;
+  
   &__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 3rem;
-  }
-
-  &__body {
-
-  }
-
-  &__footer {
-    
-  }
-
-  &__btn {
-    width: 17rem;
+    display: grid;
+    justify-items: center;
+    grid-row-gap: $gutter-row;
   }
 
   &__why { 
-    font-size: 1.6rem; 
+    font-size: 1.4rem; 
+  }
+
+  &__actions {
+    display: grid;
+    grid-row-gap: $gutter-row;
+  }
+
+  &__shortcuts {
+    display: flex;
+    justify-content: space-evenly;
   }
 }

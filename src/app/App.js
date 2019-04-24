@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect } from 'react-router-dom';
+  Redirect,
+  Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 import '../_resources/sass/main.scss';
@@ -11,9 +12,10 @@ import Loading from '../utils/Loading';
 import ROUTES from './routes'
 // import { PrivateRoute } from './PrivateRoute'
 
+import { WelcomeHeader, WelcomeContent } from './Welcome'
+import { SigninHeader, SigninContent } from '../user/Signin'
+
 const GridExample = React.lazy(() => import('./_GridExample'));
-const Welcome = React.lazy(() => import('./Welcome'));
-const Dashboard = React.lazy(() => import('./Dashboard'));
 const My404 = React.lazy(() => import('../utils/My404'));
 
 class App extends Component {
@@ -21,35 +23,32 @@ class App extends Component {
   
   render() {
     return (
-      <>
+      <Router>
         <div className='spa-container grid'>
           <header className='header'>
-            HEADER
+            <Route path={ROUTES.welcome} component={WelcomeHeader} />
+            <Route path={ROUTES.signin} component={SigninHeader} />
           </header>
           <nav className='nav'>
-            NAV
+            <Link to={ROUTES.welcome}>Accueil</Link>
           </nav>
           <main className='content'>
-            CONTENT
+            <Route path={ROUTES.welcome} component={WelcomeContent} />
+            <Route path={ROUTES.signin} component={SigninContent} />
           </main>
         </div>
 
+        <React.Suspense fallback={<Loading />}>
+          <Switch>
+            <Redirect exact from={ROUTES.landing} to={ROUTES.welcome} />
 
-        <Router>
-          <React.Suspense fallback={<Loading />}>
-            <Switch>
-              <Redirect exact from={ROUTES.landing} to={ROUTES.welcome} />
-
-              <Route path='/grid' component={GridExample} />
-              <Route path={ROUTES.welcome} component={Welcome} />
-              {/* FIXME user authentication checking */}
-              {/* <PrivateRoute path={ROUTES.dashboard} component={Dashboard} /> */}
-              <Route path={ROUTES.dashboard} component={Dashboard} />
-              <Route component={My404} />
-            </Switch>
-          </React.Suspense>
-        </Router>
-      </>
+            <Route path='/grid' component={GridExample} />
+            {/* FIXME user authentication checking */}
+            {/* <PrivateRoute path={ROUTES.dashboard} component={Dashboard} /> */}
+            {/* <Route component={My404} /> */}
+          </Switch>
+        </React.Suspense>
+      </Router>
     );
   }
 }
