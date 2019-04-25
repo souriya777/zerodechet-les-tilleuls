@@ -10,16 +10,15 @@ import { connect } from 'react-redux'
 import '../_resources/sass/main.scss';
 import Loading from '../utils/Loading';
 import ROUTES from './routes'
-// import { PrivateRoute } from './PrivateRoute'
-
+import BasicFormik from '../utils/BasicFormik'
 import { WelcomeHeader, WelcomeContent } from './Welcome'
 import { SigninHeader, SigninContent } from '../user/Signin'
 import { SignupHeader, SignupContent, SignupChoiceContent } from '../user/Signup'
 import { TermsHeader, TermsContent } from '../infos/Terms'
 import { ResetPwdHeader, ResetPwdContent } from '../user/ResetPwd'
 
-const GridExample = React.lazy(() => import('./_GridExample'));
-const My404 = React.lazy(() => import('../utils/My404'));
+const GridExample = React.lazy(() => import('./_GridExample'))
+const My404 = React.lazy(() => import('../utils/My404'))
 
 class App extends Component {
 
@@ -46,14 +45,16 @@ class App extends Component {
             <Route path={ROUTES.signup} component={SignupContent} />
             <Route path={ROUTES.terms} component={TermsContent} />
             <Route path={ROUTES.resetPwd} component={ResetPwdContent} />
+
+            <Route path='/basic-formik' component={BasicFormik} />
           </main>
         </div>
 
+        {/* FIXME 404 */}
         <React.Suspense fallback={<Loading />}>
           <Switch>
             <Redirect exact from={ROUTES.landing} to={ROUTES.welcome} />
-
-            <Route path='/grid' component={GridExample} />
+            
             {/* FIXME user authentication checking */}
             {/* <PrivateRoute path={ROUTES.dashboard} component={Dashboard} /> */}
             {/* <Route component={My404} /> */}

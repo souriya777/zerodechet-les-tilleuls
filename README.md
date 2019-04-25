@@ -112,6 +112,12 @@ https://www.uxpin.com/studio/blog/a-hands-on-guide-to-mobile-first-design/
 grid css ?
 https://markus.oberlehner.net/blog/building-a-good-old-12-column-css-grid-framework-with-css-grid-layout/
 
+Redux store ou React state?
+https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978
+
+Formik : librarie efficace pour gérer les formulaires
+https://jaredpalmer.com/formik/docs/overview
+
 #FOR ME
 Promise - async await
 https://javascript.info/async-await

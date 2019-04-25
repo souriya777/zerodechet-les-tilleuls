@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import ROUTES from './routes'
+import Button from '../common-ui/Button'
 import Logo from './Logo'
 
 export const WelcomeHeader = () => {
@@ -20,8 +21,12 @@ export const WelcomeContent = () => {
     <div className='welcome'>
 
       <div className='welcome__actions content__grid'>
-        <Link className='btn btn--raised' to={ROUTES.signin}>Connexion</Link>
-        <Link className='btn btn--raised' to={ROUTES.signupChoice}>Inscription</Link>
+        <Link className='link' to={ROUTES.signin}>
+          <Button raised={true}>Connexion</Button>
+        </Link>
+        <Link className='link' to={ROUTES.signupChoice}>
+          <Button raised={true}>Inscription</Button>
+        </Link>
       </div>
 
     </div>

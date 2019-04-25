@@ -8,7 +8,7 @@ import IconFacebook from '../common-ui/IconFacebook'
 import IconMail from '../common-ui/IconMail'
 import IconUser from '../common-ui/IconUser'
 import IconLock from '../common-ui/IconLock'
-import ButtonRich from '../common-ui/ButtonRich'
+import Button from '../common-ui/Button'
 import InputPretty from '../common-ui/InputPretty'
 import { COLOR_FB, COLOR_G } from '../utils/color-utils'
 
@@ -53,7 +53,9 @@ export const SignupContent = () => {
           type='password'
           placeholder='mot de passe'><IconLock /></InputPretty>
 
-        <a href='#' className='btn btn--raised'>{BTN_LABEL}</a>
+        <a href='#' className='link'>
+          <Button raised={true}>{BTN_LABEL}</Button>
+        </a>
       </div>
 
       <div className='signup__other'>
@@ -72,11 +74,11 @@ export const SignupChoiceContent = () => {
     <div className="signup-choice__content">
 
       <div className="signup-choice__actions content__grid">
-        <ButtonRich icon={IconFacebook} color={COLOR_FB}>Inscription avec Facebook</ButtonRich>
-        <ButtonRich icon={IconGoogle} color={COLOR_G}>Inscription avec Google</ButtonRich>
+        <Button icon={IconFacebook} color={COLOR_FB}>Inscription avec Facebook</Button>
+        <Button icon={IconGoogle} color={COLOR_G}>Inscription avec Google</Button>
         
         <Link className='link' to={ROUTES.signup}>
-          <ButtonRich icon={IconMail}>Inscription par e-mail</ButtonRich>
+          <Button icon={IconMail}>Inscription par e-mail</Button>
         </Link>
       </div>
 

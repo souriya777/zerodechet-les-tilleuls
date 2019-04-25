@@ -7,7 +7,7 @@ import IconGoogle from '../common-ui/IconGoogle'
 import IconFacebook from '../common-ui/IconFacebook'
 import IconUser from '../common-ui/IconUser'
 import IconLock from '../common-ui/IconLock'
-import ButtonRich from '../common-ui/ButtonRich'
+import Button from '../common-ui/Button'
 import InputPretty from '../common-ui/InputPretty'
 import { COLOR_FB, COLOR_G } from '../utils/color-utils'
 
@@ -26,8 +26,8 @@ export const SigninContent = () => {
     <div className="signin__content">
 
       <div className="content__border-box content__grid">
-        <ButtonRich icon={IconFacebook} color={COLOR_FB}>Connexion avec Facebook</ButtonRich>
-        <ButtonRich icon={IconGoogle} color={COLOR_G}>Connexion avec Google</ButtonRich>
+        <Button icon={IconFacebook} color={COLOR_FB}>Connexion avec Facebook</Button>
+        <Button icon={IconGoogle} color={COLOR_G}>Connexion avec Google</Button>
       </div>
 
       <SeparatorOr />
@@ -41,7 +41,9 @@ export const SigninContent = () => {
           type='password'
           placeholder='mot de passe'><IconLock /></InputPretty>
 
-        <a href='#' className='btn btn--raised'>Connexion</a>
+        <a href='#' className='link' to={ROUTES.signupChoice}>
+          <Button raised={true}>Connexion</Button>
+        </a>
       </div>
       
       <div className='signin__other'>

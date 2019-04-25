@@ -2,6 +2,7 @@ import React from 'react'
 
 import IconMail from '../common-ui/IconMail'
 import InputPretty from '../common-ui/InputPretty'
+import Button from '../common-ui/Button'
 
 export const ResetPwdHeader = () => {
 
@@ -22,7 +23,7 @@ export const ResetPwdContent = () => {
           type='email'
           placeholder='e-mail'><IconMail /></InputPretty>
         
-        <a href='#' className='btn btn--raised btn--long-text'>Envoyer le lien de réinitialisation</a>
+        <a href='#' className='link'><Button raised={true} lgTxt={true}>Envoyer le lien de réinitialisation</Button></a>
       </div>
     </div>
   )
