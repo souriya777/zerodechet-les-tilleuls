@@ -1,80 +1,91 @@
-import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux'
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
-import Form from '../common-ui/Form';
-import Input from '../common-ui/Input'
-import Asterix from '../common-ui/Asterix';
-import { getValueFrom } from '../utils/form-utils';
-import { handleSignup } from '../user/userActions'
+import SeparatorOr from '../common-ui/SeparatorOr'
+import IconGoogle from '../common-ui/IconGoogle'
+import IconFacebook from '../common-ui/IconFacebook'
+import IconMail from '../common-ui/IconMail'
+import IconUser from '../common-ui/IconUser'
+import IconLock from '../common-ui/IconLock'
+import ButtonRich from '../common-ui/ButtonRich'
+import InputPretty from '../common-ui/InputPretty'
+import { COLOR_FB, COLOR_G } from '../utils/color-utils'
 
-// const Signup = () => (<SignupForm />)
+const BTN_LABEL = 'Inscription'
 
-// class SignupFormBase extends Component {
-class Signup extends Component {
+export const SignupHeader = () => {
 
-  state = {
-    name: null,
-    email: null,
-    pwd: null,
-    formValid: false,
-  }
-
-  // FIXME how to make it more generic?
-  handleInputChange = e => {
-    const {id, value} = getValueFrom(e);
-    this.setState({ [id]: value });
-  }
-
-  handleSubmit = async(e) => {
-    const name = this.state.name;
-    const email = this.state.email;
-    const pwd = this.state.pwd;
-    this.props.dispatch(handleSignup(name, email, pwd))
+  return (
+    <div className="signup__header">
+      <h1 className='h1'>Inscription</h1>
+      <p>Faites partie d'une communauté d'aventuriers oeuvrant pour la planète</p>
+    </div>
+  )
 }
 
-render () {
-  // FIXME duplicate code
-  const { user } = this.props
-  if (user !== null && user !== undefined && user.uid !== undefined) {
-    console.log('Signup-redirect');
-    return <Redirect to='/dashboard' />
-  }
-  
-    // TODO factorize
-    const { error } = this.props;
-    const errorMsg = (error !== null && error !== undefined && error.errorMsg !== undefined)
-      ? error.errorMsg
-      : ''
+export const SignupContent = () => {
 
-    return (
-      <Form 
-        title='Créer un profil'
-        submitLabel='Réduire mes déchets'
-        error={errorMsg}
-        inputs={
-          <>
-            <Input id='name' label='Nom' type='text' handleInputChange={this.handleInputChange} />
-            <Input id='email' label='E-mail' type='email' handleInputChange={this.handleInputChange} />
-            <Input id='pwd' label='Mot de passe' type='password' handleInputChange={this.handleInputChange} />
-          </>
-        }
-        asterixTop={
-          <Asterix>En vous inscrivant vous acceptez les <Link className='link' to='/terms'>termes et les conditions</Link>.</Asterix>
-        }
-        asterixBottom={
-          <Asterix>Déjà un compte?<br /><Link className='link' to={ROUTES.welcome + ROUTES.signin}>Se connecter</Link></Asterix>
-        }
-        onSubmit={this.handleSubmit} />
-    )
-  }
+  return (
+    <div className="signup__content">
+
+      <div className="content__border-box signup__actions">
+        Inscrivez-vous avec <a href='#' className='link link--active' to={ROUTES.signup}>Facebook</a> ou <a href='#' className='link link--active' to={ROUTES.signup}>Google</a>
+      </div>
+
+      <SeparatorOr />
+
+      <div className="content__border-box content__grid">
+
+        <InputPretty 
+          type='text'
+          placeholder='prénom'><IconUser /></InputPretty>
+      
+        <InputPretty 
+          type='text'
+          placeholder='nom'><IconUser /></InputPretty>
+
+        <InputPretty 
+          type='email'
+          placeholder='e-mail'><IconMail /></InputPretty>
+
+        <InputPretty 
+          type='password'
+          placeholder='mot de passe'><IconLock /></InputPretty>
+
+        <a href='#' className='btn btn--raised'>{BTN_LABEL}</a>
+      </div>
+
+      <div className='signup__other'>
+        <div className='asterix'>
+          En cliquant sur {BTN_LABEL}, j'accepte les <Link className='link link--active' to={ROUTES.terms}>Conditions générales</Link> de Zéro Déchet.
+        </div>
+      </div>
+
+    </div>
+  )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    error: state.error
-  }
-}
+export const SignupChoiceContent = () => {
 
-export default connect(mapStateToProps)(Signup)
+  return (
+    <div className="signup-choice__content">
+
+      <div className="signup-choice__actions content__grid">
+        <ButtonRich icon={IconFacebook} color={COLOR_FB}>Inscription avec Facebook</ButtonRich>
+        <ButtonRich icon={IconGoogle} color={COLOR_G}>Inscription avec Google</ButtonRich>
+        
+        <Link className='link' to={ROUTES.signup}>
+          <ButtonRich icon={IconMail}>Inscription par e-mail</ButtonRich>
+        </Link>
+      </div>
+
+      <div className='signup-choice__other'>
+        <div className='asterix asterix--center'>
+          Vous avez déjà un compte Zéro Déchet? <Link className='link link--active' to={ROUTES.signin}>Connexion</Link>
+        </div>
+      </div>
+
+    </div>
+  )
+}

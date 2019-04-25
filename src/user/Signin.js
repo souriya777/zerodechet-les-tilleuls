@@ -6,8 +6,11 @@ import SeparatorOr from '../common-ui/SeparatorOr'
 import IconGoogle from '../common-ui/IconGoogle'
 import IconFacebook from '../common-ui/IconFacebook'
 import IconUser from '../common-ui/IconUser'
+import IconLock from '../common-ui/IconLock'
 import ButtonRich from '../common-ui/ButtonRich'
 import InputPretty from '../common-ui/InputPretty'
+import { COLOR_FB, COLOR_G } from '../utils/color-utils'
+
 export const SigninHeader = () => {
 
   return (
@@ -23,8 +26,8 @@ export const SigninContent = () => {
     <div className="signin__content">
 
       <div className="content__border-box content__grid">
-      <ButtonRich icon={IconFacebook} color='#3b5998'>Connexion avec Facebook</ButtonRich>
-        <ButtonRich icon={IconGoogle} color='#dd4b39'>Connexion avec Google</ButtonRich>
+        <ButtonRich icon={IconFacebook} color={COLOR_FB}>Connexion avec Facebook</ButtonRich>
+        <ButtonRich icon={IconGoogle} color={COLOR_G}>Connexion avec Google</ButtonRich>
       </div>
 
       <SeparatorOr />
@@ -36,17 +39,17 @@ export const SigninContent = () => {
 
         <InputPretty 
           type='password'
-          placeholder='mot de passe'><IconUser /></InputPretty>
+          placeholder='mot de passe'><IconLock /></InputPretty>
 
         <a href='#' className='btn btn--raised'>Connexion</a>
       </div>
       
       <div className='signin__other'>
         <div className='asterix'>
-          <Link className='link' to={ROUTES.resetPwd}>Mot de passe oublié ?</Link>
+          <Link className='link link--active' to={ROUTES.resetPwd}>Mot de passe oublié ?</Link>
         </div>
         <div className='asterix'>
-          Vous n'avez pas de compte? <Link className='link' to={ROUTES.signup}>Inscription</Link>
+          Vous n'avez pas de compte? <Link className='link link--active' to={ROUTES.signupChoice}>Inscription</Link>
         </div>
       </div>
     </div>

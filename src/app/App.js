@@ -14,6 +14,9 @@ import ROUTES from './routes'
 
 import { WelcomeHeader, WelcomeContent } from './Welcome'
 import { SigninHeader, SigninContent } from '../user/Signin'
+import { SignupHeader, SignupContent, SignupChoiceContent } from '../user/Signup'
+import { TermsHeader, TermsContent } from '../infos/Terms'
+import { ResetPwdHeader, ResetPwdContent } from '../user/ResetPwd'
 
 const GridExample = React.lazy(() => import('./_GridExample'));
 const My404 = React.lazy(() => import('../utils/My404'));
@@ -28,6 +31,10 @@ class App extends Component {
           <header className='header'>
             <Route path={ROUTES.welcome} component={WelcomeHeader} />
             <Route path={ROUTES.signin} component={SigninHeader} />
+            <Route path={ROUTES.signupChoice} component={SignupHeader} />
+            <Route path={ROUTES.signup} component={SignupHeader} />
+            <Route path={ROUTES.terms} component={TermsHeader} />
+            <Route path={ROUTES.resetPwd} component={ResetPwdHeader} />
           </header>
           <nav className='nav'>
             <Link to={ROUTES.welcome}>Accueil</Link>
@@ -35,6 +42,10 @@ class App extends Component {
           <main className='content'>
             <Route path={ROUTES.welcome} component={WelcomeContent} />
             <Route path={ROUTES.signin} component={SigninContent} />
+            <Route path={ROUTES.signupChoice} component={SignupChoiceContent} />
+            <Route path={ROUTES.signup} component={SignupContent} />
+            <Route path={ROUTES.terms} component={TermsContent} />
+            <Route path={ROUTES.resetPwd} component={ResetPwdContent} />
           </main>
         </div>
 

@@ -25,6 +25,10 @@ $border-radius: .8rem;
     color: $color-secondary-text;
     background-color: $color-secondary;
   }
+
+  &--long-text {
+    font-size: 1.4rem !important;
+  }
 }
 
 .btn-rich {

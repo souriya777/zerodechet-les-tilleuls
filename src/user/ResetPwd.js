@@ -1,61 +1,29 @@
-import React, { Component } from 'react'
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux'
+import React from 'react'
 
-import Form from '../common-ui/Form';
-import Input from '../common-ui/Input'
-import Asterix from '../common-ui/Asterix';
-import { getValueFrom } from '../utils/form-utils';
-import { handleResetPwd } from '../user/userActions'
+import IconMail from '../common-ui/IconMail'
+import InputPretty from '../common-ui/InputPretty'
 
-// FIXME container-component
-class ResetPwd extends Component {
+export const ResetPwdHeader = () => {
 
-  state = {
-    email: null,
-    pwd: null,
-    formValid: false
-  }
-
-  // FIXME how to make it more generic?
-  handleInputChange = e => {
-    const {id, value} = getValueFrom(e);
-    this.setState({ [id]: value });
-  }
-
-  handleSubmit = async(e) => {
-    const email = this.state.email;
-    this.props.dispatch(handleResetPwd(email))
-  };
-
-  render () {
-    if (this.state.formValid === true) {
-      return <Redirect to='/dashboard' />
-    }
-
-    return (
-      <Form 
-        title='Mot de passe oublié'
-        submitLabel={`M'aider`}
-        inputs={
-          <>
-            <Input id='email' label='E-mail' type='email' handleInputChange={this.handleInputChange} />
-          </>
-        }
-        asterixTop={
-          <Asterix>Une procédure pour obtenir un nouveau mot de passe vous sera envoyé sur votre email.</Asterix>
-        }
-        asterixBottom={
-          <Asterix>Déjà un compte?<br /><Link className='link' to='/welcome/signin'>Se connecter</Link></Asterix>
-        }
-        onSubmit={this.handleSubmit} />
-    );
-  }
-};
-
-const mapStateToProps = state => {
-  return {
-    error: state.error
-  }
+  return (
+    <div className="reset-pwd__header">
+      <h1 className='h1'>Réinitialiser le mot de passe</h1>
+      <p>Saisissez l'e-mail asocié à votre compte. Nous vous enverrons un lien par e-mail pour réinitialiser votre mot de passe</p>
+    </div>
+  )
 }
-export default connect(mapStateToProps)(ResetPwd);
+
+export const ResetPwdContent = () => {
+
+  return (
+    <div className="reset-pwd__content">
+      <div className="content__grid">
+        <InputPretty 
+          type='email'
+          placeholder='e-mail'><IconMail /></InputPretty>
+        
+        <a href='#' className='btn btn--raised btn--long-text'>Envoyer le lien de réinitialisation</a>
+      </div>
+    </div>
+  )
+}

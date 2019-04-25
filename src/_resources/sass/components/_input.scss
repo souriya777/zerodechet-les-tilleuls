@@ -28,6 +28,7 @@ $input-border-radius: .4rem;
     background-color: $color-primary;
     border: $input-border;
     border-radius: $input-border-radius;
+    outline: none;
 
     // simulate one element (icon + input)
     border-top-left-radius: 0;

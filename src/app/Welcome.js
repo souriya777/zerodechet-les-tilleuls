@@ -21,7 +21,7 @@ export const WelcomeContent = () => {
 
       <div className='welcome__actions content__grid'>
         <Link className='btn btn--raised' to={ROUTES.signin}>Connexion</Link>
-        <Link className='btn btn--raised' to={ROUTES.signup}>Inscription</Link>
+        <Link className='btn btn--raised' to={ROUTES.signupChoice}>Inscription</Link>
       </div>
 
     </div>

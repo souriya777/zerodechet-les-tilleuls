@@ -1,5 +1,10 @@
 .link {
-  color: $color-action-text;
+  color: inherit;
+  font-family: inherit;
   text-decoration: none;
   cursor: pointer;
+
+  &--active {
+    color: $color-action-text;
+  }
 }
