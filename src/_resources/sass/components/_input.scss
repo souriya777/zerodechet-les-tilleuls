@@ -28,7 +28,7 @@ $input-border-radius: .4rem;
     background-color: $color-primary;
     border: $input-border;
     border-radius: $input-border-radius;
-    outline: none;
+    outline: 0;
 
     // simulate one element (icon + input)
     border-top-left-radius: 0;
@@ -43,9 +43,18 @@ $input-border-radius: .4rem;
       // tricky for outline error in firefox
       box-shadow: none;
     }
+
+    &:invalid {
+      box-shadow: none;
+      border-color: $color-error-text;
+    }
   }
 
   &__input:focus + &__icon {
     border-color: $color-primary-text;
+  }
+
+  &__input:invalid + &__icon {
+    border-color: $color-error-text;
   }
 }

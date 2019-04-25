@@ -1,6 +1,8 @@
 .btn {
   display: flex;
+  justify-content: center;
   font-family: inherit;
+  font-size: inherit;
   line-height: 2.4rem;
   letter-spacing: normal;
   align-items: center;
@@ -8,6 +10,7 @@
   border-radius: .8rem;
   padding: 1.1rem 1.2rem;
   outline: none;
+  width: 100%;
   cursor: pointer;
 
   &__icon {

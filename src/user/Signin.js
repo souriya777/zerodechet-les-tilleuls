@@ -5,11 +5,10 @@ import ROUTES from '../app/routes'
 import SeparatorOr from '../common-ui/SeparatorOr'
 import IconGoogle from '../common-ui/IconGoogle'
 import IconFacebook from '../common-ui/IconFacebook'
-import IconUser from '../common-ui/IconUser'
-import IconLock from '../common-ui/IconLock'
 import Button from '../common-ui/Button'
-import InputPretty from '../common-ui/InputPretty'
 import { COLOR_FB, COLOR_G } from '../utils/color-utils'
+
+import SigninForm from './SigninForm'
 
 export const SigninHeader = () => {
 
@@ -32,18 +31,8 @@ export const SigninContent = () => {
 
       <SeparatorOr />
 
-      <div className="content__border-box content__grid">
-        <InputPretty 
-          type='email'
-          placeholder='e-mail'><IconUser /></InputPretty>
-
-        <InputPretty 
-          type='password'
-          placeholder='mot de passe'><IconLock /></InputPretty>
-
-        <a href='#' className='link' to={ROUTES.signupChoice}>
-          <Button raised={true}>Connexion</Button>
-        </a>
+      <div className="content__border-box">
+        <SigninForm />
       </div>
       
       <div className='signin__other'>

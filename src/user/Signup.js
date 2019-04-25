@@ -24,70 +24,43 @@ export const SignupHeader = () => {
   )
 }
 
-export const SignupContent = () => {
+export const SignupContent = () => (
+  <div className="signup__content">
 
-  return (
-    <div className="signup__content">
-
-      <div className="content__border-box signup__actions">
-        Inscrivez-vous avec <a href='#' className='link link--active' to={ROUTES.signup}>Facebook</a> ou <a href='#' className='link link--active' to={ROUTES.signup}>Google</a>
-      </div>
-
-      <SeparatorOr />
-
-      <div className="content__border-box content__grid">
-
-        <InputPretty 
-          type='text'
-          placeholder='prénom'><IconUser /></InputPretty>
-      
-        <InputPretty 
-          type='text'
-          placeholder='nom'><IconUser /></InputPretty>
-
-        <InputPretty 
-          type='email'
-          placeholder='e-mail'><IconMail /></InputPretty>
-
-        <InputPretty 
-          type='password'
-          placeholder='mot de passe'><IconLock /></InputPretty>
-
-        <a href='#' className='link'>
-          <Button raised={true}>{BTN_LABEL}</Button>
-        </a>
-      </div>
-
-      <div className='signup__other'>
-        <div className='asterix'>
-          En cliquant sur {BTN_LABEL}, j'accepte les <Link className='link link--active' to={ROUTES.terms}>Conditions générales</Link> de Zéro Déchet.
-        </div>
-      </div>
-
+    <div className="content__border-box signup__actions">
+      Inscrivez-vous avec <a href='#' className='link link--active' to={ROUTES.signup}>Facebook</a> ou <a href='#' className='link link--active' to={ROUTES.signup}>Google</a>
     </div>
-  )
-}
 
-export const SignupChoiceContent = () => {
+    <SeparatorOr />
 
-  return (
-    <div className="signup-choice__content">
+    <div className="content__border-box content__grid">
 
-      <div className="signup-choice__actions content__grid">
-        <Button icon={IconFacebook} color={COLOR_FB}>Inscription avec Facebook</Button>
-        <Button icon={IconGoogle} color={COLOR_G}>Inscription avec Google</Button>
-        
-        <Link className='link' to={ROUTES.signup}>
-          <Button icon={IconMail}>Inscription par e-mail</Button>
-        </Link>
-      </div>
+      <InputPretty 
+        type='text'
+        placeholder='prénom'><IconUser /></InputPretty>
+    
+      <InputPretty 
+        type='text'
+        placeholder='nom'><IconUser /></InputPretty>
 
-      <div className='signup-choice__other'>
-        <div className='asterix asterix--center'>
-          Vous avez déjà un compte Zéro Déchet? <Link className='link link--active' to={ROUTES.signin}>Connexion</Link>
-        </div>
-      </div>
+      <InputPretty 
+        type='email'
+        placeholder='e-mail'><IconMail /></InputPretty>
 
+      <InputPretty 
+        type='password'
+        placeholder='mot de passe'><IconLock /></InputPretty>
+
+      <a href='#' className='link'>
+        <Button raised={true}>{BTN_LABEL}</Button>
+      </a>
     </div>
-  )
-}
+
+    <div className='signup__other'>
+      <div className='asterix'>
+        En cliquant sur {BTN_LABEL}, j'accepte les <Link className='link link--active' to={ROUTES.terms}>Conditions générales</Link> de Zéro Déchet.
+      </div>
+    </div>
+
+  </div>
+)
