@@ -9,16 +9,15 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start; // here??
+  align-items: center;
   padding: 1rem;
 
   background-color: burlywood;
 
   &__border-box {
-    width: 100%;
     border-left: .1rem solid $color-primary-text;
     border-color: $color-primary-text;
-    padding: 0 2rem;
+    padding: 0 1rem;
     margin-left: 1rem;
   }
 
@@ -26,5 +25,10 @@
     height: 7rem;
     display: flex;
     align-items: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-row-gap: $gutter-row;
   }
 }

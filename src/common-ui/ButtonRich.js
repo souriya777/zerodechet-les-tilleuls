@@ -5,12 +5,11 @@ const ButtonRich = (props) => {
   const color = props.color
 
   return (
-    <div className='btn-rich' style={{color: color}}>
-      <div className='btn-rich__icon' style={{fill: color}}>
+    <div className='btn-rich'>
+      <span className='btn-rich__icon' style={{fill: color}}>
         <Component />
-        {props.children}
-      </div>
-      <div className='btn-rich__legend'>{props.legend}</div>
+      </span>
+      <span className='btn-rich__text'>{props.children}</span>
     </div>
   )
 }

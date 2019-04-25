@@ -29,22 +29,21 @@ $border-radius: .8rem;
 
 .btn-rich {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  border: .1rem solid $color-primary-text;
+  border-radius: $border-radius;
+  padding: 1.1rem 1.2rem;
   cursor: pointer;
 
   &__icon {
     font-family: inherit;
-    color: inherit;
-    fill: $color-primary-text;
-    border-width: .1rem;
-    border-style: solid; 
-    border-color: inherit;
-    border-radius: $border-radius;
-    height: 5rem;
-    width: 5rem;
+    display: flex;
+  }
+
+  &__text {
+    font-size: 1.4rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-grow: 2;
   }
 }

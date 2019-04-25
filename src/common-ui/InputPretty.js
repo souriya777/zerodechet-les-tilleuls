@@ -7,8 +7,8 @@ const InputPretty = (props) => {
 
   return (
     <div className='input-pretty'>
-      <span className='input-pretty__icon'>{props.children}</span>
       <input className='input-pretty__input' type={type} placeholder={props.placeholder} onChange={props.onChange} required />
+      <span className='input-pretty__icon'>{props.children}</span>
     </div>
   )
 }

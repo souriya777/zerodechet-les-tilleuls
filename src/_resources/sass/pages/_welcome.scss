@@ -2,22 +2,14 @@
   width: 100%;
   
   &__header {
-    display: grid;
     justify-items: center;
-    grid-row-gap: $gutter-row;
   }
-
+  
   &__why { 
     font-size: 1.4rem; 
   }
-
+  
   &__actions {
-    display: grid;
-    grid-row-gap: $gutter-row;
-  }
-
-  &__shortcuts {
-    display: flex;
-    justify-content: space-evenly;
+    grid-row-gap: $gutter-row-large;
   }
 }
