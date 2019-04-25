@@ -8,7 +8,7 @@ const Button = (props) => {
   const longText = props.lgTxt || props.icon ? 'btn--long-text' : ''
 
   return (
-    <div className={`btn ${raised} ${longText}`}>
+    <div className={`btn ${raised} ${longText}`} onClick={props.onSubmit}>
       <span className='btn__icon' style={{fill: color}}>
         { props.icon ? <Component /> : '' }
       </span>

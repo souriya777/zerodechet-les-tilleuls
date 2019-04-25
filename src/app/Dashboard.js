@@ -1,12 +1,24 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-const Dashboard = () => {
+import ROUTES from './routes'
+import { isNotLogged } from '../utils/user-utils'
+
+const Dashboard = ({ user }) => {
+  console.log(user);
   
-    return (
-      <div className='spa-container dashboard'>
-        dashboard
-      </div>
-    )
+  if (isNotLogged(user)) {
+    return <Redirect to={ROUTES.signin} />
+  }
+
+  return (
+    <div className='dashboard'>
+      dashboard
+    </div>
+  )
 }
 
-export default Dashboard
+const mapStateToProps = ({ user }) => ({ user })
+
+export default connect(mapStateToProps)(Dashboard)

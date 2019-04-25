@@ -66,12 +66,12 @@ export const handleSigninWithFacebook = () => {
 }
 
 
-export const handleSignup = (name, login, pwd) => {
+export const handleSignup = (firstName, lastName, login, pwd) => {
   return async (dispatch) => {
     dispatch(showLoading())
     try {
       let user = await API.signupUser(login, pwd)
-      user = await API.updateProfile(name)
+      user = await API.updateProfile(firstName, lastName)
       dispatch(getUser(user))
     } catch (error) {
       dispatch(addError(error.message))

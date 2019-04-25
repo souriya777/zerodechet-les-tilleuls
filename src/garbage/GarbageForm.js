@@ -1,52 +1,60 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
-import Form from '../common-ui/Form';
-import { getValueFrom } from '../utils/form-utils';
+import IconUser from '../common-ui/IconUser'
+import IconLock from '../common-ui/IconLock'
+import InputPretty from '../common-ui/InputPretty'
 
-class GarbageForm extends Component {
+const SigninForm = (props) => (
+  <>
+    <Formik
+      initialValues={{ email: '', pwd: '' }}
+      validationSchema={FormSchema}
+      onSubmit={(values, { setSubmitting }) => {
+        props.onSubmit(values)
+        setSubmitting(true)
+      }}
+    >
+      {({ isSubmitting }) => (
+        <Form>
+          <InputPretty 
+            name='nbPers'
+            type='number'
+            placeholder='nombre de personnes'><IconUser /></InputPretty>
+          <InputPretty 
+            name='nbDays'
+            type='number'
+            placeholder='nombre de jours'><IconLock /></InputPretty>
+          <InputPretty 
+            name='totalWeight'
+            type='number'
+            placeholder='Poids total en kg'><IconLock /></InputPretty>
+          <InputPretty 
+            name='date'
+            type='date'
+            placeholder='date'><IconLock /></InputPretty>
+          <Field component="select" name="type">
+            <option value="recyclable">Recyclable</option>
+            <option value="norecyclable">Non recyclable</option>
+          </Field>
+          <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
+            Sauvegarder
+          </button>
+        </Form>
+      )}
+    </Formik>
+  </>
+)
 
-  state = {
-    email: null,
-    sendMsg: null,
-    formValid: false
-  }
+const FormSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Entrez une adresse e-mail valide.')
+    .required('Une adresse e-mail est obligatoire.'),
+  pwd: Yup.string()
+    .min(8, 'Votre mot de passe doit contenenir au moins 8 caractères')
+    .required('Un mot de passe est obligatoire.')
+});
 
-  // FIXME how to make it more generic?
-  handleInputChange = e => {
-    const {id, value} = getValueFrom(e);
-    this.setState({ [id]: value });
-  }
 
-  handleSubmit = async(e) => {
-    const email = this.state.email;
-    const msg = this.state.msg;
-
-    // const signinOK = await sendMsg(email, msg);
-    // if (signinOK === true) {
-    //   this.setState({ formValid: true});
-    // }
-  };
-
-  render () {
-    if (this.state.formValid === true) {
-      // return <Redirect to='/dashboard' />
-      // TODO close form
-    }
-
-    return (
-      <div>
-        <Form 
-          title='Enregistrer une pesée'
-          submitLabel='Créer!'
-          inputs={
-            <>
-              FORMULAIRE A IMPLEMENTER
-            </>
-          }
-          onSubmit={this.handleSubmit} />
-      </div>
-    );
-  }
-};
-
-export default GarbageForm;
+export default SigninForm

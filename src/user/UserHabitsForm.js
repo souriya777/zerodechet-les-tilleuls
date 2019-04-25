@@ -6,7 +6,7 @@ import IconUser from '../common-ui/IconUser'
 import IconLock from '../common-ui/IconLock'
 import InputPretty from '../common-ui/InputPretty'
 
-const SigninForm = (props) => (
+const UserHabitsForm = (props) => (
   <>
     <Formik
       initialValues={{ email: '', pwd: '' }}
@@ -19,15 +19,15 @@ const SigninForm = (props) => (
       {({ isSubmitting }) => (
         <Form>
           <InputPretty 
-            name='email'
-            type='email'
-            placeholder='e-mail'><IconUser /></InputPretty>
+            name='nbPers'
+            type='nombre de personnes'
+            placeholder=''><IconUser /></InputPretty>
           <InputPretty 
-            name='pwd'
-            type='password'
-            placeholder='mot de passe'><IconLock /></InputPretty>
+            name='nbChildren'
+            type='text'
+            placeholder='nombre denfants'><IconLock /></InputPretty>
           <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
-            Connexion
+            Enregistrer
           </button>
         </Form>
       )}
@@ -45,4 +45,4 @@ const FormSchema = Yup.object().shape({
 });
 
 
-export default SigninForm
+export default UserHabitsForm

@@ -1,7 +1,3 @@
-import {
-  _signin
-} from './_DATA'
-
 import { Firebase }  from '../app/firebase'
 
 let API = {};
@@ -44,7 +40,8 @@ API.signout = async () => {
   return await getDBInstance().signout()
 }
 
-API.updateProfile = async (name) => {
+API.updateProfile = async (firstName, lastName) => {
+  const name = displayName(firstName, lastName)
   return await getDBInstance().updateProfile(name)
 }
 
@@ -58,12 +55,15 @@ API.sendMsg = (login, msg)  => {
 
 const formatUser = userDB => {
   const user = userDB.user
-  console.log(userDB)
   return {
     uid: user.uid,
     name: user.displayName,
     photo: user.photoURL
   }
+}
+
+const displayName = (firstName, lastName) => {
+  return firstName + ' ' + lastName
 }
 
 export default API

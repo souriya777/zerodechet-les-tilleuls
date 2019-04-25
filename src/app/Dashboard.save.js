@@ -11,7 +11,7 @@ import LocationUtils from '../utils/LocationUtils';
 
 import LoadingBar from 'react-redux-loading'
 
-const UserProfile = React.lazy(() => import('../user/UserProfile'));
+const UserProfile = React.lazy(() => import('../user/UserHabits'));
 const Garbage = React.lazy(() => import('../garbage/Garbage'));
 const Progress = React.lazy(() => import('../progress/Progress'));
 const Events = React.lazy(() => import('../event/Events'));
