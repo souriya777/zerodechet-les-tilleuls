@@ -1,12 +1,23 @@
 import React from 'react'
 // linked with formik library...
 import { Field, ErrorMessage } from 'formik';
+import IconArrowBottom from '../common-ui/IconArrowBottom'
 
 const InputPretty = (props) => {
   return (
     <>
       <div className='input-pretty'>
-        <Field className='input-pretty__input' type={props.type} name={props.name} placeholder={props.placeholder} />
+        { props.type === 'select'
+          ? <>
+              <Field className='input-pretty__select' component="select" name={props.name}>
+                <option value="recyclable">Recyclable</option>
+                <option value="norecyclable">Non recyclable</option>
+              </Field>
+              <span className='input-pretty__icon-arrow'><IconArrowBottom /></span>
+            </>
+          : <Field className='input-pretty__input' type={props.type} name={props.name} placeholder={props.placeholder} />
+        }
+        
         <span className='input-pretty__icon'>{props.children}</span>
       </div>
       <div className='form-error'>

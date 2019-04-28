@@ -1,11 +1,15 @@
 import React from 'react'
 
-const Events = () => {
-  return (
-    <div className='spa-container u-center-content events'>
-      Events
-    </div>
-  )
-}
+export const EventsHeader = () => (
+  <div className="events__header">
+    <h1 className='h1'>Événements</h1>
+  </div>
+)
+
+const Events = () => (
+  <div className='events'>
+    Events
+  </div>
+)
 
 export default Events;

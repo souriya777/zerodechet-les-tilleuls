@@ -18,7 +18,7 @@ export const ResetPwdContent = () => (
         type='email'
         placeholder='e-mail'><IconMail /></InputPretty>
       
-      <a href='#' className='link'><Button raised={true} lgTxt={true}>Envoyer le lien de réinitialisation</Button></a>
+      <span className='link'><Button raised={true} lgTxt={true}>Envoyer le lien de réinitialisation</Button></span>
     </div>
   </div>
 )

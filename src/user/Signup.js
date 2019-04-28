@@ -33,7 +33,7 @@ export class SignupContent extends Component {
       <div className="signup__content">
 
         <div className="content__border-box signup__actions">
-          Inscrivez-vous avec <a href='#' className='link link--active' onClick={this.handleSubmitFacebook}>Facebook</a> ou <a href='#' className='link link--active' onClick={this.handleSubmitGoogle}>Google</a>
+          Inscrivez-vous avec <span className='link link--active' onClick={this.handleSubmitFacebook}>Facebook</span> ou <span href='#' className='link link--active' onClick={this.handleSubmitGoogle}>Google</span>
         </div>
 
         <SeparatorOr />

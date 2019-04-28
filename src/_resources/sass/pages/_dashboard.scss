@@ -1,8 +1,0 @@
-.dashboard {
-  display: grid;
-  grid-template-columns: max-content 1fr;
-
-  &__content {
-    color: $color-secondary-text;
-  }
-}

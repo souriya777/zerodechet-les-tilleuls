@@ -1,12 +1,15 @@
 import React from 'react'
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 import IconUser from '../common-ui/IconUser'
 import IconLock from '../common-ui/IconLock'
+import IconWeight from '../common-ui/IconWeight'
+import IconDay from '../common-ui/IconDay'
+import IconCalendar from '../common-ui/IconCalendar'
 import InputPretty from '../common-ui/InputPretty'
 
-const SigninForm = (props) => (
+const GarbageWeighForm = (props) => (
   <>
     <Formik
       initialValues={{ email: '', pwd: '' }}
@@ -25,19 +28,19 @@ const SigninForm = (props) => (
           <InputPretty 
             name='nbDays'
             type='number'
-            placeholder='nombre de jours'><IconLock /></InputPretty>
+            placeholder='nombre de jours'><IconDay /></InputPretty>
           <InputPretty 
             name='totalWeight'
             type='number'
-            placeholder='Poids total en kg'><IconLock /></InputPretty>
+            placeholder='Poids total en kg'><IconWeight /></InputPretty>
           <InputPretty 
             name='date'
             type='date'
-            placeholder='date'><IconLock /></InputPretty>
-          <Field component="select" name="type">
-            <option value="recyclable">Recyclable</option>
-            <option value="norecyclable">Non recyclable</option>
-          </Field>
+            placeholder='date'><IconCalendar /></InputPretty>
+          <InputPretty
+            name='type'
+            type='select'
+            options={[{}]}><IconLock /></InputPretty>
           <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
             Sauvegarder
           </button>
@@ -57,4 +60,4 @@ const FormSchema = Yup.object().shape({
 });
 
 
-export default SigninForm
+export default GarbageWeighForm

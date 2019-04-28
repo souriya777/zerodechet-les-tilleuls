@@ -14,6 +14,7 @@ ROUTES.garbage = '/garbage'
 ROUTES.progress = '/progress'
 ROUTES.events = '/events'
 ROUTES.infos = '/infos'
+ROUTES.userProfile = '/profile'
 ROUTES.userHabits = '/user-habits'
 
 export default ROUTES

@@ -1,6 +1,15 @@
 import React, { Component } from 'react'
 
-import GarbageForm from './GarbageForm'
+import GarbageWeighForm from './GarbageWeighForm'
+
+// TODO
+/*
+- chain functionnality
+- generate json
+- call API to save
+- save
+- next?
+*/
 
 export const GarbageHeader = () => (
   <div className="garbage__header">
@@ -17,7 +26,7 @@ export class Garbage extends Component {
   render () {
     return (
       <div className='garbage__content'>
-        <GarbageForm onSubmit={this.handleSubmit} />
+        <GarbageWeighForm onSubmit={this.handleSubmit} />
       </div>
     )
   }

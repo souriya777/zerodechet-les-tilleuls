@@ -4,7 +4,6 @@ import {
   Route,
   Switch,
   Redirect,
-  Link 
 } from 'react-router-dom';
 import { connect } from 'react-redux'
 
@@ -15,32 +14,31 @@ import { WelcomeHeader, WelcomeContent } from './Welcome'
 import SigninContent, { SigninHeader } from '../user/Signin'
 import SignupContent, { SignupHeader } from '../user/Signup'
 import SignupChoice from '../user/SignupChoice'
-import { handleSignout } from '../user/userActions';
 import { TermsHeader, TermsContent } from '../infos/Terms'
 import { ResetPwdHeader, ResetPwdContent } from '../user/ResetPwd'
-import PrivateRoute from './PrivateRoute'
-import { isLogged } from '../utils/user-utils'
+// import PrivateRoute from './PrivateRoute'
+// import { isLogged } from '../utils/user-utils'
 import Garbage, { GarbageHeader } from '../garbage/Garbage'
 import Progress, { ProgressHeader } from '../progress/Progress'
-import UserHabits, { UserHabitsHeader } from '../user/UserHabits'
+import Events, { EventsHeader } from '../event/Events'
+import UserProfile, { UserProfileHeader } from '../user/UserProfile'
+import Nav from '../common-ui/Nav'
 
-const GridExample = React.lazy(() => import('./_GridExample'))
-const My404 = React.lazy(() => import('../utils/My404'))
+// const GridExample = React.lazy(() => import('./_GridExample'))
+// const My404 = React.lazy(() => import('../utils/My404'))
+
+// TODO saisie pesée : pré-remplir les champs quand on peut
+// TODO responsibe : paysage, Ipad 2 modes, pc standard, géant
 
 class App extends Component {
 
-  // FIXME right place?
-  handleSignout = () => {
-    this.props.dispatch(handleSignout())
-  }
-
   render() {
-    const { user } = this.props
+    // const { user } = this.props
     
     // FIXME
-    console.log('props', this.props)
-    console.log('state', this.state)
-    console.log(isLogged(user))
+    // console.log('props', this.props)
+    // console.log('state', this.state)
+    // console.log(isLogged(user))
     
 
     return (
@@ -55,22 +53,10 @@ class App extends Component {
             <Route path={ROUTES.resetPwd} component={ResetPwdHeader} />
             <Route path={ROUTES.garbage} component={GarbageHeader} />
             <Route path={ROUTES.progress} component={ProgressHeader} />
-            <Route path={ROUTES.userHabits} component={UserHabitsHeader} />
+            <Route path={ROUTES.events} component={EventsHeader} />
+            <Route path={ROUTES.userProfile} component={UserProfileHeader} />
           </header>
-          <nav className='nav'>
-            <Link to={ROUTES.welcome}>Accueil</Link>
-            {/* { isLogged(user)
-              ? <> */}
-                  <Link to={ROUTES.garbage}>Déchets</Link>
-                  <Link to={ROUTES.progress}>Progression</Link>
-                  <Link to={ROUTES.userHabits}>Vos habitudes</Link>
-                  <Link to={ROUTES.events}>Événements</Link>
-                  <Link to={ROUTES.infos}>Infos</Link>
-                  <a href='#' onClick={this.handleSignout}>Logout</a>
-                {/* </>
-              : ''
-            } */}
-          </nav>
+          <Nav />
           <main className='content'>
             <Route path={ROUTES.welcome} component={WelcomeContent} />
             <Route path={ROUTES.signin} component={SigninContent} />
@@ -82,7 +68,8 @@ class App extends Component {
             {/* FIXME private */}
             <Route path={ROUTES.garbage} component={Garbage} />
             <Route path={ROUTES.progress} component={Progress} />
-            <Route path={ROUTES.userHabits} component={UserHabits} />
+            <Route path={ROUTES.events} component={Events} />
+            <Route path={ROUTES.userProfile} component={UserProfile} />
           </main>
         </div>
 

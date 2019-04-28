@@ -1,0 +1,25 @@
+@mixin input-base {
+  font-size: $default-font-size;
+  line-height: 2.4rem;
+  padding: 1.1rem 1.1rem 1.1rem .2rem;
+  background-color: $color-primary;
+  border: $border-simple;
+  border-radius: $default-border-radius;
+  outline: 0;
+}
+
+@mixin input-highlight {
+  &:focus {
+    border-color: $color-primary-text;
+  }
+  
+  &:required {
+    // tricky for outline error in firefox
+    box-shadow: none;
+  }
+  
+  &:invalid {
+    box-shadow: none;
+    border-color: $color-error-text;
+  }
+}
