@@ -31,4 +31,6 @@
 @import 'pages/infos';
 @import 'pages/my-404';
 
-// @import "vendors/chartist";
+@import "vendors/chartist-settings";
+@import "vendors/chartist";
+@import "vendors/_my-chartist-tuning";

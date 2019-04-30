@@ -44,12 +44,12 @@
     }
   }
 
-  &__item--active &__icon {
-    fill: $color-action-text;
+  &__link &__item--active {
+    color: $color-action-text;
   }
 
-  &__item--active &__link {
-    color: $color-action-text;
+  &__item--active &__icon {
+    fill: $color-action-text;
   }
 
   &__item--active &__img {

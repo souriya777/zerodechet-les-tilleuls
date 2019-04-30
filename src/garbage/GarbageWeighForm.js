@@ -19,7 +19,7 @@ const GarbageWeighForm = (props) => {
   )
 
   // FIXME make it more dynamic...
-  const defaultType = 'norecyclable'
+  const defaultType = typeOptions[0][0]
 
   return (
     <>
