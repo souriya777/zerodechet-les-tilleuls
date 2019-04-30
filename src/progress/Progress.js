@@ -1,4 +1,5 @@
 import React from 'react'
+import ChartistGraph from 'react-chartist'
 
 export const ProgressHeader = () => (
   <div className="progress__header">
@@ -6,10 +7,21 @@ export const ProgressHeader = () => (
   </div>
 )
 
-const Progress = () => (
-  <div className='progress_content'>
-    Progress INCLUDE chart JS
-  </div>
-)
+const simpleLineChartData = {
+  labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+  series: [
+    [12, 9, 7, 8, 5],
+    [2, 1, 3.5, 7, 3],
+    [1, 3, 4, 5, 6]
+  ]
+}
+
+const Progress = () => {
+  return (
+    <div className='progress_content'>
+    <ChartistGraph data={simpleLineChartData} type={'Line'} />
+    </div>
+  )
+}
 
 export default Progress;

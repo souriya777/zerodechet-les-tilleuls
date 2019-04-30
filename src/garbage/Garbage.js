@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
+import { handleAddWeight } from './garbageActions'
 import GarbageWeighForm from './GarbageWeighForm'
-
-// TODO
-/*
-- chain functionnality
-- generate json
-- call API to save
-- save
-- next?
-*/
 
 export const GarbageHeader = () => (
   <div className="garbage__header">
@@ -19,8 +12,8 @@ export const GarbageHeader = () => (
 
 export class Garbage extends Component {
 
-  handleSubmit = () => {
-    console.log('submit');
+  handleSubmit = ({nbPers, nbDays, totalWeight, date, type}) => {
+    this.props.dispatch(handleAddWeight(nbPers, nbDays, totalWeight, date, type))
   } 
 
   render () {
@@ -32,4 +25,4 @@ export class Garbage extends Component {
   }
 }
 
-export default Garbage;
+export default connect()(Garbage);

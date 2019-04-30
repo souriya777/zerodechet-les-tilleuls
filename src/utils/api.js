@@ -17,6 +17,8 @@ let firebaseSingleton = (() => {
 
 const getDBInstance = () => firebaseSingleton.getInstance()
 
+// USER API
+
 API.signinUser = async (login, pwd) => {
   const user = await getDBInstance().signin(login, pwd)
   return formatUser(user)
@@ -64,6 +66,22 @@ const formatUser = userDB => {
 
 const displayName = (firstName, lastName) => {
   return firstName + ' ' + lastName
+}
+
+// GARBAGE API
+API.addWeight = async (nbPers, nbDays, totalWeight, date, type) => {
+  const newWeight = convertToWeight(nbPers, nbDays, totalWeight, date, type)
+  getDBInstance().addWeight(newWeight)
+}
+
+const convertToWeight = (nbPers, nbDays, totalWeight, date, type) => {
+  return {
+    nbPers, 
+    nbDays, 
+    totalWeight, 
+    date, 
+    type
+  }
 }
 
 export default API

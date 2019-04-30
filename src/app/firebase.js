@@ -1,6 +1,7 @@
 import app from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
+import 'firebase/firestore'
 
 const config = {
   // TODO use React Environmental variables instead
@@ -21,12 +22,12 @@ export class Firebase {
     app.initializeApp(config);
 
     this.auth = app.auth()
-    this.db = app.database()
+    this.db = app.firestore()
     this.googleProvider = new app.auth.GoogleAuthProvider()
     this.facebookProvider = new app.auth.FacebookAuthProvider()
   }
 
-  // API
+  // USER API
   signin = (email, pwd) => 
     this.auth.signInWithEmailAndPassword(email, pwd)
 
@@ -48,5 +49,17 @@ export class Firebase {
     return this.auth.currentUser
   }
 
-  getUser = uid => this.db.ref(`users/${uid}`)
+  getUser = uid => this.db.doc(`users/${uid}`)
+
+  getUsers = () => this.db.collection('users')
+
+  // WEIGHT API
+  weight = uid => this.db.doc(`weights/${uid}`)
+
+  weights = () => this.db.collection('weights')
+
+  addWeight = (data) => {
+    const collection = this.db.collection('weight')
+    return collection.add(data)
+  }
 }

@@ -8,7 +8,7 @@ const InputPretty = (props) => (
     <div className='input-pretty'>
       { props.type === 'select'
         ? <>
-            <Field className='input-pretty__select' component="select" name={props.name}>
+            <Field className='input-pretty__select' component="select" name={props.name} value={props.value}>
               {props.options}
             </Field>
             <span className='input-pretty__icon-arrow'><IconArrowBottom /></span>

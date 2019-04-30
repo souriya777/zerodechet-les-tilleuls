@@ -11,17 +11,20 @@ import InputPretty from '../common-ui/InputPretty'
 import { generateOption } from '../utils/ui-utils'
 
 const GarbageWeighForm = (props) => {
-  const typeOptions = generateOption(
+  const typeOptions = generateOption (
     [
       ['recyclable', 'Recyclable'], 
       ['norecyclable', 'Non recyclable']
     ]
   )
 
+  // FIXME make it more dynamic...
+  const defaultType = 'norecyclable'
+
   return (
     <>
       <Formik
-        initialValues={{ email: '', pwd: '' }}
+        initialValues={{ nbPers: '', nbDays: '', totalWeight: '', date: '', type: defaultType }}
         validationSchema={FormSchema}
         onSubmit={(values, { setSubmitting }) => {
           props.onSubmit(values)
@@ -49,6 +52,7 @@ const GarbageWeighForm = (props) => {
             <InputPretty
               name='type'
               type='select'
+              value={defaultType}
               options={typeOptions}><IconLock /></InputPretty>
             <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
               Sauvegarder
