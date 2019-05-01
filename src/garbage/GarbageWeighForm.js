@@ -8,18 +8,19 @@ import IconWeight from '../common-ui/IconWeight'
 import IconDay from '../common-ui/IconDay'
 import IconCalendar from '../common-ui/IconCalendar'
 import InputPretty from '../common-ui/InputPretty'
-import { generateOption } from '../utils/ui-utils'
+import Options from '../common-ui/Options'
 
 const GarbageWeighForm = (props) => {
-  const typeOptions = generateOption (
-    [
-      ['recyclable', 'Recyclable'], 
-      ['norecyclable', 'Non recyclable']
-    ]
-  )
+  const typeOptions = [
+    ['recyclable', 'Recyclable'], 
+    ['norecyclable', 'Non recyclable']
+  ]
+
+  const option = <Options inputs={typeOptions} />
 
   // FIXME make it more dynamic...
-  const defaultType = typeOptions[0][0]
+  const defaultType = 'recyclable'
+  
 
   return (
     <>
@@ -53,7 +54,11 @@ const GarbageWeighForm = (props) => {
               name='type'
               type='select'
               value={defaultType}
-              options={typeOptions}><IconLock /></InputPretty>
+              onChange={props.onChange}
+              options={
+                <Options inputs={typeOptions} />
+              }
+            ><IconLock /></InputPretty>
             <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
               Sauvegarder
             </button>

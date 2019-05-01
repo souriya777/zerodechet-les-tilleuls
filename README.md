@@ -71,6 +71,7 @@ icônes : pour chaque menu
 - npm
 - git / github
 - Visual Studio Code + extensions (correction syntaxique, snippets, theme, refactoring)
+- jest, enzyme (test)
 
 ## best practices
 - BEM (Block Element Modifier)
@@ -117,6 +118,9 @@ https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978
 
 Formik : librarie efficace pour gérer les formulaires
 https://jaredpalmer.com/formik/docs/overview
+
+great tutorial to use enzyme with react
+https://scotch.io/tutorials/testing-react-components-with-enzyme-and-jest
 
 #FOR ME
 Promise - async await

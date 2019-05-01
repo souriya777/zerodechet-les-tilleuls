@@ -5,11 +5,7 @@ import { Formik, Form } from 'formik'
 
 import IconCalendar from '../common-ui/IconCalendar'
 import InputPretty from '../common-ui/InputPretty'
-import { generateOption } from '../utils/ui-utils'
-
-// TODO :
-// mettre la date d'enregistrement
-// calculer la moyenne jour/habitant
+import Options from '../common-ui/Options'
 
 export const ProgressHeader = () => (
   <div className="progress__header">
@@ -95,17 +91,18 @@ class Progress extends Component {
       },
     }
   
-    const periodOptions = generateOption (
-      [
-        ['week', 'Cette semaine'], 
-        ['month', 'Ce mois'],
-        ['trimester', 'Ce trimestre'],
-        ['semester', 'Ce semestre'],
-      ]
-    )
+    // const periodOptions = generateOption (
+    //   [
+    //     ['week', 'Cette semaine'], 
+    //     ['month', 'Ce mois'],
+    //     ['trimester', 'Ce trimestre'],
+    //     ['semester', 'Ce semestre'],
+    //   ]
+    // )
+    const periodOptions = <option value='testa'>rossa</option>
   
     // FIXME make it more dynamic...
-    const defaultPeriod = periodOptions[0][0]
+    const defaultPeriod = 'week'
   
     return (
       <div className='progress__content'>
@@ -120,7 +117,9 @@ class Progress extends Component {
                 type='select'
                 value={defaultPeriod}
                 onChange={this.handleChange}
-                options={periodOptions}><IconCalendar /></InputPretty>
+                options={periodOptions}
+                >
+                <IconCalendar /></InputPretty>
             </Form>
           )}
         </Formik>

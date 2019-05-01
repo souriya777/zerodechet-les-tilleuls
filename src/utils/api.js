@@ -1,5 +1,7 @@
 import { Firebase }  from '../app/firebase'
 
+import { toFirebaseTimestamp } from './date-utils'
+
 let API = {};
 
 let firebaseSingleton = (() => {
@@ -71,7 +73,7 @@ const displayName = (firstName, lastName) => {
 // GARBAGE API
 API.addWeight = async (nbPers, nbDays, totalWeight, date, type) => {
   const newWeight = convertToWeight(nbPers, nbDays, totalWeight, date, type)
-  getDBInstance().addWeight(newWeight)
+  console.log(getDBInstance().addWeight(newWeight))
 }
 
 const convertToWeight = (nbPers, nbDays, totalWeight, date, type) => {
@@ -79,7 +81,7 @@ const convertToWeight = (nbPers, nbDays, totalWeight, date, type) => {
     nbPers, 
     nbDays, 
     totalWeight, 
-    date, 
+    date: toFirebaseTimestamp(date),
     type
   }
 }

@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "chartist": "^0.11.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "firebase": "^5.10.0",
     "formik": "^1.5.2",
+    "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "query-string": "^6.4.2",
     "react": "^16.8.6",
@@ -37,5 +39,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "react-test-renderer": "^16.8.6"
+  }
 }

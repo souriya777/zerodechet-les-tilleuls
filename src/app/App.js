@@ -29,8 +29,9 @@ import Nav from '../common-ui/Nav'
 
 // TODO saisie pesée : pré-remplir les champs quand on peut
 // TODO responsibe : paysage, Ipad 2 modes, pc standard, géant
+// TODO date support in safari
 
-class App extends Component {
+export class App extends Component {
 
   render() {
     // const { user } = this.props
