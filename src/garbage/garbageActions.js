@@ -8,9 +8,9 @@ export const handleAddWeight = (nbPers, nbDays, totalWeight, date, type) => {
   return async (dispatch) => {
     dispatch(showLoading())
     try {
+      console.log('actions', date);
       // call API
       const weight = await API.addWeight(nbPers, nbDays, totalWeight, date, type)
-      console.log('actions', weight);
       
       return {
         type: ADD_WEIGHT,

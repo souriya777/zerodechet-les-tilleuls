@@ -1,0 +1,47 @@
+[
+  {
+    "nbPers": 4,
+    "weight": 2000,
+    "startDate": "2019-04-15",
+    "endDate": "2019-04-15",
+    "type": 1,
+    "recordedDate": "2019-04-30",
+    "uid": "fs8989Fdfqfdsfdsfqsdfsq"
+  },
+  {
+    "nbPers": 1,
+    "weight": 300,
+    "startDate": "2019-04-25",
+    "endDate": "2019-04-30",
+    "type": 1,
+    "recordedDate": "2019-04-30",
+    "uid": "fs8989Fdfqfdsfdsfqsdfsq"
+  },
+  {
+    "nbPers": 1,
+    "weight": 300,
+    "startDate": "2019-04-25",
+    "endDate": "2019-04-30",
+    "type": 1,
+    "recordedDate": "2019-04-30",
+    "uid": "1234432432Ffdsfsdq"
+  },
+  {
+    "nbPers": 3,
+    "weight": 2400,
+    "startDate": "2019-05-01",
+    "endDate": "2019-05-01",
+    "type": 1,
+    "recordedDate": "2019-05-02",
+    "uid": "fs8989Fdfqfdsfdsfqsdfsq"
+  },
+  {
+    "nbPers": 3,
+    "weight": 300,
+    "startDate": "2019-05-01",
+    "endDate": "2019-05-01",
+    "type": 2,
+    "recordedDate": "2019-05-02",
+    "uid": "fs8989Fdfqfdsfdsfqsdfsq"
+  }
+]

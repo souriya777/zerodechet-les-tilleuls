@@ -1,8 +1,12 @@
-import app from 'firebase/app'
+import firebase from 'firebase/app'
+import 'firebase/app'
 import 'firebase/auth'
-import { firestore } from 'firebase'
+import 'firebase/firestore'
 
 import { TIME_00 } from '../utils/date-utils'
+
+// FIXME
+import weights from '../utils/_DATA-WEIGHT.json'
 
 const config = {
   // TODO use React Environmental variables instead
@@ -20,24 +24,13 @@ Provide an API, instead of using directly Firebase
 */
 export class Firebase {
   constructor () {
-    app.initializeApp(config);
+    firebase.initializeApp(config);
 
-    this.auth = app.auth()
-    this.db = app.firestore()
-    this.googleProvider = new app.auth.GoogleAuthProvider()
-    this.facebookProvider = new app.auth.FacebookAuthProvider()
-
-    this.INSTANCE = undefined
+    this.auth = firebase.auth()
+    this.db = firebase.firestore()
+    this.googleProvider = new firebase.auth.GoogleAuthProvider()
+    this.facebookProvider = new firebase.auth.FacebookAuthProvider()
   }
-
-  static get INSTANCE () {
-    if (this.INSTANCE === undefined) {
-      this.INSTANCE = new Firebase()
-    }
-    return this.INSTANCE
-  }
-
-
 
   // USER API
   signin = (email, pwd) => 
@@ -80,8 +73,72 @@ export class Firebase {
 
 
   // OTHERS API
-  static toFirebaseTimestamp = (input) => {
+  toFirebaseTimestamp = (input) => {
     const date = new Date(input + TIME_00)
-    return firestore.Timestamp.fromDate(date)
+    return firebase.firestore.Timestamp.fromDate(date)
+  }
+
+  // LOAD DATA
+  loadData = async () => {
+    console.log('-------LOAD WEIGHT DATA----------')
+    console.group()
+
+    const DOC_IDS = []
+
+    // fetching all existing doc
+    console.log('FETCHING')
+    await this.db.collection('weight').get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          DOC_IDS.push(doc.id)
+      })
+    })
+    console.log(DOC_IDS, DOC_IDS.length)
+    
+    console.log('DELETING')
+    // deleting all doc
+    DOC_IDS.forEach((id) => {
+      this.db.collection('weight').doc(id).delete().then(() => {
+        console.log('DELETE', id)
+      }).catch((error) => {
+        console.error(`ERROR when deleteting ${id} `, error)
+      })
+    })
+
+    // populate
+    console.log('WRITING')
+    console.group()
+    weights.forEach((w) => {
+      const timestamp = this.toFirebaseTimestamp(w.startDate)
+      const firebaseDoc = Object.assign(w, {startDate: timestamp})
+      this.db.collection('weight').add(firebaseDoc)
+      console.log('WRITE', firebaseDoc)
+    })
+    console.groupEnd()
+    
+    // test
+    console.log('READING ALL DOC FROM USER')
+    this.db.collection('weight')
+      .where('uid', '==', 'fs8989Fdfqfdsfdsfqsdfsq')
+      .get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log('READ UID', doc.id, " => ", doc.data());
+        })
+      })
+    
+    // test
+    console.log('READING ALL DOC FROM USER, BETWEEN DATE 01/04/19 AND 30/04/19')
+    this.db.collection('weight')
+      .where('uid', '==', 'fs8989Fdfqfdsfdsfqsdfsq')
+      .where('startDate', '>=', this.toFirebaseTimestamp('2019-04-01'))
+      .where('startDate', '<', this.toFirebaseTimestamp('2019-05-01'))
+      .get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log('READ UID & DATE', doc.id, " => ", doc.data());
+        })
+      })
+
+    console.groupEnd()
   }
 }

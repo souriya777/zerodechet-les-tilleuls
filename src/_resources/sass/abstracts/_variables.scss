@@ -6,6 +6,8 @@ $color-secondary-text: #fff;
 $color-tertiary-text: #777;
 $color-action-text: #009900;
 $color-error-text: #ff0000;
+$color-chart-primary: #ff0000;
+$color-chart-secondary: #009900;
 
 // FONT VARIABLES
 // $font-primary: 'Oxygen', sans-serif;
@@ -23,4 +25,5 @@ $gutter-column: 1rem;
 // BORDER
 $default-border-size: .1rem;
 $default-border-radius: .4rem;
-$border-simple: .1rem solid $color-tertiary-text;
+// $border-simple: .1rem solid $color-tertiary-text;
+$border-simple: .1rem solid pink;

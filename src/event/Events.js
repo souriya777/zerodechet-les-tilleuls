@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
+import { handleLoadData } from '../utils/sharedActions'
 
 export const EventsHeader = () => (
   <div className="events__header">
@@ -6,10 +9,19 @@ export const EventsHeader = () => (
   </div>
 )
 
-const Events = () => (
-  <div className='events'>
-    Events
-  </div>
-)
+class Events extends Component {
 
-export default Events;
+  handleLoadData = () => {
+    this.props.dispatch(handleLoadData())
+  }
+
+  render () {
+    return (
+      <div className='events'>
+        <button onClick={this.handleLoadData}>LOAD DATA</button>
+      </div>
+    )
+  }
+}
+
+export default connect()(Events)

@@ -1,68 +1,91 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import ProgressChart from './ProgressChart'
 import ProgressForm from './ProgressForm'
+import ProgressEmpty from './ProgressEmpty'
+import { handleLoadProgress } from './progressActions'
+import { DEFAULT_PERIOD } from './ProgressHelper'
+import {  PROGRESS_CHART_LINE_OPTIONS, PROGRESS_CHART_PIE_OPTIONS } from './ProgressHelper'
+import ProgressDetails from './ProgressDetails'
+import { GARBAGE_TYPE } from '../garbage/GarbageHelper'
 
 export const ProgressHeader = () => (
-  <div className="progress__header">
+  <div className='progress__header'>
     <h1 className='h1'>Progression</h1>
   </div>
 )
 
 class Progress extends Component {
 
+  state = {
+    period: DEFAULT_PERIOD
+  }
+
   handleChange = (e) => {
-    console.log(e.target.value)
+    const period = e.target.value
+    this.props.dispatch(handleLoadProgress(period))
+    this.setState({ period })
+  }
+
+  componentDidMount() {
+    this.props.dispatch(handleLoadProgress())
   }
 
   render () {
-    // week
-    const dataWeek = {
-      labels: ['lun', 'mar', 'mer', 'jeu', 'ven', 'sam', 'dim'],
-      series: [
-        [5, 9, 2, 2, 4, 3, 5, 4],
-        [3, 4, 7, 8, 2, 1.44, 5, 1]
-      ]
+    const { progress } = this.props
+    const { period } = this.state
+
+    if (progress === undefined || progress === null) {
+      return <ProgressEmpty />
     }
-  
-    // month
-    const dayInMonth = []
-    for (let i = 1; i <=32; i++)
-      dayInMonth.push(i)
-  
-    const dataMonth = {
-      labels: dayInMonth.map(x => x.toString(10)),
-      series: [
-        [5, 9, 2, 2, 4, 3, 5, 4, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 20, 21, 22, 23, 24, 25, 26, 27, 18, 19, 30, 31, 31],
-        [3, 4, 7, 8, 2, 1.44, 5, null, null, null, null, null, null, null, null, 1, 4, 4, 5, 6, 6, 6, 2, 3, 4, 6, 8, 8, 8, 43, 32, 32]
-      ]
+
+    // dynamize
+    const data1 = {
+      type: 'non recyclable',
+      avg: '5.2 kg/hab.',
+      evo: '+20%'
     }
-  
-    // trimester
-    const dataTrimester = {
-      labels: ['janv', 'fev', 'mars', 'mai'],
-      series: [
-        [44.5, 33.2, 34, 34],
-        [20, 29, 29, 39]
-      ]
+    const data2 = {
+      type: 'recyclable',
+      avg: '7.4 kg/hab.',
+      evo: '-0.8%'
     }
-  
-    // semester
-    const dataSemester = {
-      labels: ['janv', 'fev', 'mars', 'avril', 'mai', 'juin', 'juillet'],
-      series: [
-        [44.5, 33.2, 34, 20, 19, 18, 18],
-        [20, 29, 29, 23, 22, 15, 15]
-      ]
+    const detailsData = {
+      [GARBAGE_TYPE.RECYCLABLE]: data1,
+      [GARBAGE_TYPE.NORECYCLABLE]: data2
     }
-  
+
     return (
       <div className='progress__content'>
-        <ProgressChart data={dataWeek} />
-        <ProgressForm onChange={this.handleChange} />
+        <div className="progress__form">
+          <ProgressForm
+            period={period}
+            onChange={this.handleChange} 
+          />
+        </div>
+        <div className="progress__pie">
+          <ProgressChart 
+            type='Pie'
+            data={{series: [80, 20]}} 
+            options={PROGRESS_CHART_PIE_OPTIONS}
+          />
+        </div>
+        <div className="progress__line">
+          <ProgressChart 
+            type='Line'
+            data={progress} 
+            options={PROGRESS_CHART_LINE_OPTIONS}
+          />
+        </div>
+        <ProgressDetails 
+          data={detailsData}
+        />
       </div>
     )
   }
 }
 
-export default Progress;
+const mapStateToProps = (state) => ({ progress: state.progress })
+
+export default connect(mapStateToProps)(Progress)
