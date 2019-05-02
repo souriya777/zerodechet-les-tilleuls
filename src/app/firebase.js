@@ -1,6 +1,8 @@
 import app from 'firebase/app'
 import 'firebase/auth'
-import 'firebase/firestore'
+import { firestore } from 'firebase'
+
+import { TIME_00 } from '../utils/date-utils'
 
 const config = {
   // TODO use React Environmental variables instead
@@ -24,7 +26,18 @@ export class Firebase {
     this.db = app.firestore()
     this.googleProvider = new app.auth.GoogleAuthProvider()
     this.facebookProvider = new app.auth.FacebookAuthProvider()
+
+    this.INSTANCE = undefined
   }
+
+  static get INSTANCE () {
+    if (this.INSTANCE === undefined) {
+      this.INSTANCE = new Firebase()
+    }
+    return this.INSTANCE
+  }
+
+
 
   // USER API
   signin = (email, pwd) => 
@@ -52,6 +65,8 @@ export class Firebase {
 
   getUsers = () => this.db.collection('users')
 
+
+
   // WEIGHT API
   weight = uid => this.db.doc(`weights/${uid}`)
 
@@ -60,5 +75,13 @@ export class Firebase {
   addWeight = (data) => {
     const collection = this.db.collection('weight')
     return collection.add(data)
+  }
+
+
+
+  // OTHERS API
+  static toFirebaseTimestamp = (input) => {
+    const date = new Date(input + TIME_00)
+    return firestore.Timestamp.fromDate(date)
   }
 }

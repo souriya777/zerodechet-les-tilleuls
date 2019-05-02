@@ -26,7 +26,7 @@ const InputPretty = (props) => (
             placeholder={props.placeholder} />
       }
       
-      <span className='input-pretty__icon'>{props.children}</span>
+      <span className='input-pretty__icon'>{props.icon}</span>
     </div>
     <div className='form-error'>
       <ErrorMessage name={props.name} />

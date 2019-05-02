@@ -16,7 +16,9 @@ export const ResetPwdContent = () => (
     <div className="content__grid">
       <InputPretty 
         type='email'
-        placeholder='e-mail'><IconMail /></InputPretty>
+        placeholder='e-mail'
+        icon={<IconMail />}
+      />
       
       <span className='link'><Button raised={true} lgTxt={true}>Envoyer le lien de réinitialisation</Button></span>
     </div>

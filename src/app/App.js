@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import '../_resources/sass/main.scss';
 import Loading from '../utils/Loading';
 import ROUTES from './routes'
-import { WelcomeHeader, WelcomeContent } from './Welcome'
+import { UserWelcomeHeader, UserWelcomeContent } from '../user/UserWelcome'
 import SigninContent, { SigninHeader } from '../user/Signin'
 import SignupContent, { SignupHeader } from '../user/Signup'
 import SignupChoice from '../user/SignupChoice'
@@ -46,7 +46,7 @@ export class App extends Component {
       <Router>
         <div className='spa-container grid'>
           <header className='header'>
-            <Route path={ROUTES.welcome} component={WelcomeHeader} />
+            <Route path={ROUTES.welcome} component={UserWelcomeHeader} />
             <Route path={ROUTES.signin} component={SigninHeader} />
             <Route path={ROUTES.signupChoice} component={SignupHeader} />
             <Route path={ROUTES.signup} component={SignupHeader} />
@@ -59,7 +59,7 @@ export class App extends Component {
           </header>
           <Nav />
           <main className='content'>
-            <Route path={ROUTES.welcome} component={WelcomeContent} />
+            <Route path={ROUTES.welcome} component={UserWelcomeContent} />
             <Route path={ROUTES.signin} component={SigninContent} />
             <Route path={ROUTES.signupChoice} component={SignupChoice} />
             <Route path={ROUTES.signup} component={SignupContent} />

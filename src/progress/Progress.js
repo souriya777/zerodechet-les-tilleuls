@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
-import ChartistGraph from "react-chartist"
-import Chartist from 'chartist'
-import { Formik, Form } from 'formik'
 
-import IconCalendar from '../common-ui/IconCalendar'
-import InputPretty from '../common-ui/InputPretty'
-import Options from '../common-ui/Options'
+import ProgressChart from './ProgressChart'
+import ProgressForm from './ProgressForm'
 
 export const ProgressHeader = () => (
   <div className="progress__header">
@@ -60,69 +56,10 @@ class Progress extends Component {
       ]
     }
   
-  
-    const options = {
-      // height: '100%',
-      // width: '95vw',
-      chartPadding: { 
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: -25 
-      },
-      low: 0,
-      // high: 20,
-      fullWidth: true,
-      // ticks: ['One', 'Two', 'Three'],
-      // stretch: true,
-      // onlyInteger: true,
-      lineSmooth: Chartist.Interpolation.cardinal({
-        fillHoles: true,
-      }),
-      showArea: true,
-      axisX: {
-        // showLabel: false,
-        showGrid: false,
-        divisor: 5,
-      },
-      axisY: {
-        // showLabel: false,
-        showGrid: false,
-      },
-    }
-  
-    // const periodOptions = generateOption (
-    //   [
-    //     ['week', 'Cette semaine'], 
-    //     ['month', 'Ce mois'],
-    //     ['trimester', 'Ce trimestre'],
-    //     ['semester', 'Ce semestre'],
-    //   ]
-    // )
-    const periodOptions = <option value='testa'>rossa</option>
-  
-    // FIXME make it more dynamic...
-    const defaultPeriod = 'week'
-  
     return (
       <div className='progress__content'>
-        <ChartistGraph data={dataWeek} options={options} type={'Line'} />
-        <Formik
-          initialValues={{period: defaultPeriod}}
-        >
-          {() => (
-            <Form>
-              <InputPretty
-                name='period'
-                type='select'
-                value={defaultPeriod}
-                onChange={this.handleChange}
-                options={periodOptions}
-                >
-                <IconCalendar /></InputPretty>
-            </Form>
-          )}
-        </Formik>
+        <ProgressChart data={dataWeek} />
+        <ProgressForm onChange={this.handleChange} />
       </div>
     )
   }

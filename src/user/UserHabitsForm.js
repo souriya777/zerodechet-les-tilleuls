@@ -21,11 +21,15 @@ const UserHabitsForm = (props) => (
           <InputPretty 
             name='nbPers'
             type='nombre de personnes'
-            placeholder=''><IconUser /></InputPretty>
+            placeholder=''
+            icon={<IconUser />}
+          />
           <InputPretty 
             name='nbChildren'
             type='text'
-            placeholder='nombre denfants'><IconLock /></InputPretty>
+            placeholder='nombre denfants'
+            icon={<IconLock />}
+          />
           <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
             Enregistrer
           </button>

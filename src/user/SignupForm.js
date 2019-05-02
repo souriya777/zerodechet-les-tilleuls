@@ -22,22 +22,27 @@ const SignupForm = (props) => (
           <InputPretty 
             name='firstName'
             type='text'
-            placeholder='prénom'><IconUser /></InputPretty>
-        
+            placeholder='prénom'
+            icon={<IconUser />}
+          />
           <InputPretty 
             name='lastName'
             type='text'
-            placeholder='nom'><IconUser /></InputPretty>
-
+            placeholder='nom'
+            icon={<IconUser />}
+          />
           <InputPretty 
             name='email'
             type='email'
-            placeholder='e-mail'><IconMail /></InputPretty>
-
+            placeholder='e-mail'
+            icon={<IconMail />}
+          />
           <InputPretty 
             name='pwd'
             type='password'
-            placeholder='mot de passe'><IconLock /></InputPretty>
+            placeholder='mot de passe'
+            icon={<IconLock />}
+          />
 
           <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
             Inscription

@@ -1,56 +1,41 @@
 import { Firebase }  from '../app/firebase'
 
-import { toFirebaseTimestamp } from './date-utils'
+const DB = new Firebase().INSTANCE
 
 let API = {};
 
-let firebaseSingleton = (() => {
-  let instance = null
-
-  const getInstance = () => {
-    if (instance === null) {
-      instance = new Firebase()
-    }
-    return instance
-  }
-
-  return { getInstance }
-})()
-
-const getDBInstance = () => firebaseSingleton.getInstance()
 
 // USER API
-
 API.signinUser = async (login, pwd) => {
-  const user = await getDBInstance().signin(login, pwd)
+  const user = await DB.signin(login, pwd)
   return formatUser(user)
 }
 
 API.signinWithGoogle = async () => {
-  const user = await getDBInstance().signinWithGoogle()
+  const user = await DB.signinWithGoogle()
   return formatUser(user)
 }
 
 API.signinWithFacebook = async () => {
-  const user = await getDBInstance().signinWithFacebook()
+  const user = await DB.signinWithFacebook()
   return formatUser(user)
 }
 
 API.signupUser = async (login, pwd) => {
-  return await getDBInstance().signup(login, pwd)
+  return await DB.signup(login, pwd)
 }
 
 API.signout = async () => {
-  return await getDBInstance().signout()
+  return await DB.signout()
 }
 
 API.updateProfile = async (firstName, lastName) => {
   const name = displayName(firstName, lastName)
-  return await getDBInstance().updateProfile(name)
+  return await DB.updateProfile(name)
 }
 
 API.resetPwd = async (email) => {
-  return await getDBInstance().resetPwd(email)
+  return await DB.resetPwd(email)
 }
 
 API.sendMsg = (login, msg)  => {
@@ -70,18 +55,22 @@ const displayName = (firstName, lastName) => {
   return firstName + ' ' + lastName
 }
 
+
+
 // GARBAGE API
 API.addWeight = async (nbPers, nbDays, totalWeight, date, type) => {
   const newWeight = convertToWeight(nbPers, nbDays, totalWeight, date, type)
-  console.log(getDBInstance().addWeight(newWeight))
+  console.log(DB.addWeight(newWeight))
 }
 
 const convertToWeight = (nbPers, nbDays, totalWeight, date, type) => {
+  const timestamp = DB.toFirebaseTimestamp(date)
+
   return {
     nbPers, 
     nbDays, 
     totalWeight, 
-    date: toFirebaseTimestamp(date),
+    date: timestamp,
     type
   }
 }

@@ -1,5 +1,5 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
-import API from '../utils/api'
+import API from '../app/api'
 import { addError } from '../utils/ErrorActions'
 
 export const ADD_WEIGHT = 'ADD_WEIGHT'

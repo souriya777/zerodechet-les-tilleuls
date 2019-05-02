@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Welcome = () => {
+const _GridExample = () => {
   return (
     <div className='spa-container'>
       <section>
@@ -95,4 +95,4 @@ const Welcome = () => {
   )
 }
 
-export default Welcome
+export default _GridExample

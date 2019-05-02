@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import ROUTES from './routes'
+import ROUTES from '../app/routes'
 import Button from '../common-ui/Button'
-import Logo from './Logo'
+import Logo from '../common-ui/Logo'
 
-export const WelcomeHeader = () => {
+export const UserWelcomeHeader = () => {
   return (
     <div className='welcome__header content__grid'>
       <div className='wecome__logo'>
@@ -16,7 +16,7 @@ export const WelcomeHeader = () => {
   )
 }
 
-export const WelcomeContent = () => {
+export const UserWelcomeContent = () => {
   return (
     <div className='welcome'>
 

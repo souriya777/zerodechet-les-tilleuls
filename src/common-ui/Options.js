@@ -2,7 +2,7 @@ import React from 'react'
 
 const Options = (props) => (
   <>
-    {props.inputs.map(([key, val]) =>
+    {props.items.map(([key, val]) =>
       <option key={key} value={key}>{val}</option>
     )}
   </>

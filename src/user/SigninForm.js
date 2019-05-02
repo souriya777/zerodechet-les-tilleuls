@@ -21,11 +21,15 @@ const SigninForm = (props) => (
           <InputPretty 
             name='email'
             type='email'
-            placeholder='e-mail'><IconUser /></InputPretty>
+            placeholder='e-mail'
+            icon={<IconUser />} 
+          />
           <InputPretty 
             name='pwd'
             type='password'
-            placeholder='mot de passe'><IconLock /></InputPretty>
+            placeholder='mot de passe'
+            icon={<IconLock />} 
+          />
           <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
             Connexion
           </button>

@@ -19,13 +19,12 @@ describe('<Options>', () => {
       ['norecyclable', 'Non recyclable']
     ]
   
-    const wrapper = shallow(<Options inputs={keyValList} />)
+    const wrapper = shallow(<Options items={keyValList} />)
   
     expect(wrapper.find('option')).toHaveLength(2)
 
     expect(wrapper.contains(<option key='recyclable' value='recyclable'>Recyclable</option>)).toBeTruthy()
 
     expect(wrapper.contains(<option key='norecyclable' value='norecyclable'>Non recyclable</option>)).toBeTruthy()
- 
   })
 })
