@@ -139,7 +139,12 @@ API.fetchProgress = (period = PERIOD.WEEK) => {
 
 // SHARED API
 API.loadData = async () => {
-  getDBInstance().loadData()
+  await getDBInstance().loadDataWeight()
+  await getDBInstance().loadDataUser()
+
+  // test
+  // getDBInstance().testReadAllWeights()
+  // getDBInstance().testReadAllWeightsBtwDates()
 }
 
 

@@ -6,7 +6,11 @@ import 'firebase/firestore'
 import { TIME_00 } from '../utils/date-utils'
 
 // FIXME
-import weights from '../utils/_DATA-WEIGHT.json'
+import weightsJSON from '../utils/_DATA-WEIGHT.json'
+import userJSON from '../utils/_DATA-USER.json'
+
+const WEIGHTS_REF = 'weights'
+const USERS_REF = 'users'
 
 const config = {
   // TODO use React Environmental variables instead
@@ -54,19 +58,19 @@ export class Firebase {
     return this.auth.currentUser
   }
 
-  getUser = uid => this.db.doc(`users/${uid}`)
+  getUser = uid => this.db.doc(`${USERS_REF}/${uid}`)
 
-  getUsers = () => this.db.collection('users')
+  getUsers = () => this.db.collection(USERS_REF)
 
 
 
   // WEIGHT API
-  weight = uid => this.db.doc(`weights/${uid}`)
+  weight = uid => this.db.doc(`${WEIGHTS_REF}/${uid}`)
 
-  weights = () => this.db.collection('weights')
+  weights = () => this.db.collection(WEIGHTS_REF)
 
   addWeight = (data) => {
-    const collection = this.db.collection('weight')
+    const collection = this.db.collection(WEIGHTS_REF)
     return collection.add(data)
   }
 
@@ -79,66 +83,104 @@ export class Firebase {
   }
 
   // LOAD DATA
-  loadData = async () => {
-    console.log('-------LOAD WEIGHT DATA----------')
+  loadDataWeight = async() => {
+    this.loadData(WEIGHTS_REF, weightsJSON, this.convertWeight)
+  }
+
+  loadDataUser = async() => {
+    this.loadData(USERS_REF, userJSON, this.convertUser)
+  }
+  
+
+  loadData = async (ref, json, convertFn) => {
+    console.log(`-------LOAD ${ref.toUpperCase()} DATA----------`)
     console.group()
 
-    const DOC_IDS = []
-
     // fetching all existing doc
-    console.log('FETCHING')
-    await this.db.collection('weight').get().then((querySnapshot) => {
+    const DOC_IDS = await this.fetchExistingDocs(ref)
+    
+    // delete existing docs
+    this.deleteDocs(DOC_IDS, ref)
+
+    // populate
+    this.populate(json, ref, convertFn)
+    
+    console.groupEnd()
+  }
+  //////////////
+
+  fetchExistingDocs = async (ref) => {
+    console.log('FETCHING...')
+    let result = []
+    await this.db.collection(ref).get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-          DOC_IDS.push(doc.id)
+          result.push(doc.id)
       })
     })
-    console.log(DOC_IDS, DOC_IDS.length)
-    
-    console.log('DELETING')
+    return result
+  }
+
+  deleteDocs = async (docs, ref) => {
+    console.log('DELETING...')
     // deleting all doc
-    DOC_IDS.forEach((id) => {
-      this.db.collection('weight').doc(id).delete().then(() => {
+    docs.forEach((id) => {
+      this.db.collection(ref).doc(id).delete().then(() => {
+        console.group()
         console.log('DELETE', id)
+        console.groupEnd()
       }).catch((error) => {
         console.error(`ERROR when deleteting ${id} `, error)
       })
     })
+  }
 
-    // populate
-    console.log('WRITING')
-    console.group()
-    weights.forEach((w) => {
-      const timestamp = this.toFirebaseTimestamp(w.startDate)
-      const firebaseDoc = Object.assign(w, {startDate: timestamp})
-      this.db.collection('weight').add(firebaseDoc)
+  populate = async(json, ref, convertFn) => {
+    console.log('WRITING...', ref, json)
+    json.forEach((w) => {
+      const firebaseDoc = convertFn(w)
+      this.db.collection(ref).add(firebaseDoc)
       console.log('WRITE', firebaseDoc)
     })
-    console.groupEnd()
-    
-    // test
-    console.log('READING ALL DOC FROM USER')
-    this.db.collection('weight')
+  }
+
+  ///////
+
+  convertWeight = weight => {
+    const timestamp = this.toFirebaseTimestamp(weight.startDate)
+    return Object.assign(weight, {startDate: timestamp})
+  }
+
+  convertUser = user => {
+    return Object.assign(user)
+  }
+
+  /////
+  testReadAllWeights = (ref) => {
+    console.log('READING ALL WEIGHTS')
+    this.db.collection(ref)
       .where('uid', '==', 'fs8989Fdfqfdsfdsfqsdfsq')
       .get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log('READ UID', doc.id, " => ", doc.data());
+          console.group()
+          console.log('READ UID', doc.id, " => ", doc.data())
+          console.groupEnd()
         })
       })
-    
-    // test
-    console.log('READING ALL DOC FROM USER, BETWEEN DATE 01/04/19 AND 30/04/19')
-    this.db.collection('weight')
+  }
+
+  testReadAllWeightsBtwDates = (ref) => {
+    console.log('READING ALL WEIGHTS, BETWEEN DATE 01/04/19 AND 30/04/19')
+    this.db.collection(ref)
       .where('uid', '==', 'fs8989Fdfqfdsfdsfqsdfsq')
       .where('startDate', '>=', this.toFirebaseTimestamp('2019-04-01'))
       .where('startDate', '<', this.toFirebaseTimestamp('2019-05-01'))
       .get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
-          console.log('READ UID & DATE', doc.id, " => ", doc.data());
+          console.group()
+          console.log('READ UID & DATE', doc.id, " => ", doc.data())
+          console.groupEnd()
         })
       })
-
-    console.groupEnd()
   }
+
 }
