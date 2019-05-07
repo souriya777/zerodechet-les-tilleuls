@@ -1,10 +1,13 @@
 [
   {
-    "uid": "123",
+    "uid": "HEKmMFPNwNes94Zr4tMO",
     "home": [
-      {"uid": 1, "name": "Somsack"},
-      {"uid": 2, "name": "Somvilack"},
-      {"uid": 3, "name": "Souriya"}
+      {"id": 1, "name": "Somsack Phongsavanh"},
+      {"id": 2, "name": "Somvilack Phongsavanh"},
+      {"id": 3, "name": "Sourideth Phongsavanh"},
+      {"id": 4, "name": "Soucksakhone Phongsavanh"},
+      {"id": 5, "name": "Souriya Phongsavanh"},
+      {"id": 6, "name": "Sourisack Phongsavanh"}
     ],
     "goal": 0.250
   }

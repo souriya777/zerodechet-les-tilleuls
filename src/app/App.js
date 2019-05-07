@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { 
   BrowserRouter as Router,
   Route,
@@ -7,8 +7,9 @@ import {
 } from 'react-router-dom';
 import { connect } from 'react-redux'
 
-import '../_resources/sass/main.scss';
-import Loading from '../utils/Loading';
+import '../_resources/sass/main.scss'
+
+import Loading from '../utils/Loading'
 import ROUTES from './routes'
 import { UserWelcomeHeader, UserWelcomeContent } from '../user/UserWelcome'
 import SigninContent, { SigninHeader } from '../user/Signin'
@@ -21,6 +22,7 @@ import { ResetPwdHeader, ResetPwdContent } from '../user/ResetPwd'
 import Garbage, { GarbageHeader } from '../garbage/Garbage'
 import Progress, { ProgressHeader } from '../progress/Progress'
 import Events, { EventsHeader } from '../event/Events'
+import EventCreation, { EventCreationHeader } from '../event/EventCreation'
 import UserProfile, { UserProfileHeader } from '../user/UserProfile'
 import Nav from '../common-ui/Nav'
 
@@ -44,7 +46,7 @@ export class App extends Component {
 
     return (
       <Router>
-        <div className='spa-container grid'>
+        <div className='spa-container'>
           <header className='header'>
             <Route path={ROUTES.welcome} component={UserWelcomeHeader} />
             <Route path={ROUTES.signin} component={SigninHeader} />
@@ -55,9 +57,9 @@ export class App extends Component {
             <Route path={ROUTES.garbage} component={GarbageHeader} />
             <Route path={ROUTES.progress} component={ProgressHeader} />
             <Route path={ROUTES.events} component={EventsHeader} />
+            <Route path={ROUTES.eventCreation} component={EventCreationHeader} />
             <Route path={ROUTES.userProfile} component={UserProfileHeader} />
           </header>
-          <Nav />
           <main className='content'>
             <Route path={ROUTES.welcome} component={UserWelcomeContent} />
             <Route path={ROUTES.signin} component={SigninContent} />
@@ -70,9 +72,12 @@ export class App extends Component {
             <Route path={ROUTES.garbage} component={Garbage} />
             <Route path={ROUTES.progress} component={Progress} />
             <Route path={ROUTES.events} component={Events} />
+            <Route path={ROUTES.eventCreation} component={EventCreation} />
             <Route path={ROUTES.userProfile} component={UserProfile} />
           </main>
         </div>
+
+        <Nav />
 
         <React.Suspense fallback={<Loading />}>
           <Switch>

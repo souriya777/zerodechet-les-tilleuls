@@ -79,8 +79,17 @@ export class Firebase {
   // OTHERS API
   toFirebaseTimestamp = (input) => {
     const date = new Date(input + TIME_00)
+    console.log(date);
+    
     return firebase.firestore.Timestamp.fromDate(date)
   }
+
+
+
+
+
+
+
 
   // LOAD DATA
   loadDataWeight = async() => {

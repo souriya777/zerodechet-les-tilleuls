@@ -5,10 +5,11 @@ const Button = (props) => {
   const color = props.color
   
   const raised = props.raised ? 'btn--raised' : ''
+  const transparency = props.transparency ? 'btn--transparency' : ''
   const longText = props.lgTxt || props.icon ? 'btn--long-text' : ''
 
   return (
-    <div className={`btn ${raised} ${longText}`} onClick={props.onSubmit}>
+    <div className={`btn ${raised} ${transparency} ${longText}`} onClick={props.onSubmit}>
       <span className='btn__icon' style={{fill: color}}>
         { props.icon ? <Component /> : '' }
       </span>

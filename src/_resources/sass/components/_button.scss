@@ -28,6 +28,11 @@
     background-color: $color-secondary;
   }
 
+  &--transparency {
+    background-color: rgba($color-secondary, .15);
+    border: none;
+  }
+
   &--long-text {
     font-size: 1.4rem !important;
   }

@@ -18,8 +18,10 @@
 }
 
 .nav {
-  grid-column: 1 / 13;
-  grid-row: 3;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0;
 
   background-color: yellowgreen;
 }

@@ -40,7 +40,7 @@ class Progress extends Component {
       return <ProgressEmpty />
     }
 
-    // dynamize
+    // TODO dynamize
     const data1 = {
       type: 'non recyclable',
       avg: '5.2 kg/hab.',
@@ -86,6 +86,6 @@ class Progress extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ progress: state.progress })
+const mapStateToProps = state => ({ progress: state.progress })
 
 export default connect(mapStateToProps)(Progress)
