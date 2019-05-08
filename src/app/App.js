@@ -6,6 +6,7 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { connect } from 'react-redux'
+import pathToRegexp from 'path-to-regexp'
 
 import '../_resources/sass/main.scss'
 
@@ -17,8 +18,8 @@ import SignupContent, { SignupHeader } from '../user/Signup'
 import SignupChoice from '../user/SignupChoice'
 import { TermsHeader, TermsContent } from '../infos/Terms'
 import { ResetPwdHeader, ResetPwdContent } from '../user/ResetPwd'
-// import PrivateRoute from './PrivateRoute'
-// import { isLogged } from '../utils/user-utils'
+import PrivateRoute from './PrivateRoute'
+import { isLogged } from '../utils/user-utils'
 import Garbage, { GarbageHeader } from '../garbage/Garbage'
 import Progress, { ProgressHeader } from '../progress/Progress'
 import Events, { EventsHeader } from '../event/Events'
@@ -26,7 +27,6 @@ import EventCreation, { EventCreationHeader } from '../event/EventCreation'
 import UserProfile, { UserProfileHeader } from '../user/UserProfile'
 import Nav from '../common-ui/Nav'
 
-// const GridExample = React.lazy(() => import('./_GridExample'))
 // const My404 = React.lazy(() => import('../utils/My404'))
 
 // TODO saisie pesée : pré-remplir les champs quand on peut
@@ -36,7 +36,7 @@ import Nav from '../common-ui/Nav'
 export class App extends Component {
 
   render() {
-    // const { user } = this.props
+    const { user } = this.props
     
     // FIXME
     // console.log('props', this.props)
@@ -54,11 +54,12 @@ export class App extends Component {
             <Route path={ROUTES.signup} component={SignupHeader} />
             <Route path={ROUTES.terms} component={TermsHeader} />
             <Route path={ROUTES.resetPwd} component={ResetPwdHeader} />
-            <Route path={ROUTES.garbage} component={GarbageHeader} />
-            <Route path={ROUTES.progress} component={ProgressHeader} />
-            <Route path={ROUTES.events} component={EventsHeader} />
-            <Route path={ROUTES.eventCreation} component={EventCreationHeader} />
-            <Route path={ROUTES.userProfile} component={UserProfileHeader} />
+
+            <PrivateRoute path={ROUTES.garbage} component={GarbageHeader} />
+            <PrivateRoute path={ROUTES.progress} component={ProgressHeader} />
+            <PrivateRoute path={ROUTES.events} component={EventsHeader} />
+            <PrivateRoute path={ROUTES.eventCreation} component={EventCreationHeader} />
+            <PrivateRoute path={ROUTES.userProfile} component={UserProfileHeader} />
           </header>
           <main className='content'>
             <Route exact path={ROUTES.landing} component={UserWelcomeContent} />
@@ -68,12 +69,11 @@ export class App extends Component {
             <Route path={ROUTES.terms} component={TermsContent} />
             <Route path={ROUTES.resetPwd} component={ResetPwdContent} />
 
-            {/* FIXME private */}
-            <Route path={ROUTES.garbage} component={Garbage} />
-            <Route path={ROUTES.progress} component={Progress} />
-            <Route path={ROUTES.events} component={Events} />
-            <Route path={ROUTES.eventCreation} component={EventCreation} />
-            <Route path={ROUTES.userProfile} component={UserProfile} />
+            <PrivateRoute path={ROUTES.garbage} component={Garbage} />
+            <PrivateRoute path={ROUTES.progress} component={Progress} />
+            <PrivateRoute path={ROUTES.events} component={Events} />
+            <PrivateRoute path={ROUTES.eventCreation} component={EventCreation} />
+            <PrivateRoute path={ROUTES.userProfile} component={UserProfile} />
           </main>
         </div>
 
@@ -82,12 +82,13 @@ export class App extends Component {
         <React.Suspense fallback={<Loading />}>
           <Switch>
             {/* <Route path={ROUTES.garbage} component={Garbage} /> */}
-            {/* { isLogged(user)
+            { isLogged(user)
               ? <Redirect 
-                from={[ROUTES.landing, ROUTES.signin, ROUTES.signupChoice, ROUTES.signup]} 
-                to={ROUTES.garbage} />
+                  exact
+                  from={pathToRegexp([ROUTES.landing, ROUTES.signin, ROUTES.signupChoice, ROUTES.signup])} 
+                  to={ROUTES.progress} />
               : ''
-            } */}
+            }
             {/* <Route component={My404} /> */}
           </Switch>
         </React.Suspense>

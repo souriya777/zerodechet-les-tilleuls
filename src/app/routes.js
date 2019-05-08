@@ -22,4 +22,8 @@ ROUTES.isActive = (pathname, linkTo) => {
           pathname === linkTo
 }
 
+ROUTES.publicRoutesAsRegex = () => {
+  
+}
+
 export default ROUTES
