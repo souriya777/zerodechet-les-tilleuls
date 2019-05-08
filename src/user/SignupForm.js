@@ -2,9 +2,9 @@ import React from 'react'
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-import IconUser from '../common-ui/IconUser'
-import IconLock from '../common-ui/IconLock'
-import IconMail from '../common-ui/IconMail'
+import IconUser from '../common-ui/icons/IconUser'
+import IconLock from '../common-ui/icons/IconLock'
+import IconMail from '../common-ui/icons/IconMail'
 import InputPretty from '../common-ui/InputPretty'
 
 const SignupForm = (props) => (

@@ -48,7 +48,7 @@ export class App extends Component {
       <Router>
         <div className='spa-container'>
           <header className='header'>
-            <Route path={ROUTES.welcome} component={UserWelcomeHeader} />
+            <Route exact path={ROUTES.landing} component={UserWelcomeHeader} />
             <Route path={ROUTES.signin} component={SigninHeader} />
             <Route path={ROUTES.signupChoice} component={SignupHeader} />
             <Route path={ROUTES.signup} component={SignupHeader} />
@@ -61,7 +61,7 @@ export class App extends Component {
             <Route path={ROUTES.userProfile} component={UserProfileHeader} />
           </header>
           <main className='content'>
-            <Route path={ROUTES.welcome} component={UserWelcomeContent} />
+            <Route exact path={ROUTES.landing} component={UserWelcomeContent} />
             <Route path={ROUTES.signin} component={SigninContent} />
             <Route path={ROUTES.signupChoice} component={SignupChoice} />
             <Route path={ROUTES.signup} component={SignupContent} />
@@ -81,11 +81,10 @@ export class App extends Component {
 
         <React.Suspense fallback={<Loading />}>
           <Switch>
-            <Redirect exact from={ROUTES.landing} to={ROUTES.welcome} />
             {/* <Route path={ROUTES.garbage} component={Garbage} /> */}
             {/* { isLogged(user)
               ? <Redirect 
-                from={[ROUTES.welcome, ROUTES.signin, ROUTES.signupChoice, ROUTES.signup]} 
+                from={[ROUTES.landing, ROUTES.signin, ROUTES.signupChoice, ROUTES.signup]} 
                 to={ROUTES.garbage} />
               : ''
             } */}

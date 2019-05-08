@@ -1,6 +1,6 @@
 import React from 'react'
 
-import IconMail from '../common-ui/IconMail'
+import IconMail from '../common-ui/icons/IconMail'
 import InputPretty from '../common-ui/InputPretty'
 import Button from '../common-ui/Button'
 

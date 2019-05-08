@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 
 import ROUTES from '../app/routes'
 import { handleSigninWithFacebook, handleSigninWithGoogle } from './userActions'
-import IconGoogle from '../common-ui/IconGoogle'
-import IconFacebook from '../common-ui/IconFacebook'
-import IconMail from '../common-ui/IconMail'
+import IconGoogle from '../common-ui/icons/IconGoogle'
+import IconFacebook from '../common-ui/icons/IconFacebook'
+import IconMail from '../common-ui/icons/IconMail'
 import Button from '../common-ui/Button'
 import { COLOR_FB, COLOR_G } from '../utils/color-utils'
 

@@ -2,8 +2,8 @@ import React from 'react'
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-import IconUser from '../common-ui/IconUser'
-import IconLock from '../common-ui/IconLock'
+import IconUser from '../common-ui/icons/IconUser'
+import IconLock from '../common-ui/icons/IconLock'
 import InputPretty from '../common-ui/InputPretty'
 
 const SigninForm = (props) => (

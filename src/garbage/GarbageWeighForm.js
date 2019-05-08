@@ -2,11 +2,11 @@ import React from 'react'
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
-import IconUser from '../common-ui/IconUser'
-import IconGarbage from '../common-ui/IconGarbage'
-import IconWeight from '../common-ui/IconWeight'
-import IconDay from '../common-ui/IconDay'
-import IconCalendar from '../common-ui/IconCalendar'
+import IconUser from '../common-ui/icons/IconUser'
+import IconGarbage from '../common-ui/icons/IconGarbage'
+import IconWeight from '../common-ui/icons/IconWeight'
+import IconDay from '../common-ui/icons/IconDay'
+import IconCalendar from '../common-ui/icons/IconCalendar'
 import InputPretty from '../common-ui/InputPretty'
 import Options from '../common-ui/Options'
 import { DEFAULT_GARBAGE_TYPE, GARBAGE_LIST } from './GarbageHelper'

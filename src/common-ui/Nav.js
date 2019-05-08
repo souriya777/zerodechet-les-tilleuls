@@ -4,23 +4,17 @@ import { connect } from 'react-redux'
 import ROUTES from '../app/routes'
 import { isLogged } from '../utils/user-utils'
 import NavItem from './NavItem'
-import IconGarbage from './IconGarbage'
-import IconProgress from './IconProgress'
-import IconEvent from './IconEvent'
-import IconUser from './IconUser'
+import IconGarbage from './icons/IconGarbage'
+import IconProgress from './icons/IconProgress'
+import IconEvent from './icons/IconEvent'
+import IconUser from './icons/IconUser'
 import Portrait from './Portrait'
 
 class Nav extends Component {
 
   render () {
     // FIXME 
-    // const { user } = this.props
-    // const user = undefined
-    const user = {
-      uid: 'fs8989Fdfqfdsfdsfqsdfsq',
-      name: 'Souriya Phongsavanh',
-      photo: 'https://lh3.googleusercontent.com/a-/AAuE7mC-1369yY_uKJPs-C4bJm2tRZCnGWQtKxQMctZsnFg=s192'
-    }
+    const { user } = this.props
 
     // const portrait = isLogged(user) 
     //   ? <Portrait photo={user.photo} />
@@ -52,9 +46,9 @@ class Nav extends Component {
                   linkTo={ROUTES.profile} />
               </>
             : <NavItem 
-              label='Connexion' 
-              icon={IconUser} 
-              linkTo={ROUTES.welcome} />
+                label='Connexion' 
+                icon={IconUser} 
+                linkTo={ROUTES.landing} />
           }
         </ul>
       </nav>
@@ -62,7 +56,6 @@ class Nav extends Component {
   }
 }
 
-// FIXME
-// function mapStateToProps (state) => ({ user: state.user }) 
+const mapStateToProps = state => ({ user: state.user }) 
 
-export default connect()(Nav)
+export default connect(mapStateToProps)(Nav)

@@ -1,7 +1,7 @@
 import React from 'react'
 // linked with formik library...
 import { Field, ErrorMessage } from 'formik';
-import IconArrowBottom from '../common-ui/IconArrowBottom'
+import IconArrowBottom from '../common-ui/icons/IconArrowBottom'
 
 const InputPretty = (props) => (
   <>

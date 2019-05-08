@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
-import IconArrowBack from '../common-ui/IconArrowBack'
+import IconArrowBack from '../common-ui/icons/IconArrowBack'
 import EventCreationForm from './EventCreationForm';
 
 export const EventCreationHeader = () => (
