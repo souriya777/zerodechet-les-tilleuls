@@ -3,17 +3,16 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 
 import IconUser from '../common-ui/icons/IconUser'
-import IconGarbage from '../common-ui/icons/IconGarbage'
 import IconWeight from '../common-ui/icons/IconWeight'
 import IconDay from '../common-ui/icons/IconDay'
 import IconCalendar from '../common-ui/icons/IconCalendar'
 import InputPretty from '../common-ui/InputPretty'
 import Options from '../common-ui/Options'
-import { DEFAULT_GARBAGE_TYPE, GARBAGE_LIST } from './GarbageHelper'
+import { DEFAULT_WEIGHT_TYPE, WEIGHT_LIST } from './WeightHelper'
 
-const GarbageWeighForm = (props) => (
+const WeightForm = (props) => (
   <Formik
-    initialValues={{ nbPers: '', nbDays: '', totalWeight: '', date: '', type: DEFAULT_GARBAGE_TYPE }}
+    initialValues={{ nbPers: '', nbDays: '', totalWeight: '', date: '', type: DEFAULT_WEIGHT_TYPE }}
     validationSchema={FormSchema}
     onSubmit={(values, { setSubmitting }) => {
       props.onSubmit(values)
@@ -49,10 +48,10 @@ const GarbageWeighForm = (props) => (
         <InputPretty
           name='type'
           type='select'
-          value={DEFAULT_GARBAGE_TYPE}
+          value={DEFAULT_WEIGHT_TYPE}
           onChange={props.onChange}
-          icon={<IconGarbage />}
-          options={<Options items={GARBAGE_LIST} />}
+          icon={<IconWeight />}
+          options={<Options items={WEIGHT_LIST} />}
         />
         <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
           Sauvegarder
@@ -76,4 +75,4 @@ const FormSchema = Yup.object().shape({
 });
 
 
-export default GarbageWeighForm
+export default WeightForm

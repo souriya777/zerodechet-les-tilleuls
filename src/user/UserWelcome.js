@@ -3,20 +3,8 @@ import { Link } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
 import Button from '../common-ui/Button'
-import Logo from '../common-ui/Logo'
 
-export const UserWelcomeHeader = () => {
-  return (
-    <div className='welcome__header content__grid'>
-      <div className='wecome__logo'>
-        <Logo />
-      </div>
-      <p className='welcome__why'>Moins de déchets pour retrouver sa nature.</p>
-    </div>
-  )
-}
-
-export const UserWelcomeContent = () => {
+const UserWelcome = () => {
   return (
     <div className='welcome'>
 
@@ -32,3 +20,5 @@ export const UserWelcomeContent = () => {
     </div>
   )
 }
+
+export default UserWelcome

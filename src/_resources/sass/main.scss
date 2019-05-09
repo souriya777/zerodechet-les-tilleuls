@@ -17,6 +17,7 @@
 @import 'components/horizontal-rule';
 @import 'components/input';
 @import 'components/link';
+@import 'components/list';
 @import 'components/logo';
 @import 'components/portrait';
 @import 'components/signin';
@@ -24,11 +25,9 @@
 @import 'components/user';
 
 @import 'pages/welcome';
-@import 'pages/garbage';
-@import 'pages/events';
+@import 'pages/weight';
 @import 'pages/infos';
 @import 'pages/my-404';
-@import 'pages/profile';
 @import 'pages/progress';
 
 @import "vendors/chartist-settings";

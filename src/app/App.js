@@ -12,17 +12,17 @@ import '../_resources/sass/main.scss'
 
 import Loading from '../utils/Loading'
 import ROUTES from './routes'
-import { UserWelcomeContent } from '../user/UserWelcome'
-import SigninContent from '../user/Signin'
-import SignupContent from '../user/Signup'
+import UserWelcome from '../user/UserWelcome'
+import Signin from '../user/Signin'
+import Signup from '../user/Signup'
 import SignupChoice from '../user/SignupChoice'
-import { TermsContent } from '../infos/Terms'
-import { ResetPwdContent } from '../user/ResetPwd'
+import Terms from '../infos/Terms'
+import ResetPwd from '../user/ResetPwd'
 import PrivateRoute from './PrivateRoute'
 import { isLogged } from '../utils/user-utils'
-import Garbage from '../garbage/Garbage'
+import Weight from '../weight/Weight'
 import Progress from '../progress/Progress'
-import Events from '../event/Events'
+import Event from '../event/Event'
 import EventCreation from '../event/EventCreation'
 import UserProfile from '../user/UserProfile'
 import Header from '../common-ui/Header'
@@ -30,13 +30,15 @@ import Nav from '../common-ui/Nav'
 
 // const My404 = React.lazy(() => import('../utils/My404'))
 
+// TODO generate unique UID https://medium.com/@leejh3224/testing-firebase-cloud-functions-with-jest-4156e65c7d29
+// TODO code splitting
+// TODO turn firestore DB into "private"
 // TODO saisie pesée : pré-remplir les champs quand on peut
 // TODO responsibe : paysage, Ipad 2 modes, pc standard, géant
 // TODO date support in safari
 // TODO change laosoupi59@gmail.com
-
-// FIXME pathToRegexp
-// FIXME <PrivateRoute> instead of <Route>
+// TODO change uid in DATA (it's dynamically returned by DB)
+// TODO <PrivateRoute> instead of <Route>
 
 export class App extends Component {
 
@@ -53,17 +55,18 @@ export class App extends Component {
       <Router>
         <div className='spa-container grid'>
           <Header />
-          <main className='content'>
-            <Route exact path={ROUTES.landing} component={UserWelcomeContent} />
-            <Route path={ROUTES.signin} component={SigninContent} />
-            <Route path={ROUTES.signupChoice} component={SignupChoice} />
-            <Route path={ROUTES.signup} component={SignupContent} />
-            <Route path={ROUTES.terms} component={TermsContent} />
-            <Route path={ROUTES.resetPwd} component={ResetPwdContent} />
 
-            <PrivateRoute path={ROUTES.garbage} component={Garbage} />
+          <main className='content'>
+            <Route exact path={ROUTES.landing} component={UserWelcome} />
+            <Route path={ROUTES.signin} component={Signin} />
+            <Route path={ROUTES.signupChoice} component={SignupChoice} />
+            <Route path={ROUTES.signup} component={Signup} />
+            <Route path={ROUTES.terms} component={Terms} />
+            <Route path={ROUTES.resetPwd} component={ResetPwd} />
+
+            <PrivateRoute path={ROUTES.weight} component={Weight} />
             <PrivateRoute path={ROUTES.progress} component={Progress} />
-            <Route path={ROUTES.events} component={Events} />
+            <Route path={ROUTES.event} component={Event} />
             <Route path={ROUTES.eventCreation} component={EventCreation} />
             <Route path={ROUTES.userProfile} component={UserProfile} />
           </main>
@@ -73,7 +76,6 @@ export class App extends Component {
 
         <React.Suspense fallback={<Loading />}>
           <Switch>
-            {/* <Route path={ROUTES.garbage} component={Garbage} /> */}
             { isLogged(user)
               ? <Redirect 
                   exact

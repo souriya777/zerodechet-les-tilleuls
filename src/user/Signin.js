@@ -12,7 +12,7 @@ import { COLOR_FB, COLOR_G } from '../utils/color-utils'
 
 import SigninForm from './SigninForm'
 
-export class SigninContent extends Component {
+export class Signin extends Component {
 
   handleSubmit = ({email, pwd}) => {
     this.props.dispatch(handleSigninWithEmailAndPwd(email, pwd))
@@ -28,8 +28,7 @@ export class SigninContent extends Component {
 
   render() {
     return (
-      <div className="signin__content">
-
+      <>
         <div className="content__border-box content__grid">
           <Button 
             icon={IconFacebook} 
@@ -59,9 +58,9 @@ export class SigninContent extends Component {
             Vous n'avez pas de compte? <Link className='link link--active' to={ROUTES.signupChoice}>Inscription</Link>
           </div>
         </div>
-      </div>
+      </>
     )
     }
 }
 
-export default connect()(SigninContent)
+export default connect()(Signin)

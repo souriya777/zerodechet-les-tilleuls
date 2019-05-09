@@ -125,6 +125,9 @@ https://scotch.io/tutorials/testing-react-components-with-enzyme-and-jest
 les déchets en france
 http://www.cniid.org/Les-dechets-en-France-quelques-chiffres,151
 
+utilisation des singletons en JS
+https://medium.com/@dmnsgn/singleton-pattern-in-es6-d2d021d150ae
+
 #FOR ME
 Promise - async await
 https://javascript.info/async-await

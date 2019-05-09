@@ -1,26 +1,40 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import IconMail from '../common-ui/icons/IconMail'
-import InputPretty from '../common-ui/InputPretty'
+import ROUTES from '../app/routes'
+import { handleResetPwd } from './userActions'
+import { ResetPwdForm } from './ResetPwdForm'
 import Button from '../common-ui/Button'
 
-export const ResetPwdHeader = () => (
-  <div className="reset-pwd__header">
-    <h1 className='h1'>Réinitialiser le mot de passe</h1>
-    <p>Saisissez l'e-mail asocié à votre compte. Nous vous enverrons un lien par e-mail pour réinitialiser votre mot de passe</p>
-  </div>
-)
+class ResetPwd extends Component {
+  state = {
+    pwdSent: false
+  }
 
-export const ResetPwdContent = () => (
-  <div className="reset-pwd__content">
-    <div className="content__grid">
-      {/* <InputPretty 
-        type='email'
-        placeholder='e-mail'
-        icon={<IconMail />}
-      /> */}
-      {/* TODO convert to formik form */}
-      <span className='link'><Button raised={true} lgTxt={true}>Envoyer le lien de réinitialisation</Button></span>
-    </div>
-  </div>
-)
+  handleSubmit = ({email}) => {
+    this.props.dispatch(handleResetPwd(email))
+    this.setState({pwdSent: true})
+  }
+
+  render() {
+    const { pwdSent } = this.state
+
+    return (
+      <>
+        {pwdSent 
+          ? <div>
+              <div className='u-margin-bottom-small'>Un mot de passe vient de vous être envoyé. Veuillez vérifier votre boîte email.</div>
+              <Link className='link' to={ROUTES.landing}>
+                <Button raised={true}>Retourner à l'accueil</Button>
+              </Link>
+            </div>
+          : <ResetPwdForm onSubmit={this.handleSubmit} />
+        }
+        
+      </>
+    )
+  }
+}
+
+export default connect()(ResetPwd)

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { handleAddWeight } from './GarbageActions'
-import GarbageWeighForm from './GarbageWeighForm'
+import { handleAddWeight } from './WeightActions'
+import WeightForm from './WeightForm'
 
-export class Garbage extends Component {
+export class Weight extends Component {
 
   // FIXME when no need to handleChange
   handleChange = e => {
@@ -17,11 +17,11 @@ export class Garbage extends Component {
 
   render () {
     return (
-      <div className='garbage__content'>
-        <GarbageWeighForm onSubmit={this.handleSubmit} onChange={this.handleChange} />
+      <div className='weight__content'>
+        <WeightForm onSubmit={this.handleSubmit} onChange={this.handleChange} />
       </div>
     )
   }
 }
 
-export default connect()(Garbage);
+export default connect()(Weight);

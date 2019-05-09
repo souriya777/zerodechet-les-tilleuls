@@ -2,18 +2,17 @@ import React from 'react'
 import { Switch, Route, Link } from 'react-router-dom';
 
 import ROUTES from '../app/routes'
-import { UserWelcomeHeader } from '../user/UserWelcome'
 import IconArrowBack from './icons/IconArrowBack'
+import Logo from '../common-ui/Logo'
 
 const Header = () => (
   <header className='header'>
     <Switch>
-      <Route exact path={ROUTES.landing} component={UserWelcomeHeader} />
       <HeaderGeneric path={ROUTES.signin} title='Heureux de vous revoir !' />
       <HeaderGeneric path={ROUTES.terms} title='Conditions générales' />
-      <HeaderGeneric path={ROUTES.garbage} title='Peser des déchets' />
+      <HeaderGeneric path={ROUTES.weight} title='Peser des déchets' />
       <HeaderGeneric path={ROUTES.progress} title={'Progression'} />
-      <HeaderGeneric path={ROUTES.events} title='Événements' />
+      <HeaderGeneric path={ROUTES.event} title='Événements' />
       <HeaderGeneric path={ROUTES.userProfile} title='Profil' />
 
       <HeaderGeneric path={[ROUTES.signup, ROUTES.signupChoice]} title='Inscription'>
@@ -23,7 +22,9 @@ const Header = () => (
         Saisissez l'e-mail asocié à votre compte. Nous vous enverrons un lien par e-mail pour réinitialiser votre mot de passe
       </HeaderGeneric>
 
-      <HeaderBack path={ROUTES.eventCreation} linkTo={ROUTES.events} />
+      <HeaderBack path={ROUTES.eventCreation} linkTo={ROUTES.event} />
+
+      <HeaderWelcome path={ROUTES.landing} />
     </Switch>
   </header>
 )
@@ -34,6 +35,17 @@ const HeaderGeneric = ({ path, title, children }) => (
       <h1 className='h1'>{title}</h1>
       <p>{children}</p>
     </>
+  )} />
+)
+
+const HeaderWelcome = ({ path }) => (
+  <Route exact path={path} render={() => (
+    <div className='welcome__header content__grid'>
+      <div className='wecome__logo'>
+        <Logo />
+      </div>
+      <p className='welcome__why'>Moins de déchets pour retrouver sa nature.</p>
+    </div>
   )} />
 )
 

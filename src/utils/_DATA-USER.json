@@ -1,6 +1,8 @@
 [
   {
+    "uid": "lnV7CZy2T9OVDheNL0Y8",
     "email": "laosoupi59@gmail.com",
+    "goal": 0.250,
     "home": [
       {"id": 1, "name": "Somsack Phongsavanh"},
       {"id": 2, "name": "Somvilack Phongsavanh"},
@@ -9,6 +11,8 @@
       {"id": 5, "name": "Souriya Phongsavanh"},
       {"id": 6, "name": "Sourisack Phongsavanh"}
     ],
-    "goal": 0.250
+    "events": [
+      "2i57wbPYh8wAb4srGvs4", "6typu1Dz5RgHjHZUpU8M", "8HueLRA98A94BPsxlarX"
+    ]
   }
 ]

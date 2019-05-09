@@ -7,7 +7,7 @@ import SeparatorOr from '../common-ui/SeparatorOr'
 import { handleSignup, handleSigninWithFacebook, handleSigninWithGoogle } from './userActions'
 import SignupForm from './SignupForm'
 
-export class SignupContent extends Component {
+export class Signup extends Component {
 
   handleSubmit = ({firstName, lastName, email, pwd}) => {
     this.props.dispatch(handleSignup(firstName, lastName, email, pwd))
@@ -23,8 +23,7 @@ export class SignupContent extends Component {
 
   render() {
     return (
-      <div className="signup__content">
-
+      <>
         <div className="content__border-box signup__actions">
           Inscrivez-vous avec <span className='link link--active' onClick={this.handleSubmitFacebook}>Facebook</span> ou <span href='#' className='link link--active' onClick={this.handleSubmitGoogle}>Google</span>
         </div>
@@ -40,10 +39,9 @@ export class SignupContent extends Component {
             En cliquant sur Inscription, j'accepte les <Link className='link link--active' to={ROUTES.terms}>Conditions générales</Link> de Zéro Déchet.
           </div>
         </div>
-
-      </div>
+      </>
     )
   }
 }
 
-export default connect()(SignupContent)
+export default connect()(Signup)

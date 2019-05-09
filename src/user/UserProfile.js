@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { handleSignout } from './userActions'
 import { handleLoadData } from '../utils/sharedActions'
 import Button from '../common-ui/Button'
-import UserMembers from './UserMembers'
+import MemberList from './MemberList'
 
 class UserProfile extends Component {
 
@@ -12,7 +12,7 @@ class UserProfile extends Component {
     this.props.dispatch(handleSignout())
   }
 
-  handleLoadData = () => {
+  handleLoadData = e => {
     this.props.dispatch(handleLoadData())
   }
 
@@ -38,21 +38,22 @@ class UserProfile extends Component {
 
     return (
       <div className='content-grid'>
-        <div className="profile__goal">
-          <h2 className='h2 u-margin-bottom-small'>Objectif</h2>
-          <p className='hilighted u-center-content'>{user.goal}kg/hab/jour</p>
-        </div>
+        <h2 className='h2'>Objectif</h2>
+        <p className='hilighted u-center-content'>
+          {user.goal}kg/hab/jour
+        </p>
 
-        <UserMembers members={user.home} />
+        <h2 className='h2'>Membres:</h2>
+        <MemberList items={user.home} />
 
         <div className="profile__actions">
           <Button 
             transparency={true}
-            onClick={this.handleLoadData}>Charger les données test</Button>
+            onSubmit={this.handleLoadData}>Charger les données test</Button>
           <br/>
           <Button 
             transparency={true}
-            onClick={this.handleSignout}
+            onSubmit={this.handleSignout}
           >Se déconnecter</Button>
         </div>
       </div>

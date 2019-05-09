@@ -1,9 +1,9 @@
-import API from '../app/api'
+import sharedAPI from './sharedAPI'
 
 export const LOAD_DATA = 'LOAD_DATA'
 
 export const handleLoadData = () => {
-  API.loadData()
+  sharedAPI.loadData()
   return {
     type: LOAD_DATA,
   }

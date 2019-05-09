@@ -1,15 +1,15 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 
-import IconUser from '../common-ui/icons/IconUser'
-import IconLock from '../common-ui/icons/IconLock'
+import IconMail from '../common-ui/icons/IconMail'
 import InputPretty from '../common-ui/InputPretty'
 
-const SigninForm = (props) => (
+
+export const ResetPwdForm = (props) => (
   <>
     <Formik
-      initialValues={{ email: '', pwd: '' }}
+      initialValues={{ email: '' }}
       validationSchema={FormSchema}
       onSubmit={(values, { setSubmitting }) => {
         props.onSubmit(values)
@@ -22,16 +22,10 @@ const SigninForm = (props) => (
             name='email'
             type='email'
             placeholder='e-mail'
-            icon={<IconUser />} 
-          />
-          <InputPretty 
-            name='pwd'
-            type='password'
-            placeholder='mot de passe'
-            icon={<IconLock />} 
+            icon={<IconMail />}
           />
           <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
-            Connexion
+            Envoyer le lien de réinitialisation
           </button>
         </Form>
       )}
@@ -39,14 +33,11 @@ const SigninForm = (props) => (
   </>
 )
 
+
 const FormSchema = Yup.object().shape({
   email: Yup.string()
     .email('Entrez une adresse e-mail valide.')
     .required('Une adresse e-mail est obligatoire.'),
-  pwd: Yup.string()
-    .min(8, 'Votre mot de passe doit contenenir au moins 8 caractères')
-    .required('Un mot de passe est obligatoire.')
 })
 
-
-export default SigninForm
+export default ResetPwdForm

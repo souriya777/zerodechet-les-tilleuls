@@ -1,12 +1,12 @@
 import React from 'react'
 
-import { GARBAGE_TYPE } from '../garbage/GarbageHelper'
+import { WEIGHT_TYPE } from '../weight/WeightHelper'
 
 const ProgressDetails = (props) => {
   const { data } = props;
 
-  const d1 = data[GARBAGE_TYPE.RECYCLABLE]
-  const d2 = data[GARBAGE_TYPE.NORECYCLABLE]
+  const d1 = data[WEIGHT_TYPE.RECYCLABLE]
+  const d2 = data[WEIGHT_TYPE.NORECYCLABLE]
   
   return (
     <div className='progress__details'>

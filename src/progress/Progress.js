@@ -8,7 +8,7 @@ import { handleLoadProgress } from './progressActions'
 import { DEFAULT_PERIOD } from './ProgressHelper'
 import {  PROGRESS_CHART_LINE_OPTIONS, PROGRESS_CHART_PIE_OPTIONS } from './ProgressHelper'
 import ProgressDetails from './ProgressDetails'
-import { GARBAGE_TYPE } from '../garbage/GarbageHelper'
+import { WEIGHT_TYPE } from '../weight/WeightHelper'
 
 class Progress extends Component {
 
@@ -46,8 +46,8 @@ class Progress extends Component {
       evo: '-0.8%'
     }
     const detailsData = {
-      [GARBAGE_TYPE.RECYCLABLE]: data1,
-      [GARBAGE_TYPE.NORECYCLABLE]: data2
+      [WEIGHT_TYPE.RECYCLABLE]: data1,
+      [WEIGHT_TYPE.NORECYCLABLE]: data2
     }
 
     return (

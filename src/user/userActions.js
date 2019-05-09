@@ -1,18 +1,18 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
-import API from '../app/api'
+import userAPI from '../user/userAPI'
 import { addError } from '../utils/ErrorActions'
 
 export const GET_USER = 'GET_USER'
 export const SIGNOUT = 'SIGNOUT'
 
-const getUser = (user) => {
+const getUser = user => {
   return {
     type: GET_USER,
     user
   }
 }
 
-const removeUser = (user) => {
+const removeUser = user => {
   return {
     type: GET_USER,
     user: null
@@ -20,7 +20,7 @@ const removeUser = (user) => {
 }
 
 const fetchProfile = async(email) => {
-  return await API.fetchProfile(email)
+  return await userAPI.fetchProfile(email)
 }
 
 const signout = () => {
@@ -38,13 +38,13 @@ const handleSignIn = (type, login, pwd) => {
       
       switch (type) {
         case 'google' :
-          user = await API.signinWithGoogle()
+          user = await userAPI.signinWithGoogle()
           break
         case 'facebook':
-          user = await API.signinWithFacebook()
+          user = await userAPI.signinWithFacebook()
           break
         default:
-          user = await API.signinUser(login, pwd)
+          user = await userAPI.signinUser(login, pwd)
       } 
 
       const profile = await fetchProfile(user.email)
@@ -77,8 +77,8 @@ export const handleSignup = (firstName, lastName, login, pwd) => {
   return async (dispatch) => {
     dispatch(showLoading())
     try {
-      let user = await API.signupUser(login, pwd)
-      user = await API.updateProfile(firstName, lastName)
+      let user = await userAPI.signupUser(login, pwd)
+      user = await userAPI.updateProfile(firstName, lastName)
       dispatch(getUser(user))
     } catch (error) {
       dispatch(addError(error.message))
@@ -91,7 +91,7 @@ export const handleSignup = (firstName, lastName, login, pwd) => {
 export const handleSignout = () => {
   return async (dispatch) => {
     dispatch(showLoading())
-    await API.signout()
+    await userAPI.signout()
     dispatch(signout())
     dispatch(removeUser())
     dispatch(hideLoading())
@@ -101,7 +101,7 @@ export const handleSignout = () => {
 export const handleResetPwd = email => {
   return async (dispatch) => {
     dispatch(showLoading())
-    await API.resetPwd(email)
+    await userAPI.resetPwd(email)
     dispatch(hideLoading())
   }
 }

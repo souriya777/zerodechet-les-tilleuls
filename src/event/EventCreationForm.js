@@ -33,14 +33,14 @@ const EventCreationForm = (props) => (
         />
         <InputPretty 
           name='startDate'
-          type='datetime'
+          type='date'
           placeholder='Début'
           icon={<IconWeight />} 
         />
         {/* TODO hour */}
         <InputPretty 
           name='endDate'
-          type='datetime'
+          type='date'
           placeholder='Fin'
           icon={<IconCalendar />} 
         />
@@ -51,7 +51,7 @@ const EventCreationForm = (props) => (
           icon={<IconCalendar />} 
         />
         <InputPretty 
-          name='opened'
+          name='toAll'
           type='text'
           placeholder='Ouvert à toute la famille'
           icon={<IconCalendar />} 
