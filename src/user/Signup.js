@@ -7,13 +7,6 @@ import SeparatorOr from '../common-ui/SeparatorOr'
 import { handleSignup, handleSigninWithFacebook, handleSigninWithGoogle } from './userActions'
 import SignupForm from './SignupForm'
 
-export const SignupHeader = () => (
-  <div className="signup__header">
-    <h1 className='h1'>Inscription</h1>
-    <p>Faites partie d'une communauté d'aventuriers oeuvrant pour la planète</p>
-  </div>
-)
-
 export class SignupContent extends Component {
 
   handleSubmit = ({firstName, lastName, email, pwd}) => {

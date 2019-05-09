@@ -19,6 +19,10 @@ const removeUser = (user) => {
   }
 }
 
+const fetchProfile = async(email) => {
+  return await API.fetchProfile(email)
+}
+
 const signout = () => {
   return {
     type: SIGNOUT
@@ -43,7 +47,10 @@ const handleSignIn = (type, login, pwd) => {
           user = await API.signinUser(login, pwd)
       } 
 
-      dispatch(getUser(user))
+      const profile = await fetchProfile(user.email)
+      const newUser = Object.assign({}, user, profile)
+
+      dispatch(getUser(newUser))
 
     } catch (error) {
       dispatch(addError(error.message))

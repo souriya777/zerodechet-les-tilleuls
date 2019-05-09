@@ -21,17 +21,17 @@ const getDBInstance = () => firebaseSingleton.getInstance()
 // USER API
 API.signinUser = async (login, pwd) => {
   const user = await getDBInstance().signin(login, pwd)
-  return formatUser(user)
+  return convertUser(user)
 }
 
 API.signinWithGoogle = async () => {
   const user = await getDBInstance().signinWithGoogle()
-  return formatUser(user)
+  return convertUser(user)
 }
 
 API.signinWithFacebook = async () => {
   const user = await getDBInstance().signinWithFacebook()
-  return formatUser(user)
+  return convertUser(user)
 }
 
 API.signupUser = async (login, pwd) => {
@@ -41,6 +41,10 @@ API.signupUser = async (login, pwd) => {
 API.signout = async () => {
   return await getDBInstance().signout()
 }
+
+API.fetchProfile = async(email) => {
+  return await getDBInstance().user(email)
+} 
 
 API.updateProfile = async (firstName, lastName) => {
   const name = displayName(firstName, lastName)
@@ -55,10 +59,12 @@ API.sendMsg = (login, msg)  => {
   // TODO test
 }
 
-const formatUser = userDB => {
+const convertUser = userDB => {
   const user = userDB.user
+  
   return {
     uid: user.uid,
+    email: user.email,
     name: user.displayName,
     photo: user.photoURL
   }

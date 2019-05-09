@@ -12,12 +12,6 @@ import { COLOR_FB, COLOR_G } from '../utils/color-utils'
 
 import SigninForm from './SigninForm'
 
-export const SigninHeader = () => (
-  <div className="signin__header">
-    <h1 className='h1'>Heureux de vous revoir !</h1>
-  </div>
-)
-
 export class SigninContent extends Component {
 
   handleSubmit = ({email, pwd}) => {

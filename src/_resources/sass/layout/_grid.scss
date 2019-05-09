@@ -3,9 +3,16 @@ $breakpoint-m: 48rem;
 .grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: min-content auto 6.4rem;
+  grid-template-rows: min-content minmax(75vh, 1fr) 20vh;
   grid-column-gap: $gutter-column;
   grid-row-gap: $gutter-row;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-rows: auto;
+  grid-row-gap: $gutter-row-large;
+  width: 100%;
 }
 
 .width-1\/12 { grid-column: span 1; }

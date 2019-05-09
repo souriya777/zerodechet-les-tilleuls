@@ -1,11 +1,5 @@
 import React from 'react'
 
-export const TermsHeader = () => (
-  <div className="terms__header">
-    <h1 className='h1'>Conditions générales</h1>
-  </div>
-)
-
 export const TermsContent = () => (
   <div className="terms__content">
     <p>

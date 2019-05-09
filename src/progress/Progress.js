@@ -10,12 +10,6 @@ import {  PROGRESS_CHART_LINE_OPTIONS, PROGRESS_CHART_PIE_OPTIONS } from './Prog
 import ProgressDetails from './ProgressDetails'
 import { GARBAGE_TYPE } from '../garbage/GarbageHelper'
 
-export const ProgressHeader = () => (
-  <div className='progress__header'>
-    <h1 className='h1'>Progression</h1>
-  </div>
-)
-
 class Progress extends Component {
 
   state = {

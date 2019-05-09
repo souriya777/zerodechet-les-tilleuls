@@ -12,14 +12,17 @@ $color-chart-secondary: #009900;
 // FONT VARIABLES
 // $font-primary: 'Oxygen', sans-serif;
 // $font-display: 'Open Sans', sans-serif;
-$font-primary: 'Lato', 'Arial', sans-serif;
-$font-secondary: 'Lato', 'Arial', sans-serif;
+// $font-primary: 'Lato', 'Arial', sans-serif;
+// $font-secondary: 'Lato', 'Arial', sans-serif;
+// FIXME Poppins in index.html
+$font-primary: 'Lato', sans-serif;
+$font-secondary: 'Lato', sans-serif;
 $default-font-size: 1.6rem;
 
 // SPACING
 $default-line-height: 1.6;
 $gutter-row: 1rem;
-$gutter-row-large: 2rem;
+$gutter-row-large: 4rem;
 $gutter-column: 1rem;
 
 // BORDER

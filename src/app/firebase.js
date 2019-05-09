@@ -58,9 +58,21 @@ export class Firebase {
     return this.auth.currentUser
   }
 
-  getUser = uid => this.db.doc(`${USERS_REF}/${uid}`)
+  user = async email => {
+    let result = undefined
 
-  getUsers = () => this.db.collection(USERS_REF)
+    await this.db.collection(USERS_REF)
+      .where('email', '==', email)
+      .get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          result = doc.data()
+        })
+      })
+
+    return result
+  }
+
+  users = () => this.db.collection(USERS_REF)
 
 
 

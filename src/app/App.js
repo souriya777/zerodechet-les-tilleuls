@@ -12,19 +12,20 @@ import '../_resources/sass/main.scss'
 
 import Loading from '../utils/Loading'
 import ROUTES from './routes'
-import { UserWelcomeHeader, UserWelcomeContent } from '../user/UserWelcome'
-import SigninContent, { SigninHeader } from '../user/Signin'
-import SignupContent, { SignupHeader } from '../user/Signup'
+import { UserWelcomeContent } from '../user/UserWelcome'
+import SigninContent from '../user/Signin'
+import SignupContent from '../user/Signup'
 import SignupChoice from '../user/SignupChoice'
-import { TermsHeader, TermsContent } from '../infos/Terms'
-import { ResetPwdHeader, ResetPwdContent } from '../user/ResetPwd'
+import { TermsContent } from '../infos/Terms'
+import { ResetPwdContent } from '../user/ResetPwd'
 import PrivateRoute from './PrivateRoute'
 import { isLogged } from '../utils/user-utils'
-import Garbage, { GarbageHeader } from '../garbage/Garbage'
-import Progress, { ProgressHeader } from '../progress/Progress'
-import Events, { EventsHeader } from '../event/Events'
-import EventCreation, { EventCreationHeader } from '../event/EventCreation'
-import UserProfile, { UserProfileHeader } from '../user/UserProfile'
+import Garbage from '../garbage/Garbage'
+import Progress from '../progress/Progress'
+import Events from '../event/Events'
+import EventCreation from '../event/EventCreation'
+import UserProfile from '../user/UserProfile'
+import Header from '../common-ui/Header'
 import Nav from '../common-ui/Nav'
 
 // const My404 = React.lazy(() => import('../utils/My404'))
@@ -32,6 +33,10 @@ import Nav from '../common-ui/Nav'
 // TODO saisie pesée : pré-remplir les champs quand on peut
 // TODO responsibe : paysage, Ipad 2 modes, pc standard, géant
 // TODO date support in safari
+// TODO change laosoupi59@gmail.com
+
+// FIXME pathToRegexp
+// FIXME <PrivateRoute> instead of <Route>
 
 export class App extends Component {
 
@@ -46,21 +51,8 @@ export class App extends Component {
 
     return (
       <Router>
-        <div className='spa-container'>
-          <header className='header'>
-            <Route exact path={ROUTES.landing} component={UserWelcomeHeader} />
-            <Route path={ROUTES.signin} component={SigninHeader} />
-            <Route path={ROUTES.signupChoice} component={SignupHeader} />
-            <Route path={ROUTES.signup} component={SignupHeader} />
-            <Route path={ROUTES.terms} component={TermsHeader} />
-            <Route path={ROUTES.resetPwd} component={ResetPwdHeader} />
-
-            <PrivateRoute path={ROUTES.garbage} component={GarbageHeader} />
-            <PrivateRoute path={ROUTES.progress} component={ProgressHeader} />
-            <PrivateRoute path={ROUTES.events} component={EventsHeader} />
-            <PrivateRoute path={ROUTES.eventCreation} component={EventCreationHeader} />
-            <PrivateRoute path={ROUTES.userProfile} component={UserProfileHeader} />
-          </header>
+        <div className='spa-container grid'>
+          <Header />
           <main className='content'>
             <Route exact path={ROUTES.landing} component={UserWelcomeContent} />
             <Route path={ROUTES.signin} component={SigninContent} />
@@ -71,9 +63,9 @@ export class App extends Component {
 
             <PrivateRoute path={ROUTES.garbage} component={Garbage} />
             <PrivateRoute path={ROUTES.progress} component={Progress} />
-            <PrivateRoute path={ROUTES.events} component={Events} />
-            <PrivateRoute path={ROUTES.eventCreation} component={EventCreation} />
-            <PrivateRoute path={ROUTES.userProfile} component={UserProfile} />
+            <Route path={ROUTES.events} component={Events} />
+            <Route path={ROUTES.eventCreation} component={EventCreation} />
+            <Route path={ROUTES.userProfile} component={UserProfile} />
           </main>
         </div>
 

@@ -14,12 +14,12 @@ export const ResetPwdHeader = () => (
 export const ResetPwdContent = () => (
   <div className="reset-pwd__content">
     <div className="content__grid">
-      <InputPretty 
+      {/* <InputPretty 
         type='email'
         placeholder='e-mail'
         icon={<IconMail />}
-      />
-      
+      /> */}
+      {/* TODO convert to formik form */}
       <span className='link'><Button raised={true} lgTxt={true}>Envoyer le lien de réinitialisation</Button></span>
     </div>
   </div>
