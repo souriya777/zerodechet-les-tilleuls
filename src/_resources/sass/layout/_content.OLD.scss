@@ -1,0 +1,33 @@
+.content {
+  grid-column: 1 / 13;
+  grid-row: 2;
+
+  color: $color-primary-text;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+  background-color: burlywood;
+
+  &__border-box {
+    border-left: .1rem solid $color-primary-text;
+    border-color: $color-primary-text;
+    padding: 0 1rem;
+    margin-left: 1rem;
+  }
+
+  &__or {
+    height: 7rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__grid,
+  & form {
+    display: grid;
+    grid-row-gap: $gutter-row;
+  }
+}
