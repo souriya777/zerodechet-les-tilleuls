@@ -1,11 +1,10 @@
 import React from 'react'
 
-const Hr = (props) => {
-  return (
-    <div className='hr'>
-        <span className='hr__content'>{props.text}</span>
-    </div>
-  )
-}
+const Hr = ({children}) =>
+  <div className='hr'>
+    <div className="hr__left">&nbsp;</div>
+    <div className="hr__content">{children}</div>
+    <div className="hr__right">&nbsp;</div>
+  </div>
 
 export default Hr

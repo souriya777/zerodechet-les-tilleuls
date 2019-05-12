@@ -2,6 +2,7 @@ import {
   signin, 
   signinWithGoogle,
   signinWithFacebook,
+  signinWithTwitter,
   signup,
   signout,
   getUser,
@@ -24,6 +25,11 @@ USER_API.signinWithGoogle = async () => {
 
 USER_API.signinWithFacebook = async () => {
   const user = await signinWithFacebook()
+  return convertUser(user)
+}
+
+USER_API.signinWithTwitter = async () => {
+  const user = await signinWithTwitter()
   return convertUser(user)
 }
 

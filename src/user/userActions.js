@@ -43,6 +43,9 @@ const handleSignIn = (type, login, pwd) => {
         case 'facebook':
           user = await userAPI.signinWithFacebook()
           break
+        case 'twitter':
+          user = await userAPI.signinWithTwitter()
+          break
         default:
           user = await userAPI.signinUser(login, pwd)
       } 
@@ -70,6 +73,10 @@ export const handleSigninWithGoogle = () => {
 
 export const handleSigninWithFacebook = () => {
   return handleSignIn ('facebook')
+}
+
+export const handleSigninWithTwitter = () => {
+  return handleSignIn ('twitter')
 }
 
 

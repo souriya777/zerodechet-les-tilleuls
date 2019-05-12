@@ -4,10 +4,10 @@ import * as Yup from 'yup'
 
 import SmartInput from '../common-ui/SmartInput'
 
-const UserSigninForm = ({ onSubmit }) => (
+const UserSignupForm = ({ onSubmit }) => (
   <>
     <Formik
-      initialValues={{ email: '', pwd: '' }}
+      initialValues={{ firstName: '', lastName: '', email: '', pwd: '' }}
       validationSchema={FormSchema}
       onSubmit={(values, { setSubmitting }) => {
         onSubmit(values)
@@ -16,6 +16,20 @@ const UserSigninForm = ({ onSubmit }) => (
     >
       {({ isSubmitting, errors }) => (
         <Form>
+          <SmartInput 
+            type='text' 
+            name='firstName' 
+            placeholder='Prénom' 
+            errorMsg={errors.firstName}
+          />
+
+          <SmartInput 
+            type='text' 
+            name='lastName' 
+            placeholder='Nom' 
+            errorMsg={errors.lastName}
+          />
+
           <SmartInput 
             type='text' 
             name='email' 
@@ -42,6 +56,10 @@ const UserSigninForm = ({ onSubmit }) => (
 )
 
 const FormSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .required('Un prénom est obligatoire.'),
+  lastName: Yup.string()
+    .required('Un nom est obligatoire.'),
   email: Yup.string()
     .email('Entrez une adresse e-mail valide.')
     .required('Une adresse e-mail est obligatoire.'),
@@ -51,4 +69,4 @@ const FormSchema = Yup.object().shape({
 })
 
 
-export default UserSigninForm
+export default UserSignupForm

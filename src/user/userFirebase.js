@@ -7,6 +7,8 @@ export const signinWithGoogle = () => Firebase.auth.signInWithPopup(Firebase.goo
 
 export const signinWithFacebook = () => Firebase.auth.signInWithPopup(Firebase.facebookProvider)
 
+export const signinWithTwitter = () => Firebase.auth.signInWithPopup(Firebase.twitterProvider)
+
 export const signup = (email, pwd) => 
 Firebase.auth.createUserWithEmailAndPassword(email, pwd)
 

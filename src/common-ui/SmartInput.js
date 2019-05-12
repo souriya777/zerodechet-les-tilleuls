@@ -2,8 +2,6 @@ import React from 'react'
 import { Field } from 'formik'
 
 const SmartInput = ({ type, name, placeholder, errorMsg}) => {
-  console.log(errorMsg, errorMsg === null || errorMsg === '');
-  
   const invalid = errorMsg !== undefined
     ? 'input--invalid'
     : ''

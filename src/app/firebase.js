@@ -45,6 +45,7 @@ class Firebase {
     this.db = firebase.firestore()
     this.googleProvider = new firebase.auth.GoogleAuthProvider()
     this.facebookProvider = new firebase.auth.FacebookAuthProvider()
+    this.twitterProvider = new firebase.auth.TwitterAuthProvider()
   }
 
   static get instance() {

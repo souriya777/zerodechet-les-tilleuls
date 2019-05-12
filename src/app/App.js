@@ -2,31 +2,54 @@ import React, { Component } from 'react'
 import { 
   BrowserRouter as Router,
   Route,
+  Switch,
+  Redirect,
 } from 'react-router-dom';
 import { connect } from 'react-redux'
+import pathToRegexp from 'path-to-regexp'
 
 import '../_resources/sass/main.scss'
 
 import ROUTES from './routes'
 import UserConnect from '../user/UserConnect'
 import HeaderConnect from '../common-ui/HeaderConnect'
+import Stat from '../stat/Stat';
+import { isLogged } from '../utils/user-utils'
 
 // TODO check sur tous les navigateurs...
+// TODO vérifier pourquoi la connexion twiter ne fonctionne pas
 
 export class App extends Component {
 
   render() {
+    const { user } = this.props
 
     return (
       <Router>
+        <Switch>
+          <Redirect 
+            exact
+            from={ROUTES.landing} 
+            to={ROUTES.signin} 
+          />
+          { isLogged(user)
+            ? <Redirect 
+                exact
+                from={pathToRegexp([ROUTES.signin, ROUTES.signup])} 
+                to={ROUTES.stat} />
+            : ''
+          }
+        </Switch>
+
         <div className='screen'>
           <header className='header'>
-            <Route path={ROUTES.landing} component={HeaderConnect} />
+            <Route path={pathToRegexp([ROUTES.signin, ROUTES.signup])} component={HeaderConnect} />
           </header>
           <main className='content'>
-            <Route path={ROUTES.landing} component={UserConnect} />
+            <Route path={pathToRegexp([ROUTES.signin, ROUTES.signup])} component={UserConnect} />
+            <Route path={ROUTES.stat} component={Stat} />
           </main>
-          <nav className='nav'>NAV</nav>
+          {/* <nav className='nav'>NAV</nav> */}
         </div>
       </Router>
     );

@@ -1,0 +1,19 @@
+.btn {
+  @include font-title;
+
+  font: inherit;
+  outline: none;
+  color: $color-secondary-text;
+  text-transform: uppercase;
+  background-color: $color-accent;
+  border: $border-aspect $color-accent;
+  border-radius: .4rem;
+  line-height: 3.5rem;
+  width: 100%;
+
+  cursor: pointer;
+
+  &--fake {
+    cursor: pointer;
+  }
+}

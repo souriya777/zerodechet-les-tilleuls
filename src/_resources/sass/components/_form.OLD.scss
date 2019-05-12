@@ -1,0 +1,30 @@
+$margin-bottom-small: 2rem;
+$margin-bottom-medium: 4rem;
+
+.form {
+
+  &__body div:not(:last-child) {
+    margin-bottom: $margin-bottom-medium;
+  }
+
+  &__body div:last-child {
+    margin-bottom: $margin-bottom-small;
+  }
+
+  &__footer {
+    &-item {
+      margin-bottom: $margin-bottom-small;
+    }
+  }
+
+  &__input {
+    font-family: inherit;
+    font-size: $default-font-size;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-bottom: $default-border-size solid $color-secondary-text;
+    padding-bottom: .7rem;
+    width: 30rem;
+  }
+}
