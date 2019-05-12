@@ -4,15 +4,16 @@ import { Link } from 'react-router-dom'
 import ROUTES from '../app/routes'
 import Logo from './Logo'
 
-const Header = () => {
+const HeaderConnect = () => {
   return (
     <Link className='link' to={ROUTES.landing}>
-      <div className='header'>
-        <Logo />
-        SPRITE
+      <div className='header-connect'>
+        <div className="header-connect__ellipse">
+          <Logo />
+        </div>
       </div>
     </Link>
   )
 }
 
-export default Header
+export default HeaderConnect

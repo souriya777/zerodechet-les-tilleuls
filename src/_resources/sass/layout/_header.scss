@@ -1,4 +1,22 @@
 .header {
-  background-color: yellow;
-  height: 30vh;
+  background-color: $color-secondary;
+
+  &-connect {
+    height: 70%;
+
+    &__ellipse {
+      height: 100%;
+      padding-top: 2rem;
+      background-image:
+        radial-gradient(
+          65% 100% at top, 
+          $color-primary 90%, 
+          $color-secondary-light 90%, 
+          $color-secondary-light 93%, 
+          $color-secondary 93%
+        )
+      ;
+    }
+  }
+
 }

@@ -9,7 +9,9 @@ import '../_resources/sass/main.scss'
 
 import ROUTES from './routes'
 import UserConnect from '../user/UserConnect'
-import Header from '../common-ui/Header'
+import HeaderConnect from '../common-ui/HeaderConnect'
+// FIXME KARIM
+// couleur exact
 
 export class App extends Component {
 
@@ -18,13 +20,13 @@ export class App extends Component {
     return (
       <Router>
         <div className='screen'>
+          <header className='header'>
+            <Route exact path={ROUTES.landing} component={HeaderConnect} />
+          </header>
           <main className='content'>
-            <header className='header'>
-              <Route exact path={ROUTES.landing} component={Header} />
-            </header>
             <Route exact path={ROUTES.landing} component={UserConnect} />
           </main>
-          {/* <nav className='nav'>NAV</nav> */}
+          <nav className='nav'>NAV</nav>
         </div>
       </Router>
     );
