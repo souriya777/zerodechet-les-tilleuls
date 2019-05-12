@@ -1,48 +1,24 @@
 // TYPOGRAPHY RULES
 
-%h {
-  font-family: $font-primary;
-  font-weight: 300;
-  line-height: 1;
-}
+// %font {
+//   font-family: $font-primary;
+//   word-spacing: .1rem;
+// }
 
-.h1 {
-  @extend %h;
-  font-size: 3.5rem;
-  color: $color-primary-text;
-  margin-bottom: 2rem;
-}
+// @mixin font-body {
+//   @extend %font;
+//   font-weight: 600;
+//   font-size: $default-font-size;
+// }
 
-.h2 {
-  @extend %h;
-  font-size: 2.5rem;
-  line-height: 2.6rem;
-  color: $color-primary-text;
-}
+// @mixin font-title {
+//   @extend %font;
+//   font-weight: 700;
+//   letter-spacing: .1rem;
+// }
 
-%content {
-  font-family: $font-secondary;
-}
-
-.hilighted {
-  font-size: 2.7rem;
-}
-
-.asterix {
-  @extend %content;
-  font-size: 1.4rem;
-  color: $color-primary-text;
-
-  &--center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.form-error {
-  @extend %content;
-  font-size: 1.4rem;
-  line-height: 1.8rem;
-  color: $color-error-text;
-}
+// @mixin font-error {
+//   @extend %font;
+//   word-spacing: 0rem;
+//   font-size: .9rem;
+// }

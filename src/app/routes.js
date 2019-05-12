@@ -1,10 +1,9 @@
 const ROUTES = {}
 
 ROUTES.landing = '/'
+ROUTES.signin = '/signin'
+ROUTES.signup = '/signup'
 // ROUTES.dashboard = '/dashboard'
-// ROUTES.signin = '/signin'
-// ROUTES.signup = '/signup'
-// ROUTES.signupChoice = '/signup-choice'
 // ROUTES.signout = '/signout'
 // ROUTES.resetPwd = '/reset-pwd'
 // ROUTES.terms = '/terms'
@@ -15,11 +14,5 @@ ROUTES.landing = '/'
 // ROUTES.eventCreation = '/event-creation'
 // ROUTES.infos = '/infos'
 // ROUTES.userProfile = '/profile'
-// ROUTES.userHabits = '/user-habits'
-
-// ROUTES.isActive = (pathname, linkTo) => {
-//   return pathname !== ROUTES.landing && 
-//           pathname === linkTo
-// }
 
 export default ROUTES

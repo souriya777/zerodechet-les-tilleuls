@@ -1,30 +1,36 @@
-// @mixin input-base {
-//   font-size: $default-font-size;
-//   line-height: 2.4rem;
-//   padding: 1.1rem 1.1rem 1.1rem .2rem;
-//   background-color: $color-primary;
-//   border: $border-simple;
-//   border-radius: $default-border-radius;
-//   outline: 0;
-// }
+%font {
+  font-family: $font-primary;
+  word-spacing: .1rem;
+}
 
-// @mixin input-highlight {
-//   &:focus {
-//     border-color: $color-primary-text;
-//   }
-  
-//   &:required {
-//     // tricky for outline error in firefox
-//     box-shadow: none;
-//   }
-  
-//   &:invalid {
-//     box-shadow: none;
-//     border-color: $color-error-text;
-//   }
-// }
+@mixin font-body {
+  @extend %font;
+  font-weight: 600;
+  font-size: $default-font-size;
+}
+
+@mixin font-title {
+  @extend %font;
+  font-weight: 700;
+  letter-spacing: .1rem;
+}
+
+@mixin font-error {
+  @extend %font;
+  word-spacing: 0rem;
+  font-size: .9rem;
+}
 
 @mixin full-screen {
   height: 100vh;
   width: 100vw;
+}
+
+@mixin full-size {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin full-width {
+  width: 100%;
 }

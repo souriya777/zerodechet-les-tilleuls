@@ -1,0 +1,64 @@
+.input-pretty {
+  display: flex;
+
+  &__icon {
+    order: 1;
+    fill: $color-primary-text;
+    background-color: $color-primary;
+    border: $border-simple;
+    border-radius: $default-border-radius;
+    display: flex;
+    align-items: center;
+
+    // simulate one element (icon + input)
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+  }
+
+  &__input,
+  &__select {
+    @include input-base;
+    @include input-highlight;
+
+    order: 2;
+    width: 90%;
+
+    // simulate one element (icon + input)
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+  }
+
+  &__input:focus + &__icon,
+  &__select:focus ~ &__icon,
+  &__select:focus + &__icon-arrow {
+    border-color: $color-primary-text;
+  }
+
+  &__input:invalid + &__icon,
+  &__select:invalid ~ &__icon,
+  &__select:invalid + &__icon-arrow {
+    border-color: $color-error-text;
+  }
+
+  &__select {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &__icon-arrow {
+    background-color: $color-primary;
+    padding-right: 1.5rem;
+    border: $border-simple;
+    border-radius: $default-border-radius;
+    order: 3;
+    display: flex;
+    align-items: center;
+
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+  }
+}

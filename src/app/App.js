@@ -10,8 +10,8 @@ import '../_resources/sass/main.scss'
 import ROUTES from './routes'
 import UserConnect from '../user/UserConnect'
 import HeaderConnect from '../common-ui/HeaderConnect'
-// FIXME KARIM
-// couleur exact
+
+// TODO check sur tous les navigateurs...
 
 export class App extends Component {
 
@@ -21,10 +21,10 @@ export class App extends Component {
       <Router>
         <div className='screen'>
           <header className='header'>
-            <Route exact path={ROUTES.landing} component={HeaderConnect} />
+            <Route path={ROUTES.landing} component={HeaderConnect} />
           </header>
           <main className='content'>
-            <Route exact path={ROUTES.landing} component={UserConnect} />
+            <Route path={ROUTES.landing} component={UserConnect} />
           </main>
           <nav className='nav'>NAV</nav>
         </div>

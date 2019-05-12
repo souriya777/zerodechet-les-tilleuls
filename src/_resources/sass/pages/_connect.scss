@@ -1,3 +1,20 @@
 .connect {
-  @include full-screen;
+  @include full-size;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+
+  &__choice {
+    &-list {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    &-item {
+      @include font-title;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+  
+  }
 }

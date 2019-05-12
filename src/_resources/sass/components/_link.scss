@@ -1,7 +1,17 @@
 .link {
   color: inherit;
-  font-family: inherit;
-  font-size: inherit;
   text-decoration: none;
-  cursor: pointer;
+
+  &:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 99%;
+    border-bottom: $border-aspect transparent;
+    transition: border-bottom $default-transition-duration;
+  }
+  
+  &--active:after {
+    border-color: $color-accent;
+  }
 }
