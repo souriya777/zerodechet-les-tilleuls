@@ -1,20 +1,59 @@
-.input {
-  background-color: $color-secondary;
+// CONTAINER INPUT
+.input__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
 
+.input {
+  // INPUT
+  order: 2;
+  
   @include full-width;
   font: inherit;
   color: inherit;
+  background-color: $color-secondary;
   outline: none;
   box-shadow: none;
   border: none;
-
   padding-bottom: .5rem;
   border-bottom: $border-aspect $color-grey;
 
-  &::placeholder {
-    color: inherit;
+  &::placeholder { color: inherit; }
+
+  // BORDER
+  &__border { order: 3; }
+
+  & + &__border {
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 0; 
+    height: .1rem; 
+    background-color: $color-secondary-dark; 
+    transition: 0.3s;
   }
 
+  &:focus:not(&--invalid) + &__border {
+    width: 100%; 
+    transition: 0.3s;
+  }
+
+  // LABEL
+  &__label {
+    order: 1;
+    color: $color-secondary-light;
+    display: block;
+    transition: all .3s;
+  }
+
+  &:placeholder-shown ~ &__label {
+    opacity: 0; // for animate
+    visibility: hidden; // we can't animate visibility
+    transform: translateY(1rem);
+  }
+
+  // ERROR
   &__error {
     @include font-error;
     height: 1.6rem;
@@ -22,12 +61,12 @@
     text-align: right;
   }
 
-  &--invalid {
-    border-color: $color-error;
-  }
-}
+  &--invalid { border-color: $color-error; }
 
-.input:-webkit-autofill {
-  -webkit-text-fill-color: $color-secondary-text;
-	-webkit-box-shadow: 0 0 0 100px $color-secondary inset;
+
+  // HACK chrome autofill
+  &:-webkit-autofill {
+    -webkit-text-fill-color: $color-secondary-text;
+    -webkit-box-shadow: 0 0 0 100px $color-secondary inset;
+  }
 }

@@ -8,12 +8,17 @@ const SmartInput = ({ type, name, placeholder, errorMsg}) => {
 
   return (
     <>
-      <Field 
-        className={`input ${invalid}`}
-        type={type} 
-        name={name} 
-        placeholder={placeholder} 
-      />
+      <div className='input__container'>
+        <Field 
+          className={`input ${invalid}`}
+          type={type} 
+          name={name} 
+          placeholder={placeholder} 
+        />
+
+        <span class='input__border'></span>
+        <label className='input__label'>{placeholder}</label>
+      </div>
 
       <div className='input__error'>
         {errorMsg}

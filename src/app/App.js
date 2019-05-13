@@ -17,6 +17,11 @@ import HeaderConnect from '../common-ui/HeaderConnect'
 import Stat from '../stat/Stat';
 import { isLogged } from '../utils/user-utils'
 
+// TODO karim
+// couleur verte border verte
+// police + grande
+// logo
+
 // TODO check sur tous les navigateurs...
 // TODO vérifier pourquoi la connexion twiter ne fonctionne pas
 
