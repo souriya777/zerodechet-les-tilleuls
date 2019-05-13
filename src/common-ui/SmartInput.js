@@ -16,7 +16,7 @@ const SmartInput = ({ type, name, placeholder, errorMsg}) => {
           placeholder={placeholder} 
         />
 
-        <span class='input__border'></span>
+        <span className='input__border'></span>
         <label className='input__label'>{placeholder}</label>
       </div>
 

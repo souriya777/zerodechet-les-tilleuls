@@ -6,7 +6,6 @@ import {
   Redirect,
 } from 'react-router-dom';
 import { connect } from 'react-redux'
-import pathToRegexp from 'path-to-regexp'
 
 import '../_resources/sass/main.scss'
 
@@ -18,9 +17,7 @@ import Stat from '../stat/Stat';
 import { isLogged } from '../utils/user-utils'
 
 // TODO karim
-// couleur verte border verte
 // police + grande
-// logo
 
 // TODO check sur tous les navigateurs...
 // TODO vérifier pourquoi la connexion twiter ne fonctionne pas
@@ -46,10 +43,10 @@ export class App extends Component {
 
         <div className='screen'>
           <header className='header'>
-            <Route path={pathToRegexp([ROUTES.signin, ROUTES.signup])} component={HeaderConnect} />
+            <Route path={anonymousPath()} component={HeaderConnect} />
           </header>
           <main className='content'>
-            <Route path={pathToRegexp([ROUTES.signin, ROUTES.signup])} component={UserConnect} />
+            <Route path={anonymousPath()} component={UserConnect} />
             <PrivateRoute path={ROUTES.stat} component={Stat} />
           </main>
           {/* <nav className='nav'>NAV</nav> */}
