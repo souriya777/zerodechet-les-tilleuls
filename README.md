@@ -128,6 +128,16 @@ http://www.cniid.org/Les-dechets-en-France-quelques-chiffres,151
 utilisation des singletons en JS
 https://medium.com/@dmnsgn/singleton-pattern-in-es6-d2d021d150ae
 
+chrome hack autofill
+https://gist.github.com/EdPoole/8740898
+
+http://webagility.com/posts/the-ultimate-list-of-hacks-for-chromes-forced-yellow-background-on-autocompleted-inputs
+
+https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
+
+iphone testing
+http://mobiletest.me
+
 #FOR ME
 Promise - async await
 https://javascript.info/async-await

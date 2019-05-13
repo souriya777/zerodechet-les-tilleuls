@@ -6,6 +6,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducers from './app/reducers'
 import middleware from './app/middleware'
+import 'normalize.css'
 
 const store = createStore(reducers, middleware)
 
