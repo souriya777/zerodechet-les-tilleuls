@@ -10,7 +10,8 @@ import pathToRegexp from 'path-to-regexp'
 
 import '../_resources/sass/main.scss'
 
-import ROUTES from './routes'
+import PrivateRoute from './PrivateRoute'
+import ROUTES, { anonymousPath } from './routes'
 import UserConnect from '../user/UserConnect'
 import HeaderConnect from '../common-ui/HeaderConnect'
 import Stat from '../stat/Stat';
@@ -33,10 +34,7 @@ export class App extends Component {
             to={ROUTES.signin} 
           />
           { isLogged(user)
-            ? <Redirect 
-                exact
-                from={pathToRegexp([ROUTES.signin, ROUTES.signup])} 
-                to={ROUTES.stat} />
+            ? <Redirect from={ROUTES.signin} to={ROUTES.stat} />
             : ''
           }
         </Switch>
@@ -47,7 +45,7 @@ export class App extends Component {
           </header>
           <main className='content'>
             <Route path={pathToRegexp([ROUTES.signin, ROUTES.signup])} component={UserConnect} />
-            <Route path={ROUTES.stat} component={Stat} />
+            <PrivateRoute path={ROUTES.stat} component={Stat} />
           </main>
           {/* <nav className='nav'>NAV</nav> */}
         </div>

@@ -31,7 +31,7 @@ const UserSigninForm = ({ onSubmit }) => (
           />
 
           <div className="form__validation">
-            <button className={`btn`} type="submit" disabled={isSubmitting}>
+            <button className='btn' type="submit" disabled={isSubmitting}>
               valider
             </button>
           </div>

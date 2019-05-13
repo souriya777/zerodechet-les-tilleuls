@@ -1,3 +1,5 @@
+import pathToRegexp from 'path-to-regexp'
+
 const ROUTES = {}
 
 ROUTES.landing = '/'
@@ -15,5 +17,9 @@ ROUTES.stat = '/stat'
 // ROUTES.eventCreation = '/event-creation'
 // ROUTES.infos = '/infos'
 // ROUTES.userProfile = '/profile'
+
+export const anonymousPath = () => {
+  return pathToRegexp([ROUTES.signin, ROUTES.signup])
+}
 
 export default ROUTES
