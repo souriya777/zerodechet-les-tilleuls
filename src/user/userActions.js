@@ -86,6 +86,7 @@ export const handleSignup = (firstName, lastName, login, pwd) => {
     try {
       let user = await userAPI.signupUser(login, pwd)
       user = await userAPI.updateProfile(firstName, lastName)
+      console.log(user);
       dispatch(getUser(user))
     } catch (error) {
       dispatch(addError(error.message))

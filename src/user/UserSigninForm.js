@@ -1,45 +1,28 @@
-import React from 'react'
-import { Formik, Form } from 'formik'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import * as Yup from 'yup'
 
-import SmartInput from '../common-ui/SmartInput'
+import FormikWrapper from '../utils/FormikWrapper'
+import { handleSigninWithEmailAndPwd } from './userActions'
 
-const UserSigninForm = ({ onSubmit }) => (
-  <>
-    <Formik
-      initialValues={{ email: '', pwd: '' }}
-      validationSchema={FormSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        onSubmit(values)
-        setSubmitting(true)
-      }}
-    >
-      {({ isSubmitting, errors }) => (
-        <Form>
-          <SmartInput 
-            type='text' 
-            name='email' 
-            placeholder='Mon Email' 
-            errorMsg={errors.email}
-          />
+class UserSigninForm extends Component {
 
-          <SmartInput 
-            type='password' 
-            name='pwd' 
-            placeholder='Mon mot de passe'
-            errorMsg={errors.pwd}
-          />
+  handleSubmit = ({email, pwd}) => {
+    this.props.dispatch(handleSigninWithEmailAndPwd(email, pwd))
+  } 
 
-          <div className="form__validation">
-            <button className='btn' type="submit" disabled={isSubmitting}>
-              valider
-            </button>
-          </div>
-        </Form>
-      )}
-    </Formik>
-  </>
-)
+  render () {
+    return (
+      <FormikWrapper
+        fieldNameList={['email', 'pwd']}
+        fieldPlaceholderList={['Mon Email', 'Mon mot de passe']}
+        fieldTypeList={['text', 'password']}
+        formSchema={FormSchema}
+        onSubmit={this.handleSubmit}
+      />
+    )
+  }
+}
 
 const FormSchema = Yup.object().shape({
   email: Yup.string()
@@ -50,5 +33,4 @@ const FormSchema = Yup.object().shape({
     .required('Un mot de passe est obligatoire.')
 })
 
-
-export default UserSigninForm
+export default connect()(UserSigninForm)

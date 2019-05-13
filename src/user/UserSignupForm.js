@@ -1,59 +1,28 @@
-import React from 'react'
-import { Formik, Form } from 'formik'
+import React, { Component } from 'react'
 import * as Yup from 'yup'
+import { connect } from 'react-redux'
 
-import SmartInput from '../common-ui/SmartInput'
+import FormikWrapper from '../utils/FormikWrapper'
+import { handleSignup } from './userActions'
 
-const UserSignupForm = ({ onSubmit }) => (
-  <>
-    <Formik
-      initialValues={{ firstName: '', lastName: '', email: '', pwd: '' }}
-      validationSchema={FormSchema}
-      onSubmit={(values, { setSubmitting }) => {
-        onSubmit(values)
-        setSubmitting(true)
-      }}
-    >
-      {({ isSubmitting, errors }) => (
-        <Form>
-          <SmartInput 
-            type='text' 
-            name='firstName' 
-            placeholder='Prénom' 
-            errorMsg={errors.firstName}
-          />
+class UserSignupForm extends Component {
 
-          <SmartInput 
-            type='text' 
-            name='lastName' 
-            placeholder='Nom' 
-            errorMsg={errors.lastName}
-          />
+  handleSubmit = ({firstName, lastName, email, pwd}) => {
+    this.props.dispatch(handleSignup(firstName, lastName, email, pwd))
+  }
 
-          <SmartInput 
-            type='text' 
-            name='email' 
-            placeholder='Mon Email' 
-            errorMsg={errors.email}
-          />
-
-          <SmartInput 
-            type='password' 
-            name='pwd' 
-            placeholder='Mon mot de passe'
-            errorMsg={errors.pwd}
-          />
-
-          <div className="form__validation">
-            <button className='btn' type="submit" disabled={isSubmitting}>
-              valider
-            </button>
-          </div>
-        </Form>
-      )}
-    </Formik>
-  </>
-)
+  render() {
+    return (
+      <FormikWrapper
+        fieldNameList={['firstName', 'lastName', 'email', 'pwd']}
+        fieldPlaceholderList={['Prénom', 'Nom', 'Mon Email', 'Mon mot de passe']}
+        fieldTypeList={['text', 'text', 'text', 'password']}
+        formSchema={FormSchema}
+        onSubmit={this.handleSubmit}
+      />
+    )
+  }
+}
 
 const FormSchema = Yup.object().shape({
   firstName: Yup.string()
@@ -68,5 +37,4 @@ const FormSchema = Yup.object().shape({
     .required('Un mot de passe est obligatoire.')
 })
 
-
-export default UserSignupForm
+export default connect()(UserSignupForm)

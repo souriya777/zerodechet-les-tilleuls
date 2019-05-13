@@ -16,4 +16,9 @@
   &--fake {
     cursor: pointer;
   }
+
+  &:disabled {
+    background-color: $color-accent-light;
+    border-color: $color-accent-light;
+  }
 }
