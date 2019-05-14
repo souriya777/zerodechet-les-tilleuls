@@ -4,7 +4,7 @@ import {
   Route,
   Switch,
   Redirect,
-} from 'react-router-dom';
+} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import '../_resources/sass/main.scss'
@@ -13,11 +13,14 @@ import PrivateRoute from './PrivateRoute'
 import ROUTES, { anonymousPath } from './routes'
 import UserConnect from '../user/UserConnect'
 import HeaderConnect from '../common-ui/HeaderConnect'
-import Stat from '../stat/Stat';
+import Screen from '../common-ui/Screen'
+import Stat from '../stat/Stat'
+import Tuto from '../infos/Tuto'
 import { isLogged } from '../utils/user-utils'
 
 // TODO karim
-// police + grande
+// mdp oublié
+// wording intro
 
 // TODO check sur tous les navigateurs...
 // TODO vérifier pourquoi la connexion twiter ne fonctionne pas
@@ -41,18 +44,20 @@ export class App extends Component {
           }
         </Switch>
 
-        <div className='screen'>
+        <Screen>
           <header className='header'>
             <Route path={anonymousPath()} component={HeaderConnect} />
           </header>
           <main className='content'>
+            <Route path={ROUTES.tuto} component={Tuto} />
             <Route path={anonymousPath()} component={UserConnect} />
             <PrivateRoute path={ROUTES.stat} component={Stat} />
           </main>
           {/* <nav className='nav'>NAV</nav> */}
-        </div>
+        </Screen>
+
       </Router>
-    );
+    )
   }
 }
 
@@ -65,4 +70,4 @@ function mapStateToProps (state) {
   }
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)

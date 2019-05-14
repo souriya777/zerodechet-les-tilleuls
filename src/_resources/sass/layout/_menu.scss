@@ -2,7 +2,6 @@
   background-color: $color-primary;
   color: $color-primary-text;
 
-  font-size: 3rem;
   font-weight: 300;
 
   display: flex;
@@ -41,7 +40,6 @@
 
     &:link,
     &:visited {
-      font-size: 3.3rem;
       text-decoration: none;
       text-transform: uppercase;
       background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);

@@ -2,9 +2,9 @@ import React from 'react'
 
 import SVGLogo from '../common-ui/svg/SVGLogo'
 
-const Logo = () => (
+const Logo = (props) => (
   <div className='logo'>
-    <SVGLogo />
+    <SVGLogo {...props} />
   </div>
 )
 
