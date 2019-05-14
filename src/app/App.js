@@ -8,15 +8,17 @@ import {
 import { connect } from 'react-redux'
 
 import '../_resources/sass/main.scss'
-
 import PrivateRoute from './PrivateRoute'
 import ROUTES, { anonymousPath } from './routes'
-import UserConnect from '../user/UserConnect'
-import HeaderConnect from '../common-ui/HeaderConnect'
-import Screen from '../common-ui/Screen'
-import Stat from '../stat/Stat'
-import Tuto from '../infos/Tuto'
 import { isLogged } from '../utils/user-utils'
+import Loading from '../info/Loading'
+
+// lazy loading
+const Screen = React.lazy(() => import('../common-ui/Screen'))
+const UserConnect = React.lazy(() => import('../user/UserConnect'))
+const HeaderConnect = React.lazy(() => import('../common-ui/HeaderConnect'))
+const Stat = React.lazy(() => import('../stat/Stat'))
+const Tuto = React.lazy(() => import('../info/Tuto'))
 
 // TODO karim
 // mdp oublié
@@ -31,32 +33,34 @@ export class App extends Component {
     const { user } = this.props
 
     return (
-      <Router>
-        <Switch>
-          <Redirect 
-            exact
-            from={ROUTES.landing} 
-            to={ROUTES.signin} 
-          />
-          { isLogged(user)
-            ? <Redirect from={ROUTES.signin} to={ROUTES.stat} />
-            : ''
-          }
-        </Switch>
+      <React.Suspense fallback={<Loading />}>
+        <Router>
+          <Switch>
+            <Redirect 
+              exact
+              from={ROUTES.landing} 
+              to={ROUTES.signin} 
+            />
+            { isLogged(user)
+              ? <Redirect from={ROUTES.signin} to={ROUTES.stat} />
+              : ''
+            }
+          </Switch>
 
-        <Screen>
-          <header className='header'>
-            <Route path={anonymousPath()} component={HeaderConnect} />
-          </header>
-          <main className='content'>
-            <Route path={ROUTES.tuto} component={Tuto} />
-            <Route path={anonymousPath()} component={UserConnect} />
-            <PrivateRoute path={ROUTES.stat} component={Stat} />
-          </main>
-          {/* <nav className='nav'>NAV</nav> */}
-        </Screen>
+          <Screen>
+            <header className='header'>
+              <Route path={anonymousPath()} component={HeaderConnect} />
+            </header>
+            <main className='content'>
+              <Route path={ROUTES.tuto} component={Tuto} />
+              <Route path={anonymousPath()} component={UserConnect} />
+              <PrivateRoute path={ROUTES.stat} component={Stat} />
+            </main>
+            {/* <nav className='nav'>NAV</nav> */}
+          </Screen>
 
-      </Router>
+        </Router>
+      </React.Suspense>
     )
   }
 }

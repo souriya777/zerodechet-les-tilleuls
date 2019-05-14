@@ -1,40 +1,22 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
-// @import 'abstracts/utilities';
 
 @import 'base/reset';
-// @import 'base/spacing';
-// @import 'base/typography';
 
 @import 'layout/content';
 @import 'layout/header';
 @import 'layout/screen';
-// @import 'layout/grid';
-// @import 'layout/nav';
-// @import 'layout/spa';
 
 @import 'components/btn';
-// @import 'components/button';
-// @import 'components/card';
-// @import 'components/dialog';
+@import 'components/backgnd';
 @import 'components/form';
 @import 'components/hr';
 @import 'components/input';
 @import 'components/link';
-// @import 'components/list';
 @import 'components/logo';
-// @import 'components/portrait';
-// @import 'components/signin';
-// @import 'components/signup';
 @import 'components/svg';
-// @import 'components/user';
 
 @import 'pages/connect';
-// @import 'pages/welcome';
-// @import 'pages/weight';
-// @import 'pages/infos';
-// @import 'pages/my-404';
-// @import 'pages/progress';
 @import 'pages/tuto';
 
 // @import "vendors/chartist-settings";

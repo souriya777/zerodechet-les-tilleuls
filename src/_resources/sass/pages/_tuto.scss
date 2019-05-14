@@ -1,8 +1,3 @@
-$linear-gradient: linear-gradient(
-  rgba(0, 0, 0, .3), 
-  rgba(0, 0, 0, .3),
-);
-
 .tuto {
 
   &__logo {
@@ -44,36 +39,5 @@ $linear-gradient: linear-gradient(
 
   &__title {
     @include font-title--slide;
-  }
-
-  &__background {
-    height: 100%;
-    width: auto;
-    background-size: cover;
-    background-position: center;
-
-    &--welcome {
-      background-image: 
-        $linear-gradient,
-        url(../img/welcome.jpg);
-    }
-
-    &--why {
-      background-image: 
-        $linear-gradient,
-        url(../img/why.jpg);
-    }
-
-    &--what {
-      background-image: 
-        $linear-gradient,
-        url(../img/what.jpg);
-    }
-
-    &--how {
-      background-image: 
-        $linear-gradient,
-        url(../img/how.jpg);
-    }
   }
 }

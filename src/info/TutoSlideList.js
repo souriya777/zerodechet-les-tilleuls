@@ -8,7 +8,7 @@ const TutoSlideList = () => (
   <ul>
     <Carousel
       autoplay={false}
-      autoplayInterval={8000}
+      autoplayInterval={10000}
       enableKeyboardControls={true}
       transitionMode='scroll'
       vertical={true}
@@ -21,25 +21,25 @@ const TutoSlideList = () => (
       <TutoSlideItem 
         title='Bienvenue'
         txt='Découvrez notre application Zéro Déchet adaptée pour petits et grands. Optez pour un mode de vie éco-responsable.'
-        background='welcome'
+        backgnd='welcome'
       />
 
       <TutoSlideItem 
         title='Pourquoi?'
         txt='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto eius'
-        background='why'
+        backgnd='why'
       />
 
       <TutoSlideItem 
         title='Quoi?'
         txt='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto eius'
-        background='what'
+        backgnd='what'
       />
 
       <TutoSlideItem 
         title='Comment?'
         txt='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto eius'
-        background='how'
+        backgnd='how'
       />
 
     </Carousel>
