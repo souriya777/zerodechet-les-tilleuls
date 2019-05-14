@@ -1,10 +1,4 @@
-import { anonymousPath, inTuto } from './routes'
-
-describe('anonymousPath()', () => {
-  it(`should returns :` + /(?:^\/signin(?:\/)?$|^\/signup(?:\/)?$)/i, () => {
-    expect(anonymousPath()).toEqual(/(?:^\/signin(?:\/)?$|^\/signup(?:\/)?$)/i)
-  })
-})
+import { inTuto } from './routes'
 
 describe('inTuto(route)', () => {
   it(`should true when route is '/tuto'`, () => {

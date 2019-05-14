@@ -2,7 +2,6 @@ import React from 'react'
 
 import TutoSlideList from './TutoSlideList'
 import Logo from '../common-ui/Logo'
-import SVGBonhomme from '../common-ui/svg/SVGBonhomme'
 
 const Tuto = () => (
   <div className='tuto'>
@@ -14,11 +13,6 @@ const Tuto = () => (
     <div className='tuto__slideList'>
       <TutoSlideList />
     </div>
-
-    <div className='tuto__login'>
-      <SVGBonhomme />
-    </div>
-
   </div>
 )
 

@@ -1,55 +1,23 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React from 'react'
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
-import { isLogged } from '../utils/user-utils'
-import NavItem from './NavItem'
-import IconWeight from './icons/IconWeight'
-import IconProgress from './icons/IconProgress'
-import IconEvent from './icons/IconEvent'
-import IconUser from './icons/IconUser'
-import Portrait from './Portrait'
+import NavCheck from './NavCheck'
+import { NavConnect, NavConnectClose } from './NavConnect'
 
-class Nav extends Component {
+const Nav = ({ location }) => (
+  <>
+    <NavCheck />
 
-  render () {
-    const { user } = this.props
+    <Switch location={location}>
+      <Route path={ROUTES.tuto} component={NavConnect} />
+      <Route path={ROUTES.signin} component={NavConnectClose} />
+    </Switch>
 
-    return (
-      <nav className='nav'>
-        <ul className='nav__list'>
-          { isLogged(user)
-            ? <>
-                <NavItem 
-                  label='Pesée' 
-                  icon={IconWeight} 
-                  linkTo={ROUTES.weight} />
-                <NavItem 
-                  label='Progression' 
-                  icon={IconProgress} 
-                  linkTo={ROUTES.progress} />
-                <NavItem 
-                  label='Événements' 
-                  icon={IconEvent} 
-                  linkTo={ROUTES.event} />
-                <NavItem 
-                  label='Profil' 
-                  img={() => (
-                    <Portrait photo={user.photo} />
-                  )} 
-                  linkTo={ROUTES.profile} />
-              </>
-            : <NavItem 
-                label='Connexion' 
-                icon={IconUser} 
-                linkTo={ROUTES.landing} />
-          }
-        </ul>
-      </nav>
-    )
-  }
-}
+    <div className='nav__menu'>
+      MENU
+    </div>
+  </>
+)
 
-const mapStateToProps = state => ({ user: state.user }) 
-
-export default connect(mapStateToProps)(Nav)
+export default withRouter(Nav)
