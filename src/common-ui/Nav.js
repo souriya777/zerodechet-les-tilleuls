@@ -1,18 +1,32 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+import ROUTES from '../app/routes'
+import PrivateRoute from '../app/PrivateRoute'
+
 import NavCheck from './NavCheck'
 import NavConnect from './NavConnect'
+import Menu from './Menu'
 
-
-const Nav = () => (
+const Nav = ({ user }) => (
   <>
     <NavCheck />
 
-    <NavConnect />
+    <Route 
+      exact 
+      path={[ROUTES.signin, ROUTES.signup, ROUTES.tuto, ROUTES.landing]} component={NavConnect} 
+    />
 
-    <div className='nav__menu'>
-      MENU
-    </div>
+    {/* FIXME TEMP */}
+    {/* <PrivateRoute  */}
+    <Route
+      path={[ROUTES.stat, ROUTES.weight, ROUTES.rdv, ROUTES.profile]} 
+      component={Menu} 
+    />
   </>
 )
 
-export default Nav
+const mapStateToProps = state => ({ user: state.user })
+
+export default connect(mapStateToProps)(Nav)

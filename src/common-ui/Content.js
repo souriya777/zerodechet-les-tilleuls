@@ -9,18 +9,35 @@ import UserConnect from '../user/UserConnect'
 import Tuto from '../info/Tuto'
 import Stat from '../stat/Stat'
 import Header from './Header'
+import Weight from '../weight/Weight';
+import UserProfile from '../user/UserProfile';
+import RDV from '../rdv/RDV';
 
 const Content = () =>
   <>
     {/* header is optional... */}
-    <Route path={ROUTES.signin} component={Header} />
-    <Route path={ROUTES.signup} component={Header} />
+    <Route 
+      path={[
+        ROUTES.signin, 
+        ROUTES.signup,
+        ROUTES.stat,
+        ROUTES.weight,
+        ROUTES.profile,
+        ROUTES.rdv
+      ]} 
+      component={Header} 
+    />
     
     <main className='content'>
       <Route path={ROUTES.tuto} component={Tuto} />
       <Route path={ROUTES.signin} component={UserConnect} />
       <Route path={ROUTES.signup} component={UserConnect} />
-      <PrivateRoute path={ROUTES.stat} component={Stat} />
+      {/* FIXME TEMP */}
+      {/* <PrivateRoute path={ROUTES.stat} component={Stat} /> */}
+      <Route path={ROUTES.weight} component={Weight} />
+      <Route path={ROUTES.stat} component={Stat} />
+      <Route path={ROUTES.profile} component={UserProfile} />
+      <Route path={ROUTES.rdv} component={RDV} />
       <Route exact path={ROUTES.landing} component={UserConnect} />
     </main>
   </>

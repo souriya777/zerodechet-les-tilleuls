@@ -5,6 +5,7 @@
 
 @import 'layout/content';
 @import 'layout/header';
+@import 'layout/menu';
 @import 'layout/nav';
 @import 'layout/screen';
 @import 'layout/transition';
@@ -18,7 +19,11 @@
 @import 'components/svg';
 
 @import 'pages/connect';
+@import 'pages/profile';
+@import 'pages/rdv';
+@import 'pages/stat';
 @import 'pages/tuto';
+@import 'pages/weight';
 
 // @import "vendors/chartist-settings";
 // @import "vendors/chartist";

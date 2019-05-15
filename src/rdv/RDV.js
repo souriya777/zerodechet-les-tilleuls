@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { handleSignout } from '../user/userActions'
 
-class UserProfile extends Component {
+class RDV extends Component {
 
   handleSignout = () => {
     this.props.dispatch(handleSignout())
@@ -11,14 +11,11 @@ class UserProfile extends Component {
 
   render() {
     return (
-      <div className='profile'>
-        STAT graph + NAV
-        <button className='btn' type="submit" onSubmit={this.handleSignout}>
-          se déconnecter
-        </button>
+      <div className='rdv'>
+        RDV
       </div>
     )
   }
 }
 
-export default connect()(UserProfile)
+export default connect()(RDV)

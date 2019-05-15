@@ -12,10 +12,7 @@ class Stat extends Component {
   render() {
     return (
       <div className='stat'>
-        graph + NAV
-        <button className='btn' type="submit" onSubmit={this.handleSignout}>
-          se déconnecter
-        </button>
+        STAT graph + NAV
       </div>
     )
   }

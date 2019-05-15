@@ -1,27 +1,21 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { handleAddWeight } from './WeightActions'
-import WeightForm from './WeightForm'
+import { handleSignout } from '../user/userActions'
 
-export class Weight extends Component {
+class Weight extends Component {
 
-  // FIXME when no need to handleChange
-  handleChange = e => {
-    console.log(e.target.value);
+  handleSignout = () => {
+    this.props.dispatch(handleSignout())
   }
 
-  handleSubmit = ({nbPers, nbDays, totalWeight, date, type}) => {
-    this.props.dispatch(handleAddWeight(nbPers, nbDays, totalWeight, date, type))
-  } 
-
-  render () {
+  render() {
     return (
-      <div className='weight__content'>
-        <WeightForm onSubmit={this.handleSubmit} onChange={this.handleChange} />
+      <div className='weight'>
+        WEIGHT
       </div>
     )
   }
 }
 
-export default connect()(Weight);
+export default connect()(Weight)
