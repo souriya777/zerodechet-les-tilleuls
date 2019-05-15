@@ -1,36 +1,3 @@
 .screen {
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 30vh minmax(70vh, auto);
-  // grid-template-rows: auto;
-  grid-column-gap: $gutter-column;
-  grid-row-gap: $gutter-row;
-  // height: 100vh;
-  width: 100vw;
-
-  background-color: $color-secondary;
-
-  .content,
-  .header {
-    grid-column: span 4;
-    margin: 0 1rem;
-  }
-}
-
-.screen-tuto {
-  z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 0;
-  grid-row-gap: 0;
-  height: 100vh;
-  width: 100vw;
-  background-color: transparent;
-
-  .content {
-    margin: 0;
-    padding: 0;
-  }
+  @include full-screen;
 }

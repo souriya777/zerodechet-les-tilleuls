@@ -1,10 +1,13 @@
 .tuto {
+  // useful for the nav to be displayed
+  @include priority-index;
+  width: 100%;
 
   &__logo {
     @include logo-at-top;
+    @include priority-index;
     
     position: absolute;
-    z-index: 100;
   }
 
   &__slide {

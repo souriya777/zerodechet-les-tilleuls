@@ -1,10 +1,7 @@
 .header {
-  &-connect {
-    background-color: $color-secondary;
-    height: 70%;
+  height: 25vh;
 
-    &__logo {
-      @include logo-at-top;
-    }
+  &__logo {
+    @include logo-at-top;
   }
 }

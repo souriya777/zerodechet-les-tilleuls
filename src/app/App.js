@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import { 
   BrowserRouter as Router,
-  Route,
-  Switch,
 } from 'react-router-dom'
 
 import '../_resources/sass/main.scss'
-import ROUTES from './routes'
 import Loading from '../info/Loading'
 import Screen from '../common-ui/Screen'
 import Content from '../common-ui/Content'
-import Header from '../common-ui/Header'
 import Nav from '../common-ui/Nav'
 
 // lazy loading (/!\ BE CAREFUL FOR CSS TRANSITION... /!\)
@@ -32,15 +28,7 @@ class App extends Component {
         <Router>
 
           <Screen>
-
-            <Switch>
-              <Route path={ROUTES.signin} component={Header} />
-              <Route path={ROUTES.signup} component={Header} />
-            </Switch>
-
-            <main className='content'>
-              <Content />
-            </main>
+            <Content />
           </Screen>
 
           <nav className='nav'>

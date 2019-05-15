@@ -1,18 +1,12 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 
-import ROUTES from '../app/routes'
+import TransitionWrapper from '../utils/TransitionWrapper'
 
-const Screen = ({ location, children }) => {
-  const screenOpt = location.pathname === ROUTES.tuto
-    ? 'screen-tuto'
-    : ''
-
-  return (
-    <div className={`screen ${screenOpt}`}>
+const Screen = ({ children }) => 
+  <TransitionWrapper>
+    <div className='screen'>
       { children }
     </div>
-  )
-}
+  </TransitionWrapper>
 
-export default withRouter(Screen)
+export default Screen

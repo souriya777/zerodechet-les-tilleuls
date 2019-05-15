@@ -1,5 +1,6 @@
 .connect {
   @include full-size;
+  @include space-content;
 
   &__choice {
     &-list {
