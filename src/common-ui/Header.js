@@ -6,13 +6,15 @@ import Logo from './Logo'
 
 const Header = () => {
   return (
-    <Link className='link' to={ROUTES.landing}>
-      <div className='header-connect'>
-        <div className='header-connect__logo'>
-          <Logo />
+    <header className='header'>
+      <Link className='link' to={ROUTES.landing}>
+        <div className='header-connect'>
+          <div className='header-connect__logo'>
+            <Logo />
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </header>
   )
 }
 

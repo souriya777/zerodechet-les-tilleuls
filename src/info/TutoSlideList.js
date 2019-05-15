@@ -7,13 +7,9 @@ import TutoSlideItem from './TutoSlideItem'
 const TutoSlideList = () => (
   <ul>
     <Carousel
-      autoplay={false}
-      autoplayInterval={10000}
       enableKeyboardControls={true}
       transitionMode='scroll'
       vertical={true}
-      wrapAround={true}
-      autoGenerateStyleTag={false}
       renderCenterLeftControls={null}
       renderBottomCenterControls={null}
       renderCenterRightControls={props => <PagingDots {...props} />}

@@ -1,7 +1,9 @@
 .screen {
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 30vh minmax(70vh, auto);
+  // grid-template-rows: auto;
   grid-column-gap: $gutter-column;
   grid-row-gap: $gutter-row;
   // height: 100vh;
@@ -12,10 +14,12 @@
   .content,
   .header {
     grid-column: span 4;
+    margin: 0 1rem;
   }
 }
 
 .screen-tuto {
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;

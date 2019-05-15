@@ -1,3 +1,5 @@
+$transition: 600ms ease-in-out;
+
 .nav {
   &__connect {
     @include corner-grid;
@@ -16,14 +18,22 @@
     
     &--init {
       transform: translate(-50%, 50%);
+      transition: all $transition;
     }
     
     &--active {
-      // TODO
+      z-index: -1;
+      transform: 
+        // it's magic...
+        // translate(calc(100vw - 50%), calc(50% - 100vh))
+        translateX(calc(100vw - 50%))
+        translateY(calc(50% - 150vh))
+        scale(50);
+        opacity: 0;
+        color: transparent;
+      transition: all $transition;
     }
   }
-
-
 
   &__close {
     @include corner-grid;
@@ -33,6 +43,7 @@
     right: 0;
     background-color: $color-primary;
     cursor: pointer;
+    transform: translate(50%, -50%);
 
     &-content {
       justify-self: center;
@@ -45,11 +56,13 @@
     }
 
     &--init {
-      transform: translate(50%, -50%);
+      opacity: 0;
+      transition: opacity $transition;
     }
 
     &--active {
-      // TODO
+      opacity: 1;
+      transition: opacity $transition;
     }
   }
 

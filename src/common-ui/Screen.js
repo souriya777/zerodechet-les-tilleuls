@@ -1,10 +1,10 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { inTuto } from '../app/routes'
+import ROUTES from '../app/routes'
 
 const Screen = ({ location, children }) => {
-  const screenOpt = inTuto(location.pathname)
+  const screenOpt = location.pathname === ROUTES.tuto
     ? 'screen-tuto'
     : ''
 
