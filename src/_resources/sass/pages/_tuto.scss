@@ -1,3 +1,8 @@
+$linear-gradient: linear-gradient(
+  rgba(0, 0, 0, .3), 
+  rgba(0, 0, 0, .3),
+);
+
 .tuto {
   // useful for the nav to be displayed
   @include priority-index;
@@ -32,5 +37,36 @@
 
   &__title {
     @include font-title--slide;
+  }
+
+  &__backgnd {
+    height: 100%;
+    width: auto;
+    background-size: cover;
+    background-position: center;
+  
+    &--welcome {
+      background-image: 
+        $linear-gradient,
+        url(../img/welcome-1024.jpg);
+    }
+  
+    &--why {
+      background-image: 
+        $linear-gradient,
+        url(../img/why-1024.jpg);
+    }
+  
+    &--what {
+      background-image: 
+        $linear-gradient,
+        url(../img/what-1024.jpg);
+    }
+  
+    &--how {
+      background-image: 
+        $linear-gradient,
+        url(../img/how-1024.jpg);
+    }
   }
 }

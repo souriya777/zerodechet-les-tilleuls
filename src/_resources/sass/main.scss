@@ -4,6 +4,7 @@
 
 @import 'base/reset';
 
+@import 'layout/backgnd';
 @import 'layout/content';
 @import 'layout/header';
 @import 'layout/menu';
@@ -12,7 +13,6 @@
 @import 'layout/transition';
 
 @import 'components/btn';
-@import 'components/backgnd';
 @import 'components/form';
 @import 'components/hr';
 @import 'components/input';
@@ -22,6 +22,7 @@
 @import 'pages/connect';
 @import 'pages/profile';
 @import 'pages/rdv';
+@import 'pages/reset-pwd';
 @import 'pages/stat';
 @import 'pages/tuto';
 @import 'pages/weight';

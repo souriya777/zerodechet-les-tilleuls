@@ -1,0 +1,7 @@
+.backgnd {
+  @include full-screen;
+  @include backgnd-index;
+  position: absolute;
+  top: 0;
+  background-color: $color-secondary;
+}

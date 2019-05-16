@@ -1,10 +1,8 @@
+// FONT
 %font {
   font-family: $font-primary;
   word-spacing: .1rem;
 }
-
-// FONT
-
 @mixin font-title {
   @extend %font;
   font-weight: 700;
@@ -30,7 +28,6 @@
 }
 
 // COLOR
-
 @mixin font-color-light {
   color: inherit;
   opacity: $font-opacity-light;
@@ -38,7 +35,6 @@
 
 
 // SIZE
-
 @mixin full-screen {
   height: 100vh;
   width: 100vw;
@@ -49,19 +45,12 @@
   width: 100%;
 }
 
-@mixin full-width {
-  width: 100%;
-}
+@mixin full-width { width: 100%; }
 
 // SPACE
+@mixin space-top { margin-top: 3rem; }
 
-@mixin space-top {
-  margin-top: 3rem;
-}
-
-@mixin space-content {
-  padding: 0 1rem;
-}
+@mixin space-content { padding: 0 1rem; }
 
 @mixin common-content {
   @include space-content;
@@ -89,14 +78,12 @@
   border-radius: 45%;
 }
 
-@mixin ultra-top-priority-index {
-  z-index: 3;
-}
 
-@mixin top-priority-index {
-  z-index: 2;
-}
+// Z-INDEX
+@mixin ultra-top-priority-index { z-index: 3; }
 
-@mixin priority-index {
-  z-index: 1;
-}
+@mixin top-priority-index { z-index: 2; }
+
+@mixin priority-index { z-index: 1; }
+
+@mixin backgnd-index { z-index: -100; }

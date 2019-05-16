@@ -6,6 +6,7 @@ import PrivateRoute from '../app/PrivateRoute'
 // import withLightMode from '../utils/withLightMode'
 
 import UserConnect from '../user/UserConnect'
+import UserResetPwd from '../user/UserResetPwd'
 import Tuto from '../info/Tuto'
 import Stat from '../stat/Stat'
 import Header from './Header'
@@ -34,6 +35,7 @@ const Content = ({location}) => {
         path={[
           ROUTES.signin, 
           ROUTES.signup,
+          ROUTES.resetPwd,
           ROUTES.stat,
           ROUTES.weight,
           ROUTES.profile,
@@ -46,6 +48,7 @@ const Content = ({location}) => {
         <Route path={ROUTES.tuto} component={Tuto} />
         <Route path={ROUTES.signin} component={UserConnect} />
         <Route path={ROUTES.signup} component={UserConnect} />
+        <Route path={ROUTES.resetPwd} component={UserResetPwd} />
         {/* FIXME TEMP */}
         {/* <PrivateRoute path={ROUTES.stat} component={Stat} /> */}
         <Route path={ROUTES.weight} component={Weight} />

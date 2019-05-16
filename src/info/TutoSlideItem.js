@@ -6,7 +6,7 @@ const TutoSlide = ({ title, txt, backgnd }) =>
       <div className='tuto__title'>{title}</div>
       <p className='tuto__txt'>{txt}</p>
     </div>
-    <div className={`backgnd backgnd--${backgnd}`}></div>
+    <div className={`tuto__backgnd tuto__backgnd--${backgnd}`}></div>
   </div>
 
 export default TutoSlide
