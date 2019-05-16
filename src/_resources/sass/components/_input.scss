@@ -12,7 +12,7 @@
   @include full-width;
   font: inherit;
   color: inherit;
-  background-color: $color-secondary;
+  background-color: inherit;
   outline: none;
   box-shadow: none;
   border: none;
@@ -30,7 +30,7 @@
     left: 0; 
     width: 0; 
     height: .1rem; 
-    background-color: $color-secondary-dark; 
+    background-color: inherit;
     transition: 0.3s;
   }
 
@@ -41,8 +41,8 @@
 
   // LABEL
   &__label {
+    @include font-color-light;
     order: 1;
-    color: $color-secondary-light;
     display: block;
     transition: all .3s;
   }
@@ -68,5 +68,10 @@
   &:-webkit-autofill {
     -webkit-text-fill-color: $color-secondary-text;
     -webkit-box-shadow: 0 0 0 100px $color-secondary inset;
+  }
+
+  .content--light &:-webkit-autofill {
+    -webkit-text-fill-color: $color-primary-text;
+    -webkit-box-shadow: 0 0 0 100px $color-primary inset;
   }
 }

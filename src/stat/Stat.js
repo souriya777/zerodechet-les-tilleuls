@@ -12,7 +12,12 @@ class Stat extends Component {
   render() {
     return (
       <div className='stat'>
-        STAT graph + NAV
+        <div className='stat__graph'>
+          GRAph
+        </div>
+        <div className='stat__action'>
+          ACTION
+        </div>
       </div>
     )
   }

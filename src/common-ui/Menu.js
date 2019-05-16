@@ -23,6 +23,12 @@ const Menu = () =>
           icon={SVGStat}
           linkTo={ROUTES.stat}
         /> 
+
+        <MenuItem
+          label={'Rdv'}
+          icon={SVGCalendar}
+          linkTo={ROUTES.rdv}
+        /> 
       
         <MenuItem
           label={'Profil'}
@@ -30,11 +36,6 @@ const Menu = () =>
           linkTo={ROUTES.profile}
         /> 
       
-        <MenuItem
-          label={'Rdv'}
-          icon={SVGCalendar}
-          linkTo={ROUTES.rdv}
-        /> 
     </ul>
 
     

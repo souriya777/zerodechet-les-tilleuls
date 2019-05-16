@@ -7,14 +7,12 @@
 
   &__left,
   &__right {
-    // background-color: red;
     border-bottom: $border-aspect $color-grey;
     width: 23vw;
     height: 25%; // tricks to align content and hr border
   }
 
   &__content {
-    // background-color: green;
     height: 100%; // tricks to align content and hr border
   }
 }

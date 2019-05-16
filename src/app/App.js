@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom'
 
 import '../_resources/sass/main.scss'
+
 import Loading from '../info/Loading'
 import Screen from '../common-ui/Screen'
 import Content from '../common-ui/Content'
@@ -13,9 +14,11 @@ import Nav from '../common-ui/Nav'
 // const Screen = React.lazy(() => import('../common-ui/Screen'))
 // const Nav = React.lazy(() => import('../common-ui/Nav'))
 
-// TODO karim
+// TODO 80/20
 // mdp oublié
-// centrer typo
+// erreur transitionWrapper
+// erreur connexion affiché
+// todo loading
 // réduire épaisseur
 // wording intro
 // vérifier pourquoi la connexion twitter ne fonctionne pas

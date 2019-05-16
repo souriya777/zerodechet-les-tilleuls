@@ -29,6 +29,13 @@
   font-size: $font-error-size;
 }
 
+// COLOR
+
+@mixin font-color-light {
+  color: inherit;
+  opacity: $font-opacity-light;
+}
+
 
 // SIZE
 
@@ -59,6 +66,7 @@
 @mixin common-content {
   @include space-content;
   color: $color-primary-text;
+  height: 105vh; // responsive todo
 }
 
 // POSITIONING

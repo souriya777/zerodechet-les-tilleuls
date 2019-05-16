@@ -1,5 +1,5 @@
 .link {
-  color: $color-secondary-text-light;
+  color: inherit;
   text-decoration: none;
 
   &:after {
@@ -13,9 +13,14 @@
 
   &--active {
     color: $color-secondary-text;
+    opacity: 1;
   }
   
   &--active:after {
     border-color: $color-accent;
+  }
+
+  &--inactive {
+    opacity: $font-opacity-light;
   }
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { handleSignout } from '../user/userActions'
+import WeightForm from './WeightForm';
 
 class Weight extends Component {
 
@@ -12,7 +13,10 @@ class Weight extends Component {
   render() {
     return (
       <div className='weight'>
-        WEIGHT
+        <h1 className='title'>La pesée</h1>
+        <div className='weight__form'>
+          <WeightForm />
+        </div>
       </div>
     )
   }

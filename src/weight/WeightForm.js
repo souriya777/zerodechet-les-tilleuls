@@ -1,78 +1,54 @@
-import React from 'react'
-import { Formik, Form } from 'formik';
-import * as Yup from 'yup';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import * as Yup from 'yup'
 
-import IconUser from '../common-ui/icons/IconUser'
-import IconWeight from '../common-ui/icons/IconWeight'
-import IconDay from '../common-ui/icons/IconDay'
-import IconCalendar from '../common-ui/icons/IconCalendar'
-import InputPretty from '../common-ui/InputPretty'
-import Options from '../common-ui/Options'
-import { DEFAULT_WEIGHT_TYPE, WEIGHT_LIST } from './WeightHelper'
+import FormikWrapper from '../utils/FormikWrapper'
+// import { handleSigninWithEmailAndPwd } from './userActions'
 
-const WeightForm = (props) => (
-  <Formik
-    initialValues={{ nbPers: '', nbDays: '', totalWeight: '', date: '', type: DEFAULT_WEIGHT_TYPE }}
-    validationSchema={FormSchema}
-    onSubmit={(values, { setSubmitting }) => {
-      props.onSubmit(values)
-      setSubmitting(true)
-    }}
-  >
-    {({ isSubmitting }) => (
-      <Form>
-        <InputPretty 
-          name='nbPers'
-          type='number'
-          placeholder='nombre de personnes'
-          icon={<IconUser />} 
-        />
-        <InputPretty 
-          name='nbDays'
-          type='number'
-          placeholder='nombre de jours'
-          icon={<IconDay />} 
-        />
-        <InputPretty 
-          name='totalWeight'
-          type='number'
-          placeholder='Poids total en kg'
-          icon={<IconWeight />} 
-        />
-        <InputPretty 
-          name='date'
-          type='date'
-          placeholder='date'
-          icon={<IconCalendar />} 
-        />
-        <InputPretty
-          name='type'
-          type='select'
-          value={DEFAULT_WEIGHT_TYPE}
-          onChange={props.onChange}
-          icon={<IconWeight />}
-          options={<Options items={WEIGHT_LIST} />}
-        />
-        <button className='btn btn--raised' type="submit" disabled={isSubmitting}>
-          Sauvegarder
-        </button>
-      </Form>
-    )}
-  </Formik>
-)
+class WeightForm extends Component {
+
+  handleSubmit = ({email, pwd}) => {
+    // this.props.dispatch(handleSigninWithEmailAndPwd(email, pwd))
+  } 
+
+  render () {
+    return (
+      <FormikWrapper
+        fieldNameList={
+          ['nbPers', 'nbDays', 'totalWeight', 'startDate', 'endDate', 'type']
+        }
+        fieldPlaceholderList={
+          [
+            'Nombre de personne', 
+            'Nombre de jours',
+            'Poids total en gramme',
+            'Date de début',
+            'Date de fin',
+            'Type de déchet'
+          ]
+        }
+        fieldTypeList={['text', 'password', 'text', 'text', 'text', 'text']}
+        formSchema={FormSchema}
+        onSubmit={this.handleSubmit}
+      />
+    )
+  }
+}
 
 const FormSchema = Yup.object().shape({
-  nbPers: Yup.number()
-    .required('Le nombre de personnes est obligatoire.'),
-  nbDays: Yup.number()
-      .required('Le nombre de jour est obligatoire.'),
-  totalWeight: Yup.number()
-      .required('Le poids total est obligatoire.'),
-  date: Yup.date()
-      .required('La date est obligatoire.'),
+  nbPers: Yup.string()
+    .min(1, 'Au moins une personne du foyer est concerné')
+    .required('Le nombre de personne est obligatoire'),
+  nbDays: Yup.string()
+    .required('Le nombre de jour est obligatoire'),
+  totalWeight: Yup.string()
+    .required('Le poids est obligatoire'),
+  startDate: Yup.string()
+    .required('La date de début est obligatoire'),
+  endDate: Yup.string()
+    .required('La date de fin est obligatoire'),
   type: Yup.string()
-      .required('Le type de déchet est obligatoire.'),
-});
+    .required('Le type de déchet est obligatoire')
+})
 
-
-export default WeightForm
+export default connect()(WeightForm)

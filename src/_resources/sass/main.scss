@@ -1,3 +1,4 @@
+@import 'abstracts/color-var';
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
@@ -25,7 +26,7 @@
 @import 'pages/tuto';
 @import 'pages/weight';
 
-// @import "vendors/chartist-settings";
-// @import "vendors/chartist";
-// @import "vendors/_my-chartist-tuning";
+@import "vendors/chartist-settings";
+@import "vendors/chartist";
+@import "vendors/_my-chartist-tuning";
 @import "vendors/my-hack-of-nuk-carousel";
