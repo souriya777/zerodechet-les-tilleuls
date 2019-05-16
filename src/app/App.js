@@ -22,6 +22,7 @@ import Nav from '../common-ui/Nav'
 // réduire épaisseur
 // wording intro
 // vérifier pourquoi la connexion twitter ne fonctionne pas
+// material-ui pkg perf....
 
 class App extends Component {
 
