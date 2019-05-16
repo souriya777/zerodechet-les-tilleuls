@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { handleSignout } from '../user/userActions'
+import StatGraph from './StatGraph';
 
 class Stat extends Component {
 
@@ -13,10 +14,10 @@ class Stat extends Component {
     return (
       <div className='stat'>
         <div className='stat__graph'>
-          GRAph
+          <StatGraph />
         </div>
         <div className='stat__action'>
-          ACTION
+          SELECT
         </div>
       </div>
     )
