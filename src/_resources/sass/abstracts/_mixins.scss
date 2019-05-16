@@ -23,10 +23,10 @@
   font-size: $font-body-size;
 }
 
-@mixin font-error {
+@mixin font-sub-input {
   @extend %font;
   word-spacing: 0rem;
-  font-size: $font-error-size;
+  font-size: $font-sub-input-size;
 }
 
 // COLOR

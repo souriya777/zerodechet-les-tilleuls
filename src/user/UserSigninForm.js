@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as Yup from 'yup'
+import { Link } from 'react-router-dom'
 
+import ROUTES from '../app/routes'
 import FormikWrapper from '../utils/FormikWrapper'
 import { handleSigninWithEmailAndPwd } from './userActions'
 
@@ -12,11 +14,18 @@ class UserSigninForm extends Component {
   } 
 
   render () {
+    const SubLink = 
+      <Link
+        className='link link--active' 
+        to={ROUTES.resetPwd}
+      >Mot de passe oublié</Link>
+
     return (
       <FormikWrapper
         fieldNameList={['email', 'pwd']}
-        fieldPlaceholderList={['Mon Email', 'Mon mot de passe']}
         fieldTypeList={['text', 'password']}
+        fieldPlaceholderList={['Mon Email', 'Mon mot de passe']}
+        fieldSubList={[undefined, SubLink]}
         formSchema={FormSchema}
         onSubmit={this.handleSubmit}
       />

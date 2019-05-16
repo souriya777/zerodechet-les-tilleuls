@@ -53,13 +53,16 @@
     transform: translateY(1rem);
   }
 
-  // ERROR
-  &__error {
-    @include font-error;
+  // SUB INPUT
+  &__sub {
+    @include font-sub-input;
     height: 1.6rem;
-    color: $color-error;
     text-align: right;
+    color: inherit;
   }
+
+  // ERROR
+  &__error { color: $color-error; }
 
   &--invalid { border-color: $color-error; }
 

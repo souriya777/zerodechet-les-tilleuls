@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field } from 'formik'
 
-const SmartInput = ({ type, name, placeholder, errorMsg}) => {
+const SmartInput = ({ type, name, placeholder, errorMsg, sub}) => {
   const invalid = errorMsg !== undefined
     ? 'input--invalid'
     : ''
@@ -20,9 +20,14 @@ const SmartInput = ({ type, name, placeholder, errorMsg}) => {
         <label className='input__label'>{placeholder}</label>
       </div>
 
-      <div className='input__error'>
+      <div className='input__sub input__error'>
         {errorMsg}
       </div>
+
+      {sub !== undefined
+        ? <div className='input__sub'>{sub}</div>
+        : ''
+      }
     </>
   )
 }
