@@ -21,7 +21,8 @@ class ControlTower extends Component {
     this.listener = userAPI.onAuthStateChanged(this.persistUser)
   }
 
-  persistUser = user => {
+  persistUser = userFull => {
+    const user = userAPI.filterUser(userFull)
     this.setState({ user })
     LocalStorage.set(USER_KEY, user)
 

@@ -16,23 +16,18 @@ import ControlTower from './ControlTower';
 // const Nav = React.lazy(() => import('../common-ui/Nav'))
 
 /*
-TODAY
+TODO
 - popup
-- message d'erreur
-- fake user
-- transparency button déconnecter
+- message d'erreur connexion
 - write weight
 - read weight
 - USER-link->signin & data???
-*/
 
-// TODO 80/20
-// erreur connexion affiché
-// todo loading
+// todo loading (surtout pour les fake data...)
 // réduire épaisseur
 // material-ui pkg perf....
 // combine PrivateRoute & ControlTower
-
+*/
 class App extends Component {
   render() {
     return (

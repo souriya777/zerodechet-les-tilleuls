@@ -1,3 +1,15 @@
 .profile {
   @include common-content;
+
+  &__goal,
+  &__members,
+  &__load-data,
+  &__signout { @include space-top; }
+
+  &__id {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // justify-content: center;
+  }
 }

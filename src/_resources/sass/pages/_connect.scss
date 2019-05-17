@@ -16,13 +16,8 @@
     }
   }
 
-  &__form {
-    @include space-top;
-  }
-
-  &__hr {
-    @include space-top;
-  }
+  &__form,
+  &__hr { @include space-top; }
 
   &__social {
     @include space-top;

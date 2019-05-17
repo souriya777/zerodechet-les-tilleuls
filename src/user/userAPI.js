@@ -59,16 +59,23 @@ USER_API.resetPwd = async (email) => {
   return await resetPwd(email)
 }
 
-const convertUser = userDB => {
-  const user = userDB.user
+// FIXME
+USER_API.filterUser = user => {
+  console.log(user)
   
-  return {
-    uid: user.uid,
-    email: user.email,
-    name: user.displayName,
-    photo: user.photoURL
-  }
+  // return {
+  //   uid: user.uid,
+  //   email: user.email,
+  //   name: user.displayName,
+  //   photo: user.photoURL,
+  //   goal: user.goal,
+  //   home: user.home,
+  //   events: user.events
+  // }
+  return user
 }
+
+const convertUser = userDB => USER_API.filter(userDB.user)
 
 const displayName = (firstName, lastName) => {
   return firstName + ' ' + lastName

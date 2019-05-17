@@ -78,6 +78,12 @@
   border-radius: 45%;
 }
 
+@mixin photo-portrait {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+}
+
 
 // Z-INDEX
 @mixin ultra-top-priority-index { z-index: 3; }

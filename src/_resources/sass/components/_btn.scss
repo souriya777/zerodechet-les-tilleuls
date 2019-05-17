@@ -13,12 +13,16 @@
 
   cursor: pointer;
 
-  &--fake {
-    cursor: pointer;
+  &--transparent {
+    opacity: .6;
   }
 
   &:disabled {
     background-color: $color-accent-light;
     border-color: $color-accent-light;
   }
+}
+
+.btn-fake {
+  cursor: pointer;
 }

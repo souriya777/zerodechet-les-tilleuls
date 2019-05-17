@@ -2,22 +2,13 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 import userAPI from '../user/userAPI'
 import { addError } from '../utils/ErrorActions'
 
-export const FETCH_USER = 'FETCH_USER'
-export const GET_USER = 'GET_USER'
 export const SET_USER = 'SET_USER'
 export const SIGNOUT = 'SIGNOUT'
 
-const getUser = user => {
+const setUser = user => {
   return {
-    type: GET_USER,
+    type: SET_USER,
     user
-  }
-}
-
-const removeUser = user => {
-  return {
-    type: GET_USER,
-    user: null
   }
 }
 
@@ -29,6 +20,12 @@ const signout = () => {
   return {
     type: SIGNOUT
   }
+}
+
+// FIXME export
+const completeUser = async user => {
+  const profile = await fetchProfile(user.email)
+  return Object.assign({}, user, profile)
 }
 
 const handleSignIn = (type, login, pwd) => {
@@ -52,10 +49,8 @@ const handleSignIn = (type, login, pwd) => {
           user = await userAPI.signinUser(login, pwd)
       } 
 
-      const profile = await fetchProfile(user.email)
-      const newUser = Object.assign({}, user, profile)
-
-      dispatch(getUser(newUser))
+      const userFull = await completeUser(user)
+      dispatch(setUser(userFull))
 
     } catch (error) {
       dispatch(addError(error))
@@ -87,7 +82,7 @@ export const handleSignup = (firstName, lastName, login, pwd) => {
     try {
       let user = await userAPI.signupUser(login, pwd)
       user = await userAPI.updateProfile(firstName, lastName)
-      dispatch(getUser(user))
+      dispatch(setUser(user))
     } catch (error) {
       dispatch(addError(error.message))
     } finally {
@@ -101,7 +96,7 @@ export const handleSignout = () => {
     dispatch(showLoading())
     await userAPI.signout()
     dispatch(signout())
-    dispatch(removeUser())
+    dispatch(setUser(null))
     dispatch(hideLoading())
   }
 }
@@ -117,7 +112,9 @@ export const handleResetPwd = email => {
 export const handleUpdateUser = user => {
   return async (dispatch) => {
     try {
-      dispatch(getUser(user))
+      const userFull = await completeUser(user)
+      console.log('userFull', userFull);
+      dispatch(setUser(userFull))
     } catch (error) {
       dispatch(addError(error.message))
     } finally {
