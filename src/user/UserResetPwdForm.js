@@ -18,7 +18,7 @@ class ResetPwdForm extends Component {
       <Link
         className='link link--active' 
         to={ROUTES.signin}
-      >OU se connecter</Link>
+      >&#8627; se connecter</Link>
     return (
       <FormikWrapper
         fieldNameList={['email']}

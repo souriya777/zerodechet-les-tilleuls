@@ -2,7 +2,6 @@ import React from 'react'
 import { Route, withRouter } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
-import PrivateRoute from '../app/PrivateRoute'
 // import withLightMode from '../utils/withLightMode'
 
 import UserConnect from '../user/UserConnect'
@@ -49,13 +48,13 @@ const Content = ({location}) => {
         <Route path={ROUTES.signin} component={UserConnect} />
         <Route path={ROUTES.signup} component={UserConnect} />
         <Route path={ROUTES.resetPwd} component={UserResetPwd} />
-        {/* FIXME TEMP */}
-        {/* <PrivateRoute path={ROUTES.stat} component={Stat} /> */}
+        <Route exact path={ROUTES.landing} component={UserConnect} />
+
+        <Route path={ROUTES.stat} component={Stat} />
         <Route path={ROUTES.weight} component={Weight} />
         <Route path={ROUTES.stat} component={Stat} />
         <Route path={ROUTES.profile} component={UserProfile} />
         <Route path={ROUTES.rdv} component={RDV} />
-        <Route exact path={ROUTES.landing} component={UserConnect} />
       </main>
     </>
   )

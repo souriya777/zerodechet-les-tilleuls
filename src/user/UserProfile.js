@@ -13,7 +13,7 @@ class UserProfile extends Component {
     return (
       <div className='profile'>
         STAT graph + NAV
-        <button className='btn' type="submit" onSubmit={this.handleSignout}>
+        <button className='btn' type="submit" onClick={this.handleSignout}>
           se déconnecter
         </button>
       </div>

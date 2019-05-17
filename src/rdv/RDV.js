@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { handleSignout } from '../user/userActions'
 
 // import TimePicker from 'react-gradient-timepicker'
-import {DateFormatInput, TimeFormatInput} from 'material-ui-next-pickers'
+// import {DateFormatInput, TimeFormatInput} from 'material-ui-next-pickers'
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField'
 
@@ -41,8 +41,8 @@ class RDV extends Component {
     return (
       <div className='rdv'>
         RDV
-        <DateFormatInput name='date-input' value={date} onChange={this.onChangeDate}/>
-        <TimeFormatInput name='time-input' value={time} onChange={this.onChangeTime}/>
+        {/* <DateFormatInput name='date-input' value={date} onChange={this.onChangeDate}/>
+        <TimeFormatInput name='time-input' value={time} onChange={this.onChangeTime}/> */}
         <TextField
           id="datetime-local"
           label="Next appointment"

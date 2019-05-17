@@ -29,6 +29,10 @@
       transition: 
         transform .8s cubic-bezier(0.86, 0, 0.07, 1);
     }
+
+    &--backgnd {
+      @include backgnd-index;
+    }
   }
 
   &__close {

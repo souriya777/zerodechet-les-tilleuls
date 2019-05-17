@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { handleSignout } from '../user/userActions'
+import { handleAddWeight } from './WeightActions'
 import WeightForm from './WeightForm';
 
 class Weight extends Component {
 
-  handleSignout = () => {
-    this.props.dispatch(handleSignout())
-  }
+  handleSubmit = ({nbPers, nbDays, totalWeight, date, type}) => {
+    this.props.dispatch(handleAddWeight(nbPers, nbDays, totalWeight, date, type))
+  } 
 
   render() {
     return (

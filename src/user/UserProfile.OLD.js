@@ -6,7 +6,7 @@ import { handleLoadData } from '../utils/sharedActions'
 import Button from '../common-ui/Button'
 import MemberList from './MemberList'
 
-class UserProfile extends Component {
+class UserProfileOLD extends Component {
 
   handleSignout = () => {
     this.props.dispatch(handleSignout())
@@ -63,4 +63,4 @@ class UserProfile extends Component {
 
 const mapStateToProps = state => ({user: state.user})
 
-export default connect(mapStateToProps)(UserProfile)
+export default connect(mapStateToProps)(UserProfileOLD)

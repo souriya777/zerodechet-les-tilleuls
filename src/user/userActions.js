@@ -2,7 +2,9 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 import userAPI from '../user/userAPI'
 import { addError } from '../utils/ErrorActions'
 
+export const FETCH_USER = 'FETCH_USER'
 export const GET_USER = 'GET_USER'
+export const SET_USER = 'SET_USER'
 export const SIGNOUT = 'SIGNOUT'
 
 const getUser = user => {
@@ -56,7 +58,7 @@ const handleSignIn = (type, login, pwd) => {
       dispatch(getUser(newUser))
 
     } catch (error) {
-      dispatch(addError(error.message))
+      dispatch(addError(error))
     } finally {
       // dispatch(hideLoading())
     }
@@ -79,14 +81,12 @@ export const handleSigninWithTwitter = () => {
   return handleSignIn ('twitter')
 }
 
-
 export const handleSignup = (firstName, lastName, login, pwd) => {
   return async (dispatch) => {
     dispatch(showLoading())
     try {
       let user = await userAPI.signupUser(login, pwd)
       user = await userAPI.updateProfile(firstName, lastName)
-      console.log(user);
       dispatch(getUser(user))
     } catch (error) {
       dispatch(addError(error.message))
@@ -111,5 +111,17 @@ export const handleResetPwd = email => {
     dispatch(showLoading())
     await userAPI.resetPwd(email)
     dispatch(hideLoading())
+  }
+}
+
+export const handleUpdateUser = user => {
+  return async (dispatch) => {
+    try {
+      dispatch(getUser(user))
+    } catch (error) {
+      dispatch(addError(error.message))
+    } finally {
+      dispatch(hideLoading())
+    }
   }
 }

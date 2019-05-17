@@ -21,6 +21,8 @@ export const updateProfile = name => {
   return Firebase.auth.currentUser
 }
 
+export const onAuthStateChanged = callbackFn => Firebase.auth.onAuthStateChanged(callbackFn)
+
 export const getUser = async email => {
   let result = undefined
 

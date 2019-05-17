@@ -5,6 +5,7 @@ import {
   signinWithTwitter,
   signup,
   signout,
+  onAuthStateChanged,
   getUser,
   updateProfile,
   resetPwd
@@ -21,6 +22,10 @@ USER_API.signinUser = async (login, pwd) => {
 USER_API.signinWithGoogle = async () => {
   const user = await signinWithGoogle()
   return convertUser(user)
+}
+
+USER_API.onAuthStateChanged = callbackFn => {
+  return onAuthStateChanged(callbackFn)
 }
 
 USER_API.signinWithFacebook = async () => {
