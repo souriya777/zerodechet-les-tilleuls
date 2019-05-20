@@ -24,21 +24,19 @@ const handleSignIn = (type, login, pwd) => {
     // dispatch(showLoading())
 
     try {
-      
       switch (type) {
         case 'google' :
-          userAPI.signinWithGoogle()
+          await userAPI.signinWithGoogle()
           break
         case 'facebook':
-          userAPI.signinWithFacebook()
+          await userAPI.signinWithFacebook()
           break
         case 'twitter':
-          userAPI.signinWithTwitter()
+          await userAPI.signinWithTwitter()
           break
         default:
-          userAPI.signinWithLoginAndPwd(login, pwd)
+          await userAPI.signinWithLoginAndPwd(login, pwd)
       } 
-
     } catch (e) {
       dispatch(addError(e.message))
     } finally {
@@ -67,7 +65,7 @@ export const handleSignup = (firstName, lastName, login, pwd) => {
   return async (dispatch) => {
     dispatch(showLoading())
     try {
-      userAPI.signup(login, pwd, firstName, lastName)
+      await userAPI.signup(login, pwd, firstName, lastName)
     } catch (error) {
       dispatch(addError(error.message))
     } finally {

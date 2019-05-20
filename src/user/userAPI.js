@@ -62,22 +62,22 @@ const displayName = (firstName, lastName) => {
   return firstName + ' ' + lastName
 }
 
-const signin = (type, login, pwd) => {
+const signin = async (type, login, pwd) => {
   let user
 
   try {
     switch (type) {
       case 'google':
-        UserFirebase.signinWithGoogle()
+        await UserFirebase.signinWithGoogle()
         break;
       case 'facebook':
-        UserFirebase.signinWithFacebook()
+        await UserFirebase.signinWithFacebook()
         break;
       case 'twitter':
-        UserFirebase.signinWithTwitter()
+        await UserFirebase.signinWithTwitter()
         break;
       default:
-        UserFirebase.signin(login, pwd)
+        await UserFirebase.signin(login, pwd)
     }
   } catch (error) {
     const errorMsg = SIGNIN__ERROR_CODES[error.code]

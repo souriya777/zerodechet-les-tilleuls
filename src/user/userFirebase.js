@@ -1,8 +1,7 @@
 import Firebase, { USERS_REF }  from '../app/firebase'
 
 class UserFirebase {
-  signin = (email, pwd) =>
-    Firebase.auth.signInWithEmailAndPassword(email, pwd)
+  signin = async (email, pwd) => Firebase.auth.signInWithEmailAndPassword(email, pwd)
   
   signinWithGoogle = () => Firebase.auth.signInWithPopup(Firebase.googleProvider)
   
@@ -40,7 +39,7 @@ class UserFirebase {
     
   updateExtraInfo = info => {
     const user = Firebase.auth.currentUser
-    
+
     Firebase.db.collection(USERS_REF).doc(user.uid).set(
       Object.assign({}, { uid: user.uid }, info)
     )
