@@ -1,4 +1,4 @@
-import { SET_ERROR } from './ErrorActions'
+import { SET_ERROR, REMOVE_ERROR } from './ErrorActions'
 import { SIGNOUT } from '../user/userActions'
 
 export default function errors (state = {}, action) {
@@ -7,6 +7,7 @@ export default function errors (state = {}, action) {
       return {
         errorMsg: action.error
       }
+    case REMOVE_ERROR:
     case SIGNOUT:
       return null
     default:

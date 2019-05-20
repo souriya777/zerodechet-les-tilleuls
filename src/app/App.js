@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom'
 
 import '../_resources/sass/main.scss'
-import { setError } from '../utils/ErrorActions'
+import { removeError } from '../utils/ErrorActions'
 
 import Loading from '../info/Loading'
 import Screen from '../common-ui/Screen'
@@ -30,8 +30,7 @@ TODO
 class App extends Component {
 
   handleClosePopup = () => {
-    console.log('handleClosePopup')
-    this.props.dispatch(setError())
+    this.props.dispatch(removeError())
   }
 
   render() {
@@ -51,7 +50,7 @@ class App extends Component {
             <Nav />
           </nav>
 
-          {errorMsg ?
+          { errorMsg ?
             <Popup
               title='Oups...'
               onClose={this.handleClosePopup}
@@ -69,6 +68,14 @@ class App extends Component {
 }
 
 
-const mapStateToProps = state => ({ errorMsg: state.error.errorMsg })
+const mapStateToProps = state => {
+  const errorMsg = state.error && state.error.errorMsg 
+    ? state.error.errorMsg
+    : null
+
+  return { 
+    errorMsg: errorMsg
+  }
+}
 
 export default connect(mapStateToProps)(App)

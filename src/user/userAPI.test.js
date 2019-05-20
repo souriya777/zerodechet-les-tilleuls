@@ -26,8 +26,8 @@ describe(`signinWithLoginAndPwd`, () => {
 
 describe(`signup`, () => {
 
-  it(`throw SignupException('Il y a déjà un compte existant pour l'email saisi.')`, async() => {
-    await expect(userAPI.signup(ALREADY_EXIST_EMAIL, VALID_PWD , VALID_FIRSTNAME, VALID_LASTNAME)).rejects.toEqual(new SignupException(`Il y a déjà un compte existant pour l'email saisi.`));
+  it(`throw SignupException('L'email est associé à un compte existant.')`, async() => {
+    await expect(userAPI.signup(ALREADY_EXIST_EMAIL, VALID_PWD , VALID_FIRSTNAME, VALID_LASTNAME)).rejects.toEqual(new SignupException(`L'email est associé à un compte existant.`));
   })
 
 })

@@ -30,14 +30,7 @@ class UserApi {
       throw new SignupException(errorMsg)
     }
 
-    const extraInfo = this.generateExtraInfo(firstName, lastName)
-    
-    await UserFirebase.updateExtraInfo(extraInfo)
-  }
-
-  generateExtraInfo = (firstName, lastName) => {
-    const name = displayName(firstName, lastName)
-    return Object.assign({}, { name }, DEFAULT_EXTRA_INFO)
+    await UserFirebase.generateExtraInfo(firstName + ' ' + lastName)
   }
 
   onAuthStateChanged = (callbackFn, callbackFn2) => {
@@ -55,40 +48,24 @@ class UserApi {
 
 export default new UserApi()
 
-
 /////// PRIVATE METHODS
-
-const displayName = (firstName, lastName) => {
-  return firstName + ' ' + lastName
-}
-
 const signin = async (type, login, pwd) => {
-  let user
-
   try {
     switch (type) {
       case 'google':
-        await UserFirebase.signinWithGoogle()
+        UserFirebase.signinWithGoogle()
         break;
       case 'facebook':
-        await UserFirebase.signinWithFacebook()
+        UserFirebase.signinWithFacebook()
         break;
       case 'twitter':
-        await UserFirebase.signinWithTwitter()
+        UserFirebase.signinWithTwitter()
         break;
       default:
-        await UserFirebase.signin(login, pwd)
+        UserFirebase.signin(login, pwd)
     }
   } catch (error) {
     const errorMsg = SIGNIN__ERROR_CODES[error.code]
     throw new SigninException(errorMsg)
   }
-
-  return user
-}
-
-const DEFAULT_EXTRA_INFO = {
-  goal: null,
-  home: null,
-  events: null,
 }

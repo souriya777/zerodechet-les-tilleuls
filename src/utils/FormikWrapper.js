@@ -48,7 +48,7 @@ class FormikWrapper extends Component {
           validateOnBlur={userHasValidateOnce}
           onSubmit={(values, { setSubmitting }) => {
             onSubmit(values)
-            setSubmitting(true)
+            setSubmitting(false)
           }}
         >
           {({ isSubmitting, errors }) => (

@@ -11,10 +11,12 @@
     @include photo-portrait;
     display: flex;
     justify-content: center;
-    border: $border-aspect $color-primary-text;
+    align-items: center;
+    border: $border-aspect $color-grey;
+    background-color: $color-grey;
     
     & > svg {
-      fill: inherit;
+      fill: $color-secondary-text;
     }
   }
 }
