@@ -21,12 +21,10 @@ TODO
 - message d'erreur connexion
 - write weight
 - read weight
-- USER-link->signin & data???
+- test creation direct compte Google...
 
-// todo loading (surtout pour les fake data...)
 // réduire épaisseur
 // material-ui pkg perf....
-// combine PrivateRoute & ControlTower
 */
 class App extends Component {
   render() {

@@ -1,4 +1,5 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
+
 import userAPI from '../user/userAPI'
 import { addError } from '../utils/ErrorActions'
 
@@ -12,48 +13,34 @@ const setUser = user => {
   }
 }
 
-const fetchProfile = async(email) => {
-  return await userAPI.fetchProfile(email)
-}
-
 const signout = () => {
   return {
     type: SIGNOUT
   }
 }
 
-// FIXME export
-const completeUser = async user => {
-  const profile = await fetchProfile(user.email)
-  return Object.assign({}, user, profile)
-}
-
 const handleSignIn = (type, login, pwd) => {
   return async (dispatch) => {
     // dispatch(showLoading())
-    let user
 
     try {
       
       switch (type) {
         case 'google' :
-          user = await userAPI.signinWithGoogle()
+          userAPI.signinWithGoogle()
           break
         case 'facebook':
-          user = await userAPI.signinWithFacebook()
+          userAPI.signinWithFacebook()
           break
         case 'twitter':
-          user = await userAPI.signinWithTwitter()
+          userAPI.signinWithTwitter()
           break
         default:
-          user = await userAPI.signinUser(login, pwd)
+          userAPI.signinWithLoginAndPwd(login, pwd)
       } 
 
-      const userFull = await completeUser(user)
-      dispatch(setUser(userFull))
-
-    } catch (error) {
-      dispatch(addError(error))
+    } catch (e) {
+      dispatch(addError(e.message))
     } finally {
       // dispatch(hideLoading())
     }
@@ -80,9 +67,7 @@ export const handleSignup = (firstName, lastName, login, pwd) => {
   return async (dispatch) => {
     dispatch(showLoading())
     try {
-      let user = await userAPI.signupUser(login, pwd)
-      user = await userAPI.updateProfile(firstName, lastName)
-      dispatch(setUser(user))
+      userAPI.signup(login, pwd, firstName, lastName)
     } catch (error) {
       dispatch(addError(error.message))
     } finally {
@@ -112,9 +97,7 @@ export const handleResetPwd = email => {
 export const handleUpdateUser = user => {
   return async (dispatch) => {
     try {
-      const userFull = await completeUser(user)
-      console.log('userFull', userFull);
-      dispatch(setUser(userFull))
+      dispatch(setUser(user))
     } catch (error) {
       dispatch(addError(error.message))
     } finally {

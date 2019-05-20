@@ -51,7 +51,7 @@ const deleteDocs = async (docs, ref) => {
   })
 }
 
-const populate = async(json, ref) => {
+const populate = async (json, ref) => {
   console.log('WRITING...', ref, json)
   json.forEach(o => {
     Firebase.db.collection(ref).add(o)

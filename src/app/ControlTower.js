@@ -18,16 +18,20 @@ class ControlTower extends Component {
   }
 
   componentDidMount() {
-    this.listener = userAPI.onAuthStateChanged(this.persistUser)
+    this.listener = userAPI.onAuthStateChanged(this.persistUser, this.removeUser)
   }
 
-  persistUser = userFull => {
-    const user = userAPI.filterUser(userFull)
+  persistUser = user => {
     this.setState({ user })
     LocalStorage.set(USER_KEY, user)
 
     // sharing "user" with the rest of the world...
     this.props.dispatch(handleUpdateUser(user))
+  }
+
+  removeUser = () => {
+    this.setState({ user: null })
+    LocalStorage.remove(USER_KEY)
   }
 
   render() {
