@@ -1,9 +1,9 @@
-import { ADD_ERROR } from './ErrorActions'
+import { SET_ERROR } from './ErrorActions'
 import { SIGNOUT } from '../user/userActions'
 
 export default function errors (state = {}, action) {
   switch (action.type) {
-    case ADD_ERROR:
+    case SET_ERROR:
       return {
         errorMsg: action.error
       }

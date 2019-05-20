@@ -1,7 +1,7 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 import userAPI from '../user/userAPI'
-import { addError } from '../utils/ErrorActions'
+import { setError } from '../utils/ErrorActions'
 
 export const SET_USER = 'SET_USER'
 export const SIGNOUT = 'SIGNOUT'
@@ -38,7 +38,7 @@ const handleSignIn = (type, login, pwd) => {
           await userAPI.signinWithLoginAndPwd(login, pwd)
       } 
     } catch (e) {
-      dispatch(addError(e.message))
+      dispatch(setError(e.message))
     } finally {
       // dispatch(hideLoading())
     }
@@ -67,7 +67,7 @@ export const handleSignup = (firstName, lastName, login, pwd) => {
     try {
       await userAPI.signup(login, pwd, firstName, lastName)
     } catch (error) {
-      dispatch(addError(error.message))
+      dispatch(setError(error.message))
     } finally {
       dispatch(hideLoading())
     }
@@ -97,7 +97,7 @@ export const handleUpdateUser = user => {
     try {
       dispatch(setUser(user))
     } catch (error) {
-      dispatch(addError(error.message))
+      dispatch(setError(error.message))
     } finally {
       dispatch(hideLoading())
     }

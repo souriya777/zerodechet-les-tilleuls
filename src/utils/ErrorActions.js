@@ -1,8 +1,8 @@
-export const ADD_ERROR = 'ADD_ERROR'
+export const SET_ERROR = 'SET_ERROR'
 
-export const addError = (msg) => {
+export const setError = (msg) => {
   return {
-    type: ADD_ERROR,
+    type: SET_ERROR,
     error: msg
   }
 }

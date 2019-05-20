@@ -3,6 +3,7 @@
   font-family: $font-primary;
   word-spacing: .1rem;
 }
+
 @mixin font-title {
   @extend %font;
   font-weight: 700;
@@ -13,6 +14,10 @@
   @include font-title;
   font-size: $font-title-size;
   text-transform: uppercase;
+}
+
+@mixin font-title--popup {
+  font-size: $font-title-popup-size;
 }
 
 @mixin font-body {

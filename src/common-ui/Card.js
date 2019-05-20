@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Card = (props) => <div className='card'>{props.children}</div>
+const Card = ({children}) => <div className='card'>{children}</div>
 
 export default Card;

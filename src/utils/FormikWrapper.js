@@ -9,7 +9,7 @@ class FormikWrapper extends Component {
     userHasValidateOnce: false
   }
 
-  handlerClickSubmit = () => {
+  handleClickSubmit = () => {
     this.setState({userHasValidateOnce: true})
   }
 
@@ -68,7 +68,7 @@ class FormikWrapper extends Component {
                   className='btn' 
                   type="submit" 
                   disabled={isSubmitting}
-                  onClick={this.handlerClickSubmit}
+                  onClick={this.handleClickSubmit}
                 >
                   valider
                 </button>
