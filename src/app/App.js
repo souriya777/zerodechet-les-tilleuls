@@ -11,8 +11,8 @@ import Loading from '../info/Loading'
 import Screen from '../common-ui/Screen'
 import Content from '../common-ui/Content'
 import Nav from '../common-ui/Nav'
-import ControlTower from './ControlTower';
-import Popup from '../common-ui/Popup';
+import ControlTower from './ControlTower'
+import Popup from '../common-ui/Popup'
 
 // lazy loading (/!\ BE CAREFUL FOR CSS TRANSITION... /!\)
 // const Screen = React.lazy(() => import('../common-ui/Screen'))
@@ -23,6 +23,7 @@ TODO
 - write weight
 - read weight
 - test creation direct compte Google...
+- refresh after load data
 
 // réduire épaisseur
 // material-ui pkg perf....

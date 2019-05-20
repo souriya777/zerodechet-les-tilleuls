@@ -8,6 +8,8 @@ import { isLogged } from '../utils/user-utils'
 // FIXME conflict with ControlTower???
 export function PrivateRoute ({ component: Component, ...rest}) {
   const { user } = rest
+  console.log(user)
+  
 
   return (
     <Route {...rest} render={(props) => (
@@ -19,6 +21,6 @@ export function PrivateRoute ({ component: Component, ...rest}) {
   )
 }
 
-const mapStateToProps = ({ user }) => ({ user })
+const mapStateToProps = state => ({ user: state.user })
 
 export default connect(mapStateToProps)(PrivateRoute)

@@ -4,8 +4,10 @@ import { connect } from 'react-redux'
 import { handleSignout } from '../user/userActions'
 import { handleLoadData } from '../utils/sharedActions'
 import { isLogged } from '../utils/user-utils'
+import { padWeight } from '../utils/string-utils'
 
 import UserPhoto from './UserPhoto'
+import UserMemberList from './UserMemberList';
 
 class UserProfile extends Component {
 
@@ -14,13 +16,17 @@ class UserProfile extends Component {
   }
 
   handleLoadFakeData = () => {
-    this.props.dispatch(handleLoadData())
+    const { user } = this.props
+    const uid = user.uid
+    this.props.dispatch(handleLoadData(uid))
   }
 
   render() {
     const { user } = this.props
     const photo = isLogged(user) ? user.photo : undefined
     const name = isLogged(user) ? user.name : undefined
+    const memberList = isLogged(user) ? user.home : undefined
+    const goal = isLogged(user) ? `${padWeight(user.goal)}kg/hab/jr` : `Vous n'avez pas encore défini d'object.`
 
     return (
       <div className='profile'>
@@ -31,11 +37,21 @@ class UserProfile extends Component {
         </div>
 
         <div className='profile__goal'>
-          OBJECTIF 0.235kg/hab/jr
+          <div className='profile__title'>
+            OBJECTIF :
+          </div>
+          <div className='profile__body'>
+            {goal}
+          </div>
         </div>
 
         <div className='profile__members'>
-          MEMBERS LIST
+          <div className='profile__title'>
+            MEMBRES DE VOTRE FOYER :
+          </div>
+          <div className='profile__body'>
+            <UserMemberList items={memberList} />
+          </div>
         </div>
 
         <div className='profile__load-data'>

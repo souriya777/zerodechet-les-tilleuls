@@ -3,18 +3,19 @@ import { Route, withRouter } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
 // import withLightMode from '../utils/withLightMode'
+import CustomRoute from '../app/CustomRoute'
 
 import UserConnect from '../user/UserConnect'
 import UserResetPwd from '../user/UserResetPwd'
 import Tuto from '../info/Tuto'
 import Stat from '../stat/Stat'
 import Header from './Header'
-import Weight from '../weight/Weight';
-import UserProfile from '../user/UserProfile';
-import RDV from '../rdv/RDV';
+import Weight from '../weight/Weight'
+import UserProfile from '../user/UserProfile'
+import RDV from '../rdv/RDV'
 
-const Content = ({location}) => { 
-  // FIXME replace with HOC ? (how to compose it according to "withRouter"...)
+const Content = ({ location }) => { 
+  // FIXME replace with HOC ? (how to compose it according to 'withRouter'...)
   const { pathname } = location
   let lightMode = ''
   if (
@@ -35,12 +36,18 @@ const Content = ({location}) => {
           ROUTES.signin, 
           ROUTES.signup,
           ROUTES.resetPwd,
-          ROUTES.stat,
-          ROUTES.weight,
-          ROUTES.profile,
-          ROUTES.rdv
         ]} 
         component={Header} 
+      />
+      <CustomRoute 
+        path={[
+          ROUTES.stat, 
+          ROUTES.weight,
+          ROUTES.profile,
+          ROUTES.rdv,
+        ]} 
+        component={Header} 
+        smallMode={true}
       />
       
       <main className={`content ${lightMode}`}>

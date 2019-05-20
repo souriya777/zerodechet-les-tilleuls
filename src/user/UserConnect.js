@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { 
-  Route,
-} from 'react-router-dom';
 
 import ROUTES from '../app/routes'
 import SmartLink from '../common-ui/SmartLink'

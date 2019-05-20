@@ -32,26 +32,6 @@ describe(`signup`, () => {
 
 })
 
-describe(`generateExtraInfo`, () => {
-
-  it(`return {
-    name: 'Souriya Phongsavanh',
-    goal: null,
-    home: null,
-    events: null,
-  } for inputs : Souriya Phongsavanh`, () => {
-    const info = userAPI.generateExtraInfo(VALID_FIRSTNAME, VALID_LASTNAME)
-    
-    expect(info).toEqual({
-      name: 'Souriya Phongsavanh',
-      goal: null,
-      home: null,
-      events: null,
-    });
-  })
-
-})
-
 describe(`onAuthStateChanged`, () => {
 
   it(`call callbackFn`, async() => {

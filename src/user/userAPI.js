@@ -62,7 +62,7 @@ const signin = async (type, login, pwd) => {
         UserFirebase.signinWithTwitter()
         break;
       default:
-        UserFirebase.signin(login, pwd)
+        await UserFirebase.signin(login, pwd)
     }
   } catch (error) {
     const errorMsg = SIGNIN__ERROR_CODES[error.code]

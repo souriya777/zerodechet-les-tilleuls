@@ -12,7 +12,7 @@
 
 @mixin font-title--slide {
   @include font-title;
-  font-size: $font-title-size;
+  font-size: $font-title-slide;
   text-transform: uppercase;
 }
 
@@ -53,7 +53,7 @@
 @mixin full-width { width: 100%; }
 
 // SPACE
-@mixin space-top { margin-top: 3rem; }
+@mixin space-top { margin-top: 2rem; }
 
 @mixin space-content { padding: 0 1rem; }
 

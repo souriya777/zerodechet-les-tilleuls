@@ -45,6 +45,7 @@ class UserFirebase {
 
   updateExtraInfo = (user, info) => { jest.fn() }
   
+  generateExtraInfo = name => jest.fn()
 
   getExtraInfo = async email => {
     return VALID_FIREBASE_EXTRA_INFO

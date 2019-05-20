@@ -1,15 +1,13 @@
 [
   {
-    "uid": "uebilBofedWTOu7ZCkNySkg8qxB3",
-    "email": "souriya59@gmail.com",
+    "uid": "%UID%",
     "goal": 0.250,
     "home": [
       {"id": 1, "name": "Somsack Phongsavanh"},
       {"id": 2, "name": "Somvilack Phongsavanh"},
       {"id": 3, "name": "Sourideth Phongsavanh"},
       {"id": 4, "name": "Soucksakhone Phongsavanh"},
-      {"id": 5, "name": "Souriya Phongsavanh"},
-      {"id": 6, "name": "Sourisack Phongsavanh"}
+      {"id": 5, "name": "Sourisack Phongsavanh"}
     ],
     "events": [
       "2i57wbPYh8wAb4srGvs4", "6typu1Dz5RgHjHZUpU8M", "8HueLRA98A94BPsxlarX"

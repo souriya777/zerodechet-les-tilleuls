@@ -5,15 +5,15 @@ import userJSON from '../utils/_DATA-USER.json'
 import eventJSON from '../utils/_DATA-EVENT.json'
 
 
-export const loadDataWeight = async() => loadData(WEIGHTS_REF, weightsJSON)
+export const loadDataWeight = async () => loadData(WEIGHTS_REF, weightsJSON)
 
-export const loadDataUser = async() => loadData(USERS_REF, userJSON)
+export const loadDataUser = async uid => loadData(USERS_REF, userJSON, uid)
 
-export const loadDataEvent = async() => loadData(EVENTS_REF, eventJSON)
+export const loadDataEvent = async () => loadData(EVENTS_REF, eventJSON)
 
 
-export const loadData = async (ref, json) => {
-  console.log(`-------LOAD ${ref.toUpperCase()} DATA----------`)
+export const loadData = async (ref, json, uid) => {
+  console.log(`-------LOAD ${ref.toUpperCase()} DATA for USER ${uid}----------`)
   console.group()
 
   // fetching all existing doc
@@ -23,7 +23,7 @@ export const loadData = async (ref, json) => {
   deleteDocs(DOC_IDS, ref)
 
   // populate
-  populate(json, ref)
+  populate(json, ref, uid)
   
   console.groupEnd()
 }
@@ -51,10 +51,16 @@ const deleteDocs = async (docs, ref) => {
   })
 }
 
-const populate = async (json, ref) => {
-  console.log('WRITING...', ref, json)
+const populate = async (json, ref, uid) => {
+  console.log('WRITING...', ref, json, uid)
   json.forEach(o => {
-    Firebase.db.collection(ref).add(o)
+    if (ref === USERS_REF) {
+      const newO = Object.assign({}, o, {uid: uid})
+      console.log('--------', uid, o, newO)
+      Firebase.db.collection(ref).doc(uid).set(newO)
+    } else {
+      Firebase.db.collection(ref).add(o)
+    }
     console.log('WRITE', o)
   })
 }

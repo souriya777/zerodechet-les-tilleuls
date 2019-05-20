@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
+import '../utils/ReactRouterHacking'
 import ROUTES from '../app/routes'
 import userAPI  from '../user/userAPI'
 import { isLogged } from '../utils/user-utils'

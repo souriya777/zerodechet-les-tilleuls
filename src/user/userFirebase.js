@@ -20,14 +20,16 @@ class UserFirebase {
     Firebase.auth.onAuthStateChanged(async user => {
       
       if (user) {
+        
         let extra = await this.getExtraInfo(user)
+        console.log('getExtraInfo', extra)
         if (! extra) {
+          console.log('generateExtraInfo', user)
           await this.generateExtraInfo(filter(user).name)
           extra = await this.getExtraInfo(user)
         }
         
         const userExtra = merge(filter(user), extra)
-
         callbackFn(userExtra)
       } else {
         callbackFn2()
@@ -38,6 +40,7 @@ class UserFirebase {
 
   getExtraInfo = async user => {
     const doc = await Firebase.db.collection(USERS_REF).doc(user.uid).get()
+    console.log(doc.data())
     return doc.data()
   }
     
