@@ -22,8 +22,6 @@ class StatGraph extends Component {
       <HighchartsChart>
         <Chart />
 
-        <Title>Stats de la semaine</Title>
-
         <Legend />
 
         <XAxis categories={['Pommes', 'Oranges', 'Poires', 'Bananes', 'Prunes']} />

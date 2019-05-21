@@ -57,11 +57,10 @@ const Content = ({ location }) => {
         <Route path={ROUTES.resetPwd} component={UserResetPwd} />
         <Route exact path={ROUTES.landing} component={UserConnect} />
 
-        <Route path={ROUTES.stat} component={Stat} />
         <Route path={ROUTES.weight} component={Weight} />
         <Route path={ROUTES.stat} component={Stat} />
-        <Route path={ROUTES.profile} component={UserProfile} />
         <Route path={ROUTES.rdv} component={RDV} />
+        <Route path={ROUTES.profile} component={UserProfile} />
       </main>
     </>
   )

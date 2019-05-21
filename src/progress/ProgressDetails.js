@@ -11,12 +11,12 @@ const ProgressDetails = (props) => {
   return (
     <div className='progress__details'>
       <div className='progress__left'>
-        <div className="progress__title">{d1.type}</div>
+        <h2 className="h2">{d1.type}</h2>
         <div className="progress__avg">{d1.avg}</div>
         <div className="progress__evo">{d1.evo}</div>
       </div>
       <div className='progress__right'>
-        <div className="progress__title">{d2.type}</div>
+        <h2 className="h2">{d2.type}</h2>
         <div className="progress__avg">{d2.avg}</div>
         <div className="progress__evo">{d2.evo}</div>
       </div>

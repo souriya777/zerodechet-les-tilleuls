@@ -37,18 +37,14 @@ class UserProfile extends Component {
         </div>
 
         <div className='profile__goal'>
-          <div className='profile__title'>
-            OBJECTIF :
-          </div>
+          <h2 className='h2'>OBJECTIF :</h2>
           <div className='profile__body'>
             {goal}
           </div>
         </div>
 
         <div className='profile__members'>
-          <div className='profile__title'>
-            MEMBRES DE VOTRE FOYER :
-          </div>
+          <h2 className='h2'>MEMBRES DE VOTRE FOYER :</h2>
           <div className='profile__body'>
             <UserMemberList items={memberList} />
           </div>

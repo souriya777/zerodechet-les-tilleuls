@@ -13,6 +13,7 @@ class Stat extends Component {
   render() {
     return (
       <div className='stat'>
+        <h1 className='h1'>Stats de la semaine</h1>
         <div className='stat__graph'>
           <StatGraph />
         </div>

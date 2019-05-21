@@ -10,8 +10,7 @@
     }
   
     &-item {
-      @include font-title;
-      text-transform: uppercase;
+      @include font-btn--choice;
       display: inline-block;
     }
   }

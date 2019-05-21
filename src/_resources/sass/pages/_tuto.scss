@@ -35,10 +35,6 @@ $linear-gradient: linear-gradient(
     width: 68vw;
   }
 
-  &__title {
-    @include font-title--slide;
-  }
-
   &__backgnd {
     height: 100%;
     width: auto;

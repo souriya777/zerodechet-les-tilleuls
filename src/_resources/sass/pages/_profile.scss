@@ -1,8 +1,6 @@
 .profile {
   @include common-content;
 
-  &__title { font-size: $font-title; }
-
   &__body { text-align: center; }
 
   &__goal,

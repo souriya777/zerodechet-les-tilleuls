@@ -13,7 +13,7 @@ class Weight extends Component {
   render() {
     return (
       <div className='weight'>
-        <h1 className='title'>La pesée</h1>
+        <h1 className='h1'>La pesée</h1>
         <div className='weight__form'>
           <WeightForm />
         </div>

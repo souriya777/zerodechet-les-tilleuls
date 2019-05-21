@@ -20,16 +20,37 @@
   font-size: $font-title-popup-size;
 }
 
+@mixin font-h1 { 
+  @extend %font;
+  color: $color-primary-text; 
+  font-size: $font-title;
+  text-align: center;
+}
+@mixin font-h2 { font-size: $font-title; }
+
 @mixin font-body {
   @extend %font;
   font-weight: 600;
   font-size: $font-body-size;
 }
 
+@mixin font-nav {
+  font-size: 2rem;
+}
+
 @mixin font-sub-input {
   @extend %font;
   word-spacing: 0rem;
   font-size: $font-sub-input-size;
+}
+
+@mixin font-btn {
+  @include font-title;
+}
+
+@mixin font-btn--choice {
+  @include font-btn;
+  text-transform: uppercase;
 }
 
 // COLOR
