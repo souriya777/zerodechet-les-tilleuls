@@ -4,7 +4,6 @@ import { Formik, Form } from 'formik';
 import IconCalendar from '../common-ui/icons/IconCalendar'
 import InputPretty from '../common-ui/InputPretty'
 import Options from '../common-ui/Options'
-import { PERIOD_LIST } from './ProgressHelper'
 
 const ProgressForm = (props) => (
   <Formik
@@ -18,7 +17,7 @@ const ProgressForm = (props) => (
           value={props.period}
           onChange={props.onChange}
           icon={<IconCalendar />}
-          options={<Options items={PERIOD_LIST} />}
+          options={<Options items={['toto']} />}
         />
       </Form>
     )}

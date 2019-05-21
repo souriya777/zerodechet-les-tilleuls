@@ -1,19 +1,59 @@
+
+
+.select__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: $color-primary-text;
+  width: 78%; // not terrible to "fix", but it's hard if I want to keep it simple...
+  margin: auto;
+}
+
 .select {
   @include font-action;
+  width: 100%;
 
   outline: none;
-  color: $color-primary-text;
   text-transform: uppercase;
-  // background-color: $color-accent;
-  border: $border-aspect $color-accent;
-  border-radius: .4rem;
+  background-color: inherit;
+  border: $border-aspect $color-grey;
   line-height: 3.5rem;
-  padding: 0 2rem;
-  // width: 100%;
+  border-right: 0;
+  padding: 0 2rem 0 1rem;
+  border-top-left-radius: $default-border-radius;
+  border-bottom-left-radius: $default-border-radius;
 
-  &::after {
-    content: 'a';
-    color: red;
-    background-color: yellow;
+  &:focus {
+    border-color: $color-accent;
+  }
+
+  &__icon {
+    border: $border-aspect $color-grey;
+    border-left: 0;
+    padding-right: 1rem;
+    border-top-right-radius: $default-border-radius;
+    border-bottom-right-radius: $default-border-radius;
+
+    & > svg { fill: $color-grey; }
+  }
+
+  &:focus + &__icon > svg,
+  &__icon:focus > svg {
+    fill: $color-accent;
+    transform: rotate(180deg) translateY(-5px);
+    transition: transform .15s cubic-bezier(.4,0,.2,1);
+  }
+
+  &__placeholder {
+    background-color: $color-primary;
+    position: absolute;
+    top: -1rem;
+    left: 1.5rem;
+    padding: 0 .4rem;
+  }
+
+  &:focus ~ &__placeholder,
+  &__icon:focus + &__placeholder {
+    color: $color-accent;
   }
 }

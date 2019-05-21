@@ -5,15 +5,13 @@ import ProgressChart from './ProgressChart'
 import ProgressForm from './ProgressForm'
 import ProgressEmpty from './ProgressEmpty'
 import { handleLoadProgress } from './progressActions'
-import { DEFAULT_PERIOD } from './ProgressHelper'
-import {  PROGRESS_CHART_LINE_OPTIONS, PROGRESS_CHART_PIE_OPTIONS } from './ProgressHelper'
 import ProgressDetails from './ProgressDetails'
 import { WEIGHT_TYPE } from '../weight/WeightHelper'
 
 class Progress extends Component {
 
   state = {
-    period: DEFAULT_PERIOD
+    period: 'toto'
   }
 
   handleChange = (e) => {
@@ -62,14 +60,14 @@ class Progress extends Component {
           <ProgressChart 
             type='Pie'
             data={{series: [80, 20]}} 
-            options={PROGRESS_CHART_PIE_OPTIONS}
+            options={'toto'}
           />
         </div>
         <div className="progress__line">
           <ProgressChart 
             type='Line'
             data={progress} 
-            options={PROGRESS_CHART_LINE_OPTIONS}
+            options={'toto'}
           />
         </div>
         <ProgressDetails 

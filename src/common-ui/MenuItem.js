@@ -1,13 +1,10 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
-const MenuItem = ({ label, icon, linkTo, location }) => {
+const MenuItem = ({ label, icon, linkTo, location, match }) => {
   const Icon = icon
-
   const size = 24
-  
-
-  const isActive = location.pathname === linkTo
+  const isActive = linkTo.startsWith(location.pathname)
     ? 'menu__item--active'
     : ''
 

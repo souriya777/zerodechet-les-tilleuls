@@ -2,7 +2,7 @@ import {
   addWeight
 } from '../weight/weightFirebase'
 import { generateFirebaseTimestamp } from '../utils/date-utils'
-import { PERIOD } from '../progress/ProgressHelper'
+import { PERIOD } from '../stat/StatHelper'
 
 let WEIGHT_API = {}
 

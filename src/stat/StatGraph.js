@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Highcharts from 'highcharts'
 import {
-  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Title, Legend, ColumnSeries, SplineSeries, PieSeries
+  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, SplineSeries, PieSeries
 } from 'react-jsx-highcharts'
 
 class StatGraph extends Component {
