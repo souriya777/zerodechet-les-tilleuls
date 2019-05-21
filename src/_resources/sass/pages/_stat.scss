@@ -3,12 +3,7 @@
   color: inherit;
   height: 105vh; 
   
-  &__graph {
-    // we want the graph to take all the width
-
-  }
-  
   &__action {
-
+    @include space-content
   }
 }

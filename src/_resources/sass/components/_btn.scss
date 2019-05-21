@@ -1,7 +1,6 @@
 .btn {
-  @include font-btn;
+  @include font-action;
 
-  font: inherit;
   outline: none;
   color: $color-secondary-text;
   text-transform: uppercase;

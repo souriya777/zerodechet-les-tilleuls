@@ -8,6 +8,7 @@ import '../_resources/sass/main.scss'
 import { removeError } from '../utils/ErrorActions'
 
 import Loading from '../info/Loading'
+import ScrollToTop from '../common-ui/ScrollToTop'
 import Screen from '../common-ui/Screen'
 import Content from '../common-ui/Content'
 import Nav from '../common-ui/Nav'
@@ -40,6 +41,7 @@ class App extends Component {
     return (
       <React.Suspense fallback={<Loading />}>
         <Router>
+          <ScrollToTop>
 
           <ControlTower />
 
@@ -60,8 +62,8 @@ class App extends Component {
             </Popup>
             : ''
           }
-          
-
+        
+          </ScrollToTop>
         </Router>
       </React.Suspense> 
     )

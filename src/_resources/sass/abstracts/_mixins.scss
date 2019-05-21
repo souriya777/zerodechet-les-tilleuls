@@ -44,12 +44,12 @@
   font-size: $font-sub-input-size;
 }
 
-@mixin font-btn {
+@mixin font-action {
   @include font-title;
 }
 
-@mixin font-btn--choice {
-  @include font-btn;
+@mixin font-action--choice {
+  @include font-action;
   text-transform: uppercase;
 }
 

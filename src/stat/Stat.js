@@ -18,7 +18,14 @@ class Stat extends Component {
           <StatGraph />
         </div>
         <div className='stat__action'>
-          SELECT
+          <select className='select' >
+            <option>cette semaine</option>
+            <option>ce mois</option>
+            <option>ce trimestre</option>
+          </select>
+          <button className='btn' type='submit' onClick={this.handleLoadFakeData}>
+            Cette semaine
+          </button>
         </div>
       </div>
     )
