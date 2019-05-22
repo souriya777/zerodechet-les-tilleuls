@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { handleAddWeight } from './WeightActions'
+import { handleAddWeight } from './weightActions'
 import WeightForm from './WeightForm';
 
 class Weight extends Component {

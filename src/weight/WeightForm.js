@@ -3,14 +3,9 @@ import { connect } from 'react-redux'
 import * as Yup from 'yup'
 
 import FormikWrapper from '../utils/FormikWrapper'
-// import { handleSigninWithEmailAndPwd } from './userActions'
 import { DEFAULT_WEIGHT_TYPE, WEIGHT_LIST } from './WeightHelper'
 
 class WeightForm extends Component {
-
-  handleSubmit = ({email, pwd}) => {
-    // this.props.dispatch(handleSigninWithEmailAndPwd(email, pwd))
-  } 
 
   render () {
     return (

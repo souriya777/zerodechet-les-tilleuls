@@ -9,6 +9,10 @@ class StatAPI {
 
     const weightList = await weightAPI.getWeightListBtwDates(uid, begin, end)
 
+    if (! weightList) {
+      return
+    }
+
     let norecycledList
     let recycledList
 

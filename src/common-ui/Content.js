@@ -1,8 +1,8 @@
 import React from 'react'
-import { Route, withRouter } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
-// import withLightMode from '../utils/withLightMode'
+import withLightMode from '../utils/withLightMode'
 import CustomRoute from '../app/CustomRoute'
 
 import UserConnect from '../user/UserConnect'
@@ -14,22 +14,9 @@ import Weight from '../weight/Weight'
 import UserProfile from '../user/UserProfile'
 import RDV from '../rdv/RDV'
 
-const Content = ({ location }) => { 
-  // FIXME replace with HOC ? (how to compose it according to 'withRouter'...)
-  const { pathname } = location
-  let lightMode = ''
-  if (
-    ROUTES.stat === pathname ||
-    ROUTES.weight === pathname ||
-    ROUTES.rdv === pathname ||
-    ROUTES.profile === pathname
-  ) {
-    lightMode = 'content--light'
-  }
-
+const Content = ({ lightMode }) => { 
   return (
     <>
-
       {/* header is optional... */}
       <Route 
         path={[
@@ -66,4 +53,4 @@ const Content = ({ location }) => {
   )
 }
 
-export default withRouter(Content)
+export default withLightMode(Content)

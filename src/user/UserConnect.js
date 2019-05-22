@@ -34,10 +34,10 @@ class UserConnect extends Component {
         <div className='connect__choice'>
           <ul className='connect__choice-list'>
             <li className='connect__choice-item'>
-              <SmartLink to={ROUTES.signin}>me connecter</SmartLink>
+              <SmartLink route={ROUTES.signin}>me connecter</SmartLink>
             </li>
             <li className='connect__choice-item'>
-              <SmartLink to={ROUTES.signup}>créer un compte</SmartLink>
+              <SmartLink route={ROUTES.signup}>créer un compte</SmartLink>
             </li>
           </ul>
         </div>

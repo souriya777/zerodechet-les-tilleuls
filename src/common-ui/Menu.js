@@ -15,25 +15,25 @@ const Menu = () =>
         <MenuItem
           label={'Pesée'}
           icon={SVGWeight}
-          linkTo={ROUTES.weight}
+          route={ROUTES.weight}
         /> 
       
         <MenuItem
           label={'Stats'}
           icon={SVGStat}
-          linkTo={ROUTES.stat}
+          route={ROUTES.stat}
         /> 
 
         <MenuItem
           label={'Rdv'}
           icon={SVGCalendar}
-          linkTo={ROUTES.rdv}
+          route={ROUTES.rdv}
         /> 
       
         <MenuItem
           label={'Profil'}
           icon={SVGUser}
-          linkTo={ROUTES.profile}
+          route={ROUTES.profile}
         /> 
       
     </ul>

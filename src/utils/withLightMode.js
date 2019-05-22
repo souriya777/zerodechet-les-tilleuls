@@ -3,34 +3,22 @@ import { withRouter } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
 
-const withLightMode = (Component) => {
-  // const { pathname } = location
-  // console.log(Component)
-  console.log(Component);
-  console.log(Component.location);
-  
-  
-  const pathname = '/stat'
-  let lightMode = ''
+function withLightMode (WrappedComponent) {
+  return withRouter((props) => {
+    const { location } = props
 
-  if (
-    ROUTES.stat === pathname ||
-    ROUTES.weight === pathname ||
-    ROUTES.rdv === pathname ||
-    ROUTES.profile === pathname
-  ) {
-    lightMode = '--light'
-  }
-
-  console.log(lightMode);
-  
-
-  return class extends React.Component {
-    render() {
-      return <div>testa</div>
-      // return <Component {...this.props} lightMode={lightMode} />
+    let lightMode = ''
+    if (
+      ROUTES.stat.startsWith(location.pathname) ||
+      ROUTES.weight.startsWith(location.pathname) ||
+      ROUTES.rdv.startsWith(location.pathname) ||
+      ROUTES.profile.startsWith(location.pathname)
+    ) {
+      lightMode = 'content--light'
     }
-  }
+    
+    return <WrappedComponent lightMode={lightMode} {...props} />
+  })
 }
 
 export default withLightMode

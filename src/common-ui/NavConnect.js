@@ -6,16 +6,17 @@ import SVGUser from './svg/SVGUser'
 
 const NavConnect = ({ location }) => {
 
-  const connectStatus = location.pathname === ROUTES.tuto 
+  const connectStatus = ROUTES.tuto.startsWith(location.pathname)
     ? 'init' 
     : 'active'
+
 
   const [foregnd, setForegnd] = useState('')
 
   useEffect(() => {
     if (
-      ROUTES.signin ===  location.pathname ||
-      ROUTES.signup === location.pathname
+      ROUTES.signin.startsWith(location.pathname) ||
+      ROUTES.signup.startsWith(location.pathname)
     ) {
       setForegnd('nav__connect--backgnd')
     } else {

@@ -11,3 +11,5 @@ export const WEEK = {
   SATURDAY: moment('2019-05-11'),
   SUNDAY: moment('2019-05-12'),
 }
+export const DAY_NEXT_YEAR = moment('2020-05-08')
+export const DAY_LAST_YEAR = moment('2019-05-08')
