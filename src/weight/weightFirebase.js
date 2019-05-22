@@ -1,10 +1,29 @@
-import Firebase, { WEIGHTS_REF }  from '../app/firebase'
+import Firebase, { WEIGHTS_REF, SUB_COLLECTION_REF }  from '../app/firebase'
 
-export const getWeight = uid => Firebase.doc(`${WEIGHTS_REF}/${uid}`)
-
-export const getWeightList = () => Firebase.collection(WEIGHTS_REF)
-
-export const addWeight = data => {
-  const collection = Firebase.collection(WEIGHTS_REF)
-  return collection.add(data)
+class WeightFirebase {
+  getWeight = uid => Firebase.doc(`${WEIGHTS_REF}/${uid}`)
+  
+  getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp)  => {
+    let result = []
+  
+    await Firebase.db.collection(WEIGHTS_REF)
+    .doc(uid).collection(SUB_COLLECTION_REF)
+    .where('startDate', '>=', beginTimestamp)
+    .where('startDate', '<', endTimestamp)
+    .get().then(querySnapshot => {
+      console.log(`${querySnapshot.size} results`)
+      querySnapshot.forEach(doc => {
+        result.push({ id: doc.id, data: doc.data()  })
+      })
+    })
+  
+    return result
+  }
+  
+  addWeight = data => {
+    const collection = Firebase.collection(WEIGHTS_REF)
+    return collection.add(data)
+  }
 }
+
+export default new WeightFirebase()

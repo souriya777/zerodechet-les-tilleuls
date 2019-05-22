@@ -21,16 +21,13 @@ class UserFirebase {
   }
 
   signinWithGoogle = () => {
-    return VALID_FIREBASE_USER
+    // simulate "offline" user
+    throw new FirebaseError('auth/popup-closed-by-user')
   }
 
-  signinWithFacebook = () => {
-    return VALID_FIREBASE_USER
-  }
+  signinWithFacebook = () => VALID_FIREBASE_USER
 
-  signinWithTwitter = () => {
-    return VALID_FIREBASE_USER
-  }
+  signinWithTwitter = () => VALID_FIREBASE_USER
 
   signup = (login, pwd) => {
     if (ALREADY_EXIST_EMAIL === login) {

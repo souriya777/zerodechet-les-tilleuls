@@ -15,11 +15,19 @@ jest.mock('./userFirebase')
 describe(`signinWithLoginAndPwd`, () => {
 
   it(`throw SigninException('Le mot de passe saisi est invalide.')`, async() => {
-    await expect(userAPI.signinWithLoginAndPwd(VALID_EMAIL, 'invalid-pwd')).rejects.toEqual(new SigninException('Le mot de passe saisi est invalide.'));
+    await expect(userAPI.signinWithLoginAndPwd(VALID_EMAIL, 'invalid-pwd')).rejects.toEqual(new SigninException('Le mot de passe saisi est invalide.'))
   })
 
   it(`throw SigninException('Il n'y a aucun utilisateur correspondant à l'email saisi.')`, async() => {
-    await expect(userAPI.signinWithLoginAndPwd('invalid.email@gmail.com', 'fdsqfdsqfsdq')).rejects.toEqual(new SigninException(`Il n'y a aucun utilisateur correspondant à l'email saisi.`));
+    await expect(userAPI.signinWithLoginAndPwd('invalid.email@gmail.com', 'fdsqfdsqfsdq')).rejects.toEqual(new SigninException(`Il n'y a aucun utilisateur correspondant à l'email saisi.`))
+  })
+
+})
+
+describe(`signinWithGoogle`, () => {
+
+  it(`throw SigninException('Le serveur n'est pas joignable. Veuillez vérifier votre connexion internet.') when the user is offline`, async() => {
+    await expect(userAPI.signinWithGoogle()).rejects.toEqual(new SigninException(`Le serveur n'est pas joignable. Veuillez vérifier votre connexion internet.`))
   })
 
 })
@@ -27,7 +35,7 @@ describe(`signinWithLoginAndPwd`, () => {
 describe(`signup`, () => {
 
   it(`throw SignupException('L'email est associé à un compte existant.')`, async() => {
-    await expect(userAPI.signup(ALREADY_EXIST_EMAIL, VALID_PWD , VALID_FIRSTNAME, VALID_LASTNAME)).rejects.toEqual(new SignupException(`L'email est associé à un compte existant.`));
+    await expect(userAPI.signup(ALREADY_EXIST_EMAIL, VALID_PWD , VALID_FIRSTNAME, VALID_LASTNAME)).rejects.toEqual(new SignupException(`L'email est associé à un compte existant.`))
   })
 
 })

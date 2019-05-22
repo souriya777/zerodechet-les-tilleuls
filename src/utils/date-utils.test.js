@@ -1,4 +1,11 @@
-import { DATE_FORMAT, toTimestamp, generateFirebaseTimestamp } from './date-utils'
+import { 
+  DATE_FORMAT, 
+  toTimestamp, 
+  generateFirebaseTimestamp,
+  generateFirebaseTimestampFromString 
+} from './date-utils'
+
+const moment = require('moment')
 
 // @deprecated
 test('convert 2019-05-01 to 1556661600 (with pattern)', () => {
@@ -12,7 +19,13 @@ test('convert 2019-05-01 to 1556661600 (without pattern)', () => {
   expect(timestamp).toBe(1556661600)
 })
 
-test('generate Firebase Timestamp {"nanoseconds": 0, "seconds": 1556661600} Form Timestamp 1556661600', () => {
-  const firebaseTimestamp = generateFirebaseTimestamp(1556661600)
+test('generate Firebase Timestamp {"nanoseconds": 0, "seconds": 1556661600} From Date 2019-05-01', () => {
+  const date = moment('2019-05-01').toDate()
+  const firebaseTimestamp = generateFirebaseTimestamp(date)
+  expect(firebaseTimestamp).toEqual({"nanoseconds": 0, "seconds": 1556661600})
+})
+
+test('generate Firebase Timestamp {"nanoseconds": 0, "seconds": 1556661600} From String "2019-05-01"', () => {
+  const firebaseTimestamp = generateFirebaseTimestampFromString('2019-05-01')
   expect(firebaseTimestamp).toEqual({"nanoseconds": 0, "seconds": 1556661600})
 })

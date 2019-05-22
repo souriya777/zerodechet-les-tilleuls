@@ -11,6 +11,12 @@ export const toTimestamp = (input, regex = DATE_FORMAT) => {
   return moment(input, regex).unix()
 }
 
-export const generateFirebaseTimestamp = seconds => {
+export const generateFirebaseTimestamp = date => {
+  const seconds = date.getTime() / 1000
   return new firebase.firestore.Timestamp(seconds, 0)
+}
+
+export const generateFirebaseTimestampFromString = dateAsString => {
+  const date = moment(dateAsString).toDate()
+  return generateFirebaseTimestamp(date)
 }

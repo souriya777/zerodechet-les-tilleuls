@@ -1,21 +1,37 @@
-import Firebase, { USERS_REF, WEIGHTS_REF, EVENTS_REF }  from '../app/firebase'
+import Firebase, { USERS_REF, WEIGHTS_REF, EVENTS_REF, SUB_COLLECTION_REF }  from '../app/firebase'
 
 import weightsJSON from '../utils/_DATA-WEIGHT.json'
 import userJSON from '../utils/_DATA-USER.json'
 import eventJSON from '../utils/_DATA-EVENT.json'
 
+import { generateFirebaseTimestampFromString } from '../utils/date-utils'
 
-export const loadDataWeight = async () => loadData(WEIGHTS_REF, weightsJSON)
+const moment = require('moment')
+
+
+export const loadDataWeight = async uid => loadData(WEIGHTS_REF, weightsJSON, uid)
 
 export const loadDataUser = async uid => loadData(USERS_REF, userJSON, uid)
 
-export const loadDataEvent = async () => loadData(EVENTS_REF, eventJSON)
+export const loadDataEvent = async uid => loadData(EVENTS_REF, eventJSON, uid)
 
 
 export const loadData = async (ref, json, uid) => {
-  console.log(`-------LOAD ${ref.toUpperCase()} DATA for USER ${uid}----------`)
+  console.log(`-------LOAD ${ref} USER=${uid}----------`)
   console.group()
 
+  ///////// SUB-COLLECTION
+  // fetching all existing doc, in subcollection
+  const SUB_REF = `/${ref}/${uid}/${SUB_COLLECTION_REF}`
+  const SUB_DOC_IDS = await fetchExistingDocs(SUB_REF)
+
+  console.log(SUB_REF, SUB_DOC_IDS)
+  
+  // delete existing docs
+  deleteDocs(SUB_DOC_IDS, SUB_REF)
+
+
+  ///////// COLLECTION
   // fetching all existing doc
   const DOC_IDS = await fetchExistingDocs(ref)
   
@@ -25,7 +41,7 @@ export const loadData = async (ref, json, uid) => {
   // populate
   populate(json, ref, uid)
   
-  console.groupEnd()
+  // console.groupEnd()
 }
 
 const fetchExistingDocs = async ref => {
@@ -54,41 +70,58 @@ const deleteDocs = async (docs, ref) => {
 const populate = async (json, ref, uid) => {
   console.log('WRITING...', ref, json, uid)
   json.forEach(o => {
+    let copy = Object.assign({}, o)
     if (ref === USERS_REF) {
-      const newO = Object.assign({}, o, {uid: uid})
-      console.log('--------', uid, o, newO)
-      Firebase.db.collection(ref).doc(uid).set(newO)
+      copy = Object.assign({}, copy, {uid: uid})
+      Firebase.db.collection(ref).doc(uid).set(copy)
+    } else if (ref === WEIGHTS_REF) {
+      const startTimestamp = generateFirebaseTimestampFromString(copy.startDate)
+      const endTimestamp = generateFirebaseTimestampFromString(copy.endDate)
+      const recordedTimestamp = generateFirebaseTimestampFromString(copy.recordedDate)
+      
+      copy = Object.assign({}, copy, {
+        startDate: startTimestamp,
+        endDate: endTimestamp,
+        recordedDate: recordedTimestamp,
+      })
+      Firebase.db.collection(ref).doc(uid).collection(SUB_COLLECTION_REF).add(copy)
     } else {
-      Firebase.db.collection(ref).add(o)
+      Firebase.db.collection(ref).doc(uid).collection(SUB_COLLECTION_REF).add(copy)
     }
-    console.log('WRITE', o)
+    console.log('WRITE', copy)
   })
 }
 
-export const getWeightList = () => {
-  console.log('READING ALL WEIGHTS')
+export const getWeightList = uid => {
+  console.log(`getWeightList uid=${uid}`)
   Firebase.db.collection(WEIGHTS_REF)
-    .where('uid', '==', 'fs8989Fdfqfdsfdsfqsdfsq')
+    .doc(uid)
+    .collection(SUB_COLLECTION_REF)
     .get().then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        console.group()
-        console.log('READ UID', doc.id, " => ", doc.data())
-        console.groupEnd()
+        console.log(doc.id, " => ", doc.data())
       })
     })
 }
 
-export const getWeightListBtwDates = () => {
-  console.log('READING ALL WEIGHTS, BETWEEN DATE 01/04/19 AND 30/04/19')
-  Firebase.db.collection(USERS_REF)
-    .where('uid', '==', 'fs8989Fdfqfdsfdsfqsdfsq')
-    .where('startDate', '>=', this.setTimestamp('2019-04-01'))
-    .where('startDate', '<', this.setTimestamp('2019-05-01'))
-    .get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.group()
-        console.log('READ UID & DATE', doc.id, " => ", doc.data())
-        console.groupEnd()
+export const getWeightListBtwDates = async uid => {
+  const begin = '2019-05-02'
+  const end = '2019-05-09'
+  console.log(`getWeightListBtwDates ${begin} -> ${end}`)
+  let result = []
+
+  await Firebase.db.collection(WEIGHTS_REF)
+  .doc(uid)
+  .collection(SUB_COLLECTION_REF)
+  .where('startDate', '>=', generateFirebaseTimestampFromString('2019-05-02'))
+  .where('startDate', '<', generateFirebaseTimestampFromString('2019-05-09'))
+  .get().then(querySnapshot => {
+      console.log(`${querySnapshot.size} results`)
+      querySnapshot.forEach(doc => {
+        result.push({ id: doc.id, data: doc.data()  })
+        
       })
     })
+  console.log(result);
+  
 }

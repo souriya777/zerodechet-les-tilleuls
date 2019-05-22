@@ -4,7 +4,7 @@ import { SIGNIN__ERROR_CODES, SIGNUP__ERROR_CODES } from '../utils/ErrorCodes'
 import SigninException from '../utils/SigninException'
 import SignupException from '../utils/SignupException'
 
-class UserApi {
+class UserAPI {
 
   signinWithLoginAndPwd = async (login, pwd) => {
     return signin('emailPwd', login, pwd)
@@ -46,14 +46,14 @@ class UserApi {
   }
 }
 
-export default new UserApi()
+export default new UserAPI()
 
 /////// PRIVATE METHODS
 const signin = async (type, login, pwd) => {
   try {
     switch (type) {
       case 'google':
-        UserFirebase.signinWithGoogle()
+        await UserFirebase.signinWithGoogle()
         break;
       case 'facebook':
         UserFirebase.signinWithFacebook()
