@@ -1,19 +1,19 @@
-export const VALID_UID = 'uebilBofedWTOu7ZCkNySkg8qxB3'
-export const VALID_EMAIL = 'souriya59@gmail.com'
-export const VALID_FIRSTNAME = 'Souriya'
-export const VALID_LASTNAME = 'Phongsavanh'
-export const VALID_PWD = 'M0ttt2P@ssseE2deuxO0uf'
+import { 
+  UID,
+  EMAIL,
+} from '../../utils/common-test/common-data'
+
 export const ALREADY_EXIST_EMAIL = 'existemail@gmail.com'
 
 export const VALID_FIREBASE_USER = {
-  uid: VALID_UID,
-  email: VALID_EMAIL,
+  uid: UID,
+  email: EMAIL,
   displayName: 'Souriya Phongsavanh',
   photoURL: 'https://lh3.googleusercontent.com/-NvIwRG-KKOc/AAAAAAAAAAI/AAAAAAABIUo/o313nBEskvE/photo.jpg',
 }
 
 export const VALID_API_USER = {
-  uid: VALID_UID,
+  uid: UID,
   name: 'Souriya Phongsavanh',
   photo: 'https://lh3.googleusercontent.com/-NvIwRG-KKOc/AAAAAAAAAAI/AAAAAAABIUo/o313nBEskvE/photo.jpg',
 }

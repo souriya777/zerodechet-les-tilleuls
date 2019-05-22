@@ -5,11 +5,12 @@ export const PERIOD = {
   SEMESTER: 'semester',
 }
 
-export const DEFAULT_PERIOD = PERIOD.WEEK
+export const PERIOD_LABEL = {
+  WEEK: 'Cette semaine', 
+  MONTH: 'Ce mois',
+  TRIMESTER: 'Ce trimestre',
+  SEMESTER: 'Ce semestre',
+}
 
-export const PERIOD_LIST = [
-  [PERIOD.WEEK, 'Cette semaine'], 
-  [PERIOD.MONTH, 'Ce mois'],
-  [PERIOD.TRIMESTER, 'Ce trimestre'],
-  [PERIOD.SEMESTER, 'Ce semestre'],
-]
+export const DAYS_SHORT = 
+  ['LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM']

@@ -280,7 +280,7 @@
   },
   {
     "nbPers": 3,
-    "recycled": 600,
+    "recycled": 200,
     "norecycled": 600,
     "startDate": "2019-05-02",
     "endDate": "2019-05-02",
@@ -289,7 +289,7 @@
   },
   {
     "nbPers": 3,
-    "recycled": 600,
+    "recycled": 300,
     "norecycled": 600,
     "startDate": "2019-05-03",
     "endDate": "2019-05-03",
@@ -298,8 +298,8 @@
   },
   {
     "nbPers": 3,
-    "recycled": 600,
-    "norecycled": 600,
+    "recycled": 400,
+    "norecycled": 500,
     "startDate": "2019-05-04",
     "endDate": "2019-05-04",
     "recordedDate": "2019-05-04",
@@ -308,7 +308,7 @@
   {
     "nbPers": 3,
     "recycled": 600,
-    "norecycled": 600,
+    "norecycled": 300,
     "startDate": "2019-05-05",
     "endDate": "2019-05-05",
     "recordedDate": "2019-05-05",
@@ -316,8 +316,8 @@
   },
   {
     "nbPers": 3,
-    "recycled": 600,
-    "norecycled": 600,
+    "recycled": 700,
+    "norecycled": 50,
     "startDate": "2019-05-06",
     "endDate": "2019-05-06",
     "recordedDate": "2019-05-06",
@@ -325,8 +325,8 @@
   },
   {
     "nbPers": 3,
-    "recycled": 600,
-    "norecycled": 600,
+    "recycled": 200,
+    "norecycled": 200,
     "startDate": "2019-05-07",
     "endDate": "2019-05-07",
     "recordedDate": "2019-05-07",
@@ -334,8 +334,8 @@
   },
   {
     "nbPers": 3,
-    "recycled": 600,
-    "norecycled": 600,
+    "recycled": 200,
+    "norecycled": 0,
     "startDate": "2019-05-08",
     "endDate": "2019-05-08",
     "recordedDate": "2019-05-08",

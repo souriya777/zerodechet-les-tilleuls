@@ -1,9 +1,12 @@
 import userAPI from './userAPI'
 import { 
-  VALID_EMAIL, 
-  VALID_FIRSTNAME, 
-  VALID_LASTNAME, 
-  VALID_PWD,
+  EMAIL,
+  PWD,
+  FIRSTNAME,
+  LASTNAME
+} from '../utils/common-test/common-data'
+
+import { 
   ALREADY_EXIST_EMAIL,
   VALID_API_USER_SIGNUP,
 } from './__mocks__/userData'
@@ -15,7 +18,7 @@ jest.mock('./userFirebase')
 describe(`signinWithLoginAndPwd`, () => {
 
   it(`throw SigninException('Le mot de passe saisi est invalide.')`, async() => {
-    await expect(userAPI.signinWithLoginAndPwd(VALID_EMAIL, 'invalid-pwd')).rejects.toEqual(new SigninException('Le mot de passe saisi est invalide.'))
+    await expect(userAPI.signinWithLoginAndPwd(EMAIL, 'invalid-pwd')).rejects.toEqual(new SigninException('Le mot de passe saisi est invalide.'))
   })
 
   it(`throw SigninException('Il n'y a aucun utilisateur correspondant à l'email saisi.')`, async() => {
@@ -35,7 +38,7 @@ describe(`signinWithGoogle`, () => {
 describe(`signup`, () => {
 
   it(`throw SignupException('L'email est associé à un compte existant.')`, async() => {
-    await expect(userAPI.signup(ALREADY_EXIST_EMAIL, VALID_PWD , VALID_FIRSTNAME, VALID_LASTNAME)).rejects.toEqual(new SignupException(`L'email est associé à un compte existant.`))
+    await expect(userAPI.signup(ALREADY_EXIST_EMAIL, PWD, FIRSTNAME, LASTNAME)).rejects.toEqual(new SignupException(`L'email est associé à un compte existant.`))
   })
 
 })

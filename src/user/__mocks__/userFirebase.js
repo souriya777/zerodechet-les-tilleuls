@@ -1,6 +1,9 @@
 import { 
-  VALID_EMAIL, 
-  VALID_PWD, 
+  EMAIL, 
+  PWD 
+} from '../../utils/common-test/common-data'
+
+import { 
   VALID_FIREBASE_USER,
   VALID_FIREBASE_EXTRA_INFO,
   ALREADY_EXIST_EMAIL,
@@ -9,8 +12,8 @@ import {
 
 class UserFirebase {
   signin = (login, pwd) => {
-    if (VALID_EMAIL === login) {
-      if (VALID_PWD === pwd) {
+    if (EMAIL === login) {
+      if (PWD === pwd) {
         return VALID_FIREBASE_USER 
       } else {
         throw new FirebaseError('auth/wrong-password')

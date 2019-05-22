@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { handleSignout } from '../user/userActions'
 import StatGraph from './StatGraph'
 import SmartSelect from '../common-ui/SmartSelect'
-import { PERIOD } from './StatHelper'
+import { PERIOD, PERIOD_LABEL } from './StatHelper'
 import { handleLoadStat } from './statActions'
 
 class Stat extends Component {
@@ -29,7 +29,7 @@ class Stat extends Component {
         {/* <h1 className='h1'>Stats de la semaine</h1> */}
         <div className='stat__action'>
           <SmartSelect
-            options={['Cette semaine', 'Ce mois', 'Ce trimestre']}
+            options={[PERIOD_LABEL.WEEK, PERIOD_LABEL.MONTH, PERIOD_LABEL.TRIMESTER]}
             ids={[PERIOD.WEEK, PERIOD.MONTH, PERIOD.TRIMESTER]}
             placeholder='Période'
             onChange={this.handleChangePeriod}
