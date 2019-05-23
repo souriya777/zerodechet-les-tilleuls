@@ -17,6 +17,7 @@ export const handleLoadStat = (uid, period) => {
 
     try {
       const stat = await statAPI.getWeekData(uid, new Date())
+      
       dispatch(fetchStat(stat))
     } catch (e) {
       dispatch(setError(e.message))

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from "react-router-dom"
 
 import { handleSignout } from '../user/userActions'
 import { handleLoadData } from '../utils/sharedActions'
@@ -16,9 +17,8 @@ class UserProfile extends Component {
   }
 
   handleLoadFakeData = () => {
-    const { user } = this.props
-    const uid = user.uid
-    this.props.dispatch(handleLoadData(uid))
+    const { user, history } = this.props
+    this.props.dispatch(handleLoadData(user.uid, history))
   }
 
   render() {
@@ -68,4 +68,4 @@ class UserProfile extends Component {
 
 const mapStateToProps = state => ({ user: state.user })
 
-export default connect(mapStateToProps)(UserProfile)
+export default connect(mapStateToProps)(withRouter(UserProfile))

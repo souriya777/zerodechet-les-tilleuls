@@ -20,17 +20,20 @@ import ErrorWatcher from '../utils/ErrorWatcher'
 
 /*
 TODO
-- write weight
+- write 1 weight
+- write several weight
+- control period
+- delete data
+- didacticiel
+- ajout membre
+- bug <li> membre
 - test creation direct compte Google...
-- refresh after load data
-- bar de chargement : load data
 - change firestore rules (hack : )
 
-// réduire épaisseur
-// material-ui pkg perf....
 
 // improvement :
 - implement Dan Abramov solution linked in it : https://daveceddia.com/where-fetch-data-redux/
+- material-ui pkg perf....
 */
 class App extends Component {
 
@@ -39,7 +42,8 @@ class App extends Component {
       <React.Suspense fallback={<Loading />}>
         <Router>
           <ScrollToTop>
-            <LoadingBar />
+
+            <LoadingBar className='loading' />
 
             <ControlTower />
 

@@ -5,10 +5,6 @@ import {
 } from 'react-jsx-highcharts'
 
 const HighchartsWrapper = ({ categories, recycled, norecycled, avg, pieData }) => {
-
-  console.log(recycled, norecycled, avg);
-  
-
   return (
     <HighchartsChart>
       <Chart />
