@@ -12,6 +12,7 @@ const StatGraph = ({ stat }) => {
       categories={stat.categories} 
       recycled={stat.recycled} 
       norecycled={stat.norecycled} 
+      avg={stat.avg}
     />
   )
 }

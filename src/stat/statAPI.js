@@ -13,19 +13,27 @@ class StatAPI {
       return
     }
 
-    let norecycledList
-    let recycledList
+    let norecycledList, recycledList, avgList
 
     if (weightList) {
       norecycledList = weightList.map( ({ data }) => data.norecycled)
       recycledList = weightList.map( ({ data }) => data.recycled)
+      avgList = weightList.map( ({ data }) => this.avg(data.recycled, data.norecycled))
     }
 
     return {
       categories: DAYS_SHORT,
       recycled: recycledList,
       norecycled: norecycledList,
+      avg: avgList,
     }
+  }
+
+  avg = (recycled, norecycled) => {
+    let result = 0
+    result += recycled ? recycled : 0
+    result += norecycled ? norecycled : 0
+    return result / 2
   }
 }
 

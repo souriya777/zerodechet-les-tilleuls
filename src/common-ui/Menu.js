@@ -24,11 +24,12 @@ const Menu = () =>
           route={ROUTES.stat}
         /> 
 
-        <MenuItem
+        {/* DEACTIVATE IN BETA VERSION */}
+        {/* <MenuItem
           label={'Rdv'}
           icon={SVGCalendar}
           route={ROUTES.rdv}
-        /> 
+        />  */}
       
         <MenuItem
           label={'Profil'}

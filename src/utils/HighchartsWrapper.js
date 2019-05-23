@@ -4,7 +4,7 @@ import {
   HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, SplineSeries, PieSeries
 } from 'react-jsx-highcharts'
 
-const HighchartsWrapper = ({ categories, recycled, norecycled, pieData }) => {
+const HighchartsWrapper = ({ categories, recycled, norecycled, avg, pieData }) => {
   return (
     <HighchartsChart>
       <Chart />
@@ -13,8 +13,18 @@ const HighchartsWrapper = ({ categories, recycled, norecycled, pieData }) => {
       <YAxis>
         <ColumnSeries name="Recyclé" data={recycled} />
         <ColumnSeries name="Non recyclé" data={norecycled} />
-        <SplineSeries name="Moyenne" data={[3, 2.67, 3, 6.33, 3.33]} />
-        <PieSeries name="Consommation total" data={pieData} center={[100, 80]} size={100} showInLegend={false} />
+        <SplineSeries name="Moyenne" data={avg} />
+        <PieSeries name="Consommation total" data={[
+          {
+            name: 'Souriya',
+            y: 13
+          }, {
+            name: 'Sarah',
+            y: 23
+          }]} 
+          center={[100, 80]} 
+          size={100} 
+          showInLegend={false} />
       </YAxis>
     </HighchartsChart>
   )

@@ -8,7 +8,6 @@ import { WEEK } from './common-test/common-data'
 const moment = require('moment')
 
 describe(`generateFirebaseTimestamp`, () => {
-  
   it('generate Firebase Timestamp {"nanoseconds": 0, "seconds": 1556661600} From Date 2019-05-01', () => {
     const date = moment('2019-05-01').toDate()
     const firebaseTimestamp = generateFirebaseTimestamp(date)
