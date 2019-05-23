@@ -10,10 +10,15 @@ export const handleLoadData = uid => {
     dispatch(showLoading())
     try {
       await sharedAPI.loadData(uid)
+      
+      // waiting for firebase...
+      setTimeout(() => {
+        dispatch(hideLoading())
+      }, 3000)
+
+
     } catch (error) {
       dispatch(setError(error.message))
-    } finally {
-      dispatch(hideLoading())
-    }
+    } 
   }
 }

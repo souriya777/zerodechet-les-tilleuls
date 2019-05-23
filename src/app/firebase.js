@@ -48,6 +48,12 @@ class Firebase {
     this.twitterProvider = new firebase.auth.TwitterAuthProvider()
   }
 
+  get batch () {
+    console.log('GETTER batch')
+    
+    return this.db.batch()
+  }
+
   static get instance() {
     if (!this[singleton]) {
       this[singleton] = new Firebase(singletonEnforcer);
