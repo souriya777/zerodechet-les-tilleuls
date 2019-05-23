@@ -19,15 +19,17 @@ class Stat extends Component {
   }
 
   componentDidMount() {
+    console.log('componentDidMount');
+    
     const { user } = this.props
-    console.log(user);
+    console.log(user, this.props)
     
     const uid = 'testa'
     this.props.dispatch(handleLoadStat(uid, PERIOD.WEEK))
   }
-
-
-  render() {
+  
+  
+  render () {
     return (
       <div className='stat'>
         {/* <h1 className='h1'>Stats de la semaine</h1> */}
@@ -47,6 +49,6 @@ class Stat extends Component {
   }
 }
 
-const mapStateToProps = state => ({ user: state.user})
+const mapStateToProps = state => ({ user: state.user })
 
 export default connect(mapStateToProps)(Stat)

@@ -27,8 +27,12 @@ class UserFirebase {
     // simulate "offline" user
     throw new FirebaseError('auth/popup-closed-by-user')
   }
+  
+  signinWithFacebook = () => {
+    // simulate "offline" user
+    throw new FirebaseError('auth/network-request-failed')
 
-  signinWithFacebook = () => VALID_FIREBASE_USER
+  } 
 
   signinWithTwitter = () => VALID_FIREBASE_USER
 

@@ -35,6 +35,14 @@ describe(`signinWithGoogle`, () => {
 
 })
 
+describe(`signinWithFacebook`, () => {
+
+  it(`throw SigninException('Le serveur n'est pas joignable. Veuillez vérifier votre connexion internet.') when the user is offline`, async() => {
+    await expect(userAPI.signinWithGoogle()).rejects.toEqual(new SigninException(`Le serveur n'est pas joignable. Veuillez vérifier votre connexion internet.`))
+  })
+
+})
+
 describe(`signup`, () => {
 
   it(`throw SignupException('L'email est associé à un compte existant.')`, async() => {

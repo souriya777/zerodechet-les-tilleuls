@@ -4,6 +4,8 @@ export const SIGNIN__ERROR_CODES = {
   'auth/user-not-found': `Il n'y a aucun utilisateur correspondant à l'email saisi.`,
 
   'auth/popup-closed-by-user': `Le serveur n'est pas joignable. Veuillez vérifier votre connexion internet.`,
+
+  'auth/network-request-failed': `Le serveur n'est pas joignable. Veuillez vérifier votre connexion internet.`,
 }
 
 export const SIGNUP__ERROR_CODES = {

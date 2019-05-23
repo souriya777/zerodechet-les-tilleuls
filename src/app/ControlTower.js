@@ -37,6 +37,7 @@ class ControlTower extends Component {
 
   render() {
     const { user } = this.state
+    console.log('ControTower', user)
 
     return (
       <Switch>
