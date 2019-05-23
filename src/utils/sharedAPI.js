@@ -9,11 +9,11 @@ import {
 let SHARED_API = {}
 
 SHARED_API.loadData = async uid => {
-  await loadDataWeight(uid)
+  // await loadDataWeight(uid)
   // await loadDataUser(uid)
   // await loadDataEvent(uid)
   // getWeightList(uid)
-  // await getWeightListBtwDates(uid)
+  await getWeightListBtwDates(uid)
 }
 
 export default SHARED_API

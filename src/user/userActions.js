@@ -20,8 +20,8 @@ const signout = () => {
 }
 
 const handleSignIn = (type, login, pwd) => {
-  return async (dispatch) => {
-    // dispatch(showLoading())
+  return async dispatch => {
+    dispatch(showLoading())
 
     try {
       switch (type) {
@@ -40,7 +40,7 @@ const handleSignIn = (type, login, pwd) => {
     } catch (e) {
       dispatch(setError(e.message))
     } finally {
-      // dispatch(hideLoading())
+      dispatch(hideLoading())
     }
   }
 }
@@ -62,7 +62,7 @@ export const handleSigninWithTwitter = () => {
 }
 
 export const handleSignup = (firstName, lastName, login, pwd) => {
-  return async (dispatch) => {
+  return async dispatch => {
     dispatch(showLoading())
     try {
       await userAPI.signup(login, pwd, firstName, lastName)
@@ -75,7 +75,7 @@ export const handleSignup = (firstName, lastName, login, pwd) => {
 }
 
 export const handleSignout = () => {
-  return async (dispatch) => {
+  return async dispatch => {
     dispatch(showLoading())
     await userAPI.signout()
     dispatch(signout())
@@ -85,7 +85,7 @@ export const handleSignout = () => {
 }
 
 export const handleResetPwd = email => {
-  return async (dispatch) => {
+  return async dispatch => {
     dispatch(showLoading())
     await userAPI.resetPwd(email)
     dispatch(hideLoading())
@@ -93,7 +93,8 @@ export const handleResetPwd = email => {
 }
 
 export const handleUpdateUser = user => {
-  return async (dispatch) => {
+  return async dispatch => {
+    dispatch(showLoading())
     try {
       dispatch(setUser(user))
     } catch (error) {

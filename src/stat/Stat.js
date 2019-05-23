@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { handleSignout } from '../user/userActions'
-import StatGraph from './StatGraph'
-import SmartSelect from '../common-ui/SmartSelect'
-import { PERIOD, PERIOD_LABEL } from './StatHelper'
 import { handleLoadStat } from './statActions'
+import { PERIOD, PERIOD_LABEL } from './StatHelper'
+
+import SmartSelect from '../common-ui/SmartSelect'
+import Loading from '../info/Loading'
+import StatGraph from './StatGraph'
 
 class Stat extends Component {
 
@@ -15,20 +17,14 @@ class Stat extends Component {
 
   handleChangePeriod = e => {
     const period = e.target.value
-    console.log('handleLoad ', period)
+    console.log('handleChangePeriod ', period)
+  }
+  
+  componentDidUpdate() {
+    const { user, dispatch } = this.props
+    dispatch(handleLoadStat(user.uid))
   }
 
-  componentDidMount() {
-    console.log('componentDidMount');
-    
-    const { user } = this.props
-    console.log(user, this.props)
-    
-    const uid = 'testa'
-    this.props.dispatch(handleLoadStat(uid, PERIOD.WEEK))
-  }
-  
-  
   render () {
     return (
       <div className='stat'>
@@ -42,7 +38,9 @@ class Stat extends Component {
           />
         </div>
         <div className='stat__graph'>
-          <StatGraph />
+          <React.Suspense fallback={<Loading />}>
+            <StatGraph />
+          </React.Suspense> 
         </div>
       </div>
     )

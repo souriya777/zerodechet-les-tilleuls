@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { 
   BrowserRouter as Router,
 } from 'react-router-dom'
+import LoadingBar from 'react-redux-loading-bar'
 
 import '../_resources/sass/main.scss'
 
@@ -23,9 +24,13 @@ TODO
 - read weight
 - test creation direct compte Google...
 - refresh after load data
+- bar de chargement : load data
 
 // réduire épaisseur
 // material-ui pkg perf....
+
+// improvement :
+- implement Dan Abramov solution linked in it : https://daveceddia.com/where-fetch-data-redux/
 */
 class App extends Component {
 
@@ -34,19 +39,19 @@ class App extends Component {
       <React.Suspense fallback={<Loading />}>
         <Router>
           <ScrollToTop>
+            <LoadingBar />
 
-          <ControlTower />
+            <ControlTower />
 
-          <Screen>
-            <Content />
-          </Screen>
+            <Screen>
+              <Content />
+            </Screen>
 
-          <nav className='nav'>
-            <Nav />
-          </nav>
+            <nav className='nav'>
+              <Nav />
+            </nav>
 
-          <ErrorWatcher />
-        
+            <ErrorWatcher />
           </ScrollToTop>
         </Router>
       </React.Suspense> 

@@ -6,9 +6,6 @@ import eventJSON from '../utils/_DATA-EVENT.json'
 
 import { generateFirebaseTimestampFromString } from '../utils/date-utils'
 
-const moment = require('moment')
-
-
 export const loadDataWeight = async uid => loadData(WEIGHTS_REF, weightsJSON, uid)
 
 export const loadDataUser = async uid => loadData(USERS_REF, userJSON, uid)
@@ -28,7 +25,7 @@ export const loadData = async (ref, json, uid) => {
   console.log(SUB_REF, SUB_DOC_IDS)
   
   // delete existing docs
-  deleteDocs(SUB_DOC_IDS, SUB_REF)
+  await deleteDocs(SUB_DOC_IDS, SUB_REF)
 
 
   ///////// COLLECTION
@@ -36,12 +33,12 @@ export const loadData = async (ref, json, uid) => {
   const DOC_IDS = await fetchExistingDocs(ref)
   
   // delete existing docs
-  deleteDocs(DOC_IDS, ref)
+  await deleteDocs(DOC_IDS, ref)
 
   // populate
-  populate(json, ref, uid)
+  await populate(json, ref, uid)
   
-  // console.groupEnd()
+  console.groupEnd()
 }
 
 const fetchExistingDocs = async ref => {
@@ -58,7 +55,7 @@ const fetchExistingDocs = async ref => {
 const deleteDocs = async (docs, ref) => {
   console.log('DELETING...')
   // deleting all doc
-  docs.forEach((id) => {
+  docs.forEach(async id => {
     Firebase.db.collection(ref).doc(id).delete().then(() => {
       console.log('DELETE', id)
     }).catch((error) => {

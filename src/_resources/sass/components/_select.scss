@@ -1,5 +1,3 @@
-
-
 .select__wrapper {
   position: relative;
   display: flex;
@@ -16,12 +14,14 @@
   outline: none;
   text-transform: uppercase;
   background-color: inherit;
-  border: $border-aspect $color-grey;
   line-height: 3.5rem;
-  border-right: 0;
   padding: 0 2rem 0 1rem;
+  border: $border-aspect $color-grey;
+  border-right: 0;
   border-top-left-radius: $default-border-radius;
   border-bottom-left-radius: $default-border-radius;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 
   &:focus {
     border-color: $color-accent;
@@ -33,8 +33,14 @@
     padding-right: 1rem;
     border-top-right-radius: $default-border-radius;
     border-bottom-right-radius: $default-border-radius;
+    outline: none;
 
     & > svg { fill: $color-grey; }
+  }
+
+  &:focus + &__icon,
+  &__icon:focus {
+    border-color: $color-accent;
   }
 
   &:focus + &__icon > svg,

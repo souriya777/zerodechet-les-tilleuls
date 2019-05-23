@@ -4,6 +4,8 @@ class WeightFirebase {
   getWeight = uid => Firebase.doc(`${WEIGHTS_REF}/${uid}`)
   
   getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp)  => {
+    console.log('WeightFirebase', Firebase.auth.currentUser)
+
     let result = []
   
     await Firebase.db.collection(WEIGHTS_REF)

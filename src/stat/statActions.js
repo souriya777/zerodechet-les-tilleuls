@@ -1,13 +1,31 @@
-import weightAPI from '../weight/weightAPI'
+import statAPI from './statAPI'
+import { showLoading, hideLoading } from 'react-redux-loading'
+import { setError } from '../utils/ErrorActions'
 
-export const LOAD_STAT = 'LOAD_STAT'
+const moment = require('moment')
+
+export const FETCH_STAT = 'FETCH_STAT'
+
+const fetchStat = stat => {
+  return {
+    type: FETCH_STAT,
+    stat
+  }
+}
 
 export const handleLoadStat = (uid, period) => {
-  // const stat = weightAPI.fetchWeightList(period)
-  const stat = 'TODO'
+  return async dispatch => {
+    dispatch(showLoading())
 
-  return {
-    type: LOAD_STAT,
-    stat
+    try {
+      // FIXME
+      const now = moment('2019-05-10')
+      const stat = await statAPI.getWeekData(uid, now.toDate())
+      dispatch(fetchStat(stat))
+    } catch (e) {
+      dispatch(setError(e.message))
+    } finally {
+      dispatch(hideLoading())
+    }
   }
 }
