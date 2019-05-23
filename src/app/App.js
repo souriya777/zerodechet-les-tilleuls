@@ -21,10 +21,10 @@ import ErrorWatcher from '../utils/ErrorWatcher'
 /*
 TODO
 - write weight
-- read weight
 - test creation direct compte Google...
 - refresh after load data
 - bar de chargement : load data
+- change firestore rules (hack : )
 
 // réduire épaisseur
 // material-ui pkg perf....

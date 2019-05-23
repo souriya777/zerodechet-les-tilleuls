@@ -1,34 +1,31 @@
+import { firebaseTimestamp } from '../utils/date-utils'
 import Firebase, { USERS_REF, WEIGHTS_REF, EVENTS_REF, SUB_COLLECTION_REF }  from '../app/firebase'
 
-import weightsJSON from '../utils/_DATA-WEIGHT.json'
 import userJSON from '../utils/_DATA-USER.json'
 import eventJSON from '../utils/_DATA-EVENT.json'
 
-import { generateFirebaseTimestamp, generateFirebaseTimestampFromString } from '../utils/date-utils'
-
 const moment = require('moment')
 
-export const loadDataWeight = async uid => loadData(WEIGHTS_REF, weightsJSON, uid)
+export const loadDataWeight = async uid => loadData(WEIGHTS_REF, null, uid)
 export const loadDataUser = async uid => loadData(USERS_REF, userJSON, uid)
 export const loadDataEvent = async uid => loadData(EVENTS_REF, eventJSON, uid)
 
 
 export const loadData = async (ref, json, uid) => {
-  console.log(`-------LOAD ${ref} USER=${uid}----------`)
-  console.group()
+  console.log(`-------LOAD USER: ${uid} REF: ${ref}----------`)
 
-  ///////// SUB-COLLECTION
-  // fetching all existing doc, in subcollection
+  removeSubCollection(ref, uid)
+  loadCollection(ref, json, uid)
+}
+
+export const removeSubCollection = async (ref, uid) => {
   const SUB_REF = `/${ref}/${uid}/${SUB_COLLECTION_REF}`
   const SUB_DOC_IDS = await fetchExistingDocs(SUB_REF)
 
-  console.log(SUB_REF, SUB_DOC_IDS)
-  
-  // delete existing docs
   await deleteDocs(SUB_DOC_IDS, SUB_REF)
+}
 
-
-  ///////// COLLECTION
+export const loadCollection = async (ref, json, uid) => {
   // fetching all existing doc
   const DOC_IDS = await fetchExistingDocs(ref)
   
@@ -37,8 +34,6 @@ export const loadData = async (ref, json, uid) => {
 
   // populate
   await populate(json, ref, uid)
-  
-  console.groupEnd()
 }
 
 const fetchExistingDocs = async ref => {
@@ -89,7 +84,7 @@ const populateWeight = async (ref, uid) => {
 
   // generate dynamic weight
   const weightList = dayList.map(d => {
-    const dTimestamp = generateFirebaseTimestamp(d.toDate())
+    const dTimestamp = firebaseTimestamp(d.toDate())
     return {
       nbPers: 2,
       recycled: randomWeight(600),
@@ -108,40 +103,6 @@ const populateWeight = async (ref, uid) => {
   })
 }
 
-export const getWeightList = uid => {
-  console.log(`getWeightList uid=${uid}`)
-  Firebase.db.collection(WEIGHTS_REF)
-    .doc(uid)
-    .collection(SUB_COLLECTION_REF)
-    .get().then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.id, ' => ', doc.data())
-      })
-    })
-}
-
-export const getWeightListBtwDates = async uid => {
-  const begin = '2019-05-02'
-  const end = '2019-05-09'
-  console.log(`getWeightListBtwDates ${begin} -> ${end}`)
-  let result = []
-
-  await Firebase.db.collection(WEIGHTS_REF)
-  .doc(uid)
-  .collection(SUB_COLLECTION_REF)
-  .where('startDate', '>=', generateFirebaseTimestampFromString('2019-05-02'))
-  .where('startDate', '<', generateFirebaseTimestampFromString('2019-05-09'))
-  .get().then(querySnapshot => {
-      console.log(`${querySnapshot.size} results`)
-      querySnapshot.forEach(doc => {
-        result.push({ id: doc.id, data: doc.data()  })
-        
-      })
-    })
-  console.log(result);
-  
-}
-
 const pastDays = total => {
   const result = []
   const today = moment()
@@ -153,4 +114,4 @@ const pastDays = total => {
   return result
 }
 
-const randomWeight = range => Number(Math.random(1) * range).toFixed(0)
+const randomWeight = range => Number.parseFloat(Number(Math.random(1) * range).toFixed(0))

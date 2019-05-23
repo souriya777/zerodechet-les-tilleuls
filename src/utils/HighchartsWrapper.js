@@ -5,6 +5,10 @@ import {
 } from 'react-jsx-highcharts'
 
 const HighchartsWrapper = ({ categories, recycled, norecycled, avg, pieData }) => {
+
+  console.log(recycled, norecycled, avg);
+  
+
   return (
     <HighchartsChart>
       <Chart />
@@ -14,7 +18,7 @@ const HighchartsWrapper = ({ categories, recycled, norecycled, avg, pieData }) 
         <ColumnSeries name="Recyclé" data={recycled} />
         <ColumnSeries name="Non recyclé" data={norecycled} />
         <SplineSeries name="Moyenne" data={avg} />
-        <PieSeries name="Consommation total" data={[
+        {/* <PieSeries name="Consommation total" data={[
           {
             name: 'Souriya',
             y: 13
@@ -24,7 +28,7 @@ const HighchartsWrapper = ({ categories, recycled, norecycled, avg, pieData }) 
           }]} 
           center={[100, 80]} 
           size={100} 
-          showInLegend={false} />
+          showInLegend={false} /> */}
       </YAxis>
     </HighchartsChart>
   )

@@ -1,18 +1,27 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
-const moment = require('moment')
+import moment from 'moment'
 
-export const TIME_00 = 'T00:00:00'
-export const DATE_FORMAT = 'YYYY-MM-DD'
-
-export const generateFirebaseTimestamp = date => {
-  const seconds = Math.floor(date.getTime() / 1000)
-  return new firebase.firestore.Timestamp(seconds, 0)
+/*
+  For a date reset hours, minutes, seconds
+  Eg. 
+    date: Wednesday May 01, 2019 08:50:10 (am)
+    becomes: Wednesday May 01, 2019 00:00:00 (am)
+    final result: 1556661600
+*/
+export const unix = date => {
+  return resetTime(moment(date)).unix()
 }
 
-export const generateFirebaseTimestampFromString = dateAsString => {
+export const firebaseTimestamp = date => {
+  const timestamp = unix(date)
+  return unixToFirebaseTimestamp(timestamp)
+}
+
+export const firebaseTimestampFromString = dateAsString => {
   const date = moment(dateAsString).toDate()
-  return generateFirebaseTimestamp(date)
+  const timestamp = unix(date)
+  return unixToFirebaseTimestamp(timestamp)
 }
 
 export const getThisWeekDate = now => {
@@ -20,9 +29,19 @@ export const getThisWeekDate = now => {
     return
   }
 
-  const monday = moment(now).isoWeekday(1)
+  const mNow = resetTime(moment(now))
+
+  const monday = moment(mNow).isoWeekday(1)
   return {
     begin: monday.toDate(),
     end: now,
   }
+}
+
+const unixToFirebaseTimestamp = timestamp => {
+  return new firebase.firestore.Timestamp(timestamp, 0)
+}
+
+const resetTime = momentObj => {
+  return momentObj.hours(0).minutes(0).seconds(0)
 }

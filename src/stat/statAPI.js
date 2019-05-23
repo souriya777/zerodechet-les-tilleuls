@@ -8,7 +8,7 @@ class StatAPI {
     const { begin, end } = getThisWeekDate(now)
 
     const weightList = await weightAPI.getWeightListBtwDates(uid, begin, end)
-
+    
     if (! weightList) {
       return
     }
@@ -31,8 +31,8 @@ class StatAPI {
 
   avg = (recycled, norecycled) => {
     let result = 0
-    result += recycled ? recycled : 0
-    result += norecycled ? norecycled : 0
+    result += recycled ? Number.parseInt(recycled) : 0
+    result += norecycled ? Number.parseInt(norecycled) : 0
     return result / 2
   }
 }

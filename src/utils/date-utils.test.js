@@ -1,24 +1,34 @@
 import { 
-  generateFirebaseTimestamp,
-  generateFirebaseTimestampFromString,
+  unix,
+  firebaseTimestamp,
+  firebaseTimestampFromString,
   getThisWeekDate,
 } from './date-utils'
 import { WEEK } from './common-test/common-data'
 
 const moment = require('moment')
 
-describe(`generateFirebaseTimestamp`, () => {
+describe(`unix`, () => {
+  it(`for now: Wednesday May 01, 2019 08:50:10 (am) 
+    returns: 1556661600`, () => {
+      const now = moment([2019, 4, 1, 8, 50, 10, 125]).toDate()
+      expect(unix(now)).toEqual(1556661600)
+  })
+})
+
+describe(`firebaseTimestamp`, () => {
   it('generate Firebase Timestamp {"nanoseconds": 0, "seconds": 1556661600} From Date 2019-05-01', () => {
     const date = moment('2019-05-01').toDate()
-    const firebaseTimestamp = generateFirebaseTimestamp(date)
-    expect(firebaseTimestamp).toEqual({"nanoseconds": 0, "seconds": 1556661600})
+    const timestamp = firebaseTimestamp(date)
+    expect(timestamp).toEqual({"nanoseconds": 0, "seconds": 1556661600})
   })
-  
-  it('generate Firebase Timestamp {"nanoseconds": 0, "seconds": 1556661600} From String "2019-05-01"', () => {
-    const firebaseTimestamp = generateFirebaseTimestampFromString('2019-05-01')
-    expect(firebaseTimestamp).toEqual({"nanoseconds": 0, "seconds": 1556661600})
-  })
+})
 
+describe(`firebaseTimestamp`, () => {
+  it('generate Firebase Timestamp {"nanoseconds": 0, "seconds": 1556661600} From String "2019-05-01"', () => {
+    const firebaseTimestamp = firebaseTimestampFromString('2019-05-01')
+    expect(firebaseTimestamp).toEqual({"nanoseconds": 0, "seconds": 1556661600})
+  })
 })
 
 describe(`getThisWeekDate`, () => {

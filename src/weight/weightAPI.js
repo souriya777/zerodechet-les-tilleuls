@@ -1,10 +1,10 @@
 import WeightFirebase from './weightFirebase'
-import { generateFirebaseTimestamp } from '../utils/date-utils'
+import { firebaseTimestamp } from '../utils/date-utils'
 
 class WeightAPI {
   getWeightListBtwDates = (uid, beginDate, endDate) => {
-    const beginTimestamp = generateFirebaseTimestamp(beginDate)
-    const endTimestamp = generateFirebaseTimestamp(endDate)
+    const beginTimestamp = firebaseTimestamp(beginDate)
+    const endTimestamp = firebaseTimestamp(endDate)
 
     return WeightFirebase.getWeightListBtwDates(uid, beginTimestamp, endTimestamp)
   }
@@ -17,10 +17,7 @@ class WeightAPI {
 
 
 const convertToWeight = (nbPers, nbDays, totalWeight, date, type) => {
-  console.log('convertToWeight');
-  const timestamp = generateFirebaseTimestamp(date)
-  console.log(timestamp)
-
+  const timestamp = firebaseTimestamp(date)
   return {
     nbPers, 
     nbDays, 
