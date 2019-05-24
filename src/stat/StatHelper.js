@@ -14,3 +14,14 @@ export const PERIOD_LABEL = {
 
 export const DAYS_SHORT = 
   ['LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM']
+export const MONTH_SHORT = 'SEM'
+export const TRIMESTER_SHORT = 
+  ['JANV', 'FEV', 'MAR', 'AVR', 'MAI', 'JUI', 'JUI', 'AOU', 'SEP', 'OCT', 'NOV', 'DEC']
+
+
+export const avg = (recycled, norecycled) => {
+  let result = 0
+  result += recycled ? Number.parseFloat(recycled) : 0
+  result += norecycled ? Number.parseFloat(norecycled) : 0
+  return result / 2
+}

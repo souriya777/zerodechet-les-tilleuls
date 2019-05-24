@@ -68,11 +68,31 @@ const generateWeightList = () => {
   })
 }
 
+export const getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp)  => {
+  let result = []
+
+  await Firebase.db.collection(WEIGHTS_REF)
+  .doc(uid).collection(SUB_COLLECTION_REF)
+  .where('startDate', '>=', beginTimestamp)
+  .where('startDate', '<', endTimestamp)
+  .get().then(querySnapshot => {
+    console.log(`${querySnapshot.size} results`)
+    querySnapshot.forEach(doc => {
+      result.push({ id: doc.id, data: doc.data()  })
+    })
+  })
+
+  console.log(result)
+  
+
+  return result
+}
+
 const pastDays = total => {
   const result = []
   const today = moment()
   let day = moment().subtract(total, 'd')
-  while (day.isBefore(today)) {
+  while (day.isSameOrBefore(today)) {
     result.push(day.clone())
     day = day.add(1, 'd')
   }

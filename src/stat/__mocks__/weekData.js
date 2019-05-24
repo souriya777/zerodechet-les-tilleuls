@@ -1,12 +1,6 @@
 export const WEEK_DATA = {
-  categories: [
-    'LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM'
-  ],
-  recycled: [
-    200, 300, 400, 600, 700, 200, 200
-  ],
-  norecycled: [
-    600, 600, 500, 300, 50, 200, 0
-  ],
-  avg: [400, 450, 450, 450, 375, 200, 100]
+  categories: ['LUN', 'MAR', 'MER', 'JEU', 'VEN'],
+  recycled: [202, 459, 168, 347, 71],
+  norecycled: [463, 309, 382, 56, 89],
+  avg: [332.5, 384, 275, 201.5, 80]
 }

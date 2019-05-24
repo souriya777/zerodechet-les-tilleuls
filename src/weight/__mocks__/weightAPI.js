@@ -1,22 +1,14 @@
-import { 
-  UID,
-  WEEK 
-} from '../../utils/common-test/common-data'
-import { WEEK_DATA } from './weekData'
+import { firebaseTimestamp } from '../../utils/date-utils'
+
+import WeightFirebase from './weightFirebase'
 
 class WeightAPI {
   getWeightListBtwDates = (uid, beginDate, endDate) => {
-    if (
-      UID === uid &&
-      WEEK.MONDAY.toDate().getTime() === beginDate.getTime() &&
-      WEEK.SUNDAY.toDate().getTime() === endDate.getTime()
-    ) {
-      return WEEK_DATA
-    }
+    const beginTimestamp = firebaseTimestamp(beginDate)
+    const endTimestamp = firebaseTimestamp(endDate)
 
-    return
+    return WeightFirebase.getWeightListBtwDates(uid, beginTimestamp, endTimestamp)
   }
-  
 }
 
 export default new WeightAPI()

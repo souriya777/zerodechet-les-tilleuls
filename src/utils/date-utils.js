@@ -1,6 +1,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import moment from 'moment'
+import { PERIOD } from '../stat/StatHelper'
 
 /*
   For a date reset hours, minutes, seconds
@@ -18,30 +19,67 @@ export const firebaseTimestamp = date => {
   return unixToFirebaseTimestamp(timestamp)
 }
 
-export const firebaseTimestampFromString = dateAsString => {
-  const date = moment(dateAsString).toDate()
-  const timestamp = unix(date)
-  return unixToFirebaseTimestamp(timestamp)
+export const toDate = firebaseTimestamp => {
+  const myDate = new Date()
+  myDate.setTime(firebaseTimestamp.seconds * 1000)
+  return myDate
 }
 
-export const getThisWeekDate = now => {
-  if (! now) {
+export const getThisWeekDate = now => getThisPeriodDate(now, PERIOD.WEEK)
+export const getThisMonthDate = now => getThisPeriodDate(now, PERIOD.MONTH)
+export const getThisTrimesterDate = now => getThisPeriodDate(now, PERIOD.TRIMESTER)
+
+/*
+ return 1, 2, 3, 4, 5 (may of 2019 contains 5 weeks...)
+*/
+export const getWeekOfMonth = date => {
+  const mDate = moment(date)
+  const firstDayOfMonth = mDate.clone().startOf('month')
+  const firstDayOfWeek = firstDayOfMonth.clone().startOf('isoweek')
+
+  const offset = firstDayOfMonth.diff(firstDayOfWeek, 'days')
+  return Math.ceil((mDate.date() + offset) / 7)
+}
+
+const getThisPeriodDate = (now, period = PERIOD.WEEK) => {
+  if (now == null) {
     return
   }
 
   const mNow = resetTime(moment(now))
+  let day1st = undefined
 
-  const monday = moment(mNow).isoWeekday(1)
+  if (PERIOD.WEEK === period) {
+    const dateOfMth = mNow.date() // 1 to 31
+    const is1stWk = getWeekOfMonth(now) === 1
+
+    const firstDayOfMonth = mNow.clone().startOf('month')
+
+    // 1st day can be a different day than monday (for every 1st week of month)
+    if (is1stWk && dateOfMth <= 7) {
+      day1st = firstDayOfMonth
+    } else {
+      day1st = mNow.isoWeekday(1) // monday
+    }
+
+
+  } else if (PERIOD.MONTH === period) {
+    day1st = mNow.date(1)
+  } else {
+    day1st = mNow.clone().subtract(2, 'month').date(1)
+  }
+  
   return {
-    begin: monday.toDate(),
-    end: now,
+    begin: day1st.toDate(),
+    end: now
   }
 }
+
 
 const unixToFirebaseTimestamp = timestamp => {
   return new firebase.firestore.Timestamp(timestamp, 0)
 }
 
 const resetTime = momentObj => {
-  return momentObj.hours(0).minutes(0).seconds(0)
+  return momentObj.hour(0).minute(0).second(0)
 }

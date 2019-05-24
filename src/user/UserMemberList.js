@@ -1,7 +1,7 @@
 import React from 'react'
 
 const UserMemberList = ({items }) => {
-  if (! items) {
+  if (items == null) {
     return <>Aucun membre n'a été ajouté.</>
   }
 

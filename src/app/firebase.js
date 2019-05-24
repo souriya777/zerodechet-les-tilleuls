@@ -55,7 +55,7 @@ class Firebase {
   }
 
   static get instance() {
-    if (!this[singleton]) {
+    if (this[singleton] == null) {
       this[singleton] = new Firebase(singletonEnforcer);
     }
 

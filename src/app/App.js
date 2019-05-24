@@ -30,6 +30,13 @@ TODO
 - test creation direct compte Google...
 - change firestore rules (hack : )
 
+// not vital :
+- remplacer toutes les date par timestamp dans firebase 
+eg. startDate => startTimestamp
+- supprimer "endDate" in weight object (firebase)
+- configure launch.json for jest ext.
+https://github.com/jest-community/vscode-jest
+
 
 // improvement :
 - implement Dan Abramov solution linked in it : https://daveceddia.com/where-fetch-data-redux/

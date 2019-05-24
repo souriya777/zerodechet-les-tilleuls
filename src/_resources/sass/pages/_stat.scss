@@ -6,4 +6,10 @@
   &__action {
     @include space-content
   }
+
+  &__empty {
+    @include space-top;
+    color: $color-primary-text;
+    text-align: center;
+  }
 }

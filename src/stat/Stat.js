@@ -5,19 +5,19 @@ import { handleLoadStat } from './statActions'
 import { PERIOD, PERIOD_LABEL } from './StatHelper'
 
 import SmartSelect from '../common-ui/SmartSelect'
-import Loading from '../info/Loading'
 import StatGraph from './StatGraph'
 
 class Stat extends Component {
 
   handleChangePeriod = e => {
+    const { user, dispatch } = this.props
     const period = e.target.value
-    console.log('handleChangePeriod ', period)
+    dispatch(handleLoadStat(user.uid, period))
   }
   
   componentDidUpdate() {
     const { user, dispatch } = this.props
-    dispatch(handleLoadStat(user.uid, ))
+    dispatch(handleLoadStat(user.uid))
   }
   
   render () {
@@ -32,9 +32,7 @@ class Stat extends Component {
           />
         </div>
         <div className='stat__graph'>
-          <React.Suspense fallback={<Loading />}>
-            <StatGraph />
-          </React.Suspense> 
+          <StatGraph />
         </div>
       </div>
     )

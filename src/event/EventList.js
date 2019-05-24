@@ -1,7 +1,7 @@
 import React from 'react'
 
 const EventList = ({ items }) => {
-  if (! items) {
+  if (items == null) {
     return <>Il n'y a aucun événement pour l'instant</>
   }
 

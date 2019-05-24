@@ -147,6 +147,9 @@ https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
 iphone testing
 http://mobiletest.me
 
+js : how to check null or undefined?
+https://stackoverflow.com/questions/2559318/how-to-check-for-an-undefined-or-null-variable-in-javascript
+
 #FOR ME
 Promise - async await
 https://javascript.info/async-await

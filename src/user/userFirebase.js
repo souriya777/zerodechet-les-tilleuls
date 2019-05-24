@@ -22,8 +22,7 @@ class UserFirebase {
       if (user) {
         
         let extra = await this.getExtraInfo(user)
-        // console.log('getExtraInfo', extra)
-        if (! extra) {
+        if (extra == null) {
           console.log('generateExtraInfo', user)
           await this.generateExtraInfo(filter(user).name)
           extra = await this.getExtraInfo(user)

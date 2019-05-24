@@ -1,21 +1,37 @@
+import { firebaseTimestamp } from '../../utils/date-utils'
+
 import { 
-  VALID_UID,
-  VALID_BEGIN_TIMESTAMP,
-  VALID_END_TIMESTAMP,
-} from './weightData'
+  UID, 
+  WEEK, 
+  MONTH, 
+  TRIMESTER 
+} from '../../utils/common-test/common-data'
 import { WEEK_DATA } from './weekData'
+import { MONTH_DATA } from './monthData'
+import { TRIMESTER_DATA } from './trimesterData'
 
 class WeightFirebase {
   getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp) => {
+    if ( UID !== uid) {
+      return
+    }
+    
     if (
-      VALID_UID === uid
-      && VALID_BEGIN_TIMESTAMP.isEqual(beginTimestamp)
-      && VALID_END_TIMESTAMP.isEqual(endTimestamp)
+      firebaseTimestamp(WEEK.MONDAY.toDate()).isEqual(beginTimestamp)
+      && firebaseTimestamp(WEEK.SATURDAY.toDate()).isEqual(endTimestamp)
     ) {
       return WEEK_DATA
+    } else if (
+      firebaseTimestamp(MONTH.DAY_1.toDate()).isEqual(beginTimestamp)
+      && firebaseTimestamp(MONTH.DAY_23.toDate()).isEqual(endTimestamp)
+    ) {
+      return MONTH_DATA
+    } else if (
+      firebaseTimestamp(TRIMESTER.MAR_DAY_1).isEqual(beginTimestamp)
+      && firebaseTimestamp(TRIMESTER.MAY_DAY_23).isEqual(endTimestamp)
+    ) {
+      return TRIMESTER_DATA
     }
-
-    return []
   }
 }
 
