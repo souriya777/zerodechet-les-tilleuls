@@ -61,17 +61,16 @@ describe(`getMonthData`, () => {
 
 })
 
-// FIXME
-// describe(`getTrimesterData`, () => {
+describe(`getTrimesterData`, () => {
 
-//   it(`returns TRIMESTER_DATA for :
-//     uid = UID
-//     now = TRIMESTER.MAY_DAY_23
-//   `, async () => {
-//       const mNow = TRIMESTER.MAY_DAY_23
+  it(`returns TRIMESTER_DATA for :
+    uid = UID
+    now = TRIMESTER.MAY_DAY_23
+  `, async () => {
+      const mNow = TRIMESTER.MAY_DAY_23
 
-//       const result = await statAPI.getTrimesterData(UID, mNow.toDate())
-//       expect(result).toEqual(TRIMESTER_DATA)
-//   })
+      const result = await statAPI.getTrimesterData(UID, mNow.toDate())
+      expect(result).toEqual(TRIMESTER_DATA)
+  })
 
-// })
+})

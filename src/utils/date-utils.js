@@ -41,6 +41,10 @@ export const getWeekOfMonth = date => {
   return Math.ceil((mDate.date() + offset) / 7)
 }
 
+export const getMonthOfTrimester = date => {
+  return moment(date).month() + 1
+}
+
 const getThisPeriodDate = (now, period = PERIOD.WEEK) => {
   if (now == null) {
     return

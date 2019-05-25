@@ -9,6 +9,7 @@ import {
   getThisMonthDate,
   getThisTrimesterDate,
   getWeekOfMonth,
+  getMonthOfTrimester,
 } from './date-utils'
 import { WEEK, MONTH, TRIMESTER } from './common-test/common-data'
 
@@ -257,4 +258,23 @@ describe(`getWeekOfMonth`, () => {
     const result = getWeekOfMonth(MONTH.DAY_31.toDate())
     expect(result).toEqual(5)
   })
+})
+
+describe(`getMonthOfTrimester`, () => {
+  
+  it(`for date = JAN_DAY_1, returns : 1`, () => {
+    const result = getMonthOfTrimester(TRIMESTER.JAN_DAY_1.toDate())
+    expect(result).toEqual(1)
+  })
+  
+  it(`for date = APR_DAY_8, returns : 3`, () => {
+    const result = getMonthOfTrimester(TRIMESTER.APR_DAY_8.toDate())
+    expect(result).toEqual(4)
+  })
+  
+  it(`for date = LAST_DEC_1, returns : 11`, () => {
+    const result = getMonthOfTrimester(TRIMESTER.LAST_DEC_1.toDate())
+    expect(result).toEqual(12)
+  })
+
 })
