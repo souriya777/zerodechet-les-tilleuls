@@ -10,8 +10,8 @@ class WeightFirebase {
     .doc(uid).collection(SUB_COLLECTION_REF)
     .where('startDate', '>=', beginTimestamp)
     .where('startDate', '<', endTimestamp)
+    .orderBy('startDate')
     .get().then(querySnapshot => {
-      console.log(`${querySnapshot.size} results`)
       querySnapshot.forEach(doc => {
         result.push({ id: doc.id, data: doc.data()  })
       })

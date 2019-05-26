@@ -24,11 +24,9 @@ export const handleLoadStat = (uid, period = PERIOD.WEEK) => {
       if (PERIOD.WEEK === period) {
         stat = await statAPI.getWeekData(uid, new Date())
       } else if (PERIOD.MONTH === period) {
-        console.log('TODO month')
-        stat = await statAPI.getWeekData(uid, new Date())
+        stat = await statAPI.getMonthData(uid, new Date())
       } else {
-        console.log('TODO trimester')
-        stat = await statAPI.getWeekData(uid, new Date())
+        stat = await statAPI.getTrimesterData(uid, new Date())
       }
 
       dispatch(fetchStat(stat))

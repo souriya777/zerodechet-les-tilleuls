@@ -21,8 +21,6 @@ class StatAPI {
     
     const weightList = await weightAPI.getWeightListBtwDates(uid, begin, end)
     
-    // FIXME sort
-    // FIXME value 0
     return statForWeek(weightList)
   }
 
