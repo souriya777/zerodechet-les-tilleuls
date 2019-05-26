@@ -172,7 +172,7 @@ const statForTrimester = weightList => {
     const cat = `${TRIMESTER_SHORT[mth + i]}`
     // console.log(`${cat} -----`)
 
-    const { recycled, norecycled, avg } = statForMonth(weightMth)
+    const { recycled, norecycled } = statForMonth(weightMth)
     const reduceRecycled = reduceStat(recycled)
     const reduceNorecycled = reduceStat(norecycled)
 

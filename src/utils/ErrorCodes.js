@@ -11,3 +11,7 @@ export const SIGNIN__ERROR_CODES = {
 export const SIGNUP__ERROR_CODES = {
   'auth/email-already-in-use': `L'email est associé à un compte existant.`,
 }
+
+export const GENERAL_ERROR_CODES = {
+  'permission-denied': `Vous n'avez pas la permission d'accéder à la base de données. Contactez-nous, et nous vous aiderons au mieux.`
+}

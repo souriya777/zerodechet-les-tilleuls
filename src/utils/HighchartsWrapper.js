@@ -1,7 +1,7 @@
 import React from 'react'
 import Highcharts from 'highcharts'
 import {
-  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, SplineSeries, PieSeries
+  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, SplineSeries
 } from 'react-jsx-highcharts'
 
 const HighchartsWrapper = ({ categories, recycled, norecycled, avg, pieData }) => {

@@ -2,7 +2,6 @@ import React from 'react'
 
 import MenuItem from './MenuItem'
 import ROUTES from '../app/routes'
-import SVGCalendar from './svg/SVGCalendar'
 import SVGUser from './svg/SVGUser'
 import SVGWeight from './svg/SVGWeight'
 import SVGStat from './svg/SVGStat'

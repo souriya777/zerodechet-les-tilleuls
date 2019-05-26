@@ -41,3 +41,10 @@ export const TRIMESTER = {
 
 export const DAY_NEXT_YEAR = moment('2020-05-08')
 export const DAY_LAST_YEAR = moment('2018-05-08')
+
+export class FirebaseError extends Error {
+  constructor(code) {
+    super('mock firebase error')
+    this.code = code
+  }
+}

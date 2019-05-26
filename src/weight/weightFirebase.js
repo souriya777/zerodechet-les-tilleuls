@@ -21,16 +21,8 @@ class WeightFirebase {
   }
   
   addWeight = async (uid, data) => {
-    let newRef = null
-
-    try {
-      console.log('bef')
-      newRef = await Firebase.db.collection(WEIGHTS_REF).doc(uid).collection(SUB_COLLECTION_REF).doc()
-      newRef.set(data)
-      console.log('aft')
-    } catch(error) {
-      console.log(error)
-    }
+    const newRef = await Firebase.db.collection(WEIGHTS_REF).doc(uid).collection(SUB_COLLECTION_REF).doc()
+    await newRef.set(data)
 
     return newRef
   }

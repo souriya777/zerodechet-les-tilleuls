@@ -1,5 +1,7 @@
 import WeightFirebase from './weightFirebase'
 import { firebaseTimestamp } from '../utils/date-utils'
+import PermissionDeniedException from '../utils/PermissionDeniedException'
+import { GENERAL_ERROR_CODES } from '../utils/ErrorCodes'
 
 class WeightAPI {
   getWeightListBtwDates = (uid, beginDate, endDate) => {
@@ -10,8 +12,17 @@ class WeightAPI {
   }
   
   addWeight = async (uid, nbPers, startDate, endDate, recycled, norecycled) => {
-    const w = convertToWeight(nbPers, startDate, endDate, recycled, norecycled)
-    WeightFirebase.addWeight(uid, w)
+    let newRef = null
+
+    try {
+      const w = convertToWeight(nbPers, startDate, endDate, recycled, norecycled)
+      newRef = await WeightFirebase.addWeight(uid, w)
+    } catch(error) {
+      const errorMsg = GENERAL_ERROR_CODES[error.code]
+      throw new PermissionDeniedException(errorMsg)
+    }
+
+    return newRef
   }
 }
 

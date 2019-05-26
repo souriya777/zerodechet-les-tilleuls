@@ -1,6 +1,7 @@
 import { 
   EMAIL, 
-  PWD 
+  PWD,
+  FirebaseError,
 } from '../../utils/common-test/common-data'
 
 import { 
@@ -62,13 +63,6 @@ class UserFirebase {
       name: firebaseUser.displayName,
       photo: firebaseUser.photoURL,
     }
-  }
-}
-
-class FirebaseError extends Error {
-  constructor(code) {
-    super('mock firebase error')
-    this.code = code
   }
 }
 

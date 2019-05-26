@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 
 import { handleSignout } from '../user/userActions'
 
 // import TimePicker from 'react-gradient-timepicker'
 // import {DateFormatInput, TimeFormatInput} from 'material-ui-next-pickers'
-import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField'
+// import { withStyles } from '@material-ui/core/styles';
+// import TextField from '@material-ui/core/TextField'
 
 class RDV extends Component {
 
@@ -35,15 +35,15 @@ class RDV extends Component {
   render() {
     // const theme = 'Mojito'
     // const theme = 'Quepal'
-    const {date, time} = this.state
-    const { classes } = this.props
+    // const {date, time} = this.state
+    // const { classes } = this.props
 
     return (
       <div className='rdv'>
         RDV
         {/* <DateFormatInput name='date-input' value={date} onChange={this.onChangeDate}/>
         <TimeFormatInput name='time-input' value={time} onChange={this.onChangeTime}/> */}
-        <TextField
+        {/* <TextField
           id="datetime-local"
           label="Date de début"
           type="datetime-local"
@@ -52,19 +52,20 @@ class RDV extends Component {
           InputLabelProps={{
             shrink: true,
           }}
-        />
+        /> */}
       </div>
     )
   }
 }
 
-const styles = theme => (
-  {textField: {
-    marginLeft: theme.spacing.unit,
-    marginRight: theme.spacing.unit,
-    width: 200,
-  },
-})
+// const styles = theme => (
+//   {textField: {
+//     marginLeft: theme.spacing.unit,
+//     marginRight: theme.spacing.unit,
+//     width: 200,
+//   },
+// })
 
+export default RDV
 // export default connect()(RDV)
-export default withStyles(styles)(RDV)
+// export default withStyles(styles)(RDV)
