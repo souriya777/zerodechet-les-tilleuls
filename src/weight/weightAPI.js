@@ -1,5 +1,6 @@
 import WeightFirebase from './weightFirebase'
-import { firebaseTimestamp } from '../utils/date-utils'
+import { firebaseTimestamp, pastDays, dateDiff } from '../utils/date-utils'
+import { avgHome } from '../stat/StatHelper'
 import PermissionDeniedException from '../utils/PermissionDeniedException'
 import { GENERAL_ERROR_CODES } from '../utils/ErrorCodes'
 
@@ -12,17 +13,30 @@ class WeightAPI {
   }
   
   addWeight = async (uid, nbPers, startDate, endDate, recycled, norecycled) => {
-    let newRef = null
+    // calculate average weight
+    const diff = dateDiff(startDate, endDate)
+    const avgNb = avgHome(recycled, norecycled, nbPers, diff)
+    
+    // get days list
+    const dayList = pastDays(diff, endDate)
+    
+    // generate dynamic weight to insert
+    const insertList = dayList.map(d => {
+      return convertToWeight(nbPers, d, d, avgNb.recycled, avgNb.norecycled)
+    })
+    
+    if (insertList == null || insertList.length === 0) {
+      return
+    }
 
+    // call db
     try {
-      const w = convertToWeight(nbPers, startDate, endDate, recycled, norecycled)
-      newRef = await WeightFirebase.addWeight(uid, w)
+      await WeightFirebase.addWeightBatch(uid, insertList)
     } catch(error) {
       const errorMsg = GENERAL_ERROR_CODES[error.code]
       throw new PermissionDeniedException(errorMsg)
     }
 
-    return newRef
   }
 }
 

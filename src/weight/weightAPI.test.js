@@ -5,12 +5,11 @@ import {
   MEMBERS_TOTAL,
   WEIGHT_RECYCLED,
   WEIGHT_NORECYCLED,
-  DOC_WEIGHT_REF,
 } from '../utils/common-test/common-data'
 import { 
   WEEK_DATA
 } from './__mocks__/weekData'
-import PermissionDeniedException from '../utils/PermissionDeniedException';
+import PermissionDeniedException from '../utils/PermissionDeniedException'
 
 jest.mock('./weightFirebase')
 
@@ -36,7 +35,7 @@ describe(`addWeight`, () => {
         weightAPI.addWeight('UID_NOT_AUTHORIZED', MEMBERS_TOTAL, WEEK.MONDAY.toDate(), WEEK.MONDAY.toDate(), WEIGHT_RECYCLED, WEIGHT_NORECYCLED)
       ).rejects.toEqual(
         new PermissionDeniedException(`Vous n'avez pas la permission d'accéder à la base de données. Contactez-nous, et nous vous aiderons au mieux.`)
-        )
+      )
   })
 
   it(`
@@ -49,9 +48,8 @@ describe(`addWeight`, () => {
       norecycled = WEIGHT_NORECYCLED
     WRITE in database without error
     AND return a valid DocumentReference`, async () => {
-      const docRef = await weightAPI.addWeight(UID, MEMBERS_TOTAL, WEEK.MONDAY.toDate(), WEEK.MONDAY.toDate(), WEIGHT_RECYCLED, WEIGHT_NORECYCLED)
-
-      expect(docRef).toEqual(DOC_WEIGHT_REF)
+      const dbResp = await weightAPI.addWeight(UID, MEMBERS_TOTAL, WEEK.MONDAY.toDate(), WEEK.TUESDAY.toDate(), WEIGHT_RECYCLED, WEIGHT_NORECYCLED)
+      expect(dbResp).toBeUndefined()
   })
 
 })

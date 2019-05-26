@@ -25,3 +25,20 @@ export const avg = (recycled, norecycled) => {
   result += norecycled ? Number.parseFloat(norecycled) : 0
   return result / 2
 }
+
+export const avgHome = (recycled, norecycled, nbPers, nbDays) => {
+  if (nbDays === 0 || nbPers === 0) {
+    return {
+      recycled: recycled, 
+      norecycled: norecycled,
+    }
+  }
+
+  const avgRecycled = recycled / nbDays / nbPers
+  const avgNorecycled = norecycled / nbDays / nbPers
+
+  return {
+    recycled: avgRecycled, 
+    norecycled: avgNorecycled,
+  }
+}

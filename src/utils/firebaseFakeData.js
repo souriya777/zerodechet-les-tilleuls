@@ -1,7 +1,7 @@
 import { firebaseTimestamp } from '../utils/date-utils'
 import Firebase, { WEIGHTS_REF, SUB_COLLECTION_REF }  from '../app/firebase'
+import { pastDays } from './date-utils'
 
-const moment = require('moment')
 
 export const loadDataWeight = async uid => loadData(WEIGHTS_REF, uid)
 
@@ -51,11 +51,11 @@ const fetchExistingDocs = async ref => {
 
 const generateWeightList = () => {
   // get days list
-  const dayList = pastDays(100)
+  const dayList = pastDays(100, new Date())
 
   // generate dynamic weight
   return dayList.map(d => {
-    const dTimestamp = firebaseTimestamp(d.toDate())
+    const dTimestamp = firebaseTimestamp(d)
     return {
       nbPers: 2,
       recycled: randomWeight(600),
@@ -84,17 +84,6 @@ export const getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp)  
   console.log(result)
   
 
-  return result
-}
-
-const pastDays = total => {
-  const result = []
-  const today = moment()
-  let day = moment().subtract(total, 'd')
-  while (day.isSameOrBefore(today)) {
-    result.push(day.clone())
-    day = day.add(1, 'd')
-  }
   return result
 }
 

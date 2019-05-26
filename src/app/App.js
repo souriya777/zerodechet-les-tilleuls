@@ -13,6 +13,7 @@ import Content from '../common-ui/Content'
 import Nav from '../common-ui/Nav'
 import ControlTower from './ControlTower'
 import ErrorWatcher from '../utils/ErrorWatcher'
+import InfoWatcher from '../utils/InfoWatcher'
 
 // lazy loading (/!\ BE CAREFUL FOR CSS TRANSITION... /!\)
 // const Screen = React.lazy(() => import('../common-ui/Screen'))
@@ -27,6 +28,7 @@ TODO
 - didacticiel
 - ajout membre
 - test creation direct compte Google...
+- tester tous les "rules" dans firestore
 - firestore cache
 https://stackoverflow.com/questions/50917833/firebase-firestore-how-to-identify-an-offline-read
 - PWA : invite Add To Screen
@@ -66,6 +68,7 @@ class App extends Component {
             </nav>
 
             <ErrorWatcher />
+            <InfoWatcher />
           </ScrollToTop>
         </Router>
       </React.Suspense> 

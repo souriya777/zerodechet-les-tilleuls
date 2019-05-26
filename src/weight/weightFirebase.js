@@ -20,11 +20,15 @@ class WeightFirebase {
     return result
   }
   
-  addWeight = async (uid, data) => {
-    const newRef = await Firebase.db.collection(WEIGHTS_REF).doc(uid).collection(SUB_COLLECTION_REF).doc()
-    await newRef.set(data)
+  addWeightBatch = async (uid, dataList) => {
+    const BATCH = Firebase.batch
 
-    return newRef
+    dataList.forEach(data => {
+      const newRef = Firebase.db.collection(WEIGHTS_REF).doc(uid).collection(SUB_COLLECTION_REF).doc()
+      BATCH.set(newRef, data)
+    })
+
+    BATCH.commit()
   }
 }
 

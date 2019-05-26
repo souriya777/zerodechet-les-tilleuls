@@ -6,13 +6,14 @@ export const FIRSTNAME = 'Souriya'
 export const LASTNAME = 'Phongsavanh'
 export const PWD = 'M0ttt2P@ssseE2deuxO0uf'
 
-export const DOC_WEIGHT_REF = 'FeQkSlnDsoYnkMa6ykEZ'
 export const MEMBERS_TOTAL = 2
-export const WEIGHT_RECYCLED = 300
-export const WEIGHT_NORECYCLED = 400
+export const WEIGHT_RECYCLED = 2000
+export const WEIGHT_NORECYCLED = 1000
+export const RECORDED_DATE_DB = '2019-05-08'
 
 export const WEEK = {
   MONDAY: moment('2019-05-06'),
+  TUESDAY: moment('2019-05-07'),
   SATURDAY: moment('2019-05-11'),
   SUNDAY: moment('2019-05-12'),
 }
@@ -31,6 +32,7 @@ export const TRIMESTER = {
   JAN_DAY_1: moment('2019-01-01'),
   JAN_DAY_30: moment('2019-01-30'),
   FEV_DAY_1: moment('2019-02-01'),
+  FEV_DAY_12: moment('2019-02-12'),
   FEV_DAY_14: moment('2019-02-14'),
   MAR_DAY_1: moment('2019-03-01'),
   MAR_DAY_28: moment('2019-03-28'),

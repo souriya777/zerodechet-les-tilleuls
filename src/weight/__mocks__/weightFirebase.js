@@ -1,17 +1,16 @@
-import { firebaseTimestamp } from '../../utils/date-utils'
-
 import { 
   UID, 
   WEEK, 
   MONTH, 
   TRIMESTER ,
-  DOC_WEIGHT_REF,
   FirebaseError,
 } from '../../utils/common-test/common-data'
+import { stripFirebaseTimestamp } from '../../utils/common-test/common-utils'
+import { firebaseTimestamp } from '../../utils/date-utils'
 import { WEEK_DATA } from './weekData'
 import { MONTH_DATA } from './monthData'
 import { TRIMESTER_DATA } from './trimesterData'
-import { WEIGHT_DB } from './weightDb'
+import { INSERT_WEIGHT_LIST } from './insertWeightList'
 
 class WeightFirebase {
   getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp) => {
@@ -33,25 +32,38 @@ class WeightFirebase {
     }
   }
 
-  addWeight = async (uid, data) => {
-    if ( UID !== uid) {
+  addWeightBatch = async (uid, dataList) => {
+    
+    if (UID !== uid) {
       throw new FirebaseError('permission-denied')
     }
 
+    const cleanDataList = stripFirebaseTimestamp(dataList)
+    
     if (
-      UID === uid && 
-      WEIGHT_DB.nbPers === data.nbPers &&
-      WEIGHT_DB.recycled === data.recycled &&
-      WEIGHT_DB.norecycled === data.norecycled &&
-      WEIGHT_DB.startDate.seconds === data.startDate.seconds &&
-      WEIGHT_DB.endDate.seconds === data.endDate.seconds &&
-      WEIGHT_DB.recordedDate.seconds === data.recordedDate.seconds
+      INSERT_WEIGHT_LIST.length === cleanDataList.length &&
+      compareWeight(INSERT_WEIGHT_LIST[0], cleanDataList[0]) &&
+      compareWeight(INSERT_WEIGHT_LIST[1], cleanDataList[1])
     ) {
-      return DOC_WEIGHT_REF
-    }
+      return
+    } 
 
-    return null
+    throw new FirebaseError()
   }
 }
+
+const compareWeight = (w1, w2) => {
+    if (
+      w1.nbPers === w2.nbPers &&
+      w1.recycled === w2.recycled &&
+      w1.norecycled === w2.norecycled &&
+      w1.startDate === w2.startDate &&
+      w1.endDate === w2.endDate &&
+      w1.recordedDate === w2.recordedDate
+    ) {
+      return true
+    }
+    return false
+  }
 
 export default new WeightFirebase()

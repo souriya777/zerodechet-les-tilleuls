@@ -10,6 +10,8 @@ import {
   getThisTrimesterDate,
   getWeekOfMonth,
   getMonthOfTrimester,
+  pastDays,
+  dateDiff,
 } from './date-utils'
 import { WEEK, MONTH, TRIMESTER } from './common-test/common-data'
 
@@ -277,4 +279,38 @@ describe(`getMonthOfTrimester`, () => {
     expect(result).toEqual(12)
   })
 
+})
+
+describe(`pastDays`, () => {
+  
+  it(`return a list of 14 Date, for
+    total = 14
+    today = FEV_DAY_1
+  `, () => {
+    const thisDay = TRIMESTER.FEV_DAY_14
+    const total = 2
+    const dayList = pastDays(total, thisDay.toDate())
+    expect(dayList.length).toEqual(total+1)
+    expect(dayList[0]).toEqual(TRIMESTER.FEV_DAY_12.toDate())
+    expect(dayList[total]).toEqual(thisDay.toDate())
+  })
+
+})
+
+describe(`dateDiff`, () => {
+  
+  it(`return 2, for
+    begin = FEV_DAY_12
+    end = FEV_DAY_14
+  `, () => {
+    const diff = dateDiff(TRIMESTER.FEV_DAY_12.toDate(), TRIMESTER.FEV_DAY_14.toDate())
+    expect(diff).toEqual(2)
+  })
+  
+  it(`return 0, for begin and end dates are equals
+  `, () => {
+    const sameDate = TRIMESTER.FEV_DAY_12.toDate()
+    const diff = dateDiff(sameDate, sameDate)
+    expect(diff).toEqual(0)
+  })
 })

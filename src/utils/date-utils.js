@@ -79,6 +79,22 @@ const getThisPeriodDate = (now, period = PERIOD.WEEK) => {
   }
 }
 
+export const pastDays = (total, thisDay) => {
+  const result = []
+  const mToday = moment(thisDay)
+  let mDay = mToday.clone().subtract(total, 'd')
+  
+  while (mDay.isSameOrBefore(mToday)) {
+    result.push(mDay.clone().toDate())
+    mDay = mDay.add(1, 'd')
+  }
+  return result
+}
+
+export const dateDiff = (begin, end) => {
+  return moment(end).diff(moment(begin), 'd')
+}
+
 
 const unixToFirebaseTimestamp = timestamp => {
   return new firebase.firestore.Timestamp(timestamp, 0)
