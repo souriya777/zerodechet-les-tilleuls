@@ -26,6 +26,7 @@ class UserSigninForm extends Component {
         fieldTypeList={['text', 'password']}
         fieldPlaceholderList={['Mon Email', 'Mon mot de passe']}
         fieldSubList={[undefined, SubLink]}
+        fieldAutocompleteList={['username', 'current-password']}
         formSchema={FormSchema}
         onSubmit={this.handleSubmit}
       />

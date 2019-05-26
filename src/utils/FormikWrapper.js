@@ -22,7 +22,7 @@ class FormikWrapper extends Component {
   fillEmptyList = (list, size) => {
     return list === undefined 
       ? new Array(size).fill(undefined) 
-      : this.props.fieldSubList
+      : list
   }
 
   render () {
@@ -33,6 +33,7 @@ class FormikWrapper extends Component {
 
     const nbOfFields = fieldNameList.length
     const fieldSubList = this.fillEmptyList(this.props.fieldSubList, nbOfFields)
+    const fieldAutocompleteList = this.fillEmptyList(this.props.fieldAutocompleteList, nbOfFields)
     
     const { formSchema } = this.props
     const { userHasValidateOnce } = this.state
@@ -60,6 +61,7 @@ class FormikWrapper extends Component {
                   placeholder={fieldPlaceholderList[i]} 
                   errorMsg={errors[fieldName]}
                   sub={fieldSubList[i]}
+                  autocomplete={fieldAutocompleteList[i]}
                   key={i}
                 />
               ))}

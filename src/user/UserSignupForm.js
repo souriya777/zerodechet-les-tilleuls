@@ -15,8 +15,9 @@ class UserSignupForm extends Component {
     return (
       <FormikWrapper
         fieldNameList={['firstName', 'lastName', 'email', 'pwd']}
-        fieldPlaceholderList={['Prénom', 'Nom', 'Mon Email', 'Mon mot de passe']}
         fieldTypeList={['text', 'text', 'text', 'password']}
+        fieldPlaceholderList={['Prénom', 'Nom', 'Mon Email', 'Mon mot de passe']}
+        fieldAutocompleteList={[undefined, undefined, 'username', 'current-password']}
         formSchema={FormSchema}
         onSubmit={this.handleSubmit}
       />

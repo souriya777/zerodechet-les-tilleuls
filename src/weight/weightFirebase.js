@@ -5,7 +5,7 @@ class WeightFirebase {
   
   getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp)  => {
     let result = []
-  
+    
     await Firebase.db.collection(WEIGHTS_REF)
     .doc(uid).collection(SUB_COLLECTION_REF)
     .where('startDate', '>=', beginTimestamp)

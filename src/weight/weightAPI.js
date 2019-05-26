@@ -7,7 +7,7 @@ class WeightAPI {
   getWeightListBtwDates = (uid, beginDate, endDate) => {
     const beginTimestamp = firebaseTimestamp(beginDate)
     const endTimestamp = firebaseTimestamp(endDate)
-
+    
     return WeightFirebase.getWeightListBtwDates(uid, beginTimestamp, endTimestamp)
   }
   
