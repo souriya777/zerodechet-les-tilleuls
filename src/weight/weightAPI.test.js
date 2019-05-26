@@ -1,7 +1,11 @@
 import weightAPI from './weightAPI'
 import { 
   UID,
-  WEEK 
+  WEEK,
+  MEMBERS_TOTAL,
+  WEIGHT_RECYCLED,
+  WEIGHT_NORECYCLED,
+  DOC_WEIGHT_REF,
 } from '../utils/common-test/common-data'
 import { 
   WEEK_DATA
@@ -22,3 +26,22 @@ describe(`getWeightListBtwDates`, () => {
   })
 
 })
+
+// describe(`addWeight`, () => {
+
+//   it(`
+//     FOR :
+//       uid = UID
+//       nbPers = 2
+//       startDate = MONDAY, 
+//       endDate = <same as startDate>
+//       recycled = WEIGHT_RECYCLED
+//       norecycled = WEIGHT_NORECYCLED
+//     WRITE in database without error
+//     AND return a valid DocumentReference`, async () => {
+//       const docRef = await weightAPI.addWeight(UID, MEMBERS_TOTAL, WEEK.MONDAY.toDate(), WEEK.MONDAY.toDate(), WEIGHT_RECYCLED, WEIGHT_NORECYCLED)
+
+//       expect(docRef).toEqual(DOC_WEIGHT_REF)
+//   })
+
+// })

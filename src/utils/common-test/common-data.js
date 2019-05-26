@@ -6,6 +6,11 @@ export const FIRSTNAME = 'Souriya'
 export const LASTNAME = 'Phongsavanh'
 export const PWD = 'M0ttt2P@ssseE2deuxO0uf'
 
+export const DOC_WEIGHT_REF = 'FeQkSlnDsoYnkMa6ykEZ'
+export const MEMBERS_TOTAL = 2
+export const WEIGHT_RECYCLED = 300
+export const WEIGHT_NORECYCLED = 400
+
 export const WEEK = {
   MONDAY: moment('2019-05-06'),
   SATURDAY: moment('2019-05-11'),

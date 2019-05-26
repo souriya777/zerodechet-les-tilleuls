@@ -3,7 +3,6 @@ export const WEEK_DATA =
   {
     "id": "1odQa2C3A9RswUfvHn9J",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557093600,
         "nanoseconds": 0
@@ -24,7 +23,6 @@ export const WEEK_DATA =
   {
     "id": "wBRs57asHlmhbua6hkjJ",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557180000,
         "nanoseconds": 0
@@ -45,7 +43,6 @@ export const WEEK_DATA =
   {
     "id": "cZsMUuI8NiwuAUAYILYV",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557266400,
         "nanoseconds": 0
@@ -66,7 +63,6 @@ export const WEEK_DATA =
   {
     "id": "PIPX5e5UuIwC76yfvki3",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557352800,
         "nanoseconds": 0
@@ -87,7 +83,6 @@ export const WEEK_DATA =
   {
     "id": "sbmASZTfmG78QuVVfFya",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557439200,
         "nanoseconds": 0

@@ -26,9 +26,12 @@ TODO
 - delete data
 - didacticiel
 - ajout membre
-- bug <li> membre
 - test creation direct compte Google...
 - change firestore rules (hack : )
+- firestore cache
+https://stackoverflow.com/questions/50917833/firebase-firestore-how-to-identify-an-offline-read
+- PWA : invite Add To Screen
+- PWA : offline mode ?
 
 // not vital :
 - remplacer toutes les date par timestamp dans firebase 

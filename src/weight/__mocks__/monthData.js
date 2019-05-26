@@ -3,7 +3,6 @@ export const MONTH_DATA =
   {
     "id": "cZiJ8uTdsLSbDV6QgGbQ",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1556661600,
         "nanoseconds": 0
@@ -24,7 +23,6 @@ export const MONTH_DATA =
   {
     "id": "W50IkFOLlH8LwQha5hVO",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1556748000,
         "nanoseconds": 0
@@ -45,7 +43,6 @@ export const MONTH_DATA =
   {
     "id": "NzSIvhyry6vr4WrAkbPB",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1556834400,
         "nanoseconds": 0
@@ -66,7 +63,6 @@ export const MONTH_DATA =
   {
     "id": "Hdmf8dV5VRQWzjf8ourV",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1556920800,
         "nanoseconds": 0
@@ -87,7 +83,6 @@ export const MONTH_DATA =
   {
     "id": "GOTaOVGuEUbLlytxYcFt",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557007200,
         "nanoseconds": 0
@@ -108,7 +103,6 @@ export const MONTH_DATA =
   {
     "id": "1odQa2C3A9RswUfvHn9J",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557093600,
         "nanoseconds": 0
@@ -129,7 +123,6 @@ export const MONTH_DATA =
   {
     "id": "wBRs57asHlmhbua6hkjJ",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557180000,
         "nanoseconds": 0
@@ -150,7 +143,6 @@ export const MONTH_DATA =
   {
     "id": "cZsMUuI8NiwuAUAYILYV",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557266400,
         "nanoseconds": 0
@@ -171,7 +163,6 @@ export const MONTH_DATA =
   {
     "id": "PIPX5e5UuIwC76yfvki3",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557352800,
         "nanoseconds": 0
@@ -192,7 +183,6 @@ export const MONTH_DATA =
   {
     "id": "sbmASZTfmG78QuVVfFya",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557439200,
         "nanoseconds": 0
@@ -213,7 +203,6 @@ export const MONTH_DATA =
   {
     "id": "qtj4iRLZ5XUXHnCPxs8N",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557525600,
         "nanoseconds": 0
@@ -234,7 +223,6 @@ export const MONTH_DATA =
   {
     "id": "XvzmAQFe4TlAAtqzyrjC",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557612000,
         "nanoseconds": 0
@@ -255,7 +243,6 @@ export const MONTH_DATA =
   {
     "id": "I7UZRBL2B6Bv1S6LqaDd",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557698400,
         "nanoseconds": 0
@@ -276,7 +263,6 @@ export const MONTH_DATA =
   {
     "id": "YjcZbVo6REZjYgll1vdT",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557784800,
         "nanoseconds": 0
@@ -297,7 +283,6 @@ export const MONTH_DATA =
   {
     "id": "dPM0e81vX2khAChnlKwg",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557871200,
         "nanoseconds": 0
@@ -318,7 +303,6 @@ export const MONTH_DATA =
   {
     "id": "gaaEeP0KTNi2JRK6C4nC",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1557957600,
         "nanoseconds": 0
@@ -339,7 +323,6 @@ export const MONTH_DATA =
   {
     "id": "WPgDMfT1C4Y64NQxjT8J",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1558044000,
         "nanoseconds": 0
@@ -360,7 +343,6 @@ export const MONTH_DATA =
   {
     "id": "GQLoOIntcScZTuUv9JYt",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1558130400,
         "nanoseconds": 0
@@ -381,7 +363,6 @@ export const MONTH_DATA =
   {
     "id": "qdv7szLfBG1ZTa4DWXkF",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1558216800,
         "nanoseconds": 0
@@ -402,7 +383,6 @@ export const MONTH_DATA =
   {
     "id": "iUv0RE1Sf1VSvsSxaV0Z",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1558303200,
         "nanoseconds": 0
@@ -423,7 +403,6 @@ export const MONTH_DATA =
   {
     "id": "iDutHkM7jkwnq4TjI5bW",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1558389600,
         "nanoseconds": 0
@@ -444,7 +423,6 @@ export const MONTH_DATA =
   {
     "id": "kSahjzOQCodFQXoZCi3o",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1558476000,
         "nanoseconds": 0
@@ -465,7 +443,6 @@ export const MONTH_DATA =
   {
     "id": "suMn7hpagMyx9ZVrAwdS",
     "data": {
-      "email": "souriya59@gmail.com",
       "endDate": {
         "seconds": 1558562400,
         "nanoseconds": 0

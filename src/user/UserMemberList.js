@@ -6,11 +6,11 @@ const UserMemberList = ({items }) => {
   }
 
   return (
-    <div className="u-center-content">
-      <ul className='list'>
-        <li className='list__item' key={0}>Vous</li>
+    <div className='member'>
+      <ul className='member__list'>
+        <li className='member__item' key={0}>Vous</li>
         {items.map(member => (
-          <li className='list__item' key={member.id}>{member.name}</li>
+        <li className='member__item' key={member.id}>{member.name}</li>
         ))}
       </ul>
     </div>

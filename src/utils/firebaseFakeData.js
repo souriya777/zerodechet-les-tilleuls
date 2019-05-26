@@ -63,7 +63,6 @@ const generateWeightList = () => {
       startDate: dTimestamp,
       endDate: dTimestamp,
       recordedDate: dTimestamp,
-      email: 'souriya59@gmail.com'
     }
   })
 }

@@ -1,7 +1,13 @@
 .profile {
   @include common-content;
 
-  &__body { text-align: center; }
+  &__body { 
+    text-align: center; 
+
+    &--accent {
+      @include font-body--accent;
+    }
+  }
 
   &__goal,
   &__members,

@@ -3,27 +3,31 @@ import { connect } from 'react-redux'
 import * as Yup from 'yup'
 
 import FormikWrapper from '../utils/FormikWrapper'
-import { DEFAULT_WEIGHT_TYPE, WEIGHT_LIST } from './WeightHelper'
+import { handleAddWeight } from './weightActions'
 
 class WeightForm extends Component {
+
+  handleSubmit = ({nbPers, startDate, endDate, recycled, norecycled}) => {
+    const { user, dispatch } = this.props
+    dispatch(handleAddWeight(user.uid, nbPers, startDate, endDate, recycled, norecycled))
+  } 
 
   render () {
     return (
       <FormikWrapper
-        fieldNameList={
-          ['nbPers', 'nbDays', 'totalWeight', 'startDate', 'endDate', 'type']
-        }
-        fieldPlaceholderList={
-          [
-            'Nombre de personne', 
-            'Nombre de jours',
-            'Poids total en gramme',
-            'Date de début',
-            'Date de fin',
-            'Type de déchet'
-          ]
-        }
-        fieldTypeList={['text', 'password', 'text', 'text', 'text', 'text']}
+        fieldNameList={[
+          'nbPers', 'startDate', 'endDate', 'recycled', 'norecycled'
+        ]}
+        fieldTypeList={[
+          'number', 'date', 'date', 'number', 'number', 'text'
+        ]}
+        fieldPlaceholderList={[
+          'Nombre de personne concerné', 
+          'Début',
+          'Fin',
+          'Recyclable poids (ex. 900 = 900g.)',
+          'Non recyclables poids (ex. 1250 = 1250g.)',
+        ]}
         formSchema={FormSchema}
         onSubmit={this.handleSubmit}
       />
@@ -32,19 +36,19 @@ class WeightForm extends Component {
 }
 
 const FormSchema = Yup.object().shape({
-  nbPers: Yup.string()
+  nbPers: Yup.number()
     .min(1, 'Au moins une personne du foyer est concerné')
     .required('Le nombre de personne est obligatoire'),
-  nbDays: Yup.string()
-    .required('Le nombre de jour est obligatoire'),
-  totalWeight: Yup.string()
-    .required('Le poids est obligatoire'),
   startDate: Yup.string()
     .required('La date de début est obligatoire'),
   endDate: Yup.string()
     .required('La date de fin est obligatoire'),
-  type: Yup.string()
-    .required('Le type de déchet est obligatoire')
+  recycled: Yup.string()
+    .required('Le poids est obligatoire (0 si pas de déchet)'),
+  norecycled: Yup.string()
+    .required('Le poids est obligatoire (0 si pas de déchet)'),
 })
 
-export default connect()(WeightForm)
+const mapStateToProps = state => ({ user: state.user })
+
+export default connect(mapStateToProps)(WeightForm)

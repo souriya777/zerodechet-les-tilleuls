@@ -9,21 +9,24 @@ class WeightAPI {
     return WeightFirebase.getWeightListBtwDates(uid, beginTimestamp, endTimestamp)
   }
   
-  addWeight = async (nbPers, nbDays, totalWeight, date, type) => {
-    const weightObj = convertToWeight(nbPers, nbDays, totalWeight, date, type)
-    console.log(WeightFirebase.addWeight(weightObj))
+  addWeight = async (uid, nbPers, startDate, endDate, recycled, norecycled) => {
+    const w = convertToWeight(nbPers, startDate, endDate, recycled, norecycled)
+    WeightFirebase.addWeight(uid, w)
   }
 }
 
 
-const convertToWeight = (nbPers, nbDays, totalWeight, date, type) => {
-  const timestamp = firebaseTimestamp(date)
+const convertToWeight = (nbPers, startDate, endDate, recycled, norecycled) => {
+  const startTimestamp = firebaseTimestamp(startDate)
+  const endTimestamp = firebaseTimestamp(endDate)
+  const nowTimestamp = firebaseTimestamp(new Date())
   return {
-    nbPers, 
-    nbDays, 
-    totalWeight, 
-    type,
-    recordedDate: timestamp,
+    nbPers: nbPers,
+    recycled: recycled,
+    norecycled: norecycled,
+    startDate: startTimestamp,
+    endDate: endTimestamp,
+    recordedDate: nowTimestamp,
   }
 }
 

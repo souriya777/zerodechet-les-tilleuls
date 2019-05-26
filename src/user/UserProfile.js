@@ -38,7 +38,7 @@ class UserProfile extends Component {
 
         <div className='profile__goal'>
           <h2 className='h2'>OBJECTIF :</h2>
-          <div className='profile__body'>
+          <div className='profile__body profile__body--accent'>
             {goal}
           </div>
         </div>

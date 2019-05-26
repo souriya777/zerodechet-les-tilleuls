@@ -4,12 +4,12 @@ import { setError } from '../utils/ErrorActions'
 
 export const ADD_WEIGHT = 'ADD_WEIGHT'
 
-export const handleAddWeight = (nbPers, nbDays, totalWeight, date, type) => {
+export const handleAddWeight = (uid, nbPers, startDate, endDate, recycled, norecycled) => {
   return async (dispatch) => {
     dispatch(showLoading())
     try {
       // call API
-      await weightAPI.addWeight(nbPers, nbDays, totalWeight, date, type)
+      await weightAPI.addWeight(uid, nbPers, startDate, endDate, recycled, norecycled)
       
       return {
         type: ADD_WEIGHT,

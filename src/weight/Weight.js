@@ -1,14 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { handleAddWeight } from './weightActions'
-import WeightForm from './WeightForm';
+import WeightForm from './WeightForm'
 
 class Weight extends Component {
-
-  handleSubmit = ({nbPers, nbDays, totalWeight, date, type}) => {
-    this.props.dispatch(handleAddWeight(nbPers, nbDays, totalWeight, date, type))
-  } 
 
   render() {
     return (
