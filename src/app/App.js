@@ -21,21 +21,23 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
-- write 1 weight
-- write several weight
-- control period
-- delete data
+MATIN
 - didacticiel
-- ajout membre
-- test creation direct compte Google...
-- tester tous les "rules" dans firestore
-- firestore cache
-https://stackoverflow.com/questions/50917833/firebase-firestore-how-to-identify-an-offline-read
-- PWA : invite Add To Screen
-- PWA : offline mode ?
-- remove @material-ui
+APRES-MIDI
+- controle period
+- ajout/supprimer membre membre
+- modifier but
+- web responsive
+- refaire tout le process en partant de 0
+(compte/pas compte)
+- delete data => demo in profile => Charger/Supprimer?
+- releaser une version BETA
 
 // not vital :
+- PWA : invite Add To Screen
+- PWA : offline mode ?
+- firestore cache
+https://stackoverflow.com/questions/50917833/firebase-firestore-how-to-identify-an-offline-read
 - remplacer toutes les date par timestamp dans firebase 
 eg. startDate => startTimestamp
 - supprimer "endDate" in weight object (firebase)

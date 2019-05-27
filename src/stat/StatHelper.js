@@ -6,17 +6,19 @@ export const PERIOD = {
 }
 
 export const PERIOD_LABEL = {
-  WEEK: 'Cette semaine', 
-  MONTH: 'Ce mois',
-  TRIMESTER: 'Ce trimestre',
-  SEMESTER: 'Ce semestre',
+  [PERIOD.WEEK]: 'Cette semaine', 
+  [PERIOD.MONTH]: 'Ce mois',
+  [PERIOD.TRIMESTER]: 'Ce trimestre',
+  [PERIOD.SEMESTER]: 'Ce semestre',
 }
+export const DEFAUT_PERIOD = PERIOD.WEEK
 
 export const DAYS_SHORT = 
   ['LUN', 'MAR', 'MER', 'JEU', 'VEN', 'SAM', 'DIM']
 export const MONTH_SHORT = 'SEM'
 export const TRIMESTER_SHORT = 
   ['JANV', 'FEV', 'MAR', 'AVR', 'MAI', 'JUI', 'JUI', 'AOU', 'SEP', 'OCT', 'NOV', 'DEC']
+
 
 
 export const avg = (recycled, norecycled) => {

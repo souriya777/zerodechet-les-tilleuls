@@ -44,7 +44,7 @@ class ControlTower extends Component {
         <Redirect 
           exact
           from={ROUTES.landing} 
-          to={ROUTES.tuto} 
+          to={ROUTES.welcome} 
         />
         { isLogged(user)
           ? <Redirect from={[ROUTES.signin, ROUTES.signup]} to={ROUTES.stat} />

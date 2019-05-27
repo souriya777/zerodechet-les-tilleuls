@@ -3,13 +3,15 @@
   color: inherit;
   height: 105vh; 
   
-  &__action {
-    @include space-content
-  }
+  &__action { @include space-content }
 
   &__empty {
-    @include space-top;
+    @include space-content;
     color: $color-primary-text;
     text-align: center;
+  }
+  
+  &__empty:first-child {
+    @include space-top;
   }
 }

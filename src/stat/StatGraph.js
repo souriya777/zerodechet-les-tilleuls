@@ -5,10 +5,15 @@ import HighchartsWrapper from '../utils/HighchartsWrapper'
 
 import ROUTES from '../app/routes'
 
-const StatGraph = ({ stat }) => {
+const StatGraph = ({ stat, periodLabel }) => {
   if (stat == null) {
-    return <p className='stat__empty'>L'aventure commence ! Vous pouvez dès à présent <Link className='link link--active' to={ROUTES.weight}
-  >saisir une pesée.</Link></p>
+    return (
+      <>
+        <p className='stat__empty'>Hmmm... vous n'avez pas encore saisi de données pour {periodLabel.toLowerCase()} !</p>
+        <p className='stat__empty'>Commençons notre défi 0 déchet en  <Link className='link link--active' to={ROUTES.weight}
+      >saisissant notre 1ère pesée.</Link></p>
+      </>
+    )
   } 
   
   return (

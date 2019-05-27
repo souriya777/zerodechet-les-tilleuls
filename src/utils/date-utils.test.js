@@ -314,3 +314,15 @@ describe(`dateDiff`, () => {
     expect(diff).toEqual(0)
   })
 })
+
+describe(`minmaxDate`, () => {
+  
+  it(`return 2, for
+    begin = FEV_DAY_12
+    end = FEV_DAY_14
+  `, () => {
+    const diff = dateDiff(TRIMESTER.FEV_DAY_12.toDate(), TRIMESTER.FEV_DAY_14.toDate())
+    expect(diff).toEqual(2)
+  })
+
+})

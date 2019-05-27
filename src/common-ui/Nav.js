@@ -10,7 +10,7 @@ const Nav = () => (
   <>
     <Route 
       exact 
-      path={[ROUTES.signin, ROUTES.signup, ROUTES.tuto, ROUTES.landing]} component={NavConnect} 
+      path={[ROUTES.signin, ROUTES.signup, ROUTES.welcome, ROUTES.landing]} component={NavConnect} 
     />
 
     <Route

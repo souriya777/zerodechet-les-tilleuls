@@ -6,7 +6,7 @@ import SVGUser from './svg/SVGUser'
 
 const NavConnect = ({ location }) => {
 
-  const connectStatus = ROUTES.tuto.startsWith(location.pathname)
+  const connectStatus = ROUTES.welcome.startsWith(location.pathname)
     ? 'init' 
     : 'active'
 
@@ -34,7 +34,7 @@ const NavConnect = ({ location }) => {
         </div>
       </Link>
 
-      <Link to={ROUTES.tuto}>
+      <Link to={ROUTES.welcome}>
         <div className={`nav__close nav__close--${connectStatus}`}>
           <div className='nav__close-content'>
             X

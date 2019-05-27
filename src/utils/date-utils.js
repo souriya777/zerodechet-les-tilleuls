@@ -95,6 +95,22 @@ export const dateDiff = (begin, end) => {
   return moment(end).diff(moment(begin), 'd')
 }
 
+export const minmaxDate = now => {
+  /*
+    start < end
+    si end > today => petit msg 
+    si start != lastStart => information
+  */
+
+
+  return {
+    minStartDate: null,
+    maxStartDate: null,
+    minEndDate: null,
+    maxEndDate: null,
+  }
+}
+
 
 const unixToFirebaseTimestamp = timestamp => {
   return new firebase.firestore.Timestamp(timestamp, 0)

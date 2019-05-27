@@ -1,7 +1,7 @@
 const ROUTES = {}
 
 ROUTES.landing = '/'
-ROUTES.tuto = '/tuto'
+ROUTES.welcome = '/welcome'
 ROUTES.signin = '/signin'
 ROUTES.signup = '/signup'
 ROUTES.resetPwd = '/reset-pwd'

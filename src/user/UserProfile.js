@@ -51,7 +51,7 @@ class UserProfile extends Component {
         </div>
 
         <div className='profile__load-data'>
-          <button className='btn' type='submit' onClick={this.handleLoadFakeData}>
+          <button className='btn btn--accent' type='submit' onClick={this.handleLoadFakeData}>
             charger des données de démo :)
           </button>
         </div>

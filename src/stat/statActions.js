@@ -1,7 +1,7 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
 
 import statAPI from './statAPI'
-import { PERIOD } from './StatHelper'
+import { PERIOD, DEFAUT_PERIOD } from './StatHelper'
 import { setError } from '../utils/ErrorActions'
 
 export const FETCH_STAT = 'FETCH_STAT'
@@ -13,7 +13,7 @@ const fetchStat = stat => {
   }
 }
 
-export const handleLoadStat = (uid, period = PERIOD.WEEK) => {
+export const handleLoadStat = (uid, period = DEFAUT_PERIOD) => {
 
 
   return async dispatch => {

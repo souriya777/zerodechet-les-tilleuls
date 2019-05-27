@@ -62,9 +62,9 @@
   }
 
   // ERROR
-  &__error { color: $color-error; }
+  &__error { color: $color-major; }
 
-  &--invalid { border-color: $color-error; }
+  &--invalid { border-color: $color-major; }
 
 
   // HACK chrome autofill

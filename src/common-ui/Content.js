@@ -7,7 +7,7 @@ import CustomRoute from '../app/CustomRoute'
 
 import UserConnect from '../user/UserConnect'
 import UserResetPwd from '../user/UserResetPwd'
-import Tuto from '../info/Tuto'
+import Welcome from '../info/Welcome'
 import Stat from '../stat/Stat'
 import Header from './Header'
 import Weight from '../weight/Weight'
@@ -38,7 +38,7 @@ const Content = ({ lightMode }) => {
       />
       
       <main className={`content ${lightMode}`}>
-        <Route path={ROUTES.tuto} component={Tuto} />
+        <Route path={ROUTES.welcome} component={Welcome} />
         <Route path={ROUTES.signin} component={UserConnect} />
         <Route path={ROUTES.signup} component={UserConnect} />
         <Route path={ROUTES.resetPwd} component={UserResetPwd} />

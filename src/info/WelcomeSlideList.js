@@ -2,9 +2,9 @@ import React from 'react'
 import Carousel from 'nuka-carousel'
 import { PagingDots } from 'nuka-carousel'
 
-import TutoSlideItem from './TutoSlideItem'
+import WelcomeSlideItem from './WelcomeSlideItem'
 
-const TutoSlideList = () => (
+const WelcomeSlideList = () => (
   <ul>
     <Carousel
       enableKeyboardControls={true}
@@ -14,25 +14,25 @@ const TutoSlideList = () => (
       renderBottomCenterControls={null}
       renderCenterRightControls={props => <PagingDots {...props} />}
     >
-      <TutoSlideItem 
+      <WelcomeSlideItem 
         title='Bienvenue'
         txt='Découvrez notre application Zéro Déchet adaptée pour petits et grands. Optez pour un mode de vie éco-responsable.'
         backgnd='welcome'
       />
 
-      <TutoSlideItem 
+      <WelcomeSlideItem 
         title='Pourquoi?'
         txt='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto eius'
         backgnd='why'
       />
 
-      <TutoSlideItem 
+      <WelcomeSlideItem 
         title='Quoi?'
         txt='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto eius'
         backgnd='what'
       />
 
-      <TutoSlideItem 
+      <WelcomeSlideItem 
         title='Comment?'
         txt='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto eius'
         backgnd='how'
@@ -42,4 +42,4 @@ const TutoSlideList = () => (
   </ul>
 )
 
-export default TutoSlideList
+export default WelcomeSlideList
