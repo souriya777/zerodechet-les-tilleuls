@@ -13,6 +13,8 @@ import {
 import SigninException from '../utils/SigninException'
 import SignupException from '../utils/SignupException'
 
+import UserFirebase from './__mocks__/userFirebase'
+
 jest.mock('./userFirebase')
 
 describe(`signinWithLoginAndPwd`, () => {
@@ -82,4 +84,5 @@ describe(`onAuthStateChanged`, () => {
     expect(callbackFn).toHaveBeenCalledWith(VALID_API_USER_SIGNUP)
     expect(callbackFn2).toHaveBeenCalledWith()
   })
+  
 })

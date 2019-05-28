@@ -6,7 +6,7 @@
 
   &__wording {
     @include space-top;
-    text-align: justify;
+    @include wording;
   }
 
   &__form {

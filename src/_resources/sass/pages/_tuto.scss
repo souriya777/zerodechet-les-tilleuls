@@ -1,0 +1,15 @@
+.tuto {
+  @include common-content;
+  height: 80vh; // TODO
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  &__wording {
+    @include wording;
+  }
+
+  &__question {
+    @include font-question
+  }
+}

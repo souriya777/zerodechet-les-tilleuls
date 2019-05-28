@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 
 import SmartInput from '../common-ui/SmartInput'
+import BtnFake from '../common-ui/BtnFake'
 
 class FormikWrapper extends Component {
 
@@ -26,7 +27,9 @@ class FormikWrapper extends Component {
   }
 
   render () {
+    const { submitLbl } = this.props
     const { onSubmit } = this.props
+    const { onSubmitBack } = this.props
     const { fieldNameList } = this.props
     const { fieldTypeList } = this.props
     const { fieldPlaceholderList } = this.props
@@ -72,8 +75,23 @@ class FormikWrapper extends Component {
                   disabled={isSubmitting}
                   onClick={this.handleClickSubmit}
                 >
-                  valider
+                  {submitLbl 
+                    ? <>{submitLbl}</>
+                    : <>valider</>
+                  }
                 </button>
+              </div>
+
+              <div className="form__back">
+                {onSubmitBack 
+                  ? <BtnFake 
+                        className='btn btn--transparent' 
+                        onSubmit={onSubmitBack}
+                      >
+                        Précédent
+                    </BtnFake>
+                  : ''
+                }
               </div>
             </Form>
           )}

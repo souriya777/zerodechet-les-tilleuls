@@ -37,21 +37,28 @@ class UserFirebase {
     })
   }
 
+  generateExtraInfo = async name => {
+    const extraInfo = Object.assign({}, { name }, DEFAULT_EXTRA_INFO)
+    await this.updateExtraInfo(extraInfo)
+  }
+
   getExtraInfo = async user => {
     const doc = await Firebase.db.collection(USERS_REF).doc(user.uid).get()
     return doc.data()
   }
-    
+
+  setExtraInfo = (field, value) => {
+    const user = Firebase.auth.currentUser
+    Firebase.db.collection(USERS_REF).doc(user.uid).update(
+      {[field]: value}
+    )
+  }
+
   updateExtraInfo = info => {
     const user = Firebase.auth.currentUser
     Firebase.db.collection(USERS_REF).doc(user.uid).set(
       Object.assign({}, { uid: user.uid }, info)
     )
-  }
-
-  generateExtraInfo = async name => {
-    const extraInfo = Object.assign({}, { name }, DEFAULT_EXTRA_INFO)
-    await this.updateExtraInfo(extraInfo)
   }
 }
 
@@ -72,6 +79,7 @@ const DEFAULT_EXTRA_INFO = {
   goal: null,
   home: null,
   events: null,
+  isNew: true,
 }
 
 export default new UserFirebase()

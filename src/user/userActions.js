@@ -92,6 +92,14 @@ export const handleResetPwd = email => {
   }
 }
 
+export const handleSetGoal = goal => {
+  return async dispatch => {
+    dispatch(showLoading())
+    await userAPI.setGoal(goal)
+    dispatch(hideLoading())
+  }
+}
+
 export const handleUpdateUser = user => {
   return async dispatch => {
     dispatch(showLoading())

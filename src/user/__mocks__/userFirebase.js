@@ -56,10 +56,11 @@ class UserFirebase {
     return VALID_FIREBASE_EXTRA_INFO
   }
 
+  setGoal = goal => jest.fn()
+
   filter = firebaseUser => {
     return {
       uid: firebaseUser.uid,
-      email: firebaseUser.email,
       name: firebaseUser.displayName,
       photo: firebaseUser.photoURL,
     }

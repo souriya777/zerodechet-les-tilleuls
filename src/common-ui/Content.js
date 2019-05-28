@@ -17,6 +17,7 @@ import RDV from '../rdv/RDV'
 const Content = ({ lightMode }) => { 
   return (
     <>
+      {/* HEADER */}
       {/* header is optional... */}
       <Route 
         path={[
@@ -37,6 +38,7 @@ const Content = ({ lightMode }) => {
         smallMode={true}
       />
       
+      {/* BODY */}
       <main className={`content ${lightMode}`}>
         <Route path={ROUTES.welcome} component={Welcome} />
         <Route path={ROUTES.signin} component={UserConnect} />

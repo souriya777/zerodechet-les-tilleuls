@@ -15,10 +15,6 @@ $linear-gradient: linear-gradient(
     position: absolute;
   }
 
-  &__slide {
-    @include full-screen;
-  }
-
   &__wording {
     position: fixed;
     padding: 3rem;
@@ -31,7 +27,7 @@ $linear-gradient: linear-gradient(
   }
 
   &__txt {
-    text-align: justify;
+    @include wording;
     width: 68vw;
   }
 

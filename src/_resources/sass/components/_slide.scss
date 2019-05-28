@@ -1,0 +1,14 @@
+.slide {
+  @include full-screen;
+
+  &__logo {
+    @include logo-at-top;
+    @include priority-index;
+    
+    position: absolute;
+  }
+
+  // &__item {
+  //   @include full-screen;
+  // }
+}

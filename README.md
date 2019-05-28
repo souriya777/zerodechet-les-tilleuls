@@ -18,6 +18,17 @@ Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en 
 - Les familles participant au défi, qui ont besoin d'une application simple et efficace pour gérer au quotidien leur production de déchet
 [- Les administrateurs pour la gestion des utilisateurs et des progressions.]
 
+## chiffres
+En 2016, nous avons produit 4,6 tonnes de déchets par habitant
+
+568kg/ménage
+"Le meilleur déchet est celui qu’on ne produit pas !"
+"Réutiliser plutôt que jeter"
+
+ADEME
+- de pratiquer un tri des plastiques plus important, qui peut être facilité par l’extension des consignes de tri à tout le territoire,
+- de favoriser le compostage et enfin de limiter le gaspillage alimentaire qui représente un coût de 16 milliards d’euros par an.
+
 # DESIGN
 
 ## terminaux cibles

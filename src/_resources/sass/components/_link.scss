@@ -21,5 +21,11 @@
   }
 
   &--unselected { opacity: $font-opacity-light; }
+
+  &--href { 
+    text-decoration: underline;
+    color: $color-accent;
+    display: inline-block;
+  }
   
 }

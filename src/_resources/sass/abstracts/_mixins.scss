@@ -58,12 +58,21 @@
   text-transform: uppercase;
 }
 
+@mixin font-question {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+// TXT
+@mixin wording {
+  text-align: justify;
+}
+
 // COLOR
 @mixin font-color-light {
   color: inherit;
   opacity: $font-opacity-light;
 }
-
 
 // SIZE
 @mixin full-screen {
@@ -80,13 +89,11 @@
 
 // SPACE
 @mixin space-top { margin-top: 2rem; }
-
 @mixin space-content { padding: 0 1rem; }
 
 @mixin common-content {
   @include space-content;
   color: $color-primary-text;
-  height: 105vh; // responsive todo
 }
 
 // POSITIONING

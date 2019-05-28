@@ -44,6 +44,10 @@ class UserAPI {
   resetPwd = async (email) => {
     return await UserFirebase.resetPwd(email)
   }
+
+  setGoal = goal => {
+    UserFirebase.setExtraInfo('goal', goal)
+  }
 }
 
 export default new UserAPI()

@@ -1,13 +1,17 @@
 import React, { Component } from 'react'
-import { Switch, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import '../utils/ReactRouterHacking'
 import ROUTES from '../app/routes'
+import CustomRoute from '../app/CustomRoute'
 import userAPI  from '../user/userAPI'
-import { isLogged } from '../utils/user-utils'
+import { isLogged, isNew } from '../utils/user-utils'
 import { handleUpdateUser } from '../user/userActions'
 import LocalStorage, { USER_KEY } from '../utils/local-storage-utils'
+
+import Header from '../common-ui/Header'
+import Tuto from '../info/Tuto'
 
 class ControlTower extends Component {
   constructor(props) {
@@ -38,20 +42,36 @@ class ControlTower extends Component {
   render() {
     const { user } = this.state
     // console.log('ControTower', user)
+    console.log(isNew(user))
 
-    return (
-      <Switch>
-        <Redirect 
-          exact
-          from={ROUTES.landing} 
-          to={ROUTES.welcome} 
-        />
-        { isLogged(user)
-          ? <Redirect from={[ROUTES.signin, ROUTES.signup]} to={ROUTES.stat} />
-          : <Redirect from={[ROUTES.profile, ROUTES.weight, ROUTES.stat, ROUTES.rdv]} to={ROUTES.landing} />
-        }
-      </Switch>
-    )
+    if (isNew(user)) {
+      const path = `${ROUTES.tuto}/:step?`
+      return (
+         <Switch>
+            <Route 
+              path={path} 
+              render={() => (
+                <>
+                  <CustomRoute path={path} component={Header} smallMode={true} />
+                  <Tuto />
+                </>
+              )} 
+            />
+            <Redirect from='/' to={ROUTES.tuto} />
+         </Switch>
+      )
+    } 
+    else if (isLogged(user)) {
+      return <Redirect from={[ROUTES.signin, ROUTES.signup]} to={ROUTES.stat} />
+    } 
+    else {
+      return (
+        <Switch>
+          <Redirect exact from={ROUTES.landing} to={ROUTES.welcome} />
+          <Redirect from={[ROUTES.profile, ROUTES.weight, ROUTES.stat, ROUTES.rdv, ROUTES.tuto]} to={ROUTES.landing} />
+        </Switch>
+      )
+    }
   }
 }
 
