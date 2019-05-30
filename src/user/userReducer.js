@@ -1,5 +1,6 @@
 import { 
   SET_USER,
+  BECOME_EXPERT,
 } from './userActions'
 
 export default function user (state = null, action) {
@@ -8,6 +9,10 @@ export default function user (state = null, action) {
       return {
         ...action.user
       }
+    case BECOME_EXPERT:
+      return Object.assign({}, state, {
+        isNew: action.isNew,
+      })
     default:
       return state;
   }

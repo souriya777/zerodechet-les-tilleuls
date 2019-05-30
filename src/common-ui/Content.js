@@ -44,7 +44,6 @@ const Content = ({ lightMode }) => {
         <Route path={ROUTES.signin} component={UserConnect} />
         <Route path={ROUTES.signup} component={UserConnect} />
         <Route path={ROUTES.resetPwd} component={UserResetPwd} />
-        <Route exact path={ROUTES.landing} component={UserConnect} />
 
         <Route path={ROUTES.weight} component={Weight} />
         <Route path={ROUTES.stat} component={Stat} />

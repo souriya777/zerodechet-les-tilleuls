@@ -1,6 +1,5 @@
 const ROUTES = {}
 
-ROUTES.landing = '/'
 ROUTES.welcome = '/welcome'
 ROUTES.tuto = '/tuto'
 ROUTES.signin = '/signin'

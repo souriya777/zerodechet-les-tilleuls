@@ -4,12 +4,11 @@ import { connect } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
-
 import TutoIntro from './TutoIntro'
 import TutoQuestion from './TutoQuestion'
 import TutoAnswer from './TutoAnswer'
-
 import { QUESTIONS } from './TutoHelper'
+import { handleBecomeExpert } from '../user/userActions'
 
 /*
 TODO detect new
@@ -35,8 +34,8 @@ class Tuto extends Component {
       console.log(`push ${ROUTES.tuto}/${step+1}`)
       history.push(`${ROUTES.tuto}/${step+1}`)
     } else {
-      console.log('TODO valider intro')
-
+      const { dispatch } = this.props
+      dispatch(handleBecomeExpert())
     }
   }
   
@@ -56,6 +55,8 @@ class Tuto extends Component {
 
   render() {
     const step = this.step()
+    const { user } = this.props
+    console.log('Tuto render', user)
     
     return (
       <div className='tuto'>
@@ -79,8 +80,10 @@ class Tuto extends Component {
   }
 }
 
+const mapStateToProps = state => ({ user: state.user })
+
 const enhance = compose(
-  connect(),
+  connect(mapStateToProps),
   withRouter,
 )
 

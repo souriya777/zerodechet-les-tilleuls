@@ -5,6 +5,7 @@ import { setError } from '../utils/ErrorActions'
 
 export const SET_USER = 'SET_USER'
 export const SIGNOUT = 'SIGNOUT'
+export const BECOME_EXPERT = 'BECOME_EXPERT'
 
 const setUser = user => {
   return {
@@ -18,6 +19,15 @@ const signout = () => {
     type: SIGNOUT
   }
 }
+
+const becomeExpert = () => {
+  return {
+    type: BECOME_EXPERT,
+    isNew: false,
+  }
+}
+
+
 
 const handleSignIn = (type, login, pwd) => {
   return async dispatch => {
@@ -99,6 +109,16 @@ export const handleSetGoal = goal => {
     dispatch(hideLoading())
   }
 }
+
+export const handleBecomeExpert = () => {
+  return async dispatch => {
+    dispatch(showLoading())
+    await userAPI.becomeExpert()
+    dispatch(becomeExpert())
+    dispatch(hideLoading())
+  }
+}
+
 
 export const handleUpdateUser = user => {
   return async dispatch => {

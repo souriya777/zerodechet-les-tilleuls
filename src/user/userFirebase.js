@@ -20,21 +20,35 @@ class UserFirebase {
     Firebase.auth.onAuthStateChanged(async user => {
       
       if (user) {
-        
-        let extra = await this.getExtraInfo(user)
-        if (extra == null) {
-          console.log('generateExtraInfo', user)
-          await this.generateExtraInfo(filter(user).name)
-          extra = await this.getExtraInfo(user)
-        }
-        
-        const userExtra = merge(filter(user), extra)
+        const userExtra = await this.getUserExtra(user)
         callbackFn(userExtra)
+
+        this.addListenerToUserDoc(user, callbackFn)
+        
       } else {
         callbackFn2()
       }
 
     })
+  }
+
+  addListenerToUserDoc = (user, callbackFn) => {
+    Firebase.db.collection(USERS_REF).doc(user.uid)
+    .onSnapshot(async doc => {
+      const userExtra = await this.getUserExtra(user)
+      callbackFn(userExtra)
+    })
+  }
+
+  getUserExtra = async user => {
+    let extra = await this.getExtraInfo(user)
+    if (extra == null) {
+      console.log('generateExtraInfo', user)
+      await this.generateExtraInfo(filter(user).name)
+      extra = await this.getExtraInfo(user)
+    }
+    
+    return merge(filter(user), extra)
   }
 
   generateExtraInfo = async name => {
@@ -47,7 +61,7 @@ class UserFirebase {
     return doc.data()
   }
 
-  setExtraInfo = (field, value) => {
+  setExtraInfo = async (field, value) => {
     const user = Firebase.auth.currentUser
     Firebase.db.collection(USERS_REF).doc(user.uid).update(
       {[field]: value}

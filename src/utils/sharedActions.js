@@ -18,7 +18,7 @@ export const handleLoadData = (uid, history) => {
       setTimeout(() => {
         dispatch(handleLoadStat(uid, undefined))
         dispatch(hideLoading())
-        goto(ROUTES.stat, history)
+        history.push(ROUTES.stat) // special case of direct redirecting from action
       }, 5000)
 
 
@@ -26,8 +26,4 @@ export const handleLoadData = (uid, history) => {
       dispatch(setError(error.message))
     } 
   }
-}
-
-export const goto = (route, history) => {
-  history.push(route)
 }

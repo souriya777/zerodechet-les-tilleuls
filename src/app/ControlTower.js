@@ -18,12 +18,14 @@ class ControlTower extends Component {
     super(props)
 
     this.state = {
-      user: LocalStorage.get(USER_KEY)
+      user: LocalStorage.get(USER_KEY),
     }
   }
 
   componentDidMount() {
     this.listener = userAPI.onAuthStateChanged(this.persistUser, this.removeUser)
+
+    this.listener = userAPI.onUserChanged
   }
 
   persistUser = user => {
@@ -40,39 +42,47 @@ class ControlTower extends Component {
   }
 
   render() {
-    const { user } = this.state
-    // console.log('ControTower', user)
-    console.log(isNew(user))
+    const { user } = this.state
+    
+    // console.log('ControlTower render')
 
-    if (isNew(user)) {
-      const path = `${ROUTES.tuto}/:step?`
-      return (
-         <Switch>
-            <Route 
-              path={path} 
-              render={() => (
-                <>
-                  <CustomRoute path={path} component={Header} smallMode={true} />
-                  <Tuto />
-                </>
-              )} 
-            />
-            <Redirect from='/' to={ROUTES.tuto} />
-         </Switch>
-      )
-    } 
-    else if (isLogged(user)) {
-      return <Redirect from={[ROUTES.signin, ROUTES.signup]} to={ROUTES.stat} />
-    } 
-    else {
+    // LOGGED
+    if (isLogged(user)) {
+      // NEW USER
+      if (isNew(user)) {
+        const tutoPath = `${ROUTES.tuto}/:step?`
+        return (
+          <Switch>
+            <Route path={tutoPath} render={() => (<>
+              <CustomRoute path={tutoPath} component={Header} smallMode={true} />
+              <Tuto />
+            </>)} /> 
+            <Redirect from={[ROUTES.signin, ROUTES.signup]} to={ROUTES.tuto} />
+            <Redirect from={[ROUTES.profile, ROUTES.weight, ROUTES.stat, ROUTES.rdv]} to={ROUTES.tuto} />
+            <Redirect exact from='/' to={ROUTES.tuto} />
+          </Switch>
+        ) 
+      } else {
+        return (
+          <Switch>
+            <Redirect from={[ROUTES.signin, ROUTES.signup, ROUTES.tuto]} to={ROUTES.stat} />
+            <Redirect exact from='/' to={ROUTES.stat} />
+          </Switch>
+        ) 
+      }
+    } else {
       return (
         <Switch>
-          <Redirect exact from={ROUTES.landing} to={ROUTES.welcome} />
-          <Redirect from={[ROUTES.profile, ROUTES.weight, ROUTES.stat, ROUTES.rdv, ROUTES.tuto]} to={ROUTES.landing} />
+          <Redirect from={[ROUTES.profile, ROUTES.weight, ROUTES.stat, ROUTES.rdv]} to='/' />
+          <Redirect from={ROUTES.tuto} to='/' />
+          <Redirect exact from='/' to={ROUTES.welcome} />
         </Switch>
       )
     }
+
   }
 }
 
-export default connect()(ControlTower)
+const mapStateToProps = state => ({ user: state.user })
+
+export default connect(mapStateToProps)(ControlTower)

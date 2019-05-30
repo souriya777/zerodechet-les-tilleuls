@@ -48,6 +48,10 @@ class UserAPI {
   setGoal = goal => {
     UserFirebase.setExtraInfo('goal', goal)
   }
+  
+  becomeExpert = () => {
+    UserFirebase.setExtraInfo('isNew', false)
+  }
 }
 
 export default new UserAPI()
