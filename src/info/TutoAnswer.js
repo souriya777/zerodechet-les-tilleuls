@@ -1,13 +1,13 @@
 import React from 'react'
 
-import TutoHomeForm from './TutoHomeForm'
+import TutoNbPersForm from './TutoNbPersForm'
 import TutoGoalForm from './TutoGoalForm'
 
 const TutoAnswer = ({ step, totalStep, onSubmit, onSubmitBack }) => {
   const submitLbl = `Valider étape ${step} sur ${totalStep}`
 
   if (1 === step) {
-    return <TutoHomeForm 
+    return <TutoNbPersForm 
             onSubmit={onSubmit} 
             submitLbl={submitLbl}
           />

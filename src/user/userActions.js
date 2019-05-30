@@ -110,6 +110,14 @@ export const handleSetGoal = goal => {
   }
 }
 
+export const handleSetNbPers = nb => {
+  return async dispatch => {
+    dispatch(showLoading())
+    await userAPI.setNbPers(nb)
+    dispatch(hideLoading())
+  }
+}
+
 export const handleBecomeExpert = () => {
   return async dispatch => {
     dispatch(showLoading())

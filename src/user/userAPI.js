@@ -48,6 +48,10 @@ class UserAPI {
   setGoal = goal => {
     UserFirebase.setExtraInfo('goal', goal)
   }
+
+  setNbPers = nb => {
+    UserFirebase.setExtraInfo('nbPers', nb)
+  }
   
   becomeExpert = () => {
     UserFirebase.setExtraInfo('isNew', false)

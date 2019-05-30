@@ -5,10 +5,9 @@ import { withRouter } from "react-router-dom"
 import { handleSignout } from '../user/userActions'
 import { handleLoadData } from '../utils/sharedActions'
 import { isLogged } from '../utils/user-utils'
-import { padWeight } from '../utils/string-utils'
 
 import UserPhoto from './UserPhoto'
-import UserMemberList from './UserMemberList';
+import UserGraph from './UserGraph'
 
 class UserProfile extends Component {
 
@@ -25,8 +24,9 @@ class UserProfile extends Component {
     const { user } = this.props
     const photo = isLogged(user) ? user.photo : undefined
     const name = isLogged(user) ? user.name : undefined
-    const memberList = isLogged(user) ? user.home : undefined
-    const goal = isLogged(user) ? `${padWeight(user.goal)}kg/hab/jr` : `Vous n'avez pas encore défini d'object.`
+    // const memberList = isLogged(user) ? user.home : undefined
+    const goal = isLogged(user) ? `${user.goal}g/hab/jr` : ``
+    const nbPers = isLogged(user) ? `Pour ${user.nbPers} personne(s)` : ``
 
     return (
       <div className='profile'>
@@ -39,14 +39,14 @@ class UserProfile extends Component {
         <div className='profile__goal'>
           <h2 className='h2'>OBJECTIF :</h2>
           <div className='profile__body profile__body--accent'>
-            {goal}
+            <UserGraph />
           </div>
         </div>
 
         <div className='profile__members'>
           <h2 className='h2'>MEMBRES DE VOTRE FOYER :</h2>
           <div className='profile__body'>
-            <UserMemberList items={memberList} />
+            {nbPers}
           </div>
         </div>
 

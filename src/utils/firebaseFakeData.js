@@ -11,8 +11,8 @@ const loadData = async (ref, uid) => {
   const BATCH = Firebase.batch
 
   // FETCH
-  const DOC_IDS = await fetchExistingDocs(ref)
-  console.log(`fetch.doc ${ref}`, DOC_IDS)
+  // const DOC_IDS = await fetchExistingDocs(ref)
+  // console.log(`fetch.doc ${ref}`, DOC_IDS)
   const SUB_DOC_IDS = await fetchExistingDocs(SUB_REF)
   console.log(`fetch.subDoc ${SUB_REF}`, SUB_DOC_IDS)
 
@@ -20,11 +20,11 @@ const loadData = async (ref, uid) => {
   SUB_DOC_IDS.forEach(id => {
     BATCH.delete(Firebase.db.collection(SUB_REF).doc(id))
   })
-  console.log(`batch.delete ${SUB_REF}`, BATCH)
-  DOC_IDS.forEach(id => {
-    BATCH.delete(Firebase.db.collection(ref).doc(id))
-  })
-  console.log(`batch.delete ${ref}`, BATCH)
+  // console.log(`batch.delete ${SUB_REF}`, BATCH)
+  // DOC_IDS.forEach(id => {
+  //   BATCH.delete(Firebase.db.collection(ref).doc(id))
+  // })
+  // console.log(`batch.delete ${ref}`, BATCH)
 
   // POPULATE
   let insertList = generateWeightList()

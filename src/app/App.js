@@ -21,17 +21,15 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
-MATIN
-- didacticiel
-APRES-MIDI
 - controle period
-- ajout/supprimer membre membre
-- modifier but
+- tester lundi !!! quand il n'y a pas de données
+---> que faire ? proposer de charger la demo?
 - web responsive
 - refaire tout le process en partant de 0
 (compte/pas compte)
 - delete data => demo in profile => Charger/Supprimer?
 - releaser une version BETA
+- tuto: quand on ne connaît pas son objectif... que faire?
 
 // not vital :
 - PWA : invite Add To Screen

@@ -4,7 +4,7 @@ import {
   HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, SplineSeries
 } from 'react-jsx-highcharts'
 
-const HighchartsWrapper = ({ categories, recycled, norecycled, avg, pieData }) => {
+const StatChartWrapper = ({ categories, recycled, norecycled, avg, pieData }) => {
   return (
     <HighchartsChart>
       <Chart />
@@ -30,4 +30,4 @@ const HighchartsWrapper = ({ categories, recycled, norecycled, avg, pieData }) 
   )
 }
 
-export default withHighcharts(HighchartsWrapper, Highcharts)
+export default withHighcharts(StatChartWrapper, Highcharts)

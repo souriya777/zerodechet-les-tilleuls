@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import HighchartsWrapper from '../utils/HighchartsWrapper'
+import StatChartWrapper from './StatChartWrapper'
 
 import ROUTES from '../app/routes'
 
@@ -17,7 +17,7 @@ const StatGraph = ({ stat, periodLabel }) => {
   } 
   
   return (
-    <HighchartsWrapper 
+    <StatChartWrapper 
       categories={stat.categories} 
       recycled={stat.recycled} 
       norecycled={stat.norecycled} 

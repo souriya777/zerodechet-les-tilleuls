@@ -10,31 +10,16 @@ import TutoAnswer from './TutoAnswer'
 import { QUESTIONS } from './TutoHelper'
 import { handleBecomeExpert } from '../user/userActions'
 
-/*
-TODO detect new
-TODO new => user
-
-
-Connaissez vous actuellement votre production de déchets ménagers pour votre foyer?
-        - oui
-          1/ nb d'habitant 
-          2/ goal
-          TODO
-        - non
-          ???
-          form
-*/
 class Tuto extends Component {
 
   handleSubmit = () => {
-    const { history } = this.props
+    const { history, dispatch } = this.props
     const step = this.step()
     
     if (step < QUESTIONS.length) {
       console.log(`push ${ROUTES.tuto}/${step+1}`)
       history.push(`${ROUTES.tuto}/${step+1}`)
     } else {
-      const { dispatch } = this.props
       dispatch(handleBecomeExpert())
     }
   }
@@ -55,8 +40,6 @@ class Tuto extends Component {
 
   render() {
     const step = this.step()
-    const { user } = this.props
-    console.log('Tuto render', user)
     
     return (
       <div className='tuto'>
@@ -80,10 +63,8 @@ class Tuto extends Component {
   }
 }
 
-const mapStateToProps = state => ({ user: state.user })
-
 const enhance = compose(
-  connect(mapStateToProps),
+  connect(),
   withRouter,
 )
 
