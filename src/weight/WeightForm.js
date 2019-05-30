@@ -25,7 +25,7 @@ class WeightForm extends Component {
     const FormSchema = Yup.object().shape({
       nbPers: Yup.number()
         .min(1, `Au moins 1 personne !`)
-        .max(nbPers, `Actuellement ${nbPers} personne(s) dans votre foyer. Voulez-vous en rajouter? Go Profil>Ajouter membre ;-)`)
+        .max(nbPers, `Actuellement ${nbPers} personne(s) dans votre foyer ;-)`)
         .required(`Obligatoire ;-)`),
       startDate: Yup.date()
         .required(`Obligatoire ;-)`),

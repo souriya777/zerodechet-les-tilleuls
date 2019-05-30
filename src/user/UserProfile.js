@@ -24,9 +24,9 @@ class UserProfile extends Component {
     const { user } = this.props
     const photo = isLogged(user) ? user.photo : undefined
     const name = isLogged(user) ? user.name : undefined
-    // const memberList = isLogged(user) ? user.home : undefined
     const goal = isLogged(user) ? `${user.goal}g/hab/jr` : ``
     const nbPers = isLogged(user) ? `Pour ${user.nbPers} personne(s)` : ``
+    const currently = 22
 
     return (
       <div className='profile'>
@@ -37,17 +37,11 @@ class UserProfile extends Component {
         </div>
 
         <div className='profile__goal'>
-          <h2 className='h2'>OBJECTIF :</h2>
-          <div className='profile__body profile__body--accent'>
-            <UserGraph />
-          </div>
-        </div>
-
-        <div className='profile__members'>
-          <h2 className='h2'>MEMBRES DE VOTRE FOYER :</h2>
-          <div className='profile__body'>
-            {nbPers}
-          </div>
+          <h2 className='h2'>{nbPers}</h2>
+          <UserGraph 
+            currently={currently}
+            goal={goal}
+          />
         </div>
 
         <div className='profile__load-data'>

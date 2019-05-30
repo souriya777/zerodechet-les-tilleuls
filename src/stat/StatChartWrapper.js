@@ -1,7 +1,7 @@
 import React from 'react'
 import Highcharts from 'highcharts'
 import {
-  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, SplineSeries
+  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, SplineSeries, PieSeries
 } from 'react-jsx-highcharts'
 
 const StatChartWrapper = ({ categories, recycled, norecycled, avg, pieData }) => {
@@ -14,17 +14,6 @@ const StatChartWrapper = ({ categories, recycled, norecycled, avg, pieData }) =
         <ColumnSeries name="Recyclé" data={recycled} />
         <ColumnSeries name="Non recyclé" data={norecycled} />
         <SplineSeries name="Moyenne" data={avg} />
-        {/* <PieSeries name="Consommation total" data={[
-          {
-            name: 'Souriya',
-            y: 13
-          }, {
-            name: 'Sarah',
-            y: 23
-          }]} 
-          center={[100, 80]} 
-          size={100} 
-          showInLegend={false} /> */}
       </YAxis>
     </HighchartsChart>
   )

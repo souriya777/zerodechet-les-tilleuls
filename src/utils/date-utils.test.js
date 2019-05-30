@@ -12,6 +12,7 @@ import {
   getMonthOfTrimester,
   pastDays,
   dateDiff,
+  toDisplayDate,
 } from './date-utils'
 import { WEEK, MONTH, TRIMESTER } from './common-test/common-data'
 

@@ -7,7 +7,7 @@ class Weight extends Component {
 
   render() {
     const { user } = this.props
-    const nbPers = user != null ? user.home.length + 1 : 1
+    const nbPers = user != null ? user.nbPers : 1
 
     return (
       <div className='weight'>

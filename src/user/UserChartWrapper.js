@@ -1,83 +1,39 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Highcharts from 'highcharts'
 import {
-  HighchartsChart, withHighcharts, XAxis, YAxis, Pane, SolidGaugeSeries
+  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, BarSeries
 } from 'react-jsx-highcharts'
 
 const plotOptions = {
-  solidgauge: {
+  yAxis: [{
+    gridLineWidth: 0,
+    minorGridLineWidth: 0
+  }],
+  series: {
     dataLabels: {
-      y: 5,
-      borderWidth: 0,
-      useHTML: true
-    }
+      enabled: true,
+      format: '{y} gr/jr',
+      // align: 'right',
+      // color: '#FFFFFF',
+      // x: -10
+    },
+    pointPadding: 0.1,
+    groupPadding: 0
   }
 }
 
-class GoalChartWrapper extends Component {
-  state = {
-    kmph: 80
-  }
-
-  componentDidMount () {
-    this.interval = window.setInterval(this.updateSpeed, 1000)
-  }
-
-  componentWillUnmount () {
-    window.clearInterval(this.interval)
-  }
-
-  render() {
-    const { kmph } = this.state
-    console.log(kmph);
-    
-
-    return (
-      <HighchartsChart gauge plotOptions={plotOptions}>
-        <Pane
-          center={['50%', '85%']}
-          size='100%'
-          startAngle={-90}
-          endAngle={90}
-          background={{
-            backgroundColor: '#EEE',
-            innerRadius: '60%',
-            outerRadius: '100%',
-            shape: 'arc'
-          }} />
-        <XAxis />
-        <YAxis
-          stops={[
-            [0.1, '#55BF3B'],
-            [0.5,  '#DDDF0D'],
-            [0.9, '#DF5353']
-          ]}
-          lineWidth={0}
-          minorTickInterval={null}
-          tickPixelInterval={400}
-          tickWidth={0}
-          labels={{
-            y: 16,
-            style: { display: 'none' }
-          }}
-          min={0}
-          max={200}>
-          <YAxis.Title y={-110}>Speed</YAxis.Title>
-          <SolidGaugeSeries
-            name='Speed'
-            data={555}
-            dataLabels={{
-              format: '<div style="text-align:center"><span style="font-size:25px;color:black">{y}</span><br/><span style="font-size:12px;color:silver">km/h</span></div>',
-              y: -50
-            }}
-            tooltip={{
-              valueSuffix: ' g/jr'
-            }}
-          />
-        </YAxis>
-      </HighchartsChart>
-    )
-  }
+const UserChartWrapper = ({ currently, goal }) => {
+  return (
+    <HighchartsChart plotOptions={plotOptions}>
+      <Chart inverted height={`${9 / 16 * 100}%`}/>
+      <Legend />
+      <XAxis categories={[``]} />
+      <YAxis gridLineWidth='0'>
+        <BarSeries name={`Aujourd'hui`} data={[150]} />
+        <BarSeries name='Votre but' data={[15]} />
+      </YAxis>
+    </HighchartsChart>
+  )
 }
 
-export default withHighcharts(GoalChartWrapper, Highcharts)
+export default withHighcharts(UserChartWrapper, Highcharts)
