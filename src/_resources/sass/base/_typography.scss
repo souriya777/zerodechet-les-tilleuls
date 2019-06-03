@@ -7,3 +7,10 @@
 
   &--popup { @include font-title--popup; }
 }
+
+.quote {
+  font-style: italic;
+
+  &:before,
+  &:after { content:"\0022"; }
+}

@@ -44,8 +44,12 @@
   & .user__photo > img {
     height: 2.8rem;
     width: auto;
-    border: .2rem solid $color-accent;
+    border: .2rem solid transparent;
     padding: .2rem;
+  }
+
+  &__item--active .user__photo > img {
+    border-color: $color-accent;
   }
 
   & .user__photo {
