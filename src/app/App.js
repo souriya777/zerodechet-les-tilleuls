@@ -21,15 +21,20 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
+- "quote" (prendre 10 phrases aléatoire)
 - controle period
 - tester lundi !!! quand il n'y a pas de données
----> que faire ? proposer de charger la demo?
-- web responsive
-- refaire tout le process en partant de 0
-(compte/pas compte)
-- delete data => demo in profile => Charger/Supprimer?
-- releaser une version BETA
+---> proposer de charger la demo
+- pouvoir supprimer les données de demo
 - tuto: quand on ne connaît pas son objectif... que faire?
+- documenter
+- tester (compte/pas compte)
+- web responsive
+- releaser une version BETA
+- pourquoi développeur react? 
+- pourquoi les tilleuls?
+- souriya or not?
+- publier mon CV
 
 // not vital :
 - PWA : invite Add To Screen

@@ -4,6 +4,8 @@ import {
   HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, BarSeries
 } from 'react-jsx-highcharts'
 
+const FORMAT_16_9 = 9 / 16 * 100
+
 const plotOptions = {
   yAxis: [{
     gridLineWidth: 0,
@@ -25,12 +27,12 @@ const plotOptions = {
 const UserChartWrapper = ({ currently, goal }) => {
   return (
     <HighchartsChart plotOptions={plotOptions}>
-      <Chart inverted height={`${9 / 16 * 100}%`}/>
+      <Chart inverted height={`${FORMAT_16_9}%`}/>
       <Legend />
       <XAxis categories={[``]} />
       <YAxis gridLineWidth='0'>
-        <BarSeries name={`Aujourd'hui`} data={[150]} />
-        <BarSeries name='Votre but' data={[15]} />
+        <BarSeries name={`Aujourd'hui`} data={[currently]} />
+        <BarSeries name='Votre but' data={[goal]} />
       </YAxis>
     </HighchartsChart>
   )

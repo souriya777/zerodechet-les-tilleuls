@@ -6,7 +6,6 @@ import { handleSignout } from '../user/userActions'
 import { handleLoadData } from '../utils/sharedActions'
 import { isLogged } from '../utils/user-utils'
 
-import UserPhoto from './UserPhoto'
 import UserGraph from './UserGraph'
 
 class UserProfile extends Component {
@@ -22,36 +21,32 @@ class UserProfile extends Component {
 
   render() {
     const { user } = this.props
-    const photo = isLogged(user) ? user.photo : undefined
-    const name = isLogged(user) ? user.name : undefined
-    const goal = isLogged(user) ? `${user.goal}g/hab/jr` : ``
     const nbPers = isLogged(user) ? `Pour ${user.nbPers} personne(s)` : ``
-    const currently = 22
 
     return (
       <div className='profile'>
 
-        <div className='profile__id'>
-          <UserPhoto src={photo} />
-          <div className='profile__name'>{name}</div>
-        </div>
-
         <div className='profile__goal'>
           <h2 className='h2'>{nbPers}</h2>
-          <UserGraph 
-            currently={currently}
-            goal={goal}
-          />
+          <UserGraph />
         </div>
 
         <div className='profile__load-data'>
-          <button className='btn btn--accent' type='submit' onClick={this.handleLoadFakeData}>
+          <button 
+            className='btn btn--accent' 
+            type='submit' 
+            onClick={this.handleLoadFakeData}
+          >
             charger des données de démo :)
           </button>
         </div>
         
         <div className='profile__signout'>
-          <button className='btn btn--transparent' type='submit' onClick={this.handleSignout}>
+          <button 
+            className='btn btn--transparent' 
+            type='submit' 
+            onClick={this.handleSignout}
+          >
             se déconnecter
           </button>
         </div>
