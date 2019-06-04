@@ -89,7 +89,6 @@ export const handleSignout = () => {
     dispatch(showLoading())
     await userAPI.signout()
     dispatch(signout())
-    dispatch(setUser(null))
     dispatch(hideLoading())
   }
 }

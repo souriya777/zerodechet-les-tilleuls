@@ -3,15 +3,15 @@ import { connect } from 'react-redux'
 import * as Yup from 'yup'
 
 import FormikWrapper from '../utils/FormikWrapper'
-import { handleAddWeight } from './weightActions'
+import { handleAddWeight, handleGetLastStartDate } from './weightActions'
+import { toStandardFormat } from '../utils/date-utils'
 
-const moment = require('moment')
-// const reverseDate = (d1, d2) => {
-const reverseDate = () => {
-  return moment('2018-05-08').isAfter(new Date())
-}
 
 class WeightForm extends Component {
+  componentDidMount() {
+    const { dispatch } = this.props
+    dispatch(handleGetLastStartDate())
+  }
 
   handleSubmit = ({nbPers, startDate, endDate, recycled, norecycled}) => {
     const { user, dispatch } = this.props
@@ -19,7 +19,9 @@ class WeightForm extends Component {
   } 
 
   render () {
-    const { nbPers } = this.props
+    const { nbPers, weight } = this.props
+    const NOW = new Date()
+    const lastStartDate = weight != null ? weight.lastStartDate : new Date()
 
     ///////// IN ORDER TO HAVE DYNAMIC CONTROLS
     const FormSchema = Yup.object().shape({
@@ -28,8 +30,15 @@ class WeightForm extends Component {
         .max(nbPers, `Actuellement ${nbPers} personne(s) dans votre foyer ;-)`)
         .required(`Obligatoire ;-)`),
       startDate: Yup.date()
+        .min(lastStartDate, `Vous avez déjà saisi une pesée pour cette période.`)
+        .max(NOW, `La date de début ne peut être supérieure à la date de fin ou à la date du jour.`)
         .required(`Obligatoire ;-)`),
       endDate: Yup.date()
+        .when('startDate', (st, schema) => {
+          return Yup.date()
+          .min(st, `Retour vers le futur? La fin ne peut être inférieure au début ;-)`)
+          .max(NOW, `Vous ne pouvez saisir de pesée qui ne se sont pas encore passées.`)
+        })
         .required(`Obligatoire ;-)`),
       recycled: Yup.number()
         .min(0, `C'est l'idéal de tout aventurier du Défi famille...`)
@@ -39,7 +48,6 @@ class WeightForm extends Component {
         .required(`Obligatoire, 0 si pas de déchet... et ça c'est beau ;-)`),
     })
 
-    Yup.addMethod(Yup.date, 'reverseDate', reverseDate)
     ///////////
 
     return (
@@ -50,8 +58,12 @@ class WeightForm extends Component {
         fieldTypeList={[
           'number', 'date', 'date', 'number', 'number', 'text'
         ]}
+        fieldValueList={{
+          nbPers,
+          startDate: toStandardFormat(lastStartDate) 
+        }}
         fieldPlaceholderList={[
-          `Nombre de personne concerné`, 
+          `Nombre de personne(s) concernée(s)`, 
           'Début',
           'Fin',
           'Recyclable poids (ex. 900 = 900g.)',
@@ -65,6 +77,11 @@ class WeightForm extends Component {
 }
 
 
-const mapStateToProps = state => ({ user: state.user })
+const mapStateToProps = state => {
+  return { 
+    user: state.user,
+    weight: state.weight
+  }
+}
 
 export default connect(mapStateToProps)(WeightForm)

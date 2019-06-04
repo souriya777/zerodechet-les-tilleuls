@@ -32,7 +32,7 @@ const Menu = ({ user }) => {
           route={ROUTES.rdv}
         />  */}
         <MenuItem
-          label={'Profil 1'}
+          label={'Profil'}
           photo={() => <UserPhoto src={photo} />}
           route={ROUTES.profile}
         /> 

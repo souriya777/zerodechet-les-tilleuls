@@ -1,8 +1,6 @@
 import Firebase, { WEIGHTS_REF, SUB_COLLECTION_REF }  from '../app/firebase'
 
 class WeightFirebase {
-  getWeight = uid => Firebase.doc(`${WEIGHTS_REF}/${uid}`)
-  
   getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp)  => {
     let result = []
     
@@ -29,6 +27,23 @@ class WeightFirebase {
     })
 
     BATCH.commit()
+  }
+
+  getLastWeight = async () => {
+    const user = Firebase.auth.currentUser
+    let result = null
+    
+    await Firebase.db.collection(WEIGHTS_REF)
+    .doc(user.uid).collection(SUB_COLLECTION_REF)
+    .orderBy('startDate', 'desc')
+    .limit(1)
+    .get().then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+        result = doc.data()
+      })
+    })
+    
+    return result
   }
 }
 

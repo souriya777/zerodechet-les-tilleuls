@@ -1,6 +1,5 @@
-import { 
-  GET_EVENTS,
-} from './eventActions'
+import { GET_EVENTS } from './eventActions'
+import { SIGNOUT } from '../user/userActions'
 
 export default function event (state = null, action) {
   switch (action.type) {
@@ -8,6 +7,8 @@ export default function event (state = null, action) {
       return {
         ...action.events
       }
+    case SIGNOUT: 
+      return null
     default:
       return state;
   }

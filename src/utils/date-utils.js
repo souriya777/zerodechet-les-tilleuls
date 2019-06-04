@@ -79,12 +79,12 @@ const getThisPeriodDate = (now, period = PERIOD.WEEK) => {
   }
 }
 
-export const pastDays = (total, thisDay) => {
+export const pastDays = (howMany, thisDay) => {
   const result = []
   const mToday = moment(thisDay)
-  let mDay = mToday.clone().subtract(total, 'd')
+  let mDay = mToday.clone().subtract(howMany, 'd')
   
-  while (mDay.isSameOrBefore(mToday)) {
+  while (mDay.isBefore(mToday)) {
     result.push(mDay.clone().toDate())
     mDay = mDay.add(1, 'd')
   }
@@ -95,22 +95,15 @@ export const dateDiff = (begin, end) => {
   return moment(end).diff(moment(begin), 'd')
 }
 
-export const minmaxDate = now => {
-  /*
-    start < end
-    si end > today => petit msg 
-    si start != lastStart => information
-  */
-
-
-  return {
-    minStartDate: null,
-    maxStartDate: null,
-    minEndDate: null,
-    maxEndDate: null,
-  }
+export const oneDayLater = date => {
+  return moment(date).add(1, 'd').toDate()
 }
 
+export const toStandardFormat = date => {
+  return moment(date).format(STANDARD_FORMAT)
+}
+
+const STANDARD_FORMAT = 'YYYY-MM-DD'
 
 const unixToFirebaseTimestamp = timestamp => {
   return new firebase.firestore.Timestamp(timestamp, 0)

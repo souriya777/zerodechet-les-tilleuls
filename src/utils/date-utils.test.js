@@ -12,7 +12,8 @@ import {
   getMonthOfTrimester,
   pastDays,
   dateDiff,
-  toDisplayDate,
+  oneDayLater,
+  toStandardFormat,
 } from './date-utils'
 import { WEEK, MONTH, TRIMESTER } from './common-test/common-data'
 
@@ -285,15 +286,15 @@ describe(`getMonthOfTrimester`, () => {
 describe(`pastDays`, () => {
   
   it(`return a list of 14 Date, for
-    total = 14
-    today = FEV_DAY_1
+    howMany = 14
+    today = FEV_DAY_14
   `, () => {
     const thisDay = TRIMESTER.FEV_DAY_14
-    const total = 2
-    const dayList = pastDays(total, thisDay.toDate())
-    expect(dayList.length).toEqual(total+1)
+    const howMany = 2
+    const dayList = pastDays(howMany, thisDay.toDate())
+    expect(dayList.length).toEqual(howMany)
     expect(dayList[0]).toEqual(TRIMESTER.FEV_DAY_12.toDate())
-    expect(dayList[total]).toEqual(thisDay.toDate())
+    expect(dayList[1]).toEqual(TRIMESTER.FEV_DAY_13.toDate())
   })
 
 })
@@ -316,14 +317,25 @@ describe(`dateDiff`, () => {
   })
 })
 
-describe(`minmaxDate`, () => {
+describe(`oneDayLater`, () => {
   
-  it(`return 2, for
-    begin = FEV_DAY_12
-    end = FEV_DAY_14
-  `, () => {
-    const diff = dateDiff(TRIMESTER.FEV_DAY_12.toDate(), TRIMESTER.FEV_DAY_14.toDate())
-    expect(diff).toEqual(2)
+  it(`return JAN_DAY_2, for date = JAN_DAY_1`, () => {
+    const newDate = oneDayLater(TRIMESTER.JAN_DAY_1.toDate())
+    expect(newDate).toEqual(TRIMESTER.JAN_DAY_2.toDate())
   })
 
+  it(`return FEV_DAY_1, for date = JAN_DAY_31`, () => {
+    const newDate = oneDayLater(TRIMESTER.JAN_DAY_31.toDate())
+    expect(newDate).toEqual(TRIMESTER.FEV_DAY_1.toDate())
+  })
+
+})
+
+describe(`toStandardFormat`, () => {
+
+  it(`return 2019-01-01, for date = JAN_DAY_1`, () => {
+    const toDisplay = toStandardFormat(TRIMESTER.JAN_DAY_1.toDate())
+    expect(toDisplay).toEqual('2019-01-01')
+  })
+  
 })

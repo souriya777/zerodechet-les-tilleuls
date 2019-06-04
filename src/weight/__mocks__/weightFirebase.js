@@ -33,11 +33,10 @@ class WeightFirebase {
   }
 
   addWeightBatch = async (uid, dataList) => {
-    
     if (UID !== uid) {
       throw new FirebaseError('permission-denied')
     }
-
+    
     const cleanDataList = stripFirebaseTimestamp(dataList)
     
     if (

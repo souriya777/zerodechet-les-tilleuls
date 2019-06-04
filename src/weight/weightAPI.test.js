@@ -32,7 +32,7 @@ describe(`addWeight`, () => {
   it(`if uid is different from UID, throw a PermissionDeniedException with error message : 
   'Vous n'avez pas la permission d'accéder à la base de données. Contactez-nous, et nous vous aiderons au mieux.'`, async () => {
       await expect(
-        weightAPI.addWeight('UID_NOT_AUTHORIZED', MEMBERS_TOTAL, WEEK.MONDAY.toDate(), WEEK.MONDAY.toDate(), WEIGHT_RECYCLED, WEIGHT_NORECYCLED)
+        weightAPI.addWeight('UID_NOT_AUTHORIZED', MEMBERS_TOTAL, WEEK.MONDAY.toDate(), WEEK.TUESDAY.toDate(), WEIGHT_RECYCLED, WEIGHT_NORECYCLED)
       ).rejects.toEqual(
         new PermissionDeniedException(`Vous n'avez pas la permission d'accéder à la base de données. Contactez-nous, et nous vous aiderons au mieux.`)
       )

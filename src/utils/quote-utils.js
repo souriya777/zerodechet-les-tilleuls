@@ -8,7 +8,7 @@ const QUOTE_LIST = [
   `Deux fois plus de personnes allergiques au pollen qu’il y a trente-cinq ans (les scientifiques soulignent que le niveau de pollution et le nombre de personnes allergiques ont crû au même rythme)`,
   `Selon les Nations-Unies, 41,8 millions de tonnes de déchets électroniques et électriques ont été produits ee 2014, au niveau mondial.`,
   `190 000 litres d’eau potable sont perdus toutes les 5 secondes en France.`,
-  `3,4 millions : c'est le nombre de personnes qui décèdent chaque année des suites de maladies liées au manque ou à l’insalubrité de l’eau, à l’absence de système d’assainissement et au manque d’hygiène.`,
+  `Chaque français reçoit en moyenne 40kg de prospectus publicitaire dans sa boîte aux lettres (soit 830 000 tonnes de papier qui finissent souvent à la poubelle).`,
   `20kg : c'est le poids de la nourriture jetée par an et par habitant en France. Cela correspond à 7 kg d’aliments encore emballés et 13 kg de restes de repas, de fruits et légumes abîmés et non consommés`,
 ]
 

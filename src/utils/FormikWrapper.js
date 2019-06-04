@@ -32,6 +32,7 @@ class FormikWrapper extends Component {
     const { onSubmitBack } = this.props
     const { fieldNameList } = this.props
     const { fieldTypeList } = this.props
+    const { fieldValueList } = this.props
     const { fieldPlaceholderList } = this.props
 
     const nbOfFields = fieldNameList.length
@@ -41,7 +42,7 @@ class FormikWrapper extends Component {
     const { formSchema } = this.props
     const { userHasValidateOnce } = this.state
 
-    const initialValues = this.initValues(fieldNameList)
+    const initialValues = fieldValueList ? fieldValueList : this.initValues(fieldNameList)
 
     return (
       <>

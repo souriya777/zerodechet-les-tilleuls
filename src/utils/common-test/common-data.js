@@ -30,9 +30,12 @@ export const MONTH = {
 }
 export const TRIMESTER = {
   JAN_DAY_1: moment('2019-01-01'),
+  JAN_DAY_2: moment('2019-01-02'),
   JAN_DAY_30: moment('2019-01-30'),
+  JAN_DAY_31: moment('2019-01-31'),
   FEV_DAY_1: moment('2019-02-01'),
   FEV_DAY_12: moment('2019-02-12'),
+  FEV_DAY_13: moment('2019-02-13'),
   FEV_DAY_14: moment('2019-02-14'),
   MAR_DAY_1: moment('2019-03-01'),
   MAR_DAY_28: moment('2019-03-28'),
