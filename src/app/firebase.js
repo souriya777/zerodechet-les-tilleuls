@@ -49,8 +49,6 @@ class Firebase {
   }
 
   get batch () {
-    console.log('GETTER batch')
-    
     return this.db.batch()
   }
 
@@ -60,6 +58,16 @@ class Firebase {
     }
 
     return this[singleton];
+  }
+
+  fetchExistingDocs = async ref => {
+    let result = []
+    await this.db.collection(ref).get().then((querySnapshot) => {
+      querySnapshot.forEach(doc => {
+        result.push(doc.id)
+      })
+    })
+    return result
   }
 }
 

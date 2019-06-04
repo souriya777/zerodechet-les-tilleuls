@@ -20,7 +20,7 @@ class Stat extends Component {
 
     this.setState({period: period})
   }
-  
+
   componentDidUpdate() {
     const { componentMount } = this.state
     if (! componentMount) {

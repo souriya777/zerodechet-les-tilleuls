@@ -14,6 +14,7 @@ import {
   dateDiff,
   oneDayLater,
   toStandardFormat,
+  lastYear,
 } from './date-utils'
 import { WEEK, MONTH, TRIMESTER } from './common-test/common-data'
 
@@ -336,6 +337,15 @@ describe(`toStandardFormat`, () => {
   it(`return 2019-01-01, for date = JAN_DAY_1`, () => {
     const toDisplay = toStandardFormat(TRIMESTER.JAN_DAY_1.toDate())
     expect(toDisplay).toEqual('2019-01-01')
+  })
+  
+})
+
+describe(`lastYear`, () => {
+
+  it(`return LAST_JAN_DAY_1, for date = JAN_DAY_1`, () => {
+    const myDate = lastYear(TRIMESTER.JAN_DAY_1.toDate())
+    expect(myDate).toEqual(TRIMESTER.LAST_JAN_DAY_1.toDate())
   })
   
 })

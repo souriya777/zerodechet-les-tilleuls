@@ -1,4 +1,4 @@
-export const INSERT_WEIGHT_LIST = 
+export const INSERT_WEIGHT_LIST_DATA = 
 [
   {
     nbPers: 2,

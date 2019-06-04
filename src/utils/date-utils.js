@@ -103,6 +103,10 @@ export const toStandardFormat = date => {
   return moment(date).format(STANDARD_FORMAT)
 }
 
+export const lastYear = now => {
+  return moment(now).subtract(1, 'y').toDate()
+}
+
 const STANDARD_FORMAT = 'YYYY-MM-DD'
 
 const unixToFirebaseTimestamp = timestamp => {

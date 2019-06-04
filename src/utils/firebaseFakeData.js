@@ -3,7 +3,10 @@ import Firebase, { WEIGHTS_REF, SUB_COLLECTION_REF }  from '../app/firebase'
 import { pastDays } from './date-utils'
 
 
-export const loadDataWeight = async uid => loadData(WEIGHTS_REF, uid)
+export const loadDataWeight = async () => {
+  const user = Firebase.auth.currentUser
+  loadData(WEIGHTS_REF, user.uid)
+}
 
 const loadData = async (ref, uid) => {
   console.log(`-------LOAD USER: ${uid} REF: ${ref}----------`)
@@ -67,11 +70,12 @@ const generateWeightList = () => {
   })
 }
 
-export const getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp)  => {
+export const getWeightListBtwDates = async (beginTimestamp, endTimestamp)  => {
   let result = []
+  const user = Firebase.auth.currentUser
 
   await Firebase.db.collection(WEIGHTS_REF)
-  .doc(uid).collection(SUB_COLLECTION_REF)
+  .doc(user.uid).collection(SUB_COLLECTION_REF)
   .where('startDate', '>=', beginTimestamp)
   .where('startDate', '<', endTimestamp)
   .get().then(querySnapshot => {

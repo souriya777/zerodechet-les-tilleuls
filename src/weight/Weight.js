@@ -2,10 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { getQuote } from '../utils/quote-utils'
+import { handleGetLastStartDate } from './weightActions'
 
 import WeightForm from './WeightForm'
 
 class Weight extends Component {
+
+  componentDidUpdate() {
+    const { user, dispatch } = this.props
+    dispatch(handleGetLastStartDate(user.uid))
+  }
 
   render() {
     const { user } = this.props
@@ -18,9 +24,7 @@ class Weight extends Component {
         <h1 className='h1'>La pesée</h1>
         <div className='quote'>{getQuote()}</div>
         <div className='weight__form'>
-          <WeightForm
-            nbPers={user.nbPers}
-          />
+          <WeightForm />
         </div>
       </div>
     )

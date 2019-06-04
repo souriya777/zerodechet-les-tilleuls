@@ -21,10 +21,8 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
-- controle period
 - tester lundi !!! quand il n'y a pas de données
 - proposer de charger la demo
-- pouvoir supprimer les données de demo
 - tuto: quand on ne connaît pas son objectif... que faire?
 - documenter
 - tester (compte/pas compte)

@@ -2,6 +2,7 @@ import weightAPI from './weightAPI'
 import { 
   UID,
   WEEK,
+  ANNUAL,
   MEMBERS_TOTAL,
   WEIGHT_RECYCLED,
   WEIGHT_NORECYCLED,
@@ -9,14 +10,13 @@ import {
 import { 
   WEEK_DATA
 } from './__mocks__/weekData'
-import PermissionDeniedException from '../utils/PermissionDeniedException'
+import { CONVERTED_LAST_WEIGHT_DATA } from './__mocks__/lastWeightData'
 
 jest.mock('./weightFirebase')
 
 describe(`getWeightListBtwDates`, () => {
 
   it(`returns 7 results for a "week" :
-    uid = UID
     beginDate= MONDAY
     endDate= SATURDAY`, async () => {
       const result = await weightAPI.getWeightListBtwDates(UID, WEEK.MONDAY.toDate(), WEEK.SATURDAY.toDate())
@@ -28,19 +28,9 @@ describe(`getWeightListBtwDates`, () => {
 })
 
 describe(`addWeight`, () => {
-  
-  it(`if uid is different from UID, throw a PermissionDeniedException with error message : 
-  'Vous n'avez pas la permission d'accéder à la base de données. Contactez-nous, et nous vous aiderons au mieux.'`, async () => {
-      await expect(
-        weightAPI.addWeight('UID_NOT_AUTHORIZED', MEMBERS_TOTAL, WEEK.MONDAY.toDate(), WEEK.TUESDAY.toDate(), WEIGHT_RECYCLED, WEIGHT_NORECYCLED)
-      ).rejects.toEqual(
-        new PermissionDeniedException(`Vous n'avez pas la permission d'accéder à la base de données. Contactez-nous, et nous vous aiderons au mieux.`)
-      )
-  })
 
   it(`
     FOR :
-      uid = UID
       nbPers = 2
       startDate = MONDAY, 
       endDate = <same as startDate>
@@ -48,8 +38,26 @@ describe(`addWeight`, () => {
       norecycled = WEIGHT_NORECYCLED
     WRITE in database without error
     AND return a valid DocumentReference`, async () => {
-      const dbResp = await weightAPI.addWeight(UID, MEMBERS_TOTAL, WEEK.MONDAY.toDate(), WEEK.TUESDAY.toDate(), WEIGHT_RECYCLED, WEIGHT_NORECYCLED)
+      const dbResp = await weightAPI.addWeight(MEMBERS_TOTAL, WEEK.MONDAY.toDate(), WEEK.TUESDAY.toDate(), WEIGHT_RECYCLED, WEIGHT_NORECYCLED)
       expect(dbResp).toBeUndefined()
+  })
+
+})
+
+describe(`getLastWeight`, () => {
+
+  it(`convert LAST_WEIGHT_DATA and returned it`, async () => {
+    const w = await weightAPI.getLastWeight(UID)
+    expect(w).toEqual(CONVERTED_LAST_WEIGHT_DATA)
+  })
+
+})
+
+describe(`getLastStartDate`, () => {
+
+  it(`return JUN_DAY_4`, async () => {
+    const d = await weightAPI.getLastStartDate(UID)
+    expect(d).toEqual(ANNUAL.JUN_DAY_4.toDate())
   })
 
 })

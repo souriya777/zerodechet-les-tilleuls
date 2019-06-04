@@ -1,5 +1,5 @@
 import WeightFirebase from './weightFirebase'
-import { firebaseTimestamp, pastDays, dateDiff, toDate, oneDayLater } from '../utils/date-utils'
+import { firebaseTimestamp, pastDays, dateDiff, toDate } from '../utils/date-utils'
 import { avgHome } from '../stat/StatHelper'
 import PermissionDeniedException from '../utils/PermissionDeniedException'
 import { GENERAL_ERROR_CODES } from '../utils/ErrorCodes'
@@ -12,7 +12,7 @@ class WeightAPI {
     return WeightFirebase.getWeightListBtwDates(uid, beginTimestamp, endTimestamp)
   }
   
-  addWeight = async (uid, nbPers, startDate, endDate, recycled, norecycled) => {
+  addWeight = async (nbPers, startDate, endDate, recycled, norecycled) => {
     // calculate average weight
     const diff = dateDiff(startDate, endDate)
     const avgNb = avgHome(recycled, norecycled, nbPers, diff)
@@ -32,7 +32,7 @@ class WeightAPI {
 
     // call db
     try {
-      await WeightFirebase.addWeightBatch(uid, insertList)
+      await WeightFirebase.addWeightBatch(insertList)
     } catch(error) {
       const errorMsg = GENERAL_ERROR_CODES[error.code]
       throw new PermissionDeniedException(errorMsg)
@@ -40,20 +40,25 @@ class WeightAPI {
 
   }
 
-  handleGetLastStartDate = async () => {
-    // call db
+  removeAllWeight = async () => {
+    WeightFirebase.removeAllWeight()
+  }
+
+  getLastWeight = async uid => {
     try {
-      const w = await WeightFirebase.getLastWeight()
-      if (w != null) {
-        const startDate = oneDayLater(toDate(w.startDate))
-        return startDate
-      }
+      const w = await WeightFirebase.getLastWeight(uid)
+      return convertFromWeight(w)
     } catch(error) {
       const errorMsg = GENERAL_ERROR_CODES[error.code]
       throw new PermissionDeniedException(errorMsg)
     }
+  }
 
-    return
+  getLastStartDate = async uid => {
+    const w = await this.getLastWeight(uid)
+    if (w != null) {
+      return w.startDate
+    } 
   }
 }
 
@@ -69,6 +74,21 @@ const convertToWeight = (nbPers, startDate, endDate, recycled, norecycled) => {
     startDate: startTimestamp,
     endDate: endTimestamp,
     recordedDate: nowTimestamp,
+  }
+}
+
+const convertFromWeight = w => {
+  const startDate = toDate(w.startDate)
+  const endDate = toDate(w.endDate)
+  const recordedDate = toDate(w.recordedDate)
+
+  return {
+    nbPers: w.nbPers,
+    recycled: w.recycled,
+    norecycled: w.norecycled,
+    startDate,
+    endDate,
+    recordedDate,
   }
 }
 

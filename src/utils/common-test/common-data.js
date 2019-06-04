@@ -42,6 +42,12 @@ export const TRIMESTER = {
   APR_DAY_8: moment('2019-04-08'),
   MAY_DAY_23: moment('2019-05-23'),
   LAST_DEC_1: moment('2018-12-01'),
+  LAST_JAN_DAY_1: moment('2018-01-01'),
+}
+export const ANNUAL = {
+  JUN_DAY_4: moment('2019-06-04'),
+  JUN_DAY_5: moment('2019-06-05'),
+  JUN_DAY_6: moment('2019-06-06'),
 }
 
 export const DAY_NEXT_YEAR = moment('2020-05-08')
