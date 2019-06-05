@@ -21,17 +21,17 @@ class WeightFirebase {
     
     if (
       firebaseTimestamp(WEEK.MONDAY.toDate()).isEqual(beginTimestamp)
-      && firebaseTimestamp(WEEK.SATURDAY.toDate()).isEqual(endTimestamp)
+      && firebaseTimestamp(WEEK.SUNDAY.toDate()).isEqual(endTimestamp)
     ) {
       return WEEK_DATA
     } else if (
       firebaseTimestamp(MONTH.DAY_1.toDate()).isEqual(beginTimestamp)
-      && firebaseTimestamp(MONTH.DAY_23.toDate()).isEqual(endTimestamp)
+      && firebaseTimestamp(MONTH.DAY_24.toDate()).isEqual(endTimestamp)
     ) {
       return MONTH_DATA
     } else if (
       firebaseTimestamp(TRIMESTER.MAR_DAY_1).isEqual(beginTimestamp)
-      && firebaseTimestamp(TRIMESTER.MAY_DAY_23).isEqual(endTimestamp)
+      && firebaseTimestamp(TRIMESTER.MAY_DAY_24).isEqual(endTimestamp)
     ) {
       return TRIMESTER_DATA
     }

@@ -61,23 +61,9 @@ describe(`getThisWeekDate`, () => {
   it(`for now = SATURDAY, returns 
     {
       begin: MONDAY
-      end: SATURDAY
-    }`, () => {
-    const mNow = WEEK.SATURDAY
-    const dates = getThisWeekDate(mNow.toDate())
-
-    expect(dates).toEqual({
-      begin: WEEK.MONDAY.toDate(),
-      end: WEEK.SATURDAY.toDate(),
-    })
-  })
-  
-  it(`for now = SUNDAY, returns 
-    {
-      begin: MONDAY
       end: SUNDAY
     }`, () => {
-    const mNow = WEEK.SUNDAY
+    const mNow = WEEK.SATURDAY
     const dates = getThisWeekDate(mNow.toDate())
 
     expect(dates).toEqual({
@@ -85,46 +71,60 @@ describe(`getThisWeekDate`, () => {
       end: WEEK.SUNDAY.toDate(),
     })
   })
+  
+  it(`for now = SUNDAY, returns 
+    {
+      begin: MONDAY
+      end: NEXT_MONDAY
+    }`, () => {
+    const mNow = WEEK.SUNDAY
+    const dates = getThisWeekDate(mNow.toDate())
+
+    expect(dates).toEqual({
+      begin: WEEK.MONDAY.toDate(),
+      end: WEEK.NEXT_MONDAY.toDate(),
+    })
+  })
 
   it(`for now = MONDAY, returns 
     {
       begin: MONDAY
-      end: MONDAY
+      end: TUESDAY
     }`, () => {
     const mNow = WEEK.MONDAY
     const dates = getThisWeekDate(mNow.toDate())
 
     expect(dates).toEqual({
       begin: WEEK.MONDAY.toDate(),
-      end: WEEK.MONDAY.toDate(),
+      end: WEEK.TUESDAY.toDate(),
     })
   })
 
   it(`for now = MONTH.DAY_5, returns 
     {
       begin: MONTH.DAY_1
-      end: MONTH.DAY_5
+      end: MONTH.DAY_6
     }`, () => {
     const mNow = MONTH.DAY_5
     const dates = getThisWeekDate(mNow.toDate())
 
     expect(dates).toEqual({
       begin: MONTH.DAY_1.toDate(),
-      end: MONTH.DAY_5.toDate(),
+      end: MONTH.DAY_6.toDate(),
     })
   })
 
   it(`for now = MONTH.DAY_7, returns 
     {
       begin: MONTH.DAY_6
-      end: MONTH.DAY_7
+      end: MONTH.DAY_8
     }`, () => {
     const mNow = MONTH.DAY_7
     const dates = getThisWeekDate(mNow.toDate())
 
     expect(dates).toEqual({
       begin: MONTH.DAY_6.toDate(),
-      end: MONTH.DAY_7.toDate(),
+      end: MONTH.DAY_8.toDate(),
     })
   })
 
@@ -135,9 +135,6 @@ describe(`getThisWeekDate`, () => {
     }`, () => {
     const mNow = DAY_WITH_HOUR.JUN_DAY_5_00H44
     const dates = getThisWeekDate(mNow.toDate())
-
-    // FIXME
-    // console.log(DAY_WITH_HOUR.JUN_DAY_3_00H00.toDate())
 
     expect(dates).toEqual({
       begin: DAY_WITH_HOUR.JUN_DAY_3_00H00.toDate(),
@@ -152,42 +149,42 @@ describe(`getThisMonthDate`, () => {
   it(`for now = DAY_23, returns 
     {
       begin: DAY_1
-      end: DAY_23
+      end: DAY_24
     }`, () => {
     const mNow = MONTH.DAY_23
     const dates = getThisMonthDate(mNow.toDate())
 
     expect(dates).toEqual({
       begin: MONTH.DAY_1.toDate(),
-      end: MONTH.DAY_23.toDate(),
+      end: MONTH.DAY_24.toDate(),
     })
   })
   
   it(`for now = DAY_1, returns 
     {
       begin: DAY_1
-      end: DAY_1
+      end: DAY_2
     }`, () => {
     const mNow = MONTH.DAY_1
     const dates = getThisMonthDate(mNow.toDate())
 
     expect(dates).toEqual({
       begin: MONTH.DAY_1.toDate(),
-      end: MONTH.DAY_1.toDate(),
+      end: MONTH.DAY_2.toDate(),
     })
   })
   
   it(`for now = DAY_31, returns 
     {
       begin: DAY_1
-      end: DAY_31
+      end: NEXT_DAY_1
     }`, () => {
     const mNow = MONTH.DAY_31
     const dates = getThisMonthDate(mNow.toDate())
 
     expect(dates).toEqual({
       begin: MONTH.DAY_1.toDate(),
-      end: MONTH.DAY_31.toDate(),
+      end: MONTH.NEXT_DAY_1.toDate(),
     })
   })
   
@@ -198,42 +195,42 @@ describe(`getThisTrimesterDate`, () => {
   it(`for now = MAR_DAY_28, returns 
     {
       begin: JAN_DAY_1
-      end: MAR_DAY_28
+      end: MAR_DAY_29
     }`, () => {
     const mNow = TRIMESTER.MAR_DAY_28
     const dates = getThisTrimesterDate(mNow.toDate())
 
     expect(dates).toEqual({
       begin: TRIMESTER.JAN_DAY_1.toDate(),
-      end: TRIMESTER.MAR_DAY_28.toDate(),
+      end: TRIMESTER.MAR_DAY_29.toDate(),
     })
   })
   
   it(`for now = APR_DAY_8, returns 
     {
       begin: FEV_DAY_1
-      end: APR_DAY_8
+      end: APR_DAY_9
     }`, () => {
     const mNow = TRIMESTER.APR_DAY_8
     const dates = getThisTrimesterDate(mNow.toDate())
 
     expect(dates).toEqual({
       begin: TRIMESTER.FEV_DAY_1.toDate(),
-      end: TRIMESTER.APR_DAY_8.toDate(),
+      end: TRIMESTER.APR_DAY_9.toDate(),
     })
   })
   
   it(`for now = FEV_DAY_14, returns 
     {
       begin: LAST_DEC_1 (last year)
-      end: FEV_DAY_14
+      end: FEV_DAY_15
     }`, () => {
     const mNow = TRIMESTER.FEV_DAY_14
     const dates = getThisTrimesterDate(mNow.toDate())
 
     expect(dates).toEqual({
       begin: TRIMESTER.LAST_DEC_1.toDate(),
-      end: TRIMESTER.FEV_DAY_14.toDate(),
+      end: TRIMESTER.FEV_DAY_15.toDate(),
     })
   })
   

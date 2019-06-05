@@ -63,19 +63,19 @@ const getThisPeriodDate = (now, period = PERIOD.WEEK) => {
     if (is1stWk && dateOfMth <= 7) {
       day1st = firstDayOfMonth
     } else {
-      day1st = mNow.isoWeekday(1) // monday
+      day1st = mNow.clone().isoWeekday(1) // monday
     }
 
 
   } else if (PERIOD.MONTH === period) {
-    day1st = mNow.date(1)
+    day1st = mNow.clone().date(1)
   } else {
     day1st = mNow.clone().subtract(2, 'month').date(1)
   }
   
   return {
     begin: day1st.toDate(),
-    end: now
+    end: oneDayLater(mNow.toDate())
   }
 }
 

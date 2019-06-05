@@ -18,8 +18,8 @@ describe(`getWeightListBtwDates`, () => {
 
   it(`returns 7 results for a "week" :
     beginDate= MONDAY
-    endDate= SATURDAY`, async () => {
-      const result = await weightAPI.getWeightListBtwDates(UID, WEEK.MONDAY.toDate(), WEEK.SATURDAY.toDate())
+    endDate= SUNDAY`, async () => {
+      const result = await weightAPI.getWeightListBtwDates(UID, WEEK.MONDAY.toDate(), WEEK.SUNDAY.toDate())
 
       await expect(result.length).toEqual(5)
       await expect(result).toEqual(WEEK_DATA)

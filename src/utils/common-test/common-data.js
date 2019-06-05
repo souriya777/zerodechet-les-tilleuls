@@ -16,9 +16,11 @@ export const WEEK = {
   TUESDAY: moment('2019-05-07'),
   SATURDAY: moment('2019-05-11'),
   SUNDAY: moment('2019-05-12'),
+  NEXT_MONDAY: moment('2019-05-13'),
 }
 export const MONTH = {
   DAY_1: moment('2019-05-01'),
+  DAY_2: moment('2019-05-02'),
   DAY_5: moment('2019-05-05'),
   DAY_6: moment('2019-05-06'),
   DAY_7: moment('2019-05-07'),
@@ -26,7 +28,9 @@ export const MONTH = {
   DAY_14: moment('2019-05-14'),
   DAY_15: moment('2019-05-15'),
   DAY_23: moment('2019-05-23'),
+  DAY_24: moment('2019-05-24'),
   DAY_31: moment('2019-05-31'),
+  NEXT_DAY_1: moment('2019-06-01'),
 }
 export const TRIMESTER = {
   JAN_DAY_1: moment('2019-01-01'),
@@ -37,10 +41,14 @@ export const TRIMESTER = {
   FEV_DAY_12: moment('2019-02-12'),
   FEV_DAY_13: moment('2019-02-13'),
   FEV_DAY_14: moment('2019-02-14'),
+  FEV_DAY_15: moment('2019-02-15'),
   MAR_DAY_1: moment('2019-03-01'),
   MAR_DAY_28: moment('2019-03-28'),
+  MAR_DAY_29: moment('2019-03-29'),
   APR_DAY_8: moment('2019-04-08'),
+  APR_DAY_9: moment('2019-04-09'),
   MAY_DAY_23: moment('2019-05-23'),
+  MAY_DAY_24: moment('2019-05-24'),
   LAST_DEC_1: moment('2018-12-01'),
   LAST_JAN_DAY_1: moment('2018-01-01'),
 }
