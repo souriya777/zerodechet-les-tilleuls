@@ -21,6 +21,7 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
+- éviter la double saisie (reload data ????)
 - tester lundi !!! quand il n'y a pas de données
 - proposer de charger la demo
 - tuto: quand on ne connaît pas son objectif... que faire?
@@ -53,6 +54,7 @@ https://github.com/jest-community/vscode-jest
 class App extends Component {
 
   render() {
+    console.log('render App')
     return (
       <React.Suspense fallback={<Loading />}>
         <Router>

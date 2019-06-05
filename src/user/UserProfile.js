@@ -4,61 +4,75 @@ import { withRouter } from "react-router-dom"
 
 import { handleSignout } from '../user/userActions'
 import { handleLoadData } from '../utils/sharedActions'
-import { handleRemoveAllWeight, handleGetLastStartDate } from '../weight/weightActions'
-import { isLogged } from '../utils/user-utils'
+import { handleRemoveAllWeight } from '../weight/weightActions'
+import { handleLoadCurrentStat } from '../stat/statActions'
 
 import UserGraph from './UserGraph'
 
 class UserProfile extends Component {
-
-  componentDidMount() {
-    const { user, dispatch } = this.props
-    dispatch(handleGetLastStartDate(user.uid))
-  }
 
   handleSignout = () => {
     this.props.dispatch(handleSignout())
   }
 
   handleLoadFakeData = () => {
-    const { user, history } = this.props
-    this.props.dispatch(handleLoadData(user.uid, history))
+    const { uid, history } = this.props
+    this.props.dispatch(handleLoadData(uid, history))
   }
 
   handleUnloadFakeData = () => {
     this.props.dispatch(handleRemoveAllWeight())
   }
 
+  componentDidMount() {
+    const { uid } = this.props
+    console.log('componentDidMount', uid)
+    if (uid) 
+      this.loadData(uid)
+  }
+
+  componentDidUpdate() {
+    const { uid } = this.props
+    console.log('componentDidUpdate', uid)
+    if (uid) 
+      this.loadData(uid)
+  }
+  
+  loadData(uid) {
+    const { dispatch } = this.props
+    dispatch(handleLoadCurrentStat(uid))
+  }
+
   render() {
-    const { user, weight } = this.props
-    const nbPers = isLogged(user) ? `Pour ${user.nbPers} personne(s)` : ``
-    const anyDemoData = weight != null ? true : false
+    console.log('render UserProfile')
+    const { currently, goal } = this.props
 
     return (
       <div className='profile'>
 
         <div className='profile__goal'>
-          <h2 className='h2'>{nbPers}</h2>
-          <UserGraph />
+          <h2 className='h2'>Votre progression depuis votre inscription :</h2>
+          <UserGraph 
+            currently={currently} 
+            goal={goal} 
+          />
         </div>
 
         <div className='profile__load-data'>
-          { anyDemoData
-            ? <button 
-                className='btn btn--accent' 
-                type='submit' 
-                onClick={this.handleUnloadFakeData}
-              >
-                supprimer mes données saisies
-              </button>
-            : <button 
-                className='btn btn--accent' 
-                type='submit' 
-                onClick={this.handleLoadFakeData}
-              >
-                charger des données de démo :)
-              </button>
-          } 
+          <button 
+            className='btn btn--accent' 
+            type='submit' 
+            onClick={this.handleUnloadFakeData}
+          >
+            supprimer mes données saisies
+          </button>
+          <button 
+            className='btn btn--accent' 
+            type='submit' 
+            onClick={this.handleLoadFakeData}
+          >
+            charger des données de démo :)
+          </button>
         </div>
         
         <div className='profile__signout'>
@@ -75,10 +89,16 @@ class UserProfile extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { 
-    user: state.user,
-    weight: state.weight 
+const mapStateToProps = state => { 
+  const { user, stat } = state
+  const uid = user ? user.uid : null
+  const goal = user ? Math.round(user.goal) : 0
+  const currently = stat ? Math.round(stat.current) : 0
+
+  return {
+    uid,
+    goal,
+    currently
   }
 }
 

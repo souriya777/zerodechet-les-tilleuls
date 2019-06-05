@@ -15,6 +15,8 @@ import UserProfile from '../user/UserProfile'
 import RDV from '../rdv/RDV'
 
 const Content = ({ lightMode }) => { 
+  console.log('render Content')
+  
   return (
     <>
       {/* HEADER */}

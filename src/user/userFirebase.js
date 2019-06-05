@@ -1,6 +1,7 @@
 import Firebase, { USERS_REF }  from '../app/firebase'
 
 class UserFirebase {
+
   signin = async (email, pwd) => Firebase.auth.signInWithEmailAndPassword(email, pwd)
   
   signinWithGoogle = () => Firebase.auth.signInWithPopup(Firebase.googleProvider)
@@ -28,7 +29,6 @@ class UserFirebase {
       } else {
         callbackFn2()
       }
-
     })
   }
 

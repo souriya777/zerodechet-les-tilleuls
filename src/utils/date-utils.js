@@ -3,6 +3,12 @@ import 'firebase/firestore'
 import moment from 'moment'
 import { PERIOD } from '../stat/StatHelper'
 
+export const DEFAULT_START_DATE = moment('1970-01-01').toDate()
+
+export const isDefaultStartDate = date => {
+  return moment(date).isSame(moment(DEFAULT_START_DATE))
+}
+
 /*
   For a date reset hours, minutes, seconds
   Eg. 

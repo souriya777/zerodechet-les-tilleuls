@@ -47,6 +47,7 @@ class FormikWrapper extends Component {
     return (
       <>
         <Formik
+          enableReinitialize
           initialValues={initialValues}
           validationSchema={formSchema}
           validateOnChange={userHasValidateOnce}

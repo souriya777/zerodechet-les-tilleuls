@@ -22,7 +22,7 @@ const NavConnect = ({ location }) => {
     } else {
       setForegnd('')
     }
-  })
+  }, [location.pathname])
 
   return (
     <>

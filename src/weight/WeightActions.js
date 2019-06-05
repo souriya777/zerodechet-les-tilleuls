@@ -3,7 +3,7 @@ import weightAPI from '../weight/weightAPI'
 import { setError } from '../utils/ErrorActions'
 import { setInfo } from '../utils/InfoActions'
 import { WEIGHT_MSG } from '../utils/InfoMsg'
-import { setStat } from '../stat/statActions'
+import { resetStat, handleLoadStat, handleLoadCurrentStat } from '../stat/statActions'
 
 
 export const SET_WEIGHT = 'SET_WEIGHT'
@@ -25,14 +25,20 @@ const fetchLastStartDate = startDate => {
 }
 
 export const handleAddWeight = (uid, nbPers, startDate, endDate, recycled, norecycled) => {
+  console.log('handleAddWeight')
   return async (dispatch) => {
-    dispatch(showLoading())
+    // dispatch(showLoading())
     try {
       // call API
       await weightAPI.addWeight(nbPers, startDate, endDate, recycled, norecycled)
-      const w = await weightAPI.getLastWeight(uid)
-      console.log(w)
-      dispatch(fetchLastStartDate(w.startDate))
+      // const w = await weightAPI.getLastWeight(uid)
+      // FIXME COMMON ACTION REFRESH...
+      ///////////////
+      dispatch(handleLoadStat(uid))
+      dispatch(handleLoadCurrentStat(uid))
+      ///////////////
+
+
       dispatch(setInfo(WEIGHT_MSG.ADD_SUCCESS))
     } catch (error) {
       dispatch(setError(error.message))
@@ -43,6 +49,7 @@ export const handleAddWeight = (uid, nbPers, startDate, endDate, recycled, norec
 }
 
 export const handleRemoveAllWeight = () => {
+  console.log('handleRemoveAllWeight')
   return async (dispatch) => {
     dispatch(showLoading())
     try {
@@ -50,7 +57,7 @@ export const handleRemoveAllWeight = () => {
       await weightAPI.removeAllWeight()
       dispatch(setWeight(null))
       dispatch(setInfo(WEIGHT_MSG.REMOVE_ALL_SUCCESS))
-      dispatch(setStat(null))
+      dispatch(resetStat())
     } catch (error) {
       dispatch(setError(error.message))
     } finally {
@@ -60,6 +67,7 @@ export const handleRemoveAllWeight = () => {
 }
 
 export const handleGetLastStartDate = uid => {
+  console.log('handleGetLastStartDate')
   return async (dispatch) => {
     dispatch(showLoading())
     try {

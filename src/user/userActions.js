@@ -28,6 +28,7 @@ const becomeExpert = () => {
 }
 
 const handleSignIn = (type, login, pwd) => {
+  console.log('handleSignIn')
   return async dispatch => {
     dispatch(showLoading())
 
@@ -70,6 +71,7 @@ export const handleSigninWithTwitter = () => {
 }
 
 export const handleSignup = (firstName, lastName, login, pwd) => {
+  console.log('handleSignup')
   return async dispatch => {
     dispatch(showLoading())
     try {
@@ -83,6 +85,7 @@ export const handleSignup = (firstName, lastName, login, pwd) => {
 }
 
 export const handleSignout = () => {
+  console.log('handleSignout')
   return async dispatch => {
     dispatch(showLoading())
     await userAPI.signout()
@@ -92,32 +95,36 @@ export const handleSignout = () => {
 }
 
 export const handleResetPwd = email => {
+  console.log('handleResetPwd')
   return async dispatch => {
-    dispatch(showLoading())
+    // dispatch(showLoading())
     await userAPI.resetPwd(email)
     dispatch(hideLoading())
   }
 }
 
 export const handleSetGoal = goal => {
+  console.log('handleSetGoal')
   return async dispatch => {
-    dispatch(showLoading())
+    // dispatch(showLoading())
     await userAPI.setGoal(goal)
     dispatch(hideLoading())
   }
 }
 
 export const handleSetNbPers = nb => {
+  console.log('handleSetNbPers')
   return async dispatch => {
-    dispatch(showLoading())
+    // dispatch(showLoading())
     await userAPI.setNbPers(nb)
     dispatch(hideLoading())
   }
 }
 
 export const handleBecomeExpert = () => {
+  console.log('handleBecomeExpert')
   return async dispatch => {
-    dispatch(showLoading())
+    // dispatch(showLoading())
     await userAPI.becomeExpert()
     dispatch(becomeExpert())
     dispatch(hideLoading())
@@ -126,8 +133,9 @@ export const handleBecomeExpert = () => {
 
 
 export const handleUpdateUser = user => {
+  console.log('handleUpdateUser')
   return async dispatch => {
-    dispatch(showLoading())
+    // dispatch(showLoading())
     try {
       dispatch(setUser(user))
     } catch (error) {

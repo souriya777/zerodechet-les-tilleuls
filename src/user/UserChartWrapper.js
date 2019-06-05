@@ -1,7 +1,7 @@
 import React from 'react'
 import Highcharts from 'highcharts'
 import {
-  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, ColumnSeries, BarSeries
+  HighchartsChart, Chart, withHighcharts, XAxis, YAxis, Legend, BarSeries
 } from 'react-jsx-highcharts'
 
 const FORMAT_16_9 = 9 / 16 * 100

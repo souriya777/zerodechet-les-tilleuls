@@ -7,8 +7,8 @@ class FirebaseException extends Error {
     this.code = error.code
     this.name = 'FirebaseException'
 
-    console.log(`[debug] code:${this.code}`)
-    console.log(`[debug] msg:${msg}`)
+    // console.log(`[debug] code:${this.code}`)
+    // console.log(`[debug] msg:${msg}`)
   }
 } 
 

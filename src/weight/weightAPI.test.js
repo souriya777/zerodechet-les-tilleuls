@@ -7,12 +7,22 @@ import {
   WEIGHT_RECYCLED,
   WEIGHT_NORECYCLED,
 } from '../utils/common-test/common-data'
-import { 
-  WEEK_DATA
-} from './__mocks__/weekData'
+import { WEEK_DATA } from './__mocks__/weekData'
+import { TRIMESTER_DATA } from './__mocks__/trimesterData'
 import { CONVERTED_LAST_WEIGHT_DATA } from './__mocks__/lastWeightData'
 
 jest.mock('./weightFirebase')
+
+describe(`getAll`, () => {
+
+  it(`returns 31 results`, async () => {
+      const result = await weightAPI.getAll()
+
+      await expect(result.length).toEqual(84)
+      await expect(result).toEqual(TRIMESTER_DATA)
+  })
+
+})
 
 describe(`getWeightListBtwDates`, () => {
 

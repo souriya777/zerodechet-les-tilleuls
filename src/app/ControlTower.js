@@ -23,9 +23,7 @@ class ControlTower extends Component {
   }
 
   componentDidMount() {
-    this.listener = userAPI.onAuthStateChanged(this.persistUser, this.removeUser)
-
-    this.listener = userAPI.onUserChanged
+    userAPI.onAuthStateChanged(this.persistUser, this.removeUser)
   }
 
   persistUser = user => {
@@ -43,8 +41,7 @@ class ControlTower extends Component {
 
   render() {
     const { user } = this.state
-    
-    // console.log('ControlTower render')
+    // console.log('render ControlTower', user)
 
     // LOGGED
     if (isLogged(user)) {

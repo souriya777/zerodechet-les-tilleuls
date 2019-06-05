@@ -8,33 +8,40 @@ import SmartSelect from '../common-ui/SmartSelect'
 import StatGraph from './StatGraph'
 
 class Stat extends Component {
+
   state = {
-    period: DEFAUT_PERIOD,
-    componentMount: false
+    period: DEFAUT_PERIOD
   }
 
   handleChangePeriod = e => {
-    const { user, dispatch } = this.props
+    const { uid} = this.props
     const period = e.target.value
-    dispatch(handleLoadStat(user.uid, period))
-
+    this.loadData(uid, period)
     this.setState({period: period})
   }
 
-  componentDidUpdate() {
-    console.log('componentDidUpdate')
-    const { componentMount } = this.state
-    if (! componentMount) {
-      const { user, dispatch } = this.props
-      const { period } = this.state
-      dispatch(handleLoadStat(user.uid, period))
-
-      this.setState({componentMount: true})
-    }
+  componentDidMount() {
+    const { uid } = this.props
+    console.log('componentDidMount', uid)
+    if (uid) 
+      this.loadData(uid)
   }
-  
+
+  componentDidUpdate() {
+    const { uid } = this.props
+    console.log('componentDidUpdate', uid)
+    if (uid) 
+      this.loadData(uid)
+  }
+
+  loadData(uid, period) {
+    const { dispatch } = this.props
+    dispatch(handleLoadStat(uid, period))
+  }
+
   render () {
     const { period } = this.state
+    console.log('render Stat')
 
     return (
       <div className='stat'>
@@ -64,6 +71,13 @@ class Stat extends Component {
   }
 }
 
-const mapStateToProps = state => ({ user: state.user })
+const mapStateToProps = state => { 
+  const { user } = state
+  const uid = user ? user.uid : null
+
+  return {
+    uid
+  }
+}
 
 export default connect(mapStateToProps)(Stat)

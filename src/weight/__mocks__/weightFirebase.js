@@ -14,6 +14,10 @@ import { INSERT_WEIGHT_LIST_DATA } from './insertWeightListData'
 import { LAST_WEIGHT_DATA } from './lastWeightData'
 
 class WeightFirebase {
+  getAll = async () => {
+    return TRIMESTER_DATA
+  }
+
   getWeightListBtwDates = async (uid, beginTimestamp, endTimestamp) => {
     if (UID !== uid) {
       throw new FirebaseError('permission-denied')

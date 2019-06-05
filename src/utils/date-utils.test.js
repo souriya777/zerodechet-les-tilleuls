@@ -15,10 +15,23 @@ import {
   oneDayLater,
   toStandardFormat,
   lastYear,
+  isDefaultStartDate,
 } from './date-utils'
 import { WEEK, MONTH, TRIMESTER, DAY_WITH_HOUR } from './common-test/common-data'
 
 const moment = require('moment')
+
+describe(`isDefaultStartDate`, () => {
+  it(`for now=1st janv 1970 returns true`, () => {
+      const myDate = moment('1970-01-01').toDate()
+      expect(isDefaultStartDate(myDate)).toBeTruthy()
+  })
+
+  it(`for now=6 june 2019 returns false`, () => {
+      const myDate = moment('2019-06-06').toDate()
+      expect(isDefaultStartDate(myDate)).toBeFalsy()
+  })
+})
 
 describe(`unix`, () => {
   it(`for now: Wednesday May 01, 2019 08:50:10 (am) 

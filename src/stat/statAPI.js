@@ -18,13 +18,25 @@ import { avg } from './StatHelper'
 
 class StatAPI {
 
+  getAllTimeAvg = async uid => {
+    const weightList = await weightAPI.getAll(uid)
+
+    if (weightList == null || weightList.length === 0) {
+      return
+    }
+
+    let sum = 0
+    weightList.forEach(({ data }) => {
+      sum += data.norecycled + data.recycled
+    })
+
+    return sum !== 0 ? sum / weightList.length : 0
+  }
+
   getWeekData = async (uid, now) => {
     const { begin, end } = getThisWeekDate(now)
     
     const weightList = await weightAPI.getWeightListBtwDates(uid, begin, end)
-    // FIXME
-    // const end2 = moment('2019-06-06').toDate()
-    // console.log(weightList, now, begin, end, end2)
     
     return statForWeek(weightList)
   }

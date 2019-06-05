@@ -4,32 +4,25 @@ import * as Yup from 'yup'
 
 import FormikWrapper from '../utils/FormikWrapper'
 import { handleAddWeight } from './weightActions'
-import { toStandardFormat, lastYear } from '../utils/date-utils'
-
+import { toStandardFormat, DEFAULT_START_DATE, isDefaultStartDate } from '../utils/date-utils'
 
 class WeightForm extends Component {
+
   handleSubmit = ({nbPers, startDate, endDate, recycled, norecycled}) => {
-    const { user, dispatch } = this.props
-    dispatch(handleAddWeight(user.uid, nbPers, startDate, endDate, recycled, norecycled))
+    const { uid, dispatch } = this.props
+    dispatch(handleAddWeight(uid, nbPers, startDate, endDate, recycled, norecycled))
   } 
 
   render () {
-    const { user, weight } = this.props
-    let lastStartDate, defaultStartDate
+    const { uid, nbPers, lastStartDate } = this.props
 
-    console.log(user, weight)
-
-    const nbPers = user.nbPers
-
-    if (weight != null) {
-      lastStartDate = weight.lastStartDate
-      defaultStartDate = toStandardFormat(lastStartDate)
-    } else {
-      lastStartDate = lastYear(new Date())
-      defaultStartDate = ''
+    if (uid == null) {
+      return null
     }
-
-    console.log(lastStartDate, defaultStartDate)
+    
+    const formikStartDate = isDefaultStartDate(lastStartDate)
+      ? ''
+      : toStandardFormat(lastStartDate)
 
     const FormSchema = getFormSchema(nbPers, lastStartDate, new Date())
 
@@ -43,7 +36,7 @@ class WeightForm extends Component {
         ]}
         fieldValueList={{
           nbPers,
-          startDate: defaultStartDate,
+          startDate: formikStartDate,
           endDate: '',
           recycled: '',
           norecycled: ''
@@ -88,11 +81,20 @@ const getFormSchema = (nbPers, lastStartDate, now) => {
   })
 }
 
-
 const mapStateToProps = state => { 
+  const { user, weight } = state
+
+  const uid = user ? user.uid : null
+  const nbPers = user ? user.nbPers : null
+  const lastStartDate = weight ? weight.lastStartDate : null
+  
+  const finalStartDate = lastStartDate ? lastStartDate : DEFAULT_START_DATE
+
+  
   return { 
-    user: state.user,
-    weight: state.weight 
+    uid,
+    nbPers,
+    lastStartDate: finalStartDate,
   }
 }
 

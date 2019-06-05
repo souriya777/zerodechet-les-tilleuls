@@ -31,11 +31,15 @@ class UserAPI {
   }
 
   onAuthStateChanged = (callbackFn, callbackFn2) => {
-    return UserFirebase.onAuthStateChanged(callbackFn, callbackFn2)
+    UserFirebase.onAuthStateChanged(callbackFn, callbackFn2)
   }
   
   signout = async () => {
-    return await UserFirebase.signout()
+    try {
+      await UserFirebase.signout()
+    } catch (error) {
+      throw new FirebaseException(error)
+    }
   }
   
   resetPwd = async (email) => {

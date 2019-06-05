@@ -13,6 +13,16 @@ import statAPI from './statAPI'
 
 jest.mock('../weight/weightAPI')
 
+describe(`getAllTimeAvg`, () => {
+
+  it(`returns 565.452380952381 
+  `, async () => {
+      const result = await statAPI.getAllTimeAvg()
+      expect(result).toEqual(565.452380952381)
+  })
+
+})
+
 describe(`getWeekData`, () => {
 
   it(`returns WEEK_DATA for :

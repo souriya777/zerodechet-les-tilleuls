@@ -4,7 +4,8 @@ import statAPI from './statAPI'
 import { PERIOD, DEFAUT_PERIOD } from './StatHelper'
 import { setError } from '../utils/ErrorActions'
 
-export const SET_STAT = 'SET_STAT'
+export const RESET_STAT = 'RESET_STAT'
+export const SET_CURRENT_STAT = 'SET_CURRENT_STAT'
 export const FETCH_STAT = 'FETCH_STAT'
 
 const fetchStat = stat => {
@@ -15,14 +16,35 @@ const fetchStat = stat => {
 }
 
 // FIXME it is called by weightActions... how to manage cross-references?
-export const setStat = s => {
+export const resetStat = () => {
   return {
-    type: SET_STAT,
-    stat: s
+    type: RESET_STAT,
+  }
+}
+
+export const setCurrentStat = nb => {
+  return {
+    type: SET_CURRENT_STAT,
+    current: nb
+  }
+}
+
+export const handleLoadCurrentStat = uid => {
+  console.log('handleLoadCurrentStat')
+  return async dispatch => {
+    try {
+      const result = await statAPI.getAllTimeAvg(uid)
+      dispatch(setCurrentStat(result))
+    } catch (e) {
+      dispatch(setError(e.message))
+    } finally {
+      dispatch(hideLoading())
+    }
   }
 }
 
 export const handleLoadStat = (uid, period = DEFAUT_PERIOD) => {
+  console.log('handleLoadStat')
 
   return async dispatch => {
     dispatch(showLoading())
@@ -36,7 +58,6 @@ export const handleLoadStat = (uid, period = DEFAUT_PERIOD) => {
       } else {
         stat = await statAPI.getTrimesterData(uid, new Date())
       }
-      console.log(stat)
       dispatch(fetchStat(stat))
     } catch (e) {
       dispatch(setError(e.message))
