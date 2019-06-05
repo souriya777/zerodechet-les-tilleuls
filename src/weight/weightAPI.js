@@ -1,8 +1,7 @@
 import WeightFirebase from './weightFirebase'
 import { firebaseTimestamp, pastDays, dateDiff, toDate } from '../utils/date-utils'
 import { avgHome } from '../stat/StatHelper'
-import PermissionDeniedException from '../utils/PermissionDeniedException'
-import { GENERAL_ERROR_CODES } from '../utils/ErrorCodes'
+import FirebaseException from '../utils/FirebaseException'
 
 class WeightAPI {
   getWeightListBtwDates = (uid, beginDate, endDate) => {
@@ -34,14 +33,16 @@ class WeightAPI {
     try {
       await WeightFirebase.addWeightBatch(insertList)
     } catch(error) {
-      const errorMsg = GENERAL_ERROR_CODES[error.code]
-      throw new PermissionDeniedException(errorMsg)
+      throw new FirebaseException(error)
     }
-
   }
 
   removeAllWeight = async () => {
-    WeightFirebase.removeAllWeight()
+    try {
+      WeightFirebase.removeAllWeight()
+    } catch(error) {
+      throw new FirebaseException(error)
+    }
   }
 
   getLastWeight = async uid => {
@@ -49,8 +50,7 @@ class WeightAPI {
       const w = await WeightFirebase.getLastWeight(uid)
       return convertFromWeight(w)
     } catch(error) {
-      const errorMsg = GENERAL_ERROR_CODES[error.code]
-      throw new PermissionDeniedException(errorMsg)
+      throw new FirebaseException(error)
     }
   }
 

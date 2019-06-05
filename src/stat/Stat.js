@@ -22,6 +22,7 @@ class Stat extends Component {
   }
 
   componentDidUpdate() {
+    console.log('componentDidUpdate')
     const { componentMount } = this.state
     if (! componentMount) {
       const { user, dispatch } = this.props

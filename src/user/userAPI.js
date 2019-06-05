@@ -1,8 +1,6 @@
 import UserFirebase from './userFirebase'
 
-import { SIGNIN__ERROR_CODES, SIGNUP__ERROR_CODES } from '../utils/ErrorCodes'
-import SigninException from '../utils/SigninException'
-import SignupException from '../utils/SignupException'
+import FirebaseException from '../utils/FirebaseException'
 
 class UserAPI {
 
@@ -26,8 +24,7 @@ class UserAPI {
     try {
       await UserFirebase.signup(login, pwd)
     } catch (error) {
-      const errorMsg = SIGNUP__ERROR_CODES[error.code]
-      throw new SignupException(errorMsg)
+      throw new FirebaseException(error)
     }
 
     await UserFirebase.generateExtraInfo(firstName + ' ' + lastName)
@@ -77,7 +74,6 @@ const signin = async (type, login, pwd) => {
         await UserFirebase.signin(login, pwd)
     }
   } catch (error) {
-    const errorMsg = SIGNIN__ERROR_CODES[error.code]
-    throw new SigninException(errorMsg)
+    throw new FirebaseException(error)
   }
 }

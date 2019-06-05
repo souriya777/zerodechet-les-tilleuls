@@ -49,6 +49,11 @@ export const ANNUAL = {
   JUN_DAY_5: moment('2019-06-05'),
   JUN_DAY_6: moment('2019-06-06'),
 }
+export const DAY_WITH_HOUR = {
+  JUN_DAY_3_00H00: moment('2019-06-03T00:00'),
+  JUN_DAY_5_00H44: moment('2019-06-05T00:44'),
+  JUN_DAY_6_00H00: moment('2019-06-06T00:00'),
+}
 
 export const DAY_NEXT_YEAR = moment('2020-05-08')
 export const DAY_LAST_YEAR = moment('2018-05-08')

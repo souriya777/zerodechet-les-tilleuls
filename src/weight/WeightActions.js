@@ -17,7 +17,7 @@ const setWeight = w => {
   }
 }
 
-const fetchLastStartDate = (startDate) => {
+const fetchLastStartDate = startDate => {
   return {
     type: FETCH_LAST_START_DATE,
     lastStartDate: startDate,
@@ -30,12 +30,10 @@ export const handleAddWeight = (uid, nbPers, startDate, endDate, recycled, norec
     try {
       // call API
       await weightAPI.addWeight(nbPers, startDate, endDate, recycled, norecycled)
-      // FIXME
       const w = await weightAPI.getLastWeight(uid)
-      console.log(w);
-      
-      // dispatch(setWeight(w))
-      // dispatch(setInfo(WEIGHT_MSG.ADD_SUCCESS))
+      console.log(w)
+      dispatch(fetchLastStartDate(w.startDate))
+      dispatch(setInfo(WEIGHT_MSG.ADD_SUCCESS))
     } catch (error) {
       dispatch(setError(error.message))
     } finally {

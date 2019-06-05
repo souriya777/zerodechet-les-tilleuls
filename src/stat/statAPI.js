@@ -14,12 +14,17 @@ import {
 } from '../utils/date-utils'
 import { avg } from './StatHelper'
 
+// let moment = require('moment')
+
 class StatAPI {
 
   getWeekData = async (uid, now) => {
     const { begin, end } = getThisWeekDate(now)
     
     const weightList = await weightAPI.getWeightListBtwDates(uid, begin, end)
+    // FIXME
+    // const end2 = moment('2019-06-06').toDate()
+    // console.log(weightList, now, begin, end, end2)
     
     return statForWeek(weightList)
   }

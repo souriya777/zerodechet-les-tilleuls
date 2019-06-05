@@ -22,8 +22,6 @@ export const handleLoadData = (uid, history) => {
         dispatch(hideLoading())
         history.push(ROUTES.stat) // special case of direct redirecting from action
       }, 4000)
-
-
     } catch (error) {
       dispatch(setError(error.message))
     } 

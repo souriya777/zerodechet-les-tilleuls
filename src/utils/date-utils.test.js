@@ -16,7 +16,7 @@ import {
   toStandardFormat,
   lastYear,
 } from './date-utils'
-import { WEEK, MONTH, TRIMESTER } from './common-test/common-data'
+import { WEEK, MONTH, TRIMESTER, DAY_WITH_HOUR } from './common-test/common-data'
 
 const moment = require('moment')
 
@@ -125,6 +125,23 @@ describe(`getThisWeekDate`, () => {
     expect(dates).toEqual({
       begin: MONTH.DAY_6.toDate(),
       end: MONTH.DAY_7.toDate(),
+    })
+  })
+
+  it(`for now = JUN_DAY_5_00H44, returns 
+    {
+      begin: JUN_DAY_3_00H00
+      end: JUN_DAY_6_00H00
+    }`, () => {
+    const mNow = DAY_WITH_HOUR.JUN_DAY_5_00H44
+    const dates = getThisWeekDate(mNow.toDate())
+
+    // FIXME
+    // console.log(DAY_WITH_HOUR.JUN_DAY_3_00H00.toDate())
+
+    expect(dates).toEqual({
+      begin: DAY_WITH_HOUR.JUN_DAY_3_00H00.toDate(),
+      end: DAY_WITH_HOUR.JUN_DAY_6_00H00.toDate(),
     })
   })
 

@@ -36,6 +36,7 @@ export const handleLoadStat = (uid, period = DEFAUT_PERIOD) => {
       } else {
         stat = await statAPI.getTrimesterData(uid, new Date())
       }
+      console.log(stat)
       dispatch(fetchStat(stat))
     } catch (e) {
       dispatch(setError(e.message))
