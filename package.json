@@ -3,27 +3,27 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-adapter-react-16": "^1.14.0",
     "firebase": "^6.1.0",
     "formik": "^1.5.2",
-    "highcharts": "^7.0.0",
+    "highcharts": "^7.1.2",
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
     "nuka-carousel": "^4.5.6",
-    "query-string": "^6.4.2",
+    "query-string": "^6.6.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-jsx-highcharts": "^3.5.0",
     "react-redux": "^7.0.2",
     "react-redux-loading": "^1.0.1",
-    "react-redux-loading-bar": "^4.2.0",
-    "react-router-dom": "^5.0.0",
+    "react-redux-loading-bar": "^4.3.0",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
     "react-transition-group": "^4.0.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "source-map-explorer": "^1.8.0",
+    "source-map-explorer": "^2.0.0",
     "yup": "^0.27.0"
   },
   "scripts": {
@@ -45,7 +45,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "enzyme": "^3.9.0",
+    "enzyme": "^3.10.0",
     "react-test-renderer": "^16.8.6"
   }
 }
