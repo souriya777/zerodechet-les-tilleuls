@@ -21,12 +21,11 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
-- proposer de charger la demo
 - tester lundi !!! quand il n'y a pas de données
 - tuto: quand on ne connaît pas son objectif... que faire?
+- web responsive
 - documenter
 - tester (compte/pas compte)
-- web responsive
 - releaser une version BETA
 - pourquoi développeur react? 
 - pourquoi les tilleuls?

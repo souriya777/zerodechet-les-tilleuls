@@ -65,9 +65,9 @@ describe(`getLastWeight`, () => {
 
 describe(`getLastStartDate`, () => {
 
-  it(`return JUN_DAY_4`, async () => {
+  it(`return JUN_DAY_5`, async () => {
     const d = await weightAPI.getLastStartDate(UID)
-    expect(d).toEqual(ANNUAL.JUN_DAY_4.toDate())
+    expect(d).toEqual(ANNUAL.JUN_DAY_5.toDate())
   })
 
 })

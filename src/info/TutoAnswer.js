@@ -2,6 +2,7 @@ import React from 'react'
 
 import TutoNbPersForm from './TutoNbPersForm'
 import TutoGoalForm from './TutoGoalForm'
+import TutoDemoChoice from './TutoDemoChoice'
 
 const TutoAnswer = ({ step, totalStep, onSubmit, onSubmitBack }) => {
   const submitLbl = `Valider étape ${step} sur ${totalStep}`
@@ -18,6 +19,9 @@ const TutoAnswer = ({ step, totalStep, onSubmit, onSubmitBack }) => {
             onSubmitBack={onSubmitBack}
             submitLbl={submitLbl}
           />
+  }
+  else if (3 === step) {
+    return <TutoDemoChoice onSubmit={onSubmit} />
   }
 }
 

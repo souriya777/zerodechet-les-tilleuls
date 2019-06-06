@@ -16,8 +16,8 @@ class UserProfile extends Component {
   }
 
   handleLoadFakeData = () => {
-    const { uid, history } = this.props
-    this.props.dispatch(handleLoadData(uid, history))
+    const { uid, history, dispatch } = this.props
+    dispatch(handleLoadData(uid, history))
   }
 
   handleUnloadFakeData = () => {
@@ -60,18 +60,21 @@ class UserProfile extends Component {
 
         <div className='profile__load-data'>
           <button 
-            className='btn btn--accent' 
-            type='submit' 
-            onClick={this.handleUnloadFakeData}
-          >
-            supprimer mes données saisies
-          </button>
-          <button 
-            className='btn btn--accent' 
+            className='btn' 
             type='submit' 
             onClick={this.handleLoadFakeData}
           >
-            charger des données de démo :)
+            charger des pesées de démo :)
+          </button>
+        </div>
+
+        <div className='profile__unload-data'>
+          <button 
+            className='btn btn--transparent' 
+            type='submit' 
+            onClick={this.handleUnloadFakeData}
+          >
+            supprimer mes pesées
           </button>
         </div>
         
