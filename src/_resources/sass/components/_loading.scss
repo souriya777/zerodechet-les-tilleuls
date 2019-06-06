@@ -1,0 +1,7 @@
+.loading {
+  @include ultra-top-priority-index;
+  background-color: $color-major; 
+  height: .3rem; 
+  position: fixed;
+  
+}

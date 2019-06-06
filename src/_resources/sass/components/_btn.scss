@@ -1,0 +1,33 @@
+.btn {
+  @include font-action;
+
+  outline: none;
+  color: $color-secondary-text;
+  text-transform: uppercase;
+  background-color: $color-accent;
+  border: $border-aspect $color-accent;
+  border-radius: $default-border-radius;
+  line-height: 3.5rem;
+  width: 100%;
+
+  cursor: pointer;
+
+  &--transparent {
+    opacity: .6;
+  }
+  
+  &--accent {
+    background-color: $color-major;
+    border-color: $color-major;
+  }
+
+  &:disabled {
+    background-color: $color-accent-light;
+    border-color: $color-accent-light;
+  }
+}
+
+.btn-fake {
+  cursor: pointer;
+  text-align: center;
+}

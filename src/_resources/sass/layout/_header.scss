@@ -1,0 +1,11 @@
+.header {
+  height: 23vh;
+
+  &__logo {
+    @include logo-at-top;
+  }
+
+  &--small {
+    height: 20vh;
+  }
+}

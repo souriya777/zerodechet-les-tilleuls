@@ -1,0 +1,10 @@
+.form {
+
+  &__validation {
+    @include space-top;
+  }
+  
+  &__back {
+    @include space-top;
+  }
+}

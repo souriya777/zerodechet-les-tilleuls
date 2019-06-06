@@ -1,0 +1,30 @@
+.connect {
+  @include full-size;
+  @include space-content;
+
+  &__choice {
+    &-list {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    &-item {
+      @include font-action--choice;
+      display: inline-block;
+    }
+  }
+
+  &__form,
+  &__hr { @include space-top; }
+
+  &__social {
+    @include space-top;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    padding: 0 9vw;
+  }
+}

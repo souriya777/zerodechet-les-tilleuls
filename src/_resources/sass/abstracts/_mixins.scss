@@ -1,0 +1,133 @@
+// FONT
+%font {
+  font-family: $font-primary;
+  word-spacing: .1rem;
+}
+
+@mixin font-title {
+  @extend %font;
+  font-weight: 700;
+  letter-spacing: .1rem;
+}
+
+@mixin font-title--slide {
+  @include font-title;
+  font-size: $font-title-slide;
+  text-transform: uppercase;
+}
+
+@mixin font-title--popup {
+  font-size: $font-title-popup-size;
+}
+
+@mixin font-h1 { 
+  @extend %font;
+  color: $color-primary-text; 
+  font-size: $font-title;
+  text-align: center;
+}
+@mixin font-h2 { font-size: $font-title; }
+
+@mixin font-body {
+  @extend %font;
+  font-weight: 600;
+  font-size: $font-body-size;
+}
+
+@mixin font-body--accent {
+  @extend %font;
+  font-size: 2.5rem;
+}
+
+@mixin font-nav {
+  font-size: 2rem;
+}
+
+@mixin font-sub-input {
+  @extend %font;
+  word-spacing: 0rem;
+  font-size: $font-sub-input-size;
+}
+
+@mixin font-action {
+  @include font-title;
+}
+
+@mixin font-action--choice {
+  @include font-action;
+  text-transform: uppercase;
+}
+
+@mixin font-question {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+// TXT
+@mixin wording {
+  text-align: justify;
+}
+
+// COLOR
+@mixin font-color-light {
+  color: inherit;
+  opacity: $font-opacity-light;
+}
+
+// SIZE
+@mixin full-screen {
+  height: 100vh;
+  width: 100vw;
+}
+
+@mixin full-size {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin full-width { width: 100%; }
+
+// SPACE
+@mixin space-top { margin-top: 2rem; }
+@mixin space-content { padding: 0 1rem; }
+
+@mixin common-content {
+  @include space-content;
+  color: $color-primary-text;
+}
+
+// POSITIONING
+@mixin logo-at-top {
+  padding-top: .5rem;
+  width: 100%;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+}
+
+// SHAPE
+@mixin corner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 1rem;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 45%;
+}
+
+@mixin photo-portrait {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+}
+
+
+// Z-INDEX
+@mixin ultra-top-priority-index { z-index: 3; }
+
+@mixin top-priority-index { z-index: 2; }
+
+@mixin priority-index { z-index: 1; }
+
+@mixin backgnd-index { z-index: -100; }

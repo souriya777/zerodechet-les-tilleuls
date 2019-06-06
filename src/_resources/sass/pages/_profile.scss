@@ -1,0 +1,18 @@
+.profile {
+  @include common-content;
+  height: 105vh; // TODO
+
+  &__body { 
+    text-align: center; 
+
+    &--accent {
+      @include font-body--accent;
+    }
+  }
+
+  &__goal,
+  &__members,
+  &__load-data,
+  &__unload-data,
+  &__signout { @include space-top; }
+}

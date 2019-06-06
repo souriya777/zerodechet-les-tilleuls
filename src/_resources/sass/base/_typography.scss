@@ -1,0 +1,16 @@
+.h {
+  &1 { @include font-h1 }
+
+  &2 { @include font-h2 }
+
+  &--slide { @include font-title--slide; }
+
+  &--popup { @include font-title--popup; }
+}
+
+.quote {
+  font-style: italic;
+
+  &:before,
+  &:after { content:"\0022"; }
+}

@@ -1,0 +1,25 @@
+.fade-enter,
+.fade-header-enter { opacity: 0; }
+
+.fade-enter-active,
+.fade-header-enter-active {
+  opacity: 0;
+}
+
+.fade-exit,
+.fade-header-exit { opacity: 1; }
+
+.fade-exit-active,
+.fade-header-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.fade-enter-done {
+  opacity: 1;
+  // because of z-index on the nav
+  @include top-priority-index;
+  position: absolute;
+  transition: opacity 300ms ease-in;
+}
+

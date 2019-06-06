@@ -1,0 +1,8 @@
+.weight {
+  @include common-content;
+  height: 105vh; // TODO
+
+  &__form {
+    @include space-top;
+  }
+}

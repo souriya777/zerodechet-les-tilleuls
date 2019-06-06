@@ -1,0 +1,65 @@
+.select__wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  color: $color-primary-text;
+  width: 78%; // not terrible to "fix", but it's hard if I want to keep it simple...
+  margin: auto;
+}
+
+.select {
+  @include font-action;
+  width: 100%;
+
+  outline: none;
+  text-transform: uppercase;
+  background-color: inherit;
+  line-height: 3.5rem;
+  padding: 0 2rem 0 1rem;
+  border: $border-aspect $color-grey;
+  border-right: 0;
+  border-top-left-radius: $default-border-radius;
+  border-bottom-left-radius: $default-border-radius;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  &:focus {
+    border-color: $color-accent;
+  }
+
+  &__icon {
+    border: $border-aspect $color-grey;
+    border-left: 0;
+    padding-right: 1rem;
+    border-top-right-radius: $default-border-radius;
+    border-bottom-right-radius: $default-border-radius;
+    outline: none;
+
+    & > svg { fill: $color-grey; }
+  }
+
+  &:focus + &__icon,
+  &__icon:focus {
+    border-color: $color-accent;
+  }
+
+  &:focus + &__icon > svg,
+  &__icon:focus > svg {
+    fill: $color-accent;
+    transform: rotate(180deg) translateY(-5px);
+    transition: transform .15s cubic-bezier(.4,0,.2,1);
+  }
+
+  &__placeholder {
+    background-color: $color-primary;
+    position: absolute;
+    top: -1rem;
+    left: 1.5rem;
+    padding: 0 .4rem;
+  }
+
+  &:focus ~ &__placeholder,
+  &__icon:focus + &__placeholder {
+    color: $color-accent;
+  }
+}

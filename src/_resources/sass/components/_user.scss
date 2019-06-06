@@ -1,0 +1,22 @@
+.user {
+
+  &__photo {
+
+    & > img {
+      @include photo-portrait;
+    }
+  }
+  
+  &__avatar {
+    @include photo-portrait;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: $border-aspect $color-grey;
+    background-color: $color-grey;
+    
+    & > svg {
+      fill: $color-secondary-text;
+    }
+  }
+}

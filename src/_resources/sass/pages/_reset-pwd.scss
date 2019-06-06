@@ -1,0 +1,15 @@
+.reset-pwd {
+  @include full-size;
+  @include space-content;
+  display: flex;
+  flex-direction: column;
+
+  &__wording {
+    @include space-top;
+    @include wording;
+  }
+
+  &__form {
+    @include space-top;
+  }
+}

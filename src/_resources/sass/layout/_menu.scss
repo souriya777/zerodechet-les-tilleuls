@@ -1,0 +1,58 @@
+.menu {
+  @include full-width;
+  @include ultra-top-priority-index;
+  background-color: $color-secondary;
+  position: fixed;
+  bottom: 0;
+  height: 5.5rem;
+  padding: .5rem 0;
+  
+  &__list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5rem;
+    color: $color-secondary-text;
+  }
+
+  &__label { color: $color-secondary-text; }
+
+  &__item--active &__label { color: $color-accent; }
+
+  &__item--active svg { fill: $color-accent }
+
+
+  // special case (it's simplifier to modifiy "user photo" here than in "user scsss" file
+  // &__icon {
+  //   border: 1px solid red;
+  // }
+
+  & .user__avatar {
+    height: 2.6rem;
+    width: 3rem;
+    background-color: transparent;
+    border: .2rem solid transparent;
+  }
+
+  & .user__photo > img {
+    height: 2.8rem;
+    width: auto;
+    border: .2rem solid transparent;
+    padding: .2rem;
+  }
+
+  &__item--active .user__photo > img {
+    border-color: $color-accent;
+  }
+
+  & .user__photo {
+    height: 2.9rem;
+  }
+}
