@@ -1,0 +1,8 @@
+.logo {
+  @media only screen and (min-width: $bp-smallest) {
+    & > .svg {
+      width: 15rem;
+      height: 15rem;
+    }
+  }
+}

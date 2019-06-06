@@ -92,7 +92,6 @@ const merge = (user, extra) => {
 const DEFAULT_EXTRA_INFO = {
   goal: null,
   home: null,
-  events: null,
   isNew: true,
 }
 

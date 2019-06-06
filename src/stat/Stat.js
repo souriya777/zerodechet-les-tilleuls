@@ -22,14 +22,12 @@ class Stat extends Component {
 
   componentDidMount() {
     const { uid } = this.props
-    console.log('componentDidMount', uid)
     if (uid) 
       this.loadData(uid)
   }
 
   componentDidUpdate() {
     const { uid } = this.props
-    console.log('componentDidUpdate', uid)
     if (uid) 
       this.loadData(uid)
   }
@@ -41,8 +39,6 @@ class Stat extends Component {
 
   render () {
     const { period } = this.state
-    console.log('render Stat')
-
     return (
       <div className='stat'>
         <div className='stat__action'>

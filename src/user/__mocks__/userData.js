@@ -33,7 +33,4 @@ export const VALID_FIREBASE_EXTRA_INFO = {
     {id: 5, name: 'Souriya Phongsavanh'},
     {id: 6, name: 'Sourisack Phongsavanh'}
   ],
-  events: [
-    '2i57wbPYh8wAb4srGvs4', '6typu1Dz5RgHjHZUpU8M', '8HueLRA98A94BPsxlarX'
-  ]
 }

@@ -33,6 +33,13 @@
     &--backgnd {
       @include backgnd-index;
     }
+
+    @media only screen and (min-width: $bp-smallest) {
+      &-content > svg {
+        width: 5.2rem;
+        height: 5.2rem;
+      }
+    }
   }
 
   &__close {

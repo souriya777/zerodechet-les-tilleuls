@@ -41,7 +41,6 @@ class ControlTower extends Component {
 
   render() {
     const { user } = this.state
-    // console.log('render ControlTower', user)
 
     // LOGGED
     if (isLogged(user)) {
@@ -55,7 +54,7 @@ class ControlTower extends Component {
               <Tuto />
             </>)} /> 
             <Redirect from={[ROUTES.signin, ROUTES.signup]} to={ROUTES.tuto} />
-            <Redirect from={[ROUTES.profile, ROUTES.weight, ROUTES.stat, ROUTES.rdv]} to={ROUTES.tuto} />
+            <Redirect from={[ROUTES.profile, ROUTES.weight, ROUTES.stat]} to={ROUTES.tuto} />
             <Redirect exact from='/' to={ROUTES.tuto} />
           </Switch>
         ) 
@@ -70,7 +69,7 @@ class ControlTower extends Component {
     } else {
       return (
         <Switch>
-          <Redirect from={[ROUTES.profile, ROUTES.weight, ROUTES.stat, ROUTES.rdv]} to='/' />
+          <Redirect from={[ROUTES.profile, ROUTES.weight, ROUTES.stat]} to='/' />
           <Redirect from={ROUTES.tuto} to='/' />
           <Redirect exact from='/' to={ROUTES.welcome} />
         </Switch>

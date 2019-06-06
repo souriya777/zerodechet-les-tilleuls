@@ -29,6 +29,10 @@ $linear-gradient: linear-gradient(
   &__txt {
     @include wording;
     width: 68vw;
+
+    @media only screen and (min-width: $bp-smallest) {
+      font-size: 1.8rem;
+    }
   }
 
   &__backgnd {
@@ -36,6 +40,12 @@ $linear-gradient: linear-gradient(
     width: auto;
     background-size: cover;
     background-position: center;
+
+    @media only screen and (min-width: $bp-smallest) {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: top;
+    }
   
     &--welcome {
       background-image: 

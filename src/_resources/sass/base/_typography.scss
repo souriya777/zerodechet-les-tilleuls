@@ -3,7 +3,13 @@
 
   &2 { @include font-h2 }
 
-  &--slide { @include font-title--slide; }
+  &--slide { 
+    @include font-title--slide; 
+
+    @media only screen and (min-width: $bp-smallest) {
+      font-size: 4rem;
+    }
+  }
 
   &--popup { @include font-title--popup; }
 }

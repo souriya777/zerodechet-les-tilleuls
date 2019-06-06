@@ -25,12 +25,6 @@ const Menu = ({ user }) => {
           icon={SVGStat}
           route={ROUTES.stat}
         /> 
-        {/* DEACTIVATE IN BETA VERSION */}
-        {/* <MenuItem
-          label={'Rdv'}
-          icon={SVGCalendar}
-          route={ROUTES.rdv}
-        />  */}
         <MenuItem
           label={'Profil'}
           photo={() => <UserPhoto src={photo} />}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { 
   BrowserRouter as Router,
 } from 'react-router-dom'
@@ -21,12 +21,11 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
+- web responsive
 - tester lundi !!! quand il n'y a pas de données
 - tuto: quand on ne connaît pas son objectif... que faire?
-- web responsive
 - documenter
 - tester (compte/pas compte)
-- releaser une version BETA
 - pourquoi développeur react? 
 - pourquoi les tilleuls?
 - souriya or not?
@@ -47,36 +46,28 @@ https://github.com/jest-community/vscode-jest
 
 // improvement :
 - implement Dan Abramov solution linked in it : https://daveceddia.com/where-fetch-data-redux/
-- material-ui pkg perf....
 */
-class App extends Component {
+const App = () =>
+  <React.Suspense fallback={<Loading />}>
+    <Router>
+      <ScrollToTop>
 
-  render() {
-    console.log('render App')
-    return (
-      <React.Suspense fallback={<Loading />}>
-        <Router>
-          <ScrollToTop>
+        <LoadingBar className='loading' />
 
-            <LoadingBar className='loading' />
+        <ControlTower />
 
-            <ControlTower />
+        <Screen>
+          <Content />
+        </Screen>
 
-            <Screen>
-              <Content />
-            </Screen>
+        <nav className='nav'>
+          <Nav />
+        </nav>
 
-            <nav className='nav'>
-              <Nav />
-            </nav>
-
-            <ErrorWatcher />
-            <InfoWatcher />
-          </ScrollToTop>
-        </Router>
-      </React.Suspense> 
-    )
-  }
-}
+        <ErrorWatcher />
+        <InfoWatcher />
+      </ScrollToTop>
+    </Router>
+  </React.Suspense> 
 
 export default App

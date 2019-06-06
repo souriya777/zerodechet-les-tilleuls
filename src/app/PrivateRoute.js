@@ -7,9 +7,6 @@ import { isLogged } from '../utils/user-utils'
 // FIXME conflict with ControlTower???
 export function PrivateRoute ({ component: Component, ...rest}) {
   const { user } = rest
-  console.log(user)
-  
-
   return (
     <Route {...rest} render={(props) => (
         isLogged(user)

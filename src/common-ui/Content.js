@@ -12,11 +12,8 @@ import Stat from '../stat/Stat'
 import Header from './Header'
 import Weight from '../weight/Weight'
 import UserProfile from '../user/UserProfile'
-import RDV from '../rdv/RDV'
 
 const Content = ({ lightMode }) => { 
-  console.log('render Content')
-  
   return (
     <>
       {/* HEADER */}
@@ -34,7 +31,6 @@ const Content = ({ lightMode }) => {
           ROUTES.stat, 
           ROUTES.weight,
           ROUTES.profile,
-          ROUTES.rdv,
         ]} 
         component={Header} 
         smallMode={true}
@@ -49,7 +45,6 @@ const Content = ({ lightMode }) => {
 
         <Route path={ROUTES.weight} component={Weight} />
         <Route path={ROUTES.stat} component={Stat} />
-        <Route path={ROUTES.rdv} component={RDV} />
         <Route path={ROUTES.profile} component={UserProfile} />
       </main>
     </>

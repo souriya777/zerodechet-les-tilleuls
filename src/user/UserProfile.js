@@ -26,14 +26,12 @@ class UserProfile extends Component {
 
   componentDidMount() {
     const { uid } = this.props
-    console.log('componentDidMount', uid)
     if (uid) 
       this.loadData(uid)
   }
 
   componentDidUpdate() {
     const { uid } = this.props
-    console.log('componentDidUpdate', uid)
     if (uid) 
       this.loadData(uid)
   }
@@ -44,7 +42,6 @@ class UserProfile extends Component {
   }
 
   render() {
-    console.log('render UserProfile')
     const { currently, goal } = this.props
 
     return (
