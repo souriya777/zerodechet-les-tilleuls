@@ -3,15 +3,13 @@ import 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
 
-// TODO use React Environmental variables instead
-// eg. REACT_APP_API_KEY=XXXXxxxx
 const CONFIG = {
-  apiKey: "AIzaSyCBqfPrMZsEHPPjbVbYfcEYFDfxz3IVC6Q",
-  authDomain: "zerodechet-les-tilleuls.firebaseapp.com",
-  databaseURL: "https://zerodechet-les-tilleuls.firebaseio.com",
-  projectId: "zerodechet-les-tilleuls",
-  storageBucket: "zerodechet-les-tilleuls.appspot.com",
-  messagingSenderId: "1033039061894"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID
 }
 
 /*

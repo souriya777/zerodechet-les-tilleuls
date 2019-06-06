@@ -26,3 +26,4 @@ database.rules.json
 .firebase/
 .firebaserc
 zerodechet-les-tilleuls-firebase-adminsdk-zl8j9-ab95e68c06.json
+.env

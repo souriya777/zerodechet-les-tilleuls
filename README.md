@@ -79,6 +79,26 @@ sylvie-tittel-743127-unsplash.jpg
 
 # DÉVELOPPEMENT
 
+## installation
+1/ créer une base dans Firebase (firestore)
+
+2/ créer un fichier ".env" à la racine du projet (ex. votre-projet/.env)
+=> le ".env" (sans nom) sera chargé par défaut
+
+cf. https://facebook.github.io/create-react-app/docs/adding-custom-environment-variables#what-other-env-files-can-be-used
+
+cf. https://medium.com/@vks18765/novice-guide-to-securing-api-and-firebase-key-in-create-react-app-and-deploying-it-on-heroku-df68c967973
+
+3/ copier les paramètres suivants (en adaptant les valeurs)
+REACT_APP_FIREBASE_API_KEY=VOTRE_CLE
+REACT_APP_FIREBASE_AUTH_DOMAIN=VOTRE_DOMAINE.firebaseapp.com
+REACT_APP_FIREBASE_DATABASE_URL=https://VOTRE_DOMAINE.firebaseio.com
+REACT_APP_FIREBASE_PROJECT_ID=VOTRE_PROJECT_ID
+REACT_APP_FIREBASE_STORAGE_BUCKET=VOTRE_DOMAINE.appspot.com
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=VOTRE_SENDER_ID
+
+4/ exécuter la commande "yarn" pour installer le projet
+
 ## technologies
 - JS(ES+)
 - react 16.X, react-router
@@ -160,6 +180,9 @@ http://mobiletest.me
 
 js : how to check null or undefined?
 https://stackoverflow.com/questions/2559318/how-to-check-for-an-undefined-or-null-variable-in-javascript
+
+easily add react environmental variables
+https://medium.com/@vks18765/novice-guide-to-securing-api-and-firebase-key-in-create-react-app-and-deploying-it-on-heroku-df68c967973
 
 #FOR ME
 Promise - async await
