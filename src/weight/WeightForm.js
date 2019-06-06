@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import * as Yup from 'yup'
 
 import FormikWrapper from '../utils/FormikWrapper'
@@ -9,8 +10,8 @@ import { toStandardFormat, DEFAULT_START_DATE, isDefaultStartDate } from '../uti
 class WeightForm extends Component {
 
   handleSubmit = ({nbPers, startDate, endDate, recycled, norecycled}) => {
-    const { uid, dispatch } = this.props
-    dispatch(handleAddWeight(uid, nbPers, startDate, endDate, recycled, norecycled))
+    const { uid, history, dispatch } = this.props
+    dispatch(handleAddWeight(uid, history, nbPers, startDate, endDate, recycled, norecycled))
   } 
 
   render () {
@@ -98,4 +99,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(WeightForm)
+export default connect(mapStateToProps)(withRouter(WeightForm))

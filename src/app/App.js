@@ -21,9 +21,8 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
-- éviter la double saisie (reload data ????)
-- tester lundi !!! quand il n'y a pas de données
 - proposer de charger la demo
+- tester lundi !!! quand il n'y a pas de données
 - tuto: quand on ne connaît pas son objectif... que faire?
 - documenter
 - tester (compte/pas compte)

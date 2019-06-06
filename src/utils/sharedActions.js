@@ -2,7 +2,6 @@ import { showLoading, hideLoading } from 'react-redux-loading'
 
 import sharedAPI from './sharedAPI'
 import { setError } from '../utils/ErrorActions'
-import { handleLoadStat } from '../stat/statActions'
 import ROUTES from '../app/routes'
 
 export const LOAD_DATA = 'LOAD_DATA'
@@ -17,7 +16,6 @@ export const handleLoadData = (uid, history) => {
 
       // waiting for firebase...
       setTimeout(() => {
-        dispatch(handleLoadStat(uid))
         dispatch(hideLoading())
         history.push(ROUTES.stat) // special case of direct redirecting from action
       }, 4000)

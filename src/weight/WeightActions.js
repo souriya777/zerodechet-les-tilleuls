@@ -3,7 +3,8 @@ import weightAPI from '../weight/weightAPI'
 import { setError } from '../utils/ErrorActions'
 import { setInfo } from '../utils/InfoActions'
 import { WEIGHT_MSG } from '../utils/InfoMsg'
-import { resetStat, handleLoadStat, handleLoadCurrentStat } from '../stat/statActions'
+import { resetStat } from '../stat/statActions'
+import ROUTES from '../app/routes'
 
 
 export const SET_WEIGHT = 'SET_WEIGHT'
@@ -24,26 +25,21 @@ const fetchLastStartDate = startDate => {
   }
 }
 
-export const handleAddWeight = (uid, nbPers, startDate, endDate, recycled, norecycled) => {
+export const handleAddWeight = (uid, history, nbPers, startDate, endDate, recycled, norecycled) => {
   console.log('handleAddWeight')
   return async (dispatch) => {
-    // dispatch(showLoading())
+    dispatch(showLoading())
     try {
       // call API
       await weightAPI.addWeight(nbPers, startDate, endDate, recycled, norecycled)
-      // const w = await weightAPI.getLastWeight(uid)
-      // FIXME COMMON ACTION REFRESH...
-      ///////////////
-      dispatch(handleLoadStat(uid))
-      dispatch(handleLoadCurrentStat(uid))
-      ///////////////
-
-
-      dispatch(setInfo(WEIGHT_MSG.ADD_SUCCESS))
+      
+      // waiting for firebase...
+      setTimeout(() => {
+        dispatch(hideLoading())
+        history.push(ROUTES.stat) // special case of direct redirecting from action
+      }, 800)
     } catch (error) {
       dispatch(setError(error.message))
-    } finally {
-      dispatch(hideLoading())
     }
   }
 }

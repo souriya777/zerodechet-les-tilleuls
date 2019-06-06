@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from "react-router-dom"
+import { withRouter } from 'react-router-dom'
 
 import { handleSignout } from '../user/userActions'
 import { handleLoadData } from '../utils/sharedActions'
