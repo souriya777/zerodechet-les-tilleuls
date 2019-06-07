@@ -33,7 +33,7 @@ const FormSchema = Yup.object().shape({
   nbPers: Yup.number()
     .min(1, `vous... et?`)
     .max(69, `Le record du nombre d'enfant est de 69, mais quand même!`)
-    .required('Obligatoire ;-)'),
+    .required('À remplir !'),
 })
 
 export default connect()(TutoNbPersForm)

@@ -15,10 +15,16 @@ $linear-gradient: linear-gradient(
     position: absolute;
   }
 
+  &__h {
+    @include space-bottom;
+  }
+
   &__wording {
-    position: fixed;
+    @include space-top;
+    position: absolute;
     padding: 3rem;
-    height: 100%;
+    // height: 100%;
+    margin-top: 29vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -28,6 +34,7 @@ $linear-gradient: linear-gradient(
 
   &__txt {
     @include wording;
+    text-align: center;
     width: 68vw;
 
     @media only screen and (min-width: $bp-smallest) {
@@ -50,25 +57,25 @@ $linear-gradient: linear-gradient(
     &--welcome {
       background-image: 
         $linear-gradient,
-        url(../img/welcome-1024.jpg);
+        url(../img/welcome-900.jpg);
     }
   
     &--why {
       background-image: 
         $linear-gradient,
-        url(../img/why-1024.jpg);
+        url(../img/why-900.jpg);
     }
   
     &--what {
       background-image: 
         $linear-gradient,
-        url(../img/what-1024.jpg);
+        url(../img/what-900.jpg);
     }
   
     &--how {
       background-image: 
         $linear-gradient,
-        url(../img/how-1024.jpg);
+        url(../img/how-900.jpg);
     }
   }
 }

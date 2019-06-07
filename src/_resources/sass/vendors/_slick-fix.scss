@@ -1,0 +1,21 @@
+$ajax-loader-path: 'ajax-loader.gif' !default;
+
+.slick-dots {
+  // position: relative !important;
+  position: fixed !important;
+  bottom: 5rem !important;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: .75 !important;
+  color: $color-secondary-dark !important;
+}
+
+.slick-dots li button:before {
+  font-size: 4rem !important;
+  color: $color-secondary-dark !important;
+}
+
+.slick-dots li {
+  margin: 0 1rem !important;
+}

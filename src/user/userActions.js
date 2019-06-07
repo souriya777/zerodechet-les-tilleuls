@@ -70,12 +70,12 @@ export const handleSigninWithTwitter = () => {
   return handleSignIn ('twitter')
 }
 
-export const handleSignup = (firstName, lastName, login, pwd) => {
+export const handleSignup = (name, login, pwd) => {
   console.log('handleSignup')
   return async dispatch => {
     dispatch(showLoading())
     try {
-      await userAPI.signup(login, pwd, firstName, lastName)
+      await userAPI.signup(login, pwd, name)
     } catch (error) {
       dispatch(setError(error.message))
     } finally {

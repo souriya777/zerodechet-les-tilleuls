@@ -24,7 +24,7 @@ class UserSigninForm extends Component {
       <FormikWrapper
         fieldNameList={['email', 'pwd']}
         fieldTypeList={['text', 'password']}
-        fieldPlaceholderList={['Mon Email', 'Mon mot de passe']}
+        fieldPlaceholderList={['Email', 'Mot de passe']}
         fieldSubList={[undefined, SubLink]}
         fieldAutocompleteList={['username', 'current-password']}
         formSchema={FormSchema}

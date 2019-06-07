@@ -55,9 +55,10 @@ class UserConnect extends Component {
           <BtnFake onSubmit={this.handleSubmitGoogle}>
             <SVGGoogle />
           </BtnFake>
-          <BtnFake onSubmit={this.handleSubmitTwitter}>
+          {/* FIXME BETA */}
+          {/* <BtnFake onSubmit={this.handleSubmitTwitter}>
             <SVGTwitter />
-          </BtnFake>
+          </BtnFake> */}
         </div>
       </div>
     )

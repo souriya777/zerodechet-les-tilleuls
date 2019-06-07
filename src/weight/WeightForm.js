@@ -61,7 +61,7 @@ const getFormSchema = (nbPers, lastStartDate, now) => {
     nbPers: Yup.number()
       .min(1, `Au moins 1 personne !`)
       .max(nbPers, `Actuellement ${nbPers} personne(s) dans votre foyer ;-)`)
-      .required(`Obligatoire ;-)`),
+      .required(`À remplir !`),
     startDate: Yup.date()
       .min(lastStartDate, `Vous avez déjà saisi une pesée pour cette période.`)
       .max(now, `La date de début ne peut être supérieure à la date de fin ou à la date du jour.`)

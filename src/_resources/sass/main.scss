@@ -36,5 +36,6 @@
 @import 'pages/weight';
 @import 'pages/welcome';
 
-// @import "vendors/_my-chartist-tuning";
-@import "vendors/my-hack-of-nuk-carousel";
+@import 'vendors/slick-fix';
+@import 'vendors/slick'; 
+@import 'vendors/slick-theme';

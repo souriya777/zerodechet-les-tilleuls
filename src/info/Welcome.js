@@ -14,27 +14,46 @@ const Welcome = () => (
     <SlideList>
       <WelcomeSlideItem 
         title='Bienvenue'
-        txt='Découvrez notre application Zéro Déchet adaptée pour petits et grands. Optez pour un mode de vie éco-responsable.'
         backgnd='welcome'
-      />
+      >
+        <p>
+          Découvrez notre application Zéro Déchet adaptée pour petits et grands. Optez pour un mode de vie éco-responsable 🙏
+        </p>
+      </WelcomeSlideItem>
 
       <WelcomeSlideItem 
         title='Pourquoi?'
-        txt='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto eius'
         backgnd='why'
-      />
+      >
+        <p>
+          Vous vous êtes engagé dans notre aventure en commun.
+        </p>
+        <br />
+        <p>Rome ne s’étant pas construite en un jour, cette application (et les différents ateliers) vous aiderons à changer vos habitudes tout en apprenant de nouveaux gestes 🌱
+        </p>
+      </WelcomeSlideItem>
 
       <WelcomeSlideItem 
         title='Quoi?'
-        txt='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto eius'
         backgnd='what'
-      />
+        >
+        <p className='italic'>
+          "Ce qui est mesurable est gérable"
+        </p>
+        <br />
+        <p>
+          Notre application vous facilitera la pesée de vos déchets et vous permettra de voir en un coup d'oeil où vous en êtes dans votre défi 🎯
+        </p>
+      </WelcomeSlideItem>
 
       <WelcomeSlideItem 
         title='Comment?'
-        txt='Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint, architecto eius'
         backgnd='how'
-      />
+        >
+        <p>
+          Il suffit de vous connecter (ou de vous inscrire) et d'utiliser l'application 💡
+        </p>
+      </WelcomeSlideItem>
     </SlideList>
   </div>
 )

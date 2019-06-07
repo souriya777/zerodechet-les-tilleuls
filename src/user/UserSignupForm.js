@@ -7,16 +7,16 @@ import { handleSignup } from './userActions'
 
 class UserSignupForm extends Component {
 
-  handleSubmit = ({firstName, lastName, email, pwd}) => {
-    this.props.dispatch(handleSignup(firstName, lastName, email, pwd))
+  handleSubmit = ({name, email, pwd}) => {
+    this.props.dispatch(handleSignup(name, email, pwd))
   }
 
   render() {
     return (
       <FormikWrapper
-        fieldNameList={['firstName', 'lastName', 'email', 'pwd']}
-        fieldTypeList={['text', 'text', 'text', 'password']}
-        fieldPlaceholderList={['Prénom', 'Nom', 'Mon Email', 'Mon mot de passe']}
+        fieldNameList={['name', 'email', 'pwd']}
+        fieldTypeList={['text', 'text', 'password']}
+        fieldPlaceholderList={[`Nom d'utilisateur`, 'Email', 'Mot de passe']}
         fieldAutocompleteList={[undefined, undefined, 'username', 'current-password']}
         formSchema={FormSchema}
         onSubmit={this.handleSubmit}
@@ -26,16 +26,14 @@ class UserSignupForm extends Component {
 }
 
 const FormSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .required('Un prénom est obligatoire.'),
-  lastName: Yup.string()
-    .required('Un nom est obligatoire.'),
+  name: Yup.string()
+    .required('À remplir !'),
   email: Yup.string()
     .email('Entrez une adresse e-mail valide.')
-    .required('Une adresse e-mail est obligatoire.'),
+    .required(`À remplir !`),
   pwd: Yup.string()
     .min(8, 'Votre mot de passe doit contenenir au moins 8 caractères')
-    .required('Un mot de passe est obligatoire.')
+    .required('À remplir !')
 })
 
 export default connect()(UserSignupForm)

@@ -20,14 +20,14 @@ class UserAPI {
     return signin('twitter')
   }
   
-  signup = async (login, pwd, firstName, lastName) => {
+  signup = async (login, pwd, name) => {
     try {
       await UserFirebase.signup(login, pwd)
     } catch (error) {
       throw new FirebaseException(error)
     }
 
-    await UserFirebase.generateExtraInfo(firstName + ' ' + lastName)
+    await UserFirebase.generateExtraInfo(name)
   }
 
   onAuthStateChanged = (callbackFn, callbackFn2) => {

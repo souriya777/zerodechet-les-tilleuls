@@ -28,6 +28,9 @@
 }
 
 .btn-fake {
+  @include icon-btn-size;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  text-align: center;
 }

@@ -32,7 +32,7 @@ class TutoGoalForm extends Component {
 
 const FormSchema = Yup.object().shape({
   goal: Yup.number()
-    .required('Obligatoire ;-)'),
+    .required('À remplir !'),
 })
 
 export default connect()(TutoGoalForm)

@@ -2,8 +2,7 @@ const moment = require('moment')
 
 export const UID = 'PINv9HysdhWBgbq870qGSmjXH0q2'
 export const EMAIL = 'souriya59@gmail.com'
-export const FIRSTNAME = 'Souriya'
-export const LASTNAME = 'Phongsavanh'
+export const NAME = 'Souriya'
 export const PWD = 'M0ttt2P@ssseE2deuxO0uf'
 
 export const MEMBERS_TOTAL = 2

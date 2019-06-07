@@ -15,11 +15,12 @@ class TutoIntro extends Component {
         <h1 className='h1'>Bienvenue {name}</h1>
 
         <div className='tuto__wording'>
-          Félicitation pour avoir rejoint notre belle communauté des aventuriers du <a href='https://www.roubaixzerodechet.fr/le-defi-familles/' className='link link--href' target='_blank' rel="noopener noreferrer">défi Zéro Déchet </a> <span aria-label='gracefull' role='img'>🙏🎉</span>
+          Le questionnaire suivant nous permettra de mieux vous connaître, et servira à paramétrer l'application.
         </div>
 
         <div className='tuto__wording'>
-          Nous allons maintenant paramétrer l'application... Ne vous inquiétez pas, cela sera très rapide ! <span aria-label='happiness' role='img'>😉</span>
+          La communauté du Défi Famille vous remercie
+          <span aria-label='gracefull' role='img'>🙏🎉</span>
         </div>
 
         <div className='tuto__action'>

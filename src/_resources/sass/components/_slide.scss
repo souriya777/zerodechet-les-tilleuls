@@ -1,5 +1,6 @@
 .slide {
   @include full-screen;
+  position: relative;
 
   &__logo {
     @include logo-at-top;

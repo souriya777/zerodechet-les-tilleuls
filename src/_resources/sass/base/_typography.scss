@@ -20,3 +20,7 @@
   &:before,
   &:after { content:"\0022"; }
 }
+
+.italic {
+  font-style: italic;
+}

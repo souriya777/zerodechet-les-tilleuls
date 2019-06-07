@@ -55,6 +55,7 @@
 
 @mixin font-action--choice {
   @include font-action;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
@@ -85,6 +86,11 @@
   width: 100%;
 }
 
+@mixin icon-btn-size {
+  height: 5rem;
+  width: 5rem;
+}
+
 @mixin full-width { width: 100%; }
 
 // SPACE
@@ -94,6 +100,9 @@
   @media only screen and (min-width: $bp-smallest) {
     margin-top: 3.5rem;
   }
+}
+@mixin space-bottom {
+  margin-bottom: 2rem; 
 }
 @mixin space-content { padding: 0 1rem; }
 

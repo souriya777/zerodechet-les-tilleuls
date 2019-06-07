@@ -21,6 +21,8 @@ body {
   @include font-body;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // FIXME
+  // background-color: rgb(172, 172, 172);
   color: $color-primary-text;
   line-height: $default-line-height;
 }

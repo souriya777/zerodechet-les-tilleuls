@@ -2,8 +2,7 @@ import userAPI from './userAPI'
 import { 
   EMAIL,
   PWD,
-  FIRSTNAME,
-  LASTNAME,
+  NAME,
   FirebaseError,
 } from '../utils/common-test/common-data'
 
@@ -63,7 +62,7 @@ describe(`signup`, () => {
 
   it(`throw FirebaseException('L'email est associé à un compte existant.')`, async() => {
     await expect(
-      userAPI.signup(ALREADY_EXIST_EMAIL, PWD, FIRSTNAME, LASTNAME)
+      userAPI.signup(ALREADY_EXIST_EMAIL, PWD, NAME)
     ).rejects.toEqual(
       new FirebaseException(new FirebaseError('auth/email-already-in-use'))
     )
