@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 
-import SmartInput from '../common-ui/SmartInput'
 import BtnFake from '../common-ui/BtnFake'
+import SmartInput from '../common-ui/SmartInput'
+import SmartSelect from '../common-ui/SmartSelect'
 
 class FormikWrapper extends Component {
 
@@ -27,13 +28,10 @@ class FormikWrapper extends Component {
   }
 
   render () {
-    const { submitLbl } = this.props
-    const { onSubmit } = this.props
-    const { onSubmitBack } = this.props
-    const { fieldNameList } = this.props
-    const { fieldTypeList } = this.props
-    const { fieldValueList } = this.props
-    const { fieldPlaceholderList } = this.props
+    const { submitLbl, onSubmit, onSubmitBack } = this.props
+    const { fieldNameList, fieldTypeList, fieldValueList, fieldPlaceholderList } = this.props
+    const { optionIdList, optionLabelList, optionOnchange } = this.props
+
 
     const nbOfFields = fieldNameList.length
     const fieldSubList = this.fillEmptyList(this.props.fieldSubList, nbOfFields)
@@ -43,6 +41,8 @@ class FormikWrapper extends Component {
     const { userHasValidateOnce } = this.state
 
     const initialValues = fieldValueList ? fieldValueList : this.initValues(fieldNameList)
+
+    console.log(initialValues)
 
     return (
       <>
@@ -59,17 +59,31 @@ class FormikWrapper extends Component {
         >
           {({ isSubmitting, errors }) => (
             <Form>
-              {fieldNameList.map((fieldName, i) => (
-                <SmartInput 
-                  type={fieldTypeList[i]} 
-                  name={fieldName} 
-                  placeholder={fieldPlaceholderList[i]} 
-                  errorMsg={errors[fieldName]}
-                  sub={fieldSubList[i]}
-                  autocomplete={fieldAutocompleteList[i]}
-                  key={i}
-                />
-              ))}
+              {fieldNameList.map((fieldName, i) => {
+                if ('select' === fieldTypeList[i]) {
+                  return (
+                    <SmartSelect
+                      options={optionLabelList}
+                      name={fieldName}
+                      ids={optionIdList}
+                      placeholder={fieldPlaceholderList[i]}
+                      onChange={optionOnchange}
+                    />
+                  )
+                } else {
+                  return (
+                    <SmartInput 
+                      type={fieldTypeList[i]} 
+                      name={fieldName} 
+                      placeholder={fieldPlaceholderList[i]} 
+                      errorMsg={errors[fieldName]}
+                      sub={fieldSubList[i]}
+                      autocomplete={fieldAutocompleteList[i]}
+                      key={i}
+                    />
+                  )
+                }
+              })}
               <div className="form__validation">
                 <button 
                   className='btn' 

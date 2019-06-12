@@ -8,19 +8,21 @@ class TutoIntro extends Component {
 
   render() {
     const { user } = this.props
-    const name = user != null ? user.name : ''
+    
+    if (user == null) {
+      return null
+    }
 
     return (
       <>
-        <h1 className='h1'>Bienvenue {name}</h1>
+        <div className='paragraph'>
+          <div className='tuto__title'>
+            Bienvenue {user.name}
+          </div>
 
-        <div className='tuto__wording'>
-          Le questionnaire suivant nous permettra de mieux vous connaître, et servira à paramétrer l'application.
-        </div>
-
-        <div className='tuto__wording'>
-          La communauté du Défi Famille vous remercie
-          <span aria-label='gracefull' role='img'>🙏🎉</span>
+          <div className='bloc'>
+            Le questionnaire suivant nous permettra de mieux vous connaître, et servira à paramétrer l'application.
+          </div>
         </div>
 
         <div className='tuto__action'>

@@ -2,6 +2,7 @@ import React from 'react'
 
 import TutoNbPersForm from './TutoNbPersForm'
 import TutoGoalForm from './TutoGoalForm'
+import TutoCityForm from './TutoCityForm'
 import TutoDemoChoice from './TutoDemoChoice'
 
 const TutoAnswer = ({ step, totalStep, onSubmit, onSubmitBack }) => {
@@ -14,13 +15,20 @@ const TutoAnswer = ({ step, totalStep, onSubmit, onSubmitBack }) => {
           />
   }
   else if (2 === step) {
-    return <TutoGoalForm 
+    return <TutoCityForm
             onSubmit={onSubmit} 
             onSubmitBack={onSubmitBack}
             submitLbl={submitLbl}
           />
   }
   else if (3 === step) {
+    return <TutoGoalForm 
+            onSubmit={onSubmit} 
+            onSubmitBack={onSubmitBack}
+            submitLbl={submitLbl}
+          />
+  }
+  else if (4 === step) {
     return <TutoDemoChoice onSubmit={onSubmit} />
   }
 }

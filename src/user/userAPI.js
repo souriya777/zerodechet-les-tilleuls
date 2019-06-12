@@ -50,6 +50,10 @@ class UserAPI {
     UserFirebase.setExtraInfo('goal', goal)
   }
 
+  setCity = city => {
+    UserFirebase.setExtraInfo('city', city)
+  }
+
   setNbPers = nb => {
     UserFirebase.setExtraInfo('nbPers', nb)
   }

@@ -106,9 +106,14 @@ export const handleResetPwd = email => {
 export const handleSetGoal = goal => {
   console.log('handleSetGoal')
   return async dispatch => {
-    // dispatch(showLoading())
     await userAPI.setGoal(goal)
-    dispatch(hideLoading())
+  }
+}
+
+export const handleSetCity = city => {
+  console.log('handleSetCity')
+  return async dispatch => {
+    await userAPI.setCity(city)
   }
 }
 

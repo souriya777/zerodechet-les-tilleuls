@@ -5,10 +5,17 @@
   flex-direction: column;
   justify-content: space-evenly;
 
-  &__wording {
-    @include wording;
+// FIXME generalize
+
+  .paragraph {
+    text-align: center;
   }
 
+  .paragraph .bloc:not(:first-child) {
+    @include space-top;
+  }
+
+  &__title,
   &__question {
     @include font-question
   }
