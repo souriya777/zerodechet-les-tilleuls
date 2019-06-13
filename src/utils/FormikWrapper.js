@@ -34,15 +34,18 @@ class FormikWrapper extends Component {
     const { fieldNameList, fieldTypeList, fieldValueList, fieldPlaceholderList } = this.props
     const { optionIdList, optionLabelList, optionOnchange } = this.props
     const { sliderValue, onSliderChange } = this.props
-
+    
     const nbOfFields = fieldNameList.length
     const fieldSubList = this.fillEmptyList(this.props.fieldSubList, nbOfFields)
     const fieldAutocompleteList = this.fillEmptyList(this.props.fieldAutocompleteList, nbOfFields)
     
     const { formSchema } = this.props
     const { userHasValidateOnce } = this.state
-
+    
     const initialValues = fieldValueList ? fieldValueList : this.initValues(fieldNameList)
+    
+    // extra content
+    const { children } = this.props
 
     return (
       <>
@@ -86,6 +89,11 @@ class FormikWrapper extends Component {
                   )
                 }
               })}
+
+              <div className='form__before-submit'>
+                { children }
+              </div>
+
               <div className='form__validation'>
                 <button 
                   className='btn' 

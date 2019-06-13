@@ -7,8 +7,9 @@ import ROUTES from '../app/routes'
 import TutoIntro from './TutoIntro'
 import TutoQuestion from './TutoQuestion'
 import TutoAnswer from './TutoAnswer'
-import { QUESTIONS } from './TutoHelper'
 import { handleBecomeExpert } from '../user/userActions'
+
+const NB_QUESTIONS = 4
 
 class Tuto extends Component {
 
@@ -16,7 +17,7 @@ class Tuto extends Component {
     const { history, dispatch } = this.props
     const step = this.step()
     
-    if (step < QUESTIONS.length) {
+    if (step < NB_QUESTIONS) {
       console.log(`push ${ROUTES.tuto}/${step+1}`)
       history.push(`${ROUTES.tuto}/${step+1}`)
     } else {
@@ -55,7 +56,7 @@ class Tuto extends Component {
               onSubmit={this.handleSubmit}
               onSubmitBack={this.handleSubmitBack} 
               step={step}
-              totalStep={QUESTIONS.length}
+              totalStep={NB_QUESTIONS}
             />} 
           />
       </div>

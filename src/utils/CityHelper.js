@@ -1,10 +1,3 @@
-export const QUESTIONS = [
-  `Combien de personnes composent votre foyer?`,
-  `De quelle commune faites-vous partie?`,
-  `Quel est votre objectif journalier? (en gramme par personne)`,
-  `Félicitations 🎉`,
-]
-
 export const CITY = [
   'bondues', 
   'croix', 
@@ -31,4 +24,19 @@ export const CITY_LABEL = [
   'Tourcoing', 
   'Wasquehal', 
   'Wattignies'
+]
+
+// TODO move in DB
+export const CITY_AVG = [
+  250, 
+  222, 
+  309, 
+  299, 
+  189, 
+  234, 
+  224, 
+  366, 
+  345, 
+  342, 
+  333,
 ]

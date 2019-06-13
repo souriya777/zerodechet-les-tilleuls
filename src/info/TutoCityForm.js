@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 
 import { handleSetCity } from '../user/userActions'
 import FormikWrapper from '../utils/FormikWrapper'
-import { CITY, CITY_LABEL } from './TutoHelper'
+import { CITY, CITY_LABEL } from '../utils/CityHelper'
 
 class TutoCityForm extends Component {
 

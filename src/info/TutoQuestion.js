@@ -1,10 +1,18 @@
 import React from 'react'
 
-import { QUESTIONS } from './TutoHelper'
+import TutoCityQuestion from './TutoCityQuestion'
+import TutoNbPersQuestion from './TutoNbPersQuestion'
+import TutoGoalQuestion from './TutoGoalQuestion'
 
-const TutoQuestion = ({ step }) => 
-  <div className='tuto__question'>
-    {QUESTIONS[step-1]}
-  </div>
-
+const TutoQuestion = ({ step }) => {
+  if (1 === step) {
+    return <TutoNbPersQuestion />
+  }
+  else if (2 === step) {
+    return <TutoCityQuestion />
+  }
+  else if (3 === step) {
+    return <TutoGoalQuestion />
+  }
+}
 export default TutoQuestion
