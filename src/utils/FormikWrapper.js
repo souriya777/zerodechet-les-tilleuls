@@ -71,6 +71,7 @@ class FormikWrapper extends Component {
                       ids={optionIdList}
                       placeholder={fieldPlaceholderList[i]}
                       onChange={optionOnchange}
+                      formikMode={true}
                     />
                   )
                 } else if ('range' === fieldTypeList[i]) {

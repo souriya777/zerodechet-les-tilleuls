@@ -12,19 +12,30 @@ class SmartSelect extends Component {
   }
 
   render() {
-    const { name, options, ids, placeholder } = this.props
+    const { name, options, ids, placeholder, formikMode } = this.props
+
+    const optionList = options.map((label, i) => 
+      <option key={ids[i]} value={ids[i]}>{label}</option>
+    )
 
     return (
       <div className='select__wrapper'>
-        <Field 
-          component='select'
-          className='select' 
-          name={name}
-        >
-          {options.map((label, i) => 
-            <option key={ids[i]} value={ids[i]}>{label}</option>
-          )}
-        </Field>
+
+        {formikMode 
+          ? <Field 
+              component='select'
+              className='select' 
+              name={name}
+            >
+              {optionList}
+            </Field>
+          : <select 
+              className='select' 
+              name={name}
+            >
+              {optionList}
+            </select>
+        }
         <div className='select__icon'>
           <SVGTriangleDown />
         </div>

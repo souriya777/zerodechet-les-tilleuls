@@ -9,7 +9,7 @@ import TutoQuestion from './TutoQuestion'
 import TutoAnswer from './TutoAnswer'
 import { handleBecomeExpert } from '../user/userActions'
 
-const NB_QUESTIONS = 4
+const NB_QUESTIONS = 3
 
 class Tuto extends Component {
 
