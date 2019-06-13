@@ -184,6 +184,9 @@ https://stackoverflow.com/questions/2559318/how-to-check-for-an-undefined-or-nul
 easily add react environmental variables
 https://medium.com/@vks18765/novice-guide-to-securing-api-and-firebase-key-in-create-react-app-and-deploying-it-on-heroku-df68c967973
 
+pourquoi est-ce difficile de styler un input[type=range]
+https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+
 #FOR ME
 Promise - async await
 https://javascript.info/async-await

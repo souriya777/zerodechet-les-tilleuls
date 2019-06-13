@@ -27,8 +27,12 @@
   }
 }
 
-.btn-fake {
+.btn-icon {
   @include icon-btn-size;
+}
+
+.btn-icon,
+.btn-fake {
   display: flex;
   justify-content: center;
   align-items: center;

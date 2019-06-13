@@ -1,7 +1,7 @@
 export const QUESTIONS = [
   `Combien de personnes composent votre foyer?`,
   `De quelle commune faites-vous partie?`,
-  `Quel est ton objectif journalier? (en gramme par personne)`,
+  `Quel est votre objectif journalier? (en gramme par personne)`,
   `Félicitations 🎉`,
 ]
 

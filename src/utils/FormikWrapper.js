@@ -3,7 +3,9 @@ import { Formik, Form } from 'formik'
 
 import BtnFake from '../common-ui/BtnFake'
 import SmartInput from '../common-ui/SmartInput'
+import SmartInputRange from '../common-ui/SmartInputRange'
 import SmartSelect from '../common-ui/SmartSelect'
+
 
 class FormikWrapper extends Component {
 
@@ -31,7 +33,7 @@ class FormikWrapper extends Component {
     const { submitLbl, onSubmit, onSubmitBack } = this.props
     const { fieldNameList, fieldTypeList, fieldValueList, fieldPlaceholderList } = this.props
     const { optionIdList, optionLabelList, optionOnchange } = this.props
-
+    const { sliderValue, onSliderChange } = this.props
 
     const nbOfFields = fieldNameList.length
     const fieldSubList = this.fillEmptyList(this.props.fieldSubList, nbOfFields)
@@ -41,8 +43,6 @@ class FormikWrapper extends Component {
     const { userHasValidateOnce } = this.state
 
     const initialValues = fieldValueList ? fieldValueList : this.initValues(fieldNameList)
-
-    console.log(initialValues)
 
     return (
       <>
@@ -70,6 +70,8 @@ class FormikWrapper extends Component {
                       onChange={optionOnchange}
                     />
                   )
+                } else if ('range' === fieldTypeList[i]) {
+                  return <SmartInputRange value={sliderValue} isNegative={true} unity={'%'} onChange={ onSliderChange } />
                 } else {
                   return (
                     <SmartInput 
@@ -84,10 +86,10 @@ class FormikWrapper extends Component {
                   )
                 }
               })}
-              <div className="form__validation">
+              <div className='form__validation'>
                 <button 
                   className='btn' 
-                  type="submit" 
+                  type='submit' 
                   disabled={isSubmitting}
                   onClick={this.handleClickSubmit}
                 >
@@ -98,7 +100,7 @@ class FormikWrapper extends Component {
                 </button>
               </div>
 
-              <div className="form__back">
+              <div className='form__back'>
                 {onSubmitBack 
                   ? <BtnFake 
                         className='btn btn--transparent' 

@@ -21,9 +21,12 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
+- re-styler input[type=range]
+- rajouter le bouton paramètre?
+- rajouter rubrique "rdv" 
+- rajouter rubrique astuces (en dur)
 - web responsive
 - tester lundi !!! quand il n'y a pas de données
-- tuto: quand on ne connaît pas son objectif... que faire?
 - documenter
 - tester (compte/pas compte)
 - pourquoi développeur react? 

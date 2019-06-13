@@ -18,22 +18,20 @@ class TutoCityForm extends Component {
     const { onSubmitBack, submitLbl } = this.props
 
     return (
-      <div className='stat__action'>
-        <FormikWrapper
-          fieldNameList={['city']}
-          fieldTypeList={['select']}
-          fieldPlaceholderList={['Commune']}
-          fieldValueList={{
-            city: CITY[0]
-          }}
-          optionLabelList={CITY_LABEL}
-          optionIdList={CITY}
-          formSchema={FormSchema}
-          submitLbl={submitLbl}
-          onSubmit={this.handleSubmit}
-          onSubmitBack={onSubmitBack}
-        />
-      </div>
+      <FormikWrapper
+        fieldNameList={['city']}
+        fieldTypeList={['select']}
+        fieldPlaceholderList={['Commune']}
+        fieldValueList={{
+          city: CITY[0]
+        }}
+        optionLabelList={CITY_LABEL}
+        optionIdList={CITY}
+        formSchema={FormSchema}
+        submitLbl={submitLbl}
+        onSubmit={this.handleSubmit}
+        onSubmitBack={onSubmitBack}
+      />
     )
   }
 }

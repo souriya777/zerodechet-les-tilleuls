@@ -1,0 +1,40 @@
+.rangeslider-horizontal .rangeslider__handle:after {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.rangeslider-horizontal .rangeslider__handle {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.rangeslider-horizontal {
+  height: .4rem !important;
+}
+
+.rangeslider, .rangeslider .rangeslider__fill {
+  box-shadow: none !important;
+}
+
+.rangeslider {
+  background: $color-grey-2 !important;
+}
+
+.rangeslider-horizontal .rangeslider__fill {
+  background-color: $color-secondary !important;
+}
+
+.rangeslider-horizontal .rangeslider__handle {
+  width: 4.8rem !important;
+  height: 2.6rem !important;
+  outline: none;
+  font-size: 1.4rem;
+  color: white;
+}
+
+.rangeslider .rangeslider__handle {
+  box-shadow: none !important;
+  border: .1rem solid $color-secondary-dark !important;
+  background-color: $color-secondary-dark !important;
+}
