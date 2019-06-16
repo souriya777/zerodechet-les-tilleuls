@@ -43,29 +43,28 @@ class Tuto extends Component {
 
   render() {
     const step = this.step()
-
-    // FIXME
-    // onSubmitBack={this.handleSubmitBack}
     
     return (
       <div className='tuto'>
-        <Route exact path={ROUTES.tuto} component={TutoIntro} />
-        <Route 
-          path={`${ROUTES.tuto}/:step`} 
-          component={() => <Back action={this.handleSubmitBack} />}
-        />
-        <Route 
-          path={`${ROUTES.tuto}/:step`} 
-          component={() => <TutoQuestion step={step} />}
-        />
-        <Route 
-          path={`${ROUTES.tuto}/:step`} 
-          render={() => 
-            <TutoAnswer 
-              onSubmit={this.handleSubmit}
-              step={step}
-            />} 
+        <div className='bloc'>
+          <Route exact path={ROUTES.tuto} component={TutoIntro} />
+          <Route 
+            path={`${ROUTES.tuto}/:step`} 
+            component={() => <Back action={this.handleSubmitBack} />}
           />
+          <Route 
+            path={`${ROUTES.tuto}/:step`} 
+            component={() => <TutoQuestion step={step} />}
+          />
+          <Route 
+            path={`${ROUTES.tuto}/:step`} 
+            render={() => 
+              <TutoAnswer 
+                onSubmit={this.handleSubmit}
+                step={step}
+              />} 
+            />
+        </div>
       </div>
     )
   }

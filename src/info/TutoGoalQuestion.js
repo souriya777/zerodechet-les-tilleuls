@@ -7,7 +7,7 @@ const TutoGoalQuestion = ({ city, avg }) =>
     <div className='paragraph'>
       La production moyenne de déchets, à { city }, est de : {avg}kg/pers/an
     </div>
-    <div className='tuto__question'>
+    <div className='paragraph paragraph--highlighted'>
       Quel est votre objectif de réduction?
     </div>
   </>

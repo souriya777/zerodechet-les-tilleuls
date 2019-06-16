@@ -1,7 +1,7 @@
 import React from 'react'
 
 const TutoNbPersQuestion = () => 
-  <div className='tuto__question'>
+  <div className='paragraph paragraph--highlighted'>
     Combien de personnes composent votre foyer?
   </div>
 

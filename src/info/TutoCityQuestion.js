@@ -1,7 +1,7 @@
 import React from 'react'
 
 const TutoCityQuestion = () => 
-  <div className='tuto__question'>
+  <div className='paragraph paragraph--highlighted'>
     De quelle commune faites-vous partie?
   </div>
 

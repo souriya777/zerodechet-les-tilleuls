@@ -42,8 +42,8 @@ class TutoGoalForm extends Component {
       >
         <div className='paragraph'>
           <div>soit:</div>
-          <div className='tuto__title'>{newAvg}kg/pers/an</div>
         </div>
+        <div className='paragraph paragraph--highlighted'>{newAvg}kg/pers/an</div>
       </FormikWrapper>
     </>
   }

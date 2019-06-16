@@ -59,11 +59,6 @@
   text-transform: uppercase;
 }
 
-@mixin font-question {
-  font-size: 2.2rem;
-  text-align: center;
-}
-
 // TXT
 @mixin wording {
   text-align: justify;
@@ -101,9 +96,15 @@
     margin-top: 3.5rem;
   }
 }
-@mixin space-bottom {
-  margin-bottom: 2rem; 
+@mixin space-top-big { 
+  margin-top: 4rem; 
+
+  @media only screen and (min-width: $bp-smallest) {
+    margin-top: 3.5rem;
+  }
 }
+@mixin space-bottom { margin-bottom: 2rem; }
+@mixin space-bottom-big { margin-bottom: 4rem; }
 @mixin space-content { padding: 0 1rem; }
 
 @mixin common-content {

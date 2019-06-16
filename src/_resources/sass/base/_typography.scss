@@ -25,11 +25,13 @@
   text-align: center;
   font-size: 1.8rem;
   color: $color-grey;
+  
+  &--highlighted {
+    color: $color-primary-text;
+    font-size: 2.2rem;
+  }
 }
 
-.paragraph .bloc:not(:first-child) {
-  @include space-top;
-}
 
 .italic {
   font-style: italic;

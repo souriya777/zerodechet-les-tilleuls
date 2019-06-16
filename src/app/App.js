@@ -21,7 +21,6 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
-- remettre le logo
 - rajouter rubrique "rdv" 
 - rajouter le bouton paramètre?
 - rajouter rubrique astuces (en dur)

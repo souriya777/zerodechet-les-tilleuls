@@ -1,14 +1,12 @@
 .tuto {
   @include common-content;
-  height: 80vh; // TODO
+  height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
 
-  &__title,
-  &__question {
-    @include font-question;
-    color: $color-primary-text;
+  & .bloc > * {
+    @include space-bottom-big;
   }
 
   &__choice {
@@ -16,9 +14,5 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
-    &-actions > button:last-child {
-      @include space-top;
-    }
   }
 }

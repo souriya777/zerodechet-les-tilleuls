@@ -15,14 +15,12 @@ class TutoIntro extends Component {
 
     return (
       <>
-        <div className='paragraph'>
-          <div className='tuto__title'>
-            Bienvenue {user.name}
-          </div>
+        <div className='paragraph paragraph--highlighted'>
+          Bienvenue {user.name}
+        </div>
 
-          <div className='bloc'>
-            Le questionnaire suivant nous permettra de mieux vous connaître, et servira à paramétrer l'application.
-          </div>
+        <div className='paragraph'>
+          Le questionnaire suivant nous permettra de mieux vous connaître, et servira à paramétrer l'application.
         </div>
 
         <div className='tuto__action'>
@@ -32,7 +30,6 @@ class TutoIntro extends Component {
             </button>
           </Link>
         </div>
-
       </>
     )
   }
