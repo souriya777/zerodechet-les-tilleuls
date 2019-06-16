@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom'
 
 import ROUTES from '../app/routes'
+import Back from '../common-ui/Back'
 import TutoIntro from './TutoIntro'
 import TutoQuestion from './TutoQuestion'
 import TutoAnswer from './TutoAnswer'
@@ -18,7 +19,6 @@ class Tuto extends Component {
     const step = this.step()
     
     if (step < NB_QUESTIONS) {
-      console.log(`push ${ROUTES.tuto}/${step+1}`)
       history.push(`${ROUTES.tuto}/${step+1}`)
     } else {
       dispatch(handleBecomeExpert())
@@ -27,10 +27,12 @@ class Tuto extends Component {
   
   handleSubmitBack = () => {
     const step = this.step()
+    const { history } = this.props
     
     if (step > 1) {
-      const { history } = this.props
       history.push(`${ROUTES.tuto}/${step-1}`)
+    } else {
+      history.push(`${ROUTES.tuto}`)
     }
   }
 
@@ -41,10 +43,17 @@ class Tuto extends Component {
 
   render() {
     const step = this.step()
+
+    // FIXME
+    // onSubmitBack={this.handleSubmitBack}
     
     return (
       <div className='tuto'>
         <Route exact path={ROUTES.tuto} component={TutoIntro} />
+        <Route 
+          path={`${ROUTES.tuto}/:step`} 
+          component={() => <Back action={this.handleSubmitBack} />}
+        />
         <Route 
           path={`${ROUTES.tuto}/:step`} 
           component={() => <TutoQuestion step={step} />}
@@ -54,9 +63,7 @@ class Tuto extends Component {
           render={() => 
             <TutoAnswer 
               onSubmit={this.handleSubmit}
-              onSubmitBack={this.handleSubmitBack} 
               step={step}
-              totalStep={NB_QUESTIONS}
             />} 
           />
       </div>

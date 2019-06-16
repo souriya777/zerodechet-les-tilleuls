@@ -5,17 +5,6 @@
   flex-direction: column;
   justify-content: space-evenly;
 
-  // FIXME generalize
-  .paragraph {
-    text-align: center;
-    font-size: 1.8rem;
-    color: $color-grey;
-  }
-
-  .paragraph .bloc:not(:first-child) {
-    @include space-top;
-  }
-
   &__title,
   &__question {
     @include font-question;

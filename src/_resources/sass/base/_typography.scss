@@ -21,6 +21,16 @@
   &:after { content:"\0022"; }
 }
 
+.paragraph {
+  text-align: center;
+  font-size: 1.8rem;
+  color: $color-grey;
+}
+
+.paragraph .bloc:not(:first-child) {
+  @include space-top;
+}
+
 .italic {
   font-style: italic;
 }

@@ -15,8 +15,6 @@ class TutoCityForm extends Component {
   }
 
   render() {
-    const { onSubmitBack, submitLbl } = this.props
-
     return (
       <FormikWrapper
         fieldNameList={['city']}
@@ -28,9 +26,7 @@ class TutoCityForm extends Component {
         optionLabelList={CITY_LABEL}
         optionIdList={CITY}
         formSchema={FormSchema}
-        submitLbl={submitLbl}
         onSubmit={this.handleSubmit}
-        onSubmitBack={onSubmitBack}
       />
     )
   }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Formik, Form } from 'formik'
 
-import BtnFake from '../common-ui/BtnFake'
 import SmartInput from '../common-ui/SmartInput'
 import SmartInputRange from '../common-ui/SmartInputRange'
 import SmartSelect from '../common-ui/SmartSelect'
@@ -30,9 +29,9 @@ class FormikWrapper extends Component {
   }
 
   render () {
-    const { submitLbl, onSubmit, onSubmitBack } = this.props
+    const { onSubmit } = this.props
     const { fieldNameList, fieldTypeList, fieldValueList, fieldPlaceholderList } = this.props
-    const { optionIdList, optionLabelList, optionOnchange } = this.props
+    const { optionIdList, optionLabelList } = this.props
     const { sliderValue, onSliderChange } = this.props
     
     const nbOfFields = fieldNameList.length
@@ -70,7 +69,6 @@ class FormikWrapper extends Component {
                       name={fieldName}
                       ids={optionIdList}
                       placeholder={fieldPlaceholderList[i]}
-                      onChange={optionOnchange}
                       formikMode={true}
                     />
                   )
@@ -102,23 +100,8 @@ class FormikWrapper extends Component {
                   disabled={isSubmitting}
                   onClick={this.handleClickSubmit}
                 >
-                  {submitLbl 
-                    ? <>{submitLbl}</>
-                    : <>valider</>
-                  }
+                  valider
                 </button>
-              </div>
-
-              <div className='form__back'>
-                {onSubmitBack 
-                  ? <BtnFake 
-                        className='btn btn--transparent' 
-                        onSubmit={onSubmitBack}
-                      >
-                        Précédent
-                    </BtnFake>
-                  : ''
-                }
               </div>
             </Form>
           )}

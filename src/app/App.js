@@ -21,9 +21,9 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
-- re-styler input[type=range]
-- rajouter le bouton paramètre?
+- remettre le logo
 - rajouter rubrique "rdv" 
+- rajouter le bouton paramètre?
 - rajouter rubrique astuces (en dur)
 - web responsive
 - tester lundi !!! quand il n'y a pas de données

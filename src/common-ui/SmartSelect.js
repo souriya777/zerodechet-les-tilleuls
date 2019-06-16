@@ -1,48 +1,38 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Field } from 'formik'
 
 import SVGTriangleDown from '../common-ui/svg/SVGTriangleDown'
 
-// FIXME name in Stat
+const SmartSelect = ({ name, options, ids, placeholder, formikMode, onChange }) => {
+  const optionList = options.map((label, i) => 
+    <option key={ids[i]} value={ids[i]}>{label}</option>
+  )
 
-class SmartSelect extends Component {
-  handleOnChange = e => {
-    const { onChange } = this.props
-    console.log(e.target.value)
-  }
+  return (
+    <div className='select__wrapper'>
 
-  render() {
-    const { name, options, ids, placeholder, formikMode } = this.props
-
-    const optionList = options.map((label, i) => 
-      <option key={ids[i]} value={ids[i]}>{label}</option>
-    )
-
-    return (
-      <div className='select__wrapper'>
-
-        {formikMode 
-          ? <Field 
-              component='select'
-              className='select' 
-              name={name}
-            >
-              {optionList}
-            </Field>
-          : <select 
-              className='select' 
-              name={name}
-            >
-              {optionList}
-            </select>
-        }
-        <div className='select__icon'>
-          <SVGTriangleDown />
-        </div>
-        <div className='select__placeholder'>{placeholder}</div>
+      {formikMode 
+        ? <Field 
+            component='select'
+            className='select' 
+            name={name}
+          >
+            {optionList}
+          </Field>
+        : <select 
+            className='select' 
+            name={name}
+            onChange={onChange}
+          >
+            {optionList}
+          </select>
+      }
+      <div className='select__icon'>
+        <SVGTriangleDown />
       </div>
-    )
-  }
+      <div className='select__placeholder'>{placeholder}</div>
+    </div>
+  )
 }
 
 export default SmartSelect
