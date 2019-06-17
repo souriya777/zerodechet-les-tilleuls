@@ -59,6 +59,9 @@
     text-align: right;
     color: inherit;
   }
+  &__resub {
+    margin-top: 1rem;
+  }
 
   // ERROR
   &__error { color: $color-major; }

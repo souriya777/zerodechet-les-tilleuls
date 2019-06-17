@@ -25,11 +25,11 @@ const Welcome = () => (
         title='Pourquoi?'
         backgnd='why'
       >
-        <p>
+        {/* <p>
           Vous vous êtes engagé dans notre aventure en commun.
         </p>
-        <br />
-        <p>Rome ne s’étant pas construite en un jour, cette application (et les différents ateliers) vous aiderons à changer vos habitudes tout en apprenant de nouveaux gestes 🌱
+        <br /> */}
+        <p>Rome ne s’étant pas construite en un jour, cette application (et les différents ateliers) vous aideront à changer vos habitudes tout en apprenant de nouveaux gestes 🌱
         </p>
       </WelcomeSlideItem>
 
@@ -37,12 +37,8 @@ const Welcome = () => (
         title='Quoi?'
         backgnd='what'
         >
-        <p className='italic'>
-          "Ce qui est mesurable est gérable"
-        </p>
-        <br />
         <p>
-          Notre application vous facilitera la pesée de vos déchets et vous permettra de voir en un coup d'oeil où vous en êtes dans votre défi 🎯
+          Vous pourrez peser vos déchets en 1 clic, savoir tout de suite où vous en êtes dans votre défi, apprendre pleins d'astuces hyper pratiques, et surtout  échanger et rencontrer d'autres participants ❤️
         </p>
       </WelcomeSlideItem>
 
@@ -51,7 +47,7 @@ const Welcome = () => (
         backgnd='how'
         >
         <p>
-          Il suffit de vous connecter (ou de vous inscrire) et d'utiliser l'application 💡
+          Il suffit de vous connecter (ou de vous inscrire) et d'utiliser notre application 💡
         </p>
       </WelcomeSlideItem>
     </SlideList>

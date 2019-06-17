@@ -15,15 +15,10 @@ $linear-gradient: linear-gradient(
     position: absolute;
   }
 
-  &__h {
-    @include space-bottom;
-  }
-
   &__wording {
     @include space-top;
     position: absolute;
-    padding: 3rem;
-    // height: 100%;
+    padding: 2rem 1.5rem;
     margin-top: 29vh;
     width: 100%;
     display: flex;
@@ -32,10 +27,7 @@ $linear-gradient: linear-gradient(
     align-items: center;
   }
 
-  &__txt {
-    text-align: center;
-    width: 68vw;
-  }
+  &__txt { text-align: center; }
 
   &__backgnd {
     height: 100%;

@@ -8,6 +8,7 @@ import CustomRoute from '../app/CustomRoute'
 import Header from './Header'
 import UserConnect from '../user/UserConnect'
 import UserResetPwd from '../user/UserResetPwd'
+import Tuto from '../info/Tuto'
 import Welcome from '../info/Welcome'
 import Rdv from '../rdv/Rdv'
 import Stat from '../stat/Stat'
@@ -15,6 +16,9 @@ import Weight from '../weight/Weight'
 import UserProfile from '../user/UserProfile'
 
 const Content = ({ lightMode }) => { 
+  // FIXME
+  const tutoPath = `${ROUTES.tuto}/:step?`
+
   return (
     <>
       {/* HEADER */}
@@ -29,6 +33,7 @@ const Content = ({ lightMode }) => {
       />
       <CustomRoute 
         path={[
+          tutoPath,
           ROUTES.rdv, 
           ROUTES.stat, 
           ROUTES.weight,
@@ -45,6 +50,8 @@ const Content = ({ lightMode }) => {
         <Route path={ROUTES.signup} component={UserConnect} />
         <Route path={ROUTES.resetPwd} component={UserResetPwd} />
 
+
+        <Route path={tutoPath} component={Tuto} />
         <Route path={ROUTES.rdv} component={Rdv} />
         <Route path={ROUTES.weight} component={Weight} />
         <Route path={ROUTES.stat} component={Stat} />

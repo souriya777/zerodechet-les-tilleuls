@@ -30,12 +30,12 @@ const SmartInput = ({ type, name, placeholder, errorMsg, sub, autocomplete, form
         <label className='input__label'>{placeholder}</label>
       </div>
 
-      <div className='input__sub input__error'>
+      <div className='f__sub input__sub input__error'>
         {errorMsg}
       </div>
 
       {sub !== undefined
-        ? <div className='input__sub'>{sub}</div>
+        ? <div className='f__sub input__sub input__resub'>{sub}</div>
         : ''
       }
     </>

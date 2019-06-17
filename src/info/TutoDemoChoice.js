@@ -34,7 +34,7 @@ class TutoDemoChoice extends Component {
         <div>Voulez-vous?</div>
         <div className='tuto__choice-actions'>
           <button 
-            className='btn' 
+            className='btn f__btn' 
             type='submit' 
             onClick={this.handleYes}
           >OUI</button>

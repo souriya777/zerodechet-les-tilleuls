@@ -8,7 +8,7 @@ import UserSigninForm from './UserSigninForm'
 import UserSignupForm from './UserSignupForm'
 import Hr from '../common-ui/Hr'
 import SVGFacebook from '../common-ui/svg/SVGFacebook'
-import SVGTwitter from '../common-ui/svg/SVGTwitter'
+// import SVGTwitter from '../common-ui/svg/SVGTwitter'
 import SVGGoogle from '../common-ui/svg/SVGGoogle'
 import BtnFake from '../common-ui/BtnFake'
 
@@ -34,10 +34,20 @@ class UserConnect extends Component {
         <div className='connect__choice'>
           <ul className='connect__choice-list'>
             <li className='connect__choice-item'>
-              <SmartLink route={ROUTES.signin}>me connecter</SmartLink>
+              <SmartLink 
+                route={ROUTES.signin}
+                className='h3'
+              >
+                me connecter
+              </SmartLink>
             </li>
             <li className='connect__choice-item'>
-              <SmartLink route={ROUTES.signup}>créer un compte</SmartLink>
+              <SmartLink 
+                route={ROUTES.signup}
+                className='h3'
+              >
+                créer un compte
+              </SmartLink>
             </li>
           </ul>
         </div>
@@ -55,7 +65,6 @@ class UserConnect extends Component {
           <BtnFake onSubmit={this.handleSubmitGoogle}>
             <SVGGoogle />
           </BtnFake>
-          {/* FIXME BETA */}
           {/* <BtnFake onSubmit={this.handleSubmitTwitter}>
             <SVGTwitter />
           </BtnFake> */}

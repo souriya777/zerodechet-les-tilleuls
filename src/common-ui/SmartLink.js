@@ -1,13 +1,13 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
-const SmartLink = ({route, location, children}) => {
+const SmartLink = ({ route, location, children, className }) => {
   const selected = location.pathname === route
     ? 'link--selected'
     : 'link--unselected'
   
   return (
-    <Link className={`link ${selected}`} to={route}>{children}</Link>
+    <Link className={`link ${className} ${selected}`} to={route}>{children}</Link>
   )
 }
 

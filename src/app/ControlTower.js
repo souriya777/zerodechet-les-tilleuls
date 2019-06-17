@@ -1,17 +1,13 @@
 import React, { Component } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import '../utils/ReactRouterHacking'
 import ROUTES from '../app/routes'
-import CustomRoute from '../app/CustomRoute'
 import userAPI  from '../user/userAPI'
 import { isLogged, isNew } from '../utils/user-utils'
 import { handleUpdateUser } from '../user/userActions'
 import LocalStorage, { USER_KEY } from '../utils/local-storage-utils'
-
-import Header from '../common-ui/Header'
-import Tuto from '../info/Tuto'
 
 class ControlTower extends Component {
   constructor(props) {
@@ -46,13 +42,8 @@ class ControlTower extends Component {
     if (isLogged(user)) {
       // NEW USER
       if (isNew(user)) {
-        const tutoPath = `${ROUTES.tuto}/:step?`
         return (
           <Switch>
-            <Route path={tutoPath} render={() => (<>
-              <CustomRoute path={tutoPath} component={Header} smallMode={true} />
-              <Tuto />
-            </>)} /> 
             <Redirect from={[ROUTES.signin, ROUTES.signup]} to={ROUTES.tuto} />
             <Redirect from={[ROUTES.profile, ROUTES.rdv, ROUTES.weight, ROUTES.stat]} to={ROUTES.tuto} />
             <Redirect exact from='/' to={ROUTES.tuto} />

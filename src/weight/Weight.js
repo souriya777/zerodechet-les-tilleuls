@@ -35,7 +35,7 @@ class Weight extends Component {
 
     return (
       <div className='weight'>
-        <h1 className='h1'>La pesée</h1>
+        <h2 className='h2'>La pesée</h2>
         <div className='quote'>{getQuote()}</div>
         <div className='weight__form'>
           <WeightForm />

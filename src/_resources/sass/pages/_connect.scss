@@ -9,13 +9,12 @@
       justify-content: space-between;
     }
   
-    &-item {
-      display: inline-block;
-    }
+    &-item { display: inline-block; }
   }
 
-  &__form,
-  &__hr { @include space-top; }
+  &__form { @include space-top; }
+
+  &__hr { @include space-top-big; }
 
   &__social {
     @include space-top;

@@ -1,7 +1,3 @@
-// FIXME
-// word-spacing: .1rem;
-// letter-spacing: .1rem;
-
 // COLOR
 @mixin color-light {
   color: inherit;
@@ -27,23 +23,11 @@
 @mixin full-width { width: 100%; }
 
 // SPACE
-@mixin space-top { 
-  margin-top: 2rem; 
-
-  @media only screen and (min-width: $bp-smallest) {
-    margin-top: 3.5rem;
-  }
-}
-@mixin space-top-big { 
-  margin-top: 4rem; 
-
-  @media only screen and (min-width: $bp-smallest) {
-    margin-top: 3.5rem;
-  }
-}
+@mixin space-top { margin-top: 2rem; }
+@mixin space-top-big { margin-top: 3rem; }
 @mixin space-bottom { margin-bottom: 2rem; }
 @mixin space-bottom-big { margin-bottom: 4rem; }
-@mixin space-content { padding: 0 1rem; }
+@mixin space-content { padding: 0 1rem 3rem;; }
 
 @mixin common-content {
   @include space-content;

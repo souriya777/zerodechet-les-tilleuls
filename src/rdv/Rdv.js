@@ -40,7 +40,7 @@ class Rdv extends Component {
   render() {
     return (
       <div className='rdv'>
-        <h1 className='h1'>Les rendez-vous</h1>
+        <h2 className='h2'>Les rendez-vous</h2>
         <div className='rdv__filter'>
           <SmartInput 
             type='text'

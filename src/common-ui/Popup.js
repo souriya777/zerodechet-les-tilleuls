@@ -24,7 +24,7 @@ class Popup extends Component {
             {children}
           </div>
           <div className='popup__action'>
-            <button className='btn' type='submit' onClick={this.close}>
+            <button className='btn f__btn' type='submit' onClick={this.close}>
                 fermer
               </button>
           </div>

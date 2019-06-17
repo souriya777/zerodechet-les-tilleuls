@@ -96,7 +96,7 @@ class FormikWrapper extends Component {
 
               <div className='form__validation'>
                 <button 
-                  className='btn' 
+                  className='btn f__btn' 
                   type='submit' 
                   disabled={isSubmitting}
                   onClick={this.handleClickSubmit}

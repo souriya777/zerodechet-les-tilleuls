@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  // FIXME where do I place this code?
   -webkit-appearance:     none;
   -moz-appearance:        none;
   -ms-appearance:         none;
@@ -19,11 +18,10 @@ html {
 
 body {
   font-family: $font-primary;
+  font-size: 1.4rem;
   font-weight: 600;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  // FIXME
-  // background-color: rgb(172, 172, 172);
   color: $color-primary-text;
   line-height: $default-line-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
