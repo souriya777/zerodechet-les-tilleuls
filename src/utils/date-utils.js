@@ -3,7 +3,6 @@ import 'firebase/firestore'
 import moment from 'moment'
 import { PERIOD } from '../stat/StatHelper'
 
-const ISO_FORMAT = 'YYYY-MM-DD'
 export const DEFAULT_START_DATE = moment('1970-01-01').toDate()
 
 export const isDefaultStartDate = date => 
@@ -32,6 +31,15 @@ export const toDate = firebaseTimestamp => {
   myDate.setTime(firebaseTimestamp.seconds * 1000)
   return myDate
 }
+
+export const toISOFormat = date => 
+  moment(date).format('YYYY-MM-DD')
+
+export const toDateFormat = date => 
+  moment(date).format('DD/MM/YYYY')
+
+export const toTimeFormat = date => 
+  moment(date).format('HH:mm')
 
 export const getThisWeekDate = now => getThisPeriodDate(now, PERIOD.WEEK)
 export const getThisMonthDate = now => getThisPeriodDate(now, PERIOD.MONTH)
@@ -109,6 +117,3 @@ export const pastDays = (howMany, thisDay) => {
 
 export const lastYear = now => 
   moment(now).subtract(1, 'y').toDate()
-
-export const toISOFormat = date => 
-  moment(date).format(ISO_FORMAT)

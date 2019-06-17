@@ -14,6 +14,8 @@ import {
   dateDiff,
   nextDay,
   toISOFormat,
+  toDateFormat,
+  toTimeFormat,
   lastYear,
   isDefaultStartDate,
 } from './date-utils'
@@ -364,6 +366,24 @@ describe(`toISOFormat`, () => {
   it(`return 2019-01-01, for date = JAN_DAY_1`, () => {
     const toDisplay = toISOFormat(TRIMESTER.JAN_DAY_1.toDate())
     expect(toDisplay).toEqual('2019-01-01')
+  })
+  
+})
+
+describe(`toDateFormat`, () => {
+
+  it(`return 01/01/2019, for date = JAN_DAY_1`, () => {
+    const toDisplay = toDateFormat(TRIMESTER.JAN_DAY_1.toDate())
+    expect(toDisplay).toEqual('01/01/2019')
+  })
+  
+})
+
+describe(`toTimeFormat`, () => {
+
+  it(`return 10:30, for date = JUN_DAY_22_10H30`, () => {
+    const toDisplay = toTimeFormat(DAY_WITH_HOUR.JUN_DAY_22_10H30.toDate())
+    expect(toDisplay).toEqual('10:30')
   })
   
 })

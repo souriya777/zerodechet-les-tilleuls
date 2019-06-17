@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { RDV_HARDCODED } from './rdv-list-hardcoded'
+import { toDateFormat, toTimeFormat } from '../utils/date-utils'
 
 import RdvPad from './RdvPad'
 
@@ -28,10 +29,10 @@ const RdvList = () => {
           <RdvPad type={item.type} />
         </div>
         <div className='rdv__item-day'>
-          {item.date}
+          {toDateFormat(item.date)}
         </div>
         <div className='rdv__item-hour'>
-          {item.date}
+          {toTimeFormat(item.date)}
         </div>
         <div className='rdv__item-dispo'>
           {countLbl}
