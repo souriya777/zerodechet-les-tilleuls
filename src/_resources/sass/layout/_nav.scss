@@ -53,8 +53,6 @@
     transform: translate(50%, -50%);
 
     &-content {
-      @include font-nav;
-
       justify-self: center;
       align-self: center;
       grid-row: 2;

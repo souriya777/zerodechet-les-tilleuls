@@ -4,10 +4,6 @@
 
   &__body { 
     text-align: center; 
-
-    &--accent {
-      @include font-body--accent;
-    }
   }
 
   &__goal,

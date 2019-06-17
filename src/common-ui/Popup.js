@@ -19,7 +19,7 @@ class Popup extends Component {
     return (
       <div className={`popup ${active}`}>
         <Card>
-          <div className='h--popup'>{title}</div>
+          <div>{title}</div>
           <div className='popup__content'>
             {children}
           </div>

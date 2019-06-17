@@ -1,73 +1,11 @@
-// FONT
-%font {
-  font-family: $font-primary;
-  word-spacing: .1rem;
-}
-
-@mixin font-title {
-  @extend %font;
-  font-weight: 700;
-  letter-spacing: .1rem;
-}
-
-@mixin font-title--slide {
-  @include font-title;
-  font-size: $font-title-slide;
-  text-transform: uppercase;
-}
-
-@mixin font-title--popup {
-  font-size: $font-title-popup-size;
-}
-
-@mixin font-h1 { 
-  @extend %font;
-  color: $color-primary-text; 
-  font-size: $font-title;
-  text-align: center;
-}
-@mixin font-h2 { font-size: $font-title; }
-
-@mixin font-body {
-  @extend %font;
-  font-weight: 600;
-  font-size: $font-body-size;
-}
-
-@mixin font-body--accent {
-  @extend %font;
-  font-size: 2.5rem;
-}
-
-@mixin font-nav {
-  font-size: 2rem;
-}
-
-@mixin font-sub-input {
-  @extend %font;
-  word-spacing: 0rem;
-  font-size: $font-sub-input-size;
-}
-
-@mixin font-action {
-  @include font-title;
-}
-
-@mixin font-action--choice {
-  @include font-action;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-// TXT
-@mixin wording {
-  text-align: justify;
-}
+// FIXME
+// word-spacing: .1rem;
+// letter-spacing: .1rem;
 
 // COLOR
-@mixin font-color-light {
+@mixin color-light {
   color: inherit;
-  opacity: $font-opacity-light;
+  opacity: .6;
 }
 
 // SIZE
@@ -175,7 +113,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 
 */
 // don't use px (eg. user change zoom) => use em (not rem -> fails for few browser)
-// default browser font-size : 16px
+// default browser font size : 16px
 // so : 600px/16px = 37.5
 @mixin respond($breakpoint) {
   @if $breakpoint == phone {

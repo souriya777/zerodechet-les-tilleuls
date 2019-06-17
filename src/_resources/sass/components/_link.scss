@@ -20,7 +20,7 @@
     &:after { border-color: $color-accent; }
   }
 
-  &--unselected { opacity: $font-opacity-light; }
+  &--unselected { @include color-light; }
 
   &--href { 
     text-decoration: underline;

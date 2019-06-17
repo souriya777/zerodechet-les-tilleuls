@@ -36,7 +36,7 @@ const NavConnect = ({ location }) => {
 
       <Link to={ROUTES.welcome}>
         <div className={`nav__close nav__close--${connectStatus}`}>
-          <div className='nav__close-content'>
+          <div className='nav__close-content f__nav'>
             X
           </div>
         </div>

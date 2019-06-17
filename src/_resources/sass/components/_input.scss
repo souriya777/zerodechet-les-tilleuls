@@ -41,7 +41,7 @@
 
   // LABEL
   &__label {
-    @include font-color-light;
+    @include color-light;
     order: 1;
     display: block;
     transition: all .3s;
@@ -55,7 +55,6 @@
 
   // SUB INPUT
   &__sub {
-    @include font-sub-input;
     height: 2rem;
     text-align: right;
     color: inherit;

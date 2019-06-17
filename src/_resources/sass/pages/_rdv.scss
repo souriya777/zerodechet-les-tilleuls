@@ -1,15 +1,52 @@
 .rdv {
   @include common-content;
   // TODO
-  height: 205vh;
+  height: 105vh;
+
+  &__pad {
+    padding: .3rem 1rem;
+    border-radius: 10rem;
+  }
 
   &__workshop {
     color: $color-workshop;
     background-color: rgba($color-workshop, .2);
+  }
+
+  &__free {
+    &--full {
+      color: $color-workshop;
+      background-color: rgba($color-workshop, .2);
+    }
+    &--single,
+    &--few {
+      color: $color-rdv-sub;
+      background-color: rgba($color-rdv-sub, .2);
+    }
   }
   
   &__event {
     color: $color-event;
     background-color: rgba($color-event, .2);
   }
+
+  &__item-day,
+  &__item-hour {
+    color: $color-primary-text;
+    background-color: rgba($color-primary-text, .05);
+  }
+
+  &--sub { 
+    background-color: $color-rdv-sub; 
+    border-color: $color-rdv-sub; 
+  }
+  &--unsub { 
+    background-color: $color-rdv-unsub; 
+    border-color: $color-rdv-unsub; 
+  }
+  &--wait { 
+    background-color: $color-rdv-wait; 
+    border-color: $color-rdv-wait; 
+  }
+
 }

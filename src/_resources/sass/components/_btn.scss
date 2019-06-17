@@ -1,6 +1,4 @@
 .btn {
-  @include font-action;
-
   outline: none;
   color: $color-secondary-text;
   text-transform: uppercase;
@@ -16,11 +14,6 @@
     opacity: .6;
   }
   
-  &--accent {
-    background-color: $color-major;
-    border-color: $color-major;
-  }
-
   &:disabled {
     background-color: $color-accent-light;
     border-color: $color-accent-light;

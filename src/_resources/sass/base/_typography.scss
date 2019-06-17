@@ -1,17 +1,24 @@
 .h {
-  &1 { @include font-h1 }
-
-  &2 { @include font-h2 }
-
-  &--slide { 
-    @include font-title--slide; 
-
-    @media only screen and (min-width: $bp-smallest) {
-      font-size: 4rem;
-    }
+  &1 { 
+    color: $color-primary-text; 
+    font-size: 1.8rem;
+    text-align: center;
   }
 
-  &--popup { @include font-title--popup; }
+  &2 { 
+    font-size: 1.8rem;
+  }
+
+  &--slide { 
+    font-size: 3rem;
+    text-transform: uppercase;
+  }
+}
+
+.f {
+  &__nav {
+    font-size: 2rem;
+  }
 }
 
 .quote {
@@ -31,7 +38,6 @@
     font-size: 2.2rem;
   }
 }
-
 
 .italic {
   font-style: italic;
