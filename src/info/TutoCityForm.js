@@ -4,7 +4,7 @@ import * as Yup from 'yup'
 
 import { handleSetCity } from '../user/userActions'
 import FormikWrapper from '../utils/FormikWrapper'
-import { CITY, CITY_LABEL } from '../utils/CityHelper'
+import { CITY } from '../utils/CityHelper'
 
 class TutoCityForm extends Component {
 
@@ -21,10 +21,10 @@ class TutoCityForm extends Component {
         fieldTypeList={['select']}
         fieldPlaceholderList={['Commune']}
         fieldValueList={{
-          city: CITY[0]
+          city: CITY.keyList[0]
         }}
-        optionLabelList={CITY_LABEL}
-        optionIdList={CITY}
+        optionLabelList={CITY.labelList}
+        optionIdList={CITY.keyList}
         formSchema={FormSchema}
         onSubmit={this.handleSubmit}
       />

@@ -1,4 +1,4 @@
-import { firebaseTimestamp } from '../utils/date-utils'
+import { toFirebaseTimestamp } from '../utils/date-utils'
 import Firebase, { WEIGHTS_REF, SUB_COLLECTION_REF }  from '../app/firebase'
 import { pastDays } from './date-utils'
 
@@ -58,7 +58,7 @@ const generateWeightList = () => {
 
   // generate dynamic weight
   return dayList.map(d => {
-    const dTimestamp = firebaseTimestamp(d)
+    const dTimestamp = toFirebaseTimestamp(d)
     return {
       nbPers: 2,
       recycled: randomWeight(600),

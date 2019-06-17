@@ -22,6 +22,7 @@ import InfoWatcher from '../utils/InfoWatcher'
 /*
 TODO
 - rajouter rubrique "rdv" 
+- comment, dès la 1ère pesée, calculer la "performance"
 - rajouter le bouton paramètre?
 - rajouter rubrique astuces (en dur)
 - web responsive

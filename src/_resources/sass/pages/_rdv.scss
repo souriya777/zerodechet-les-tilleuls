@@ -1,0 +1,15 @@
+.rdv {
+  @include common-content;
+  // TODO
+  height: 205vh;
+
+  &__workshop {
+    color: $color-workshop;
+    background-color: rgba($color-workshop, .2);
+  }
+  
+  &__event {
+    color: $color-event;
+    background-color: rgba($color-event, .2);
+  }
+}

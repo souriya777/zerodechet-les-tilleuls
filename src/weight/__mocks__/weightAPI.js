@@ -1,4 +1,4 @@
-import { firebaseTimestamp } from '../../utils/date-utils'
+import { toFirebaseTimestamp } from '../../utils/date-utils'
 import FirebaseException from '../../utils/FirebaseException'
 
 import WeightFirebase from './weightFirebase'
@@ -14,8 +14,8 @@ class WeightAPI {
   }
 
   getWeightListBtwDates = (uid, beginDate, endDate) => {
-    const beginTimestamp = firebaseTimestamp(beginDate)
-    const endTimestamp = firebaseTimestamp(endDate)
+    const beginTimestamp = toFirebaseTimestamp(beginDate)
+    const endTimestamp = toFirebaseTimestamp(endDate)
 
     return WeightFirebase.getWeightListBtwDates(uid, beginTimestamp, endTimestamp)
   }

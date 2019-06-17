@@ -2,8 +2,8 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 import { 
-  unix,
-  firebaseTimestamp,
+  toUnix,
+  toFirebaseTimestamp,
   toDate,
   getThisWeekDate,
   getThisMonthDate,
@@ -12,8 +12,8 @@ import {
   getMonthOfTrimester,
   pastDays,
   dateDiff,
-  oneDayLater,
-  toStandardFormat,
+  nextDay,
+  toISOFormat,
   lastYear,
   isDefaultStartDate,
 } from './date-utils'
@@ -33,18 +33,18 @@ describe(`isDefaultStartDate`, () => {
   })
 })
 
-describe(`unix`, () => {
+describe(`toUnix`, () => {
   it(`for now: Wednesday May 01, 2019 08:50:10 (am) 
     returns: 1556661600`, () => {
       const now = moment([2019, 4, 1, 8, 50, 10, 125]).toDate()
-      expect(unix(now)).toEqual(1556661600)
+      expect(toUnix(now)).toEqual(1556661600)
   })
 })
 
-describe(`firebaseTimestamp`, () => {
+describe(`toFirebaseTimestamp`, () => {
   it('generate Firebase Timestamp {"nanoseconds": 0, "seconds": 1556661600} From Date 2019-05-01', () => {
     const date = moment('2019-05-01').toDate()
-    const timestamp = firebaseTimestamp(date)
+    const timestamp = toFirebaseTimestamp(date)
     expect(timestamp).toEqual({"nanoseconds": 0, "seconds": 1556661600})
   })
 })
@@ -52,8 +52,8 @@ describe(`firebaseTimestamp`, () => {
 describe(`toDate`, () => {
   it('from Firebase Timestamp {"nanoseconds": 0, "seconds": 1556661600} returns Date 2019-05-01', () => {
     const expectedDate = moment('2019-05-01').toDate()
-    const firebaseTimestamp = new firebase.firestore.Timestamp(1556661600, 0)
-    const myDate = toDate(firebaseTimestamp)
+    const toFirebaseTimestamp = new firebase.firestore.Timestamp(1556661600, 0)
+    const myDate = toDate(toFirebaseTimestamp)
     expect(myDate).toEqual(expectedDate)
   })
 })
@@ -345,24 +345,24 @@ describe(`dateDiff`, () => {
   })
 })
 
-describe(`oneDayLater`, () => {
+describe(`nextDay`, () => {
   
   it(`return JAN_DAY_2, for date = JAN_DAY_1`, () => {
-    const newDate = oneDayLater(TRIMESTER.JAN_DAY_1.toDate())
+    const newDate = nextDay(TRIMESTER.JAN_DAY_1.toDate())
     expect(newDate).toEqual(TRIMESTER.JAN_DAY_2.toDate())
   })
 
   it(`return FEV_DAY_1, for date = JAN_DAY_31`, () => {
-    const newDate = oneDayLater(TRIMESTER.JAN_DAY_31.toDate())
+    const newDate = nextDay(TRIMESTER.JAN_DAY_31.toDate())
     expect(newDate).toEqual(TRIMESTER.FEV_DAY_1.toDate())
   })
 
 })
 
-describe(`toStandardFormat`, () => {
+describe(`toISOFormat`, () => {
 
   it(`return 2019-01-01, for date = JAN_DAY_1`, () => {
-    const toDisplay = toStandardFormat(TRIMESTER.JAN_DAY_1.toDate())
+    const toDisplay = toISOFormat(TRIMESTER.JAN_DAY_1.toDate())
     expect(toDisplay).toEqual('2019-01-01')
   })
   

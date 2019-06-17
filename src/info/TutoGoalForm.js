@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as Yup from 'yup'
 
-import { CITY, CITY_AVG } from '../utils/CityHelper'
+import { CITY } from '../utils/CityHelper'
 import { handleSetGoal } from '../user/userActions'
 
 import FormikWrapper from '../utils/FormikWrapper'
@@ -27,7 +27,8 @@ class TutoGoalForm extends Component {
   render() {
     const { onSubmitBack, submitLbl, avg } = this.props
     const { goal } = this.state
-    const newAvg = Math.floor(avg * goal / 100)
+    // TODO move in helper
+    const newAvg = avg - Math.floor(avg * goal / 100)
 
     return <>
       <FormikWrapper
@@ -58,9 +59,9 @@ const mapStateToProps = state => {
   
   let cityAvg = null
   if (city) {
-    const idx = CITY.indexOf(city)
+    const idx = CITY.keyList.indexOf(city)
 
-    cityAvg = CITY_AVG[idx]
+    cityAvg = CITY.avgList[idx]
   }
 
   return {

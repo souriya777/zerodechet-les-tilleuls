@@ -5,6 +5,7 @@ import { isLogged } from '../utils/user-utils'
 
 import MenuItem from './MenuItem'
 import ROUTES from '../app/routes'
+import SVGCalendar from './svg/SVGCalendar'
 import SVGWeight from './svg/SVGWeight'
 import SVGStat from './svg/SVGStat'
 import UserPhoto from '../user/UserPhoto'
@@ -19,7 +20,12 @@ const Menu = ({ user }) => {
           label={'Pesée'}
           icon={SVGWeight}
           route={ROUTES.weight}
-        /> 
+        />
+        <MenuItem
+          label={'Rdv'}
+          icon={SVGCalendar}
+          route={ROUTES.rdv}
+        />
         <MenuItem
           label={'Stats'}
           icon={SVGStat}

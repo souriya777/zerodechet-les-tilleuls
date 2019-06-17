@@ -3,11 +3,11 @@ import 'firebase/firestore'
 import moment from 'moment'
 import { PERIOD } from '../stat/StatHelper'
 
+const ISO_FORMAT = 'YYYY-MM-DD'
 export const DEFAULT_START_DATE = moment('1970-01-01').toDate()
 
-export const isDefaultStartDate = date => {
-  return moment(date).isSame(moment(DEFAULT_START_DATE))
-}
+export const isDefaultStartDate = date => 
+  moment(date).isSame(moment(DEFAULT_START_DATE))
 
 /*
   For a date reset hours, minutes, seconds
@@ -16,13 +16,15 @@ export const isDefaultStartDate = date => {
     becomes: Wednesday May 01, 2019 00:00:00 (am)
     final result: 1556661600
 */
-export const unix = date => {
-  return resetTime(moment(date)).unix()
-}
+export const toUnix = date => 
+  resetTime(moment(date)).unix()
 
-export const firebaseTimestamp = date => {
-  const timestamp = unix(date)
-  return unixToFirebaseTimestamp(timestamp)
+const tofirebaseTimestampFromUnix = timestamp => 
+  new firebase.firestore.Timestamp(timestamp, 0)
+
+export const toFirebaseTimestamp = date => {
+  const timestamp = toUnix(date)
+  return tofirebaseTimestampFromUnix(timestamp)
 }
 
 export const toDate = firebaseTimestamp => {
@@ -47,9 +49,8 @@ export const getWeekOfMonth = date => {
   return Math.ceil((mDate.date() + offset) / 7)
 }
 
-export const getMonthOfTrimester = date => {
-  return moment(date).month() + 1
-}
+export const getMonthOfTrimester = date => 
+  moment(date).month() + 1
 
 const getThisPeriodDate = (now, period = PERIOD.WEEK) => {
   if (now == null) {
@@ -81,9 +82,18 @@ const getThisPeriodDate = (now, period = PERIOD.WEEK) => {
   
   return {
     begin: day1st.toDate(),
-    end: oneDayLater(mNow.toDate())
+    end: nextDay(mNow.toDate())
   }
 }
+
+const resetTime = momentObj => 
+  momentObj.hour(0).minute(0).second(0)
+
+export const dateDiff = (begin, end) => 
+  moment(end).diff(moment(begin), 'd')
+
+export const nextDay = date =>
+  moment(date).add(1, 'd').toDate()
 
 export const pastDays = (howMany, thisDay) => {
   const result = []
@@ -97,28 +107,8 @@ export const pastDays = (howMany, thisDay) => {
   return result
 }
 
-export const dateDiff = (begin, end) => {
-  return moment(end).diff(moment(begin), 'd')
-}
+export const lastYear = now => 
+  moment(now).subtract(1, 'y').toDate()
 
-export const oneDayLater = date => {
-  return moment(date).add(1, 'd').toDate()
-}
-
-export const toStandardFormat = date => {
-  return moment(date).format(STANDARD_FORMAT)
-}
-
-export const lastYear = now => {
-  return moment(now).subtract(1, 'y').toDate()
-}
-
-const STANDARD_FORMAT = 'YYYY-MM-DD'
-
-const unixToFirebaseTimestamp = timestamp => {
-  return new firebase.firestore.Timestamp(timestamp, 0)
-}
-
-const resetTime = momentObj => {
-  return momentObj.hour(0).minute(0).second(0)
-}
+export const toISOFormat = date => 
+  moment(date).format(ISO_FORMAT)

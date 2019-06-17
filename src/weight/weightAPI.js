@@ -1,5 +1,5 @@
 import WeightFirebase from './weightFirebase'
-import { firebaseTimestamp, pastDays, dateDiff, toDate, oneDayLater } from '../utils/date-utils'
+import { toFirebaseTimestamp, pastDays, dateDiff, toDate, nextDay } from '../utils/date-utils'
 import { avgHome } from '../stat/StatHelper'
 import FirebaseException from '../utils/FirebaseException'
 
@@ -14,8 +14,8 @@ class WeightAPI {
   }
 
   getWeightListBtwDates = (uid, beginDate, endDate) => {
-    const beginTimestamp = firebaseTimestamp(beginDate)
-    const endTimestamp = firebaseTimestamp(endDate)
+    const beginTimestamp = toFirebaseTimestamp(beginDate)
+    const endTimestamp = toFirebaseTimestamp(endDate)
     
     return WeightFirebase.getWeightListBtwDates(uid, beginTimestamp, endTimestamp)
   }
@@ -67,16 +67,16 @@ class WeightAPI {
   getLastStartDate = async uid => {
     const w = await this.getLastWeight(uid)
     if (w != null) {
-      return oneDayLater(w.startDate)
+      return nextDay(w.startDate)
     } 
   }
 }
 
 
 const convertToWeight = (nbPers, startDate, endDate, recycled, norecycled) => {
-  const startTimestamp = firebaseTimestamp(startDate)
-  const endTimestamp = firebaseTimestamp(endDate)
-  const nowTimestamp = firebaseTimestamp(new Date())
+  const startTimestamp = toFirebaseTimestamp(startDate)
+  const endTimestamp = toFirebaseTimestamp(endDate)
+  const nowTimestamp = toFirebaseTimestamp(new Date())
   return {
     nbPers: nbPers,
     recycled: recycled,

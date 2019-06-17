@@ -6,7 +6,7 @@ import {
   FirebaseError,
 } from '../../utils/common-test/common-data'
 import { stripFirebaseTimestamp } from '../../utils/common-test/common-utils'
-import { firebaseTimestamp } from '../../utils/date-utils'
+import { toFirebaseTimestamp } from '../../utils/date-utils'
 import { WEEK_DATA } from './weekData'
 import { MONTH_DATA } from './monthData'
 import { TRIMESTER_DATA } from './trimesterData'
@@ -24,18 +24,18 @@ class WeightFirebase {
     }
     
     if (
-      firebaseTimestamp(WEEK.MONDAY.toDate()).isEqual(beginTimestamp)
-      && firebaseTimestamp(WEEK.SUNDAY.toDate()).isEqual(endTimestamp)
+      toFirebaseTimestamp(WEEK.MONDAY.toDate()).isEqual(beginTimestamp)
+      && toFirebaseTimestamp(WEEK.SUNDAY.toDate()).isEqual(endTimestamp)
     ) {
       return WEEK_DATA
     } else if (
-      firebaseTimestamp(MONTH.DAY_1.toDate()).isEqual(beginTimestamp)
-      && firebaseTimestamp(MONTH.DAY_24.toDate()).isEqual(endTimestamp)
+      toFirebaseTimestamp(MONTH.DAY_1.toDate()).isEqual(beginTimestamp)
+      && toFirebaseTimestamp(MONTH.DAY_24.toDate()).isEqual(endTimestamp)
     ) {
       return MONTH_DATA
     } else if (
-      firebaseTimestamp(TRIMESTER.MAR_DAY_1).isEqual(beginTimestamp)
-      && firebaseTimestamp(TRIMESTER.MAY_DAY_24).isEqual(endTimestamp)
+      toFirebaseTimestamp(TRIMESTER.MAR_DAY_1).isEqual(beginTimestamp)
+      && toFirebaseTimestamp(TRIMESTER.MAY_DAY_24).isEqual(endTimestamp)
     ) {
       return TRIMESTER_DATA
     }

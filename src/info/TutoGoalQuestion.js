@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { CITY, CITY_LABEL, CITY_AVG } from '../utils/CityHelper'
+import { CITY } from '../utils/CityHelper'
 
 const TutoGoalQuestion = ({ city, avg }) => 
   <>
@@ -18,10 +18,10 @@ const mapStateToProps = state => {
   
   let cityLbl = null, cityAvg = null
   if (city) {
-    const idx = CITY.indexOf(city)
+    const idx = CITY.keyList.indexOf(city)
 
-    cityLbl = CITY_LABEL[idx]
-    cityAvg = CITY_AVG[idx]
+    cityLbl = CITY.labelList[idx]
+    cityAvg = CITY.avgList[idx]
   }
 
   return {

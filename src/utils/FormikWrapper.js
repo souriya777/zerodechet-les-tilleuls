@@ -84,6 +84,7 @@ class FormikWrapper extends Component {
                       sub={fieldSubList[i]}
                       autocomplete={fieldAutocompleteList[i]}
                       key={i}
+                      formikMode={true}
                     />
                   )
                 }

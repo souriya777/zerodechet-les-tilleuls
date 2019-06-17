@@ -14,7 +14,7 @@ const Nav = () => (
     />
 
     <Route
-      path={[ROUTES.stat, ROUTES.weight, ROUTES.profile]} 
+      path={[ROUTES.rdv, ROUTES.stat, ROUTES.profile, ROUTES.weight]} 
       component={Menu} 
     />
   </>

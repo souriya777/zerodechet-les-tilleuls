@@ -5,7 +5,7 @@ import * as Yup from 'yup'
 
 import FormikWrapper from '../utils/FormikWrapper'
 import { handleAddWeight } from './weightActions'
-import { toStandardFormat, DEFAULT_START_DATE, isDefaultStartDate } from '../utils/date-utils'
+import { toISOFormat, DEFAULT_START_DATE, isDefaultStartDate } from '../utils/date-utils'
 
 class WeightForm extends Component {
 
@@ -23,7 +23,7 @@ class WeightForm extends Component {
     
     const formikStartDate = isDefaultStartDate(lastStartDate)
       ? ''
-      : toStandardFormat(lastStartDate)
+      : toISOFormat(lastStartDate)
 
     const FormSchema = getFormSchema(nbPers, lastStartDate, new Date())
 

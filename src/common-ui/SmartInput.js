@@ -1,7 +1,7 @@
 import React from 'react'
 import { Field } from 'formik'
 
-const SmartInput = ({ type, name, placeholder, errorMsg, sub, autocomplete}) => {
+const SmartInput = ({ type, name, placeholder, errorMsg, sub, autocomplete, formikMode}) => {
   const valid = errorMsg === undefined
     ? 'input--valid'
     : 'input--invalid'
@@ -9,14 +9,23 @@ const SmartInput = ({ type, name, placeholder, errorMsg, sub, autocomplete}) => 
   return (
     <>
       <div className='input__container'>
-        <Field 
-          className={`input ${valid}`}
-          type={type} 
-          name={name} 
-          placeholder={placeholder} 
-          autoComplete={autocomplete}
-        />
 
+        {formikMode 
+          ? <Field 
+              className={`input ${valid}`}
+              type={type} 
+              name={name} 
+              placeholder={placeholder} 
+              autoComplete={autocomplete}
+            />
+          : <input 
+              className={`input ${valid}`}
+              type={type} 
+              name={name} 
+              placeholder={placeholder} 
+              autoComplete={autocomplete}
+            />
+        }
         <span className='input__border'></span>
         <label className='input__label'>{placeholder}</label>
       </div>

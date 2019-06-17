@@ -14,7 +14,7 @@ class Stat extends Component {
   }
 
   handleChangePeriod = e => {
-    const { uid} = this.props
+    const { uid } = this.props
     const period = e.target.value
     this.loadData(uid, period)
     this.setState({period: period})
