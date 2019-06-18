@@ -1,9 +1,20 @@
 import React from 'react'
 
 const RdvType = ({ type }) => {
-  return 'atelier' === type
-  ? <span className='rdv__workshop rdv__pad'>Atelier</span>
-  : <span className='rdv__event rdv__pad'>Événement</span>
+  let extraClass, lbl
+  if ('atelier' === type) {
+    extraClass = 'rdv__workshop'
+    lbl = 'Atelier'
+  } else {
+    extraClass = 'rdv__event'
+    lbl = 'Événement'
+  }
+
+  return <span className={`rdv__pad ${extraClass}`}>
+            <h6 className='h6'>
+              {lbl}
+            </h6>
+          </span>
 }
 
 export default RdvType

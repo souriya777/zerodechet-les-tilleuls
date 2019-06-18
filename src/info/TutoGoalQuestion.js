@@ -4,11 +4,15 @@ import { CITY } from '../utils/CityHelper'
 
 const TutoGoalQuestion = ({ city, avg }) => 
   <>
-    <div className='paragraph'>
-      La production moyenne de déchets, à { city }, est de : {avg}kg/pers/an
+    <div className='center'>
+      <h4 className='h4 quote'>
+        La production moyenne de déchets, à { city }, est de : {avg}kg/pers/an
+      </h4>
     </div>
-    <div className='paragraph paragraph--highlighted'>
-      Quel est votre objectif de réduction?
+    <div className='center'>
+      <h3 className='h3'>
+        Quel est votre objectif de réduction?
+      </h3>
     </div>
   </>
 

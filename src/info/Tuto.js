@@ -6,6 +6,7 @@ import { Route, withRouter } from 'react-router-dom'
 import ROUTES from '../app/routes'
 import Back from '../common-ui/Back'
 import TutoIntro from './TutoIntro'
+import TutoIndication from './TutoIndication'
 import TutoQuestion from './TutoQuestion'
 import TutoAnswer from './TutoAnswer'
 import { handleBecomeExpert } from '../user/userActions'
@@ -42,37 +43,54 @@ class Tuto extends Component {
   }
 
   render() {
+    const { uid } = this.props
     const step = this.step()
+
+    if (uid == null) {
+      return null
+    }
     
     return (
       <div className='tuto'>
-        <div className='bloc'>
-          <Route exact path={ROUTES.tuto} component={TutoIntro} />
-          <Route 
-            path={`${ROUTES.tuto}/:step`} 
-            component={() => <Back action={this.handleSubmitBack} />}
+        <Route exact path={ROUTES.tuto} component={TutoIntro} />
+        <Route 
+          path={`${ROUTES.tuto}/:step`} 
+          component={() => <Back action={this.handleSubmitBack} />}
+        />
+        <Route 
+          path={`${ROUTES.tuto}/:step`} 
+          component={() => <TutoIndication step={step} total={NB_QUESTIONS} />}
+        />
+        <Route 
+          path={`${ROUTES.tuto}/:step`} 
+          component={() => <TutoQuestion step={step} />}
+        />
+        <Route 
+          path={`${ROUTES.tuto}/:step`} 
+          render={() => 
+            <TutoAnswer 
+              onSubmit={this.handleSubmit}
+              step={step}
+            />} 
           />
-          <Route 
-            path={`${ROUTES.tuto}/:step`} 
-            component={() => <TutoQuestion step={step} />}
-          />
-          <Route 
-            path={`${ROUTES.tuto}/:step`} 
-            render={() => 
-              <TutoAnswer 
-                onSubmit={this.handleSubmit}
-                step={step}
-              />} 
-            />
-        </div>
       </div>
     )
   }
 }
 
+const mapStateToProps = state => { 
+  const { user } = state
+
+  const uid = user ? user.uid : null
+  
+  return { 
+    uid,
+  }
+}
+
 const enhance = compose(
-  connect(),
+  connect(mapStateToProps),
   withRouter,
 )
 
-export default enhance (Tuto)
+export default enhance(Tuto)

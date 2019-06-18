@@ -1,5 +1,10 @@
 .rdv {
   @include common-content;
+  min-height: 105vh;
+
+  &__item {
+    margin-top: 4rem;
+  }
 
   &__pad {
     padding: .3rem 1rem;
@@ -13,8 +18,8 @@
 
   &__free {
     &--full {
-      color: $color-workshop;
-      background-color: rgba($color-workshop, .2);
+      color: $color-workshop-full;
+      background-color: rgba($color-workshop-full, .2);
     }
     &--single,
     &--few {
@@ -28,8 +33,14 @@
     background-color: rgba($color-event, .2);
   }
 
-  &__item-day,
-  &__item-hour {
+  &__what-when {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 5rem;
+  }
+
+  &__day,
+  &__hour {
     color: $color-primary-text;
     background-color: rgba($color-primary-text, .05);
   }

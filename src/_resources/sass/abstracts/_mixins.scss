@@ -27,7 +27,7 @@
 @mixin space-top-big { margin-top: 3rem; }
 @mixin space-bottom { margin-bottom: 2rem; }
 @mixin space-bottom-big { margin-bottom: 4rem; }
-@mixin space-content { padding: 0 1rem 3rem;; }
+@mixin space-content { padding: 1rem; }
 
 @mixin common-content {
   @include space-content;

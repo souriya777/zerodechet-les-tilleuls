@@ -90,6 +90,8 @@ const merge = (user, extra) => {
 }
 
 const DEFAULT_EXTRA_INFO = {
+  nbPers: null,
+  city: null,
   goal: null,
   home: null,
   isNew: true,

@@ -41,10 +41,12 @@ class TutoGoalForm extends Component {
         sliderValue={goal}
         onSliderChange={this.handleSliderChange}
       >
-        <div className='paragraph'>
+        <div className='center'>
           <div>soit:</div>
+          <h3 className='h3'>
+            <div>{newAvg}kg/pers/an</div>
+          </h3>
         </div>
-        <div className='paragraph paragraph--highlighted'>{newAvg}kg/pers/an</div>
       </FormikWrapper>
     </>
   }

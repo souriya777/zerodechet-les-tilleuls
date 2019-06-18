@@ -18,8 +18,10 @@ import {
   toTimeFormat,
   lastYear,
   isDefaultStartDate,
+  canHappen,
+  resetTime,
 } from './date-utils'
-import { WEEK, MONTH, TRIMESTER, DAY_WITH_HOUR } from './common-test/common-data'
+import { WEEK, MONTH, TRIMESTER, DAY_WITH_HOUR, ANNUAL } from './common-test/common-data'
 
 const moment = require('moment')
 
@@ -393,6 +395,76 @@ describe(`lastYear`, () => {
   it(`return LAST_JAN_DAY_1, for date = JAN_DAY_1`, () => {
     const myDate = lastYear(TRIMESTER.JAN_DAY_1.toDate())
     expect(myDate).toEqual(TRIMESTER.LAST_JAN_DAY_1.toDate())
+  })
+  
+})
+
+describe(`canHappen`, () => {
+
+  it(`
+    for :
+      date: JUN_DAY_5_00H44
+      now: JUN_DAY_5
+    returns:
+      true 
+    `, () => {
+    const result = canHappen(DAY_WITH_HOUR.JUN_DAY_5_00H44.toDate(), ANNUAL.JUN_DAY_5)
+    expect(result).toBeTruthy()
+  })
+
+  it(`
+    for :
+      date: JUN_DAY_3_00H00
+      now: JUN_DAY_5
+    returns:
+      true 
+    `, () => {
+    const result = canHappen(DAY_WITH_HOUR.JUN_DAY_3_00H00.toDate(), ANNUAL.JUN_DAY_5)
+    expect(result).toBeFalsy()
+  })
+
+  it(`
+    for :
+      date: JUN_DAY_6_00H00
+      now: JUN_DAY_5
+    returns:
+      true 
+    `, () => {
+    const result = canHappen(DAY_WITH_HOUR.JUN_DAY_6_00H00.toDate(), ANNUAL.JUN_DAY_5)
+    expect(result).toBeTruthy()
+  })
+
+  it(`
+    for :
+      date: "2019-06-16T18:30:00+02:00"
+      now: JUN_DAY_18
+    returns:
+      false 
+    `, () => {
+    const result = canHappen('2019-06-16T18:30:00+02:00', ANNUAL.JUN_DAY_18)
+    expect(result).toBeFalsy()
+  })
+
+  it(`
+    for :
+      date: "2019-06-17T18:30:00+02:00"
+      now: JUN_DAY_18
+    returns:
+      false 
+    `, () => {
+    const result = canHappen('2019-06-17T18:30:00+02:00', ANNUAL.JUN_DAY_18)
+    expect(result).toBeFalsy()
+  })
+
+  it(`
+    for :
+      date: "2019-06-18T18:00:00+02:00"
+      now: JUN_DAY_18
+    returns:
+      false 
+    `, () => {
+    const result = canHappen('2019-06-18T18:00:00+02:00', ANNUAL.JUN_DAY_18)
+    expect(result).toBeTruthy()
   })
   
 })

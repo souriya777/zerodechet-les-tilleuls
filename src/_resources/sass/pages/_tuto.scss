@@ -1,18 +1,28 @@
+$border: .1rem solid $color-secondary-dark;
+
 .tuto {
   @include common-content;
-  height: 80vh;
+  height: 83vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 
-  & .bloc > * {
-    @include space-bottom-big;
+  &__indication {
+    border-top: $border;
+    border-bottom: $border;
+    padding: 1.4rem 0;
+    text-align: center;
   }
 
-  &__choice {
-    height: 65%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  & #validation {
+    // margin-top: 2rem;
   }
+
+  // &__action {
+  //   position: absolute;
+  //   width: 100%;
+  //   bottom: 1rem;
+  //   left: 0;
+  //   padding: 0 1rem;
+  // }
 }

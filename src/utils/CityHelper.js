@@ -1,5 +1,6 @@
 export const CITY = {
   keyList: [
+    'ascq',
     'bondues', 
     'croix', 
     'hem', 
@@ -13,6 +14,7 @@ export const CITY = {
     'wattignies'
   ],
   labelList: [
+    `Villeneuve d'Ascq`,
     'Bondues', 
     'Croix', 
     'Hem', 
@@ -26,6 +28,7 @@ export const CITY = {
     'Wattignies'
   ],
   avgList: [
+    400,
     250, 
     222, 
     309, 

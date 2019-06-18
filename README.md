@@ -187,6 +187,12 @@ https://medium.com/@vks18765/novice-guide-to-securing-api-and-firebase-key-in-cr
 pourquoi est-ce difficile de styler un input[type=range]
 https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
 
+css selecteur efficace
+https://csswizardry.com/2011/09/writing-efficient-css-selectors/
+
+normalize accent
+https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
+
 #FOR ME
 Promise - async await
 https://javascript.info/async-await

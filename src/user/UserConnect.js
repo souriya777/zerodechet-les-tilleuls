@@ -36,7 +36,7 @@ class UserConnect extends Component {
             <li className='connect__choice-item'>
               <SmartLink 
                 route={ROUTES.signin}
-                className='h3'
+                className='h5'
               >
                 me connecter
               </SmartLink>
@@ -44,7 +44,7 @@ class UserConnect extends Component {
             <li className='connect__choice-item'>
               <SmartLink 
                 route={ROUTES.signup}
-                className='h3'
+                className='h5'
               >
                 créer un compte
               </SmartLink>

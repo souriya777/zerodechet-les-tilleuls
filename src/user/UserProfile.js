@@ -47,15 +47,15 @@ class UserProfile extends Component {
     return (
       <div className='profile'>
 
-        <div className='profile__goal'>
+        {/* <div className='profile__goal'>
           <h2 className='h2'>Votre progression depuis votre inscription :</h2>
           <UserGraph 
             currently={currently} 
             goal={goal} 
           />
-        </div>
+        </div> */}
 
-        <div className='profile__load-data'>
+        {/* <div className='profile__load-data'>
           <button 
             className='btn f__btn' 
             type='submit' 
@@ -73,7 +73,7 @@ class UserProfile extends Component {
           >
             supprimer mes pesées
           </button>
-        </div>
+        </div> */}
         
         <div className='profile__signout'>
           <button 

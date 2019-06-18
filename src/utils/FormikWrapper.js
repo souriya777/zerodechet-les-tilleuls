@@ -94,7 +94,7 @@ class FormikWrapper extends Component {
                 { children }
               </div>
 
-              <div className='form__validation'>
+              <div id='validation'>
                 <button 
                   className='btn f__btn' 
                   type='submit' 

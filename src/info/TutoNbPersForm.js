@@ -14,13 +14,18 @@ class TutoNbPersForm extends Component {
   }
 
   render() {
-    const { submitLbl } = this.props
-    
+    const { submitLbl, nbPers } = this.props
+    console.log(nbPers)
+
+
     return (
       <FormikWrapper
         fieldNameList={['nbPers']}
         fieldTypeList={['number']}
         fieldPlaceholderList={['Nombre de personnes (dont vous)']}
+        fieldValueList={{
+          nbPers
+        }}
         formSchema={FormSchema}
         submitLbl={submitLbl}
         onSubmit={this.handleSubmit}
@@ -36,4 +41,14 @@ const FormSchema = Yup.object().shape({
     .required('À remplir !'),
 })
 
-export default connect()(TutoNbPersForm)
+const mapStateToProps = state => { 
+  const { user } = state
+
+  const nbPers = user ? user.nbPers : 0
+  
+  return { 
+    nbPers,
+  }
+}
+
+export default connect(mapStateToProps)(TutoNbPersForm)

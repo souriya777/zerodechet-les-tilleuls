@@ -31,17 +31,7 @@ const Content = ({ lightMode }) => {
         ]} 
         component={Header} 
       />
-      <CustomRoute 
-        path={[
-          tutoPath,
-          ROUTES.rdv, 
-          ROUTES.stat, 
-          ROUTES.weight,
-          ROUTES.profile,
-        ]} 
-        component={Header} 
-        smallMode={true}
-      />
+      <CustomRoute path={tutoPath} component={Header} smallMode={true} />
       
       {/* BODY */}
       <main className={`content ${lightMode}`}>

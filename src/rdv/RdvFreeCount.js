@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RdvFreeCount = ({ maxCount, count }) => {
+const RdvFreeCount = ({ count, maxCount }) => {
   const freeCount = maxCount - count
   let countLbl = null
   let extraClass = null

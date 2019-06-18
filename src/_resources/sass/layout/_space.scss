@@ -1,0 +1,9 @@
+// not use BEM standard, because we need to have efficient selectors => so we use #
+// see https://csswizardry.com/2011/09/writing-efficient-css-selectors/
+
+#validation { @include space-top-big; }
+
+.row {
+  width: 100%;
+  margin: 1.8rem 0;
+}

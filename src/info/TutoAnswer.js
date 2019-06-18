@@ -3,7 +3,6 @@ import React from 'react'
 import TutoNbPersForm from './TutoNbPersForm'
 import TutoGoalForm from './TutoGoalForm'
 import TutoCityForm from './TutoCityForm'
-import TutoDemoChoice from './TutoDemoChoice'
 
 const TutoAnswer = ({ step, onSubmit }) => {
 
@@ -15,9 +14,6 @@ const TutoAnswer = ({ step, onSubmit }) => {
   }
   else if (3 === step) {
     return <TutoGoalForm onSubmit={onSubmit} />
-  }
-  else if (4 === step) {
-    return <TutoDemoChoice onSubmit={onSubmit} />
   }
 }
 

@@ -16,3 +16,9 @@
     height: 100%; // tricks to align content and hr border
   }
 }
+
+.hr-simple {
+  border: .1rem solid $color-grey-2;
+  // border-width: .1rem;
+  // border-style: solid;
+}
