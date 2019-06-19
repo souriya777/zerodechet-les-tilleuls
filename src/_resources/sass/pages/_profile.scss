@@ -6,6 +6,11 @@
     text-align: center; 
   }
 
+  &__terms { 
+    @include space-top;
+    text-align: center;
+  }
+
   &__goal,
   &__members,
   &__load-data,

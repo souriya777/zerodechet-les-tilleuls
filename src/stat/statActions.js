@@ -30,7 +30,6 @@ export const setCurrentStat = nb => {
 }
 
 export const handleLoadCurrentStat = uid => {
-  console.log('handleLoadCurrentStat')
   return async dispatch => {
     try {
       const result = await statAPI.getAllTimeAvg(uid)
@@ -44,8 +43,6 @@ export const handleLoadCurrentStat = uid => {
 }
 
 export const handleLoadStat = (uid, period = DEFAUT_PERIOD) => {
-  console.log('handleLoadStat', period)
-
   return async dispatch => {
     dispatch(showLoading())
     let stat = null

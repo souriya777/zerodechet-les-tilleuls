@@ -21,18 +21,15 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
+- bug saisie pesée
+- rdv place décrement/increment
 - comment, dès la 1ère pesée, calculer la "performance"
 - rajouter le bouton paramètre?
 - rajouter rubrique astuces (en dur)
 - web responsive
 - tester lundi !!! quand il n'y a pas de données
 - documenter
-- tester (compte/pas compte)
-- pourquoi développeur react? 
-- pourquoi les tilleuls?
-- souriya or not?
 - publier mon CV
-- amélioration quote nuage
 
 // not vital :
 - PWA : invite Add To Screen
@@ -41,6 +38,7 @@ TODO
 https://stackoverflow.com/questions/50917833/firebase-firestore-how-to-identify-an-offline-read
 - remplacer toutes les date par timestamp dans firebase 
 eg. startDate => startTimestamp
+- amélioration quote nuage
 - supprimer "endDate" in weight object (firebase)
 - configure launch.json for jest ext.
 https://github.com/jest-community/vscode-jest

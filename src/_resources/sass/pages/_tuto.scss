@@ -1,18 +1,9 @@
-$border: .1rem solid $color-secondary-dark;
-
 .tuto {
   @include common-content;
   height: 83vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
-  &__indication {
-    border-top: $border;
-    border-bottom: $border;
-    padding: 1.4rem 0;
-    text-align: center;
-  }
 
   & #validation {
     // margin-top: 2rem;

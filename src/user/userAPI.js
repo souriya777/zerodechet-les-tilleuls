@@ -61,19 +61,6 @@ class UserAPI {
   becomeExpert = () => {
     UserFirebase.setExtraInfo('isNew', false)
   }
-
-  subEvt = id => {
-    UserFirebase.setEvtInfo(id, false)
-  }
-  
-  unsubEvt = id => {
-    UserFirebase.deleteEvtInfo(id)
-  }
-
-  waitEvt = id => {
-    UserFirebase.setEvtInfo(id, true)
-  }
-
 }
 
 export default new UserAPI()

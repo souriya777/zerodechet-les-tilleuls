@@ -46,8 +46,8 @@ class WeightForm extends Component {
           `Nombre de personne(s) concernée(s)`, 
           'Début',
           'Fin',
-          'Recyclable poids (ex. 900 = 900g.)',
-          'Non recyclables poids (ex. 1250 = 1250g.)',
+          'Recyclable poids en g. (ex. 900 = 900g.)',
+          'Non recyclables poids en g.',
         ]}
         formSchema={FormSchema}
         onSubmit={this.handleSubmit}

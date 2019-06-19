@@ -5,6 +5,8 @@ import { getQuote } from '../utils/quote-utils'
 import { handleGetLastStartDate } from '../weight/weightActions'
 
 import WeightForm from './WeightForm'
+import HeaderTxt from '../common-ui/HeaderTxt'
+import SVGWeight from '../common-ui/svg/SVGWeight'
 
 class Weight extends Component {
 
@@ -22,7 +24,7 @@ class Weight extends Component {
       this.loadData(uid)
   }
 
-  loadData(uid, period) {
+  loadData(uid) {
     const { dispatch } = this.props
     dispatch(handleGetLastStartDate(uid))
   }
@@ -35,8 +37,11 @@ class Weight extends Component {
 
     return (
       <div className='weight'>
-        <h2 className='h2'>La pesée</h2>
-        <div className='quote'>{getQuote()}</div>
+        <HeaderTxt>
+          <SVGWeight className='svg svg--dark' />
+          <div className='small-offset'>La pesée</div>
+        </HeaderTxt>
+        <div className='quote bloc'>{getQuote()}</div>
         <div className='weight__form'>
           <WeightForm />
         </div>

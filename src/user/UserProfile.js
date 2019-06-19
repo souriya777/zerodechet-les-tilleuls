@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 import { handleSignout } from '../user/userActions'
 import { handleLoadData } from '../utils/sharedActions'
 import { handleRemoveAllWeight } from '../weight/weightActions'
 import { handleLoadCurrentStat } from '../stat/statActions'
+import ROUTES from '../app/routes'
 
-import UserGraph from './UserGraph'
+import HeaderTxt from '../common-ui/HeaderTxt'
+import SVGUser from '../common-ui/svg/SVGUser'
 
 class UserProfile extends Component {
 
@@ -46,7 +48,32 @@ class UserProfile extends Component {
 
     return (
       <div className='profile'>
-        <h2 className='h2'>Mon profil</h2>
+        <HeaderTxt>
+          <SVGUser className='svg svg--dark' />
+          <div className='small-offset'>Mon profil</div>
+        </HeaderTxt>
+
+        <div className='bloc'>
+          <div>LIGNE 1</div>
+          <div>LIGNE 2</div>
+          <div>LIGNE 3</div>
+        </div>
+
+        <div className='bloc hr-simple'></div>
+
+        <div className='bloc'>
+          <div>LIGNE 1</div>
+          <div>LIGNE 2</div>
+          <div>LIGNE 3</div>
+        </div>
+
+        <div className='bloc hr-simple'></div>
+
+        <div className='bloc'>
+          <div>LIGNE 1</div>
+          <div>LIGNE 2</div>
+          <div>LIGNE 3</div>
+        </div>
 
         {/* <div className='profile__goal'>
           <h2 className='h2'>Votre progression depuis votre inscription :</h2>
@@ -64,9 +91,9 @@ class UserProfile extends Component {
           >
             charger des pesées de démo :)
           </button>
-        </div>
+        </div> */}
 
-        <div className='profile__unload-data'>
+        {/* <div className='profile__unload-data'>
           <button 
             className='btn btn--transparent' 
             type='submit' 
@@ -76,7 +103,7 @@ class UserProfile extends Component {
           </button>
         </div> */}
         
-        <div className='profile__signout'>
+        <div className='bloc profile__signout'>
           <button 
             className='btn btn--transparent' 
             type='submit' 
@@ -84,6 +111,14 @@ class UserProfile extends Component {
           >
             se déconnecter
           </button>
+        </div>
+        <div className='profile__terms terms f__terms'>
+          <ul className='terms__links'>
+            <li><Link className='link link--color' to={ROUTES.terms}>Aide et assistance</Link></li>
+            <li><Link className='link link--color' to={ROUTES.terms}>Conditions générales</Link></li>
+            <li><Link className='link link--color' to={ROUTES.terms}>Politique de confidentialité</Link></li>
+          </ul>
+          <div className='terms__copyright'>© 2019 Souriya, Inc. Tous droits réservés.</div>
         </div>
       </div>
     )

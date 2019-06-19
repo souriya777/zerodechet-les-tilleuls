@@ -1,3 +1,7 @@
 .svg {
   fill: $color-secondary-text;
+
+  &--dark {
+    fill: $color-primary-text;
+  }
 }

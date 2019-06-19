@@ -1,4 +1,4 @@
-import Firebase, { USERS_REF, EVENTS_REF }  from '../app/firebase'
+import Firebase, { USERS_REF }  from '../app/firebase'
 
 class UserFirebase {
 
@@ -68,21 +68,6 @@ class UserFirebase {
     )
   }
 
-  setEvtInfo = async (id, waiting) => {
-    const user = Firebase.auth.currentUser
-    Firebase.db.collection(USERS_REF).doc(user.uid).collection(EVENTS_REF).doc(id).update(
-      { waiting }
-    )
-  }
-
-  deleteEvtInfo = async id => {
-    const user = Firebase.auth.currentUser
-    const ref = Firebase.db.collection(USERS_REF).doc(user.uid).collection(EVENTS_REF).doc(id)
-
-    const BATCH = Firebase.batch
-    BATCH.delete(ref)
-  }
-
   updateExtraInfo = info => {
     const user = Firebase.auth.currentUser
     Firebase.db.collection(USERS_REF).doc(user.uid).set(
@@ -110,7 +95,6 @@ const DEFAULT_EXTRA_INFO = {
   goal: null,
   home: null,
   isNew: true,
-  evt: null,
 }
 
 export default new UserFirebase()

@@ -22,15 +22,15 @@ const Menu = ({ user }) => {
           route={ROUTES.weight}
         />
         <MenuItem
-          label={'Rdv'}
-          icon={SVGCalendar}
-          route={ROUTES.rdv}
-        />
-        <MenuItem
           label={'Stats'}
           icon={SVGStat}
           route={ROUTES.stat}
         /> 
+        <MenuItem
+          label={'Rdv'}
+          icon={SVGCalendar}
+          route={ROUTES.rdv}
+        />
         <MenuItem
           label={'Moi'}
           photo={() => <UserPhoto src={photo} />}

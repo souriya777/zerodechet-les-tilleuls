@@ -42,3 +42,13 @@ export const CITY = {
     333,
   ]
 }
+
+export const findCityAvg = city => {
+  let result = null
+  if (city) {
+    const idx = CITY.keyList.indexOf(city)
+    result = CITY.avgList[idx]
+  }
+
+  return result
+}

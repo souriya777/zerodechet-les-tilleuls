@@ -6,6 +6,7 @@ import withLightMode from '../utils/withLightMode'
 import CustomRoute from '../app/CustomRoute'
 
 import Header from './Header'
+import HeaderTxt from './HeaderTxt'
 import UserConnect from '../user/UserConnect'
 import UserResetPwd from '../user/UserResetPwd'
 import Tuto from '../info/Tuto'

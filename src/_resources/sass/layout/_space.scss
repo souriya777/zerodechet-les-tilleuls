@@ -1,9 +1,31 @@
+$border: .1rem solid $color-secondary-dark;
+
+
 // not use BEM standard, because we need to have efficient selectors => so we use #
 // see https://csswizardry.com/2011/09/writing-efficient-css-selectors/
 
 #validation { @include space-top-big; }
 
+.bloc { margin-top: 3rem; }
+
+.bloc-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .row {
   width: 100%;
   margin: 1.8rem 0;
+}
+
+.indication {
+  border-top: $border;
+  border-bottom: $border;
+  padding: 1.4rem 0;
+  text-align: center;
+}
+
+.small-offset {
+  margin-left: 1.5rem;
 }

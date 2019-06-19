@@ -3,12 +3,15 @@ import { connect } from 'react-redux'
 import { unionWith }  from 'lodash/array'
 import { isEqual }  from 'lodash/lang'
 
+import { handleGetRdvList } from './rdvActions'
 import { dateDiff, offsetDays } from '../utils/date-utils'
 import { filter, ALL_ID } from '../utils/filter-utils'
 import { RDV_HARDCODED } from './rdv-list-hardcoded'
 
+import HeaderTxt from '../common-ui/HeaderTxt'
 import RdvList from './RdvList'
 import RdvFilter from './RdvFilter'
+import SVGCalendar from '../common-ui/svg/SVGCalendar'
 
 class Rdv extends Component {
 
@@ -31,6 +34,23 @@ class Rdv extends Component {
       city: ALL_ID,
       publicType: ALL_ID,
     }
+  }
+
+  componentDidMount() {
+    const { uid } = this.props
+    if (uid) 
+      this.loadData()
+  }
+
+  componentDidUpdate() {
+    const { uid } = this.props
+    if (uid) 
+      this.loadData()
+  }
+
+  loadData() {
+    const { dispatch } = this.props
+    dispatch(handleGetRdvList())
   }
 
   handleChangeKeyword = e => {
@@ -82,29 +102,29 @@ class Rdv extends Component {
 
     // filter by keyword
     let fKeyword
-    if (keyword && keyword != '' && keyword != ALL_ID) {
+    if (keyword && keyword !== '' && keyword !== ALL_ID) {
       let fTitle = filter(initialList, 'title', keyword)
       let fWhere = filter(initialList, 'where', keyword)
-      fKeyword = unionWith(fTitle, fWhere, isEqual )
+      fKeyword = unionWith(fTitle, fWhere, isEqual)
     } else {
       fKeyword = initialList
     }
     
     // filter by topic
     let fTopic = fKeyword
-    if (topic != ALL_ID) {
+    if (topic !== ALL_ID) {
       fTopic = filter(fKeyword, 'themes', topic)
     }
     
     // filter by city
     let fCity = fTopic
-    if (city != ALL_ID) {
+    if (city !== ALL_ID) {
       fCity = filter(fTopic, 'city', city)
     }
     
     // filter by publicType
     let fPublicType = fCity
-    if (publicType != ALL_ID) {
+    if (publicType !== ALL_ID) {
       fPublicType = filter(fCity, 'targetAudience', publicType)
     }
 
@@ -119,14 +139,22 @@ class Rdv extends Component {
 
     return (
       <div className='rdv'>
-        <h2 className='h2'>rendez-vous</h2>
-        <h6 className='h6 italic'>(Actuellement: {nbEvt} résultat(s))</h6>
+        <HeaderTxt>
+          <SVGCalendar className='svg svg--dark' />
+          <div className='small-offset'>Mes Rdv</div>
+        </HeaderTxt>
+        <div className='bloc'>
+          <h3 className='h3'>Rechercher des événements ou ateliers :</h3>
+        </div>
         <RdvFilter 
           onChangeKeyword={this.handleChangeKeyword}
           onChangeTopic={this.handleChangeTopic}
           onChangeCity={this.handleChangeCity}
           onChangePublic={this.handleChangePublic}
         />
+        <div className='bloc'>
+          <h3 className='h3'>{nbEvt} résultats :</h3>
+        </div>
         <div className='rdv__list'>
           <RdvList items={filterList} />
         </div>
@@ -135,4 +163,14 @@ class Rdv extends Component {
   }
 }
 
-export default connect()(Rdv)
+const mapStateToProps = state => { 
+  const { user } = state
+
+  const uid = user ? user.uid : null
+
+  return { 
+    uid,
+  }
+}
+
+export default connect(mapStateToProps)(Rdv)
