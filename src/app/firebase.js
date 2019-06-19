@@ -74,3 +74,4 @@ export default Firebase.instance
 export const USERS_REF = 'users'
 export const WEIGHTS_REF = 'weights'
 export const SUB_COLLECTION_REF = 'sub'
+export const EVENTS_REF = 'events'

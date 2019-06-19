@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+// import { Link } from 'react-router-dom'
+
+// import ROUTES from '../app/routes'
+//<Link to={`${ROUTES.rdv}/${item.id}`}></Link> 
 
 import RdvItem from './RdvItem'
 
@@ -10,9 +14,9 @@ class RdvList extends Component {
 
     return (
       <>
-        {items.map(item => (
-          <>
+        {items.map(item => 
             <RdvItem 
+              id={item.id}
               title={item.title} 
               type={item.type} 
               where={item.where}
@@ -21,8 +25,7 @@ class RdvList extends Component {
               maxCount={item.maxCount}
               userSubscribed={userSubscribed}
             />
-          </>
-        ))}
+        )}
       </>
     )
   }

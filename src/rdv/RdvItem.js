@@ -6,7 +6,7 @@ import RdvFreeCount from './RdvFreeCount'
 import RdvType from './RdvType'
 import RdvSubscription from './RdvSubscription'
 
-const RdvItem = ({ title, type, where, when, count, maxCount, userSubscribed }) => 
+const RdvItem = ({ id, title, type, where, when, count, maxCount, userSubscribed }) => 
   <div className='rdv__item'>
     {/* <div className='rdv__item-img'>
       <img src={picture} alt={title} />
@@ -42,6 +42,7 @@ const RdvItem = ({ title, type, where, when, count, maxCount, userSubscribed }) 
     </div>
     <div className='row'>
       <RdvSubscription 
+        id={id}
         userSubscribed={userSubscribed}
         count={count} 
         maxCount={maxCount} 

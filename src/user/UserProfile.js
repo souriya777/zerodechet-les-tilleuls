@@ -46,6 +46,7 @@ class UserProfile extends Component {
 
     return (
       <div className='profile'>
+        <h2 className='h2'>Mon profil</h2>
 
         {/* <div className='profile__goal'>
           <h2 className='h2'>Votre progression depuis votre inscription :</h2>

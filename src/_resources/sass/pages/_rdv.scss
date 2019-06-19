@@ -1,6 +1,6 @@
 .rdv {
   @include common-content;
-  min-height: 105vh;
+  @include menu-content;
 
   &__item {
     margin-top: 4rem;

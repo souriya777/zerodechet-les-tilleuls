@@ -8,10 +8,6 @@ import { RDV_HARDCODED } from './rdv-list-hardcoded'
 import RdvList from './RdvList'
 import RdvFilter from './RdvFilter'
 
-// TODO
-// CLIC PREVIEW
-// filtre : mot clé, thématiques, villes, public
-
 class Rdv extends Component {
 
   constructor(props) {
@@ -110,10 +106,12 @@ class Rdv extends Component {
 
   render() {
     const { filterList } = this.state
+    const nbEvt = filterList.length
 
     return (
       <div className='rdv'>
-        <h2 className='h2'>TODO rendez-vous</h2>
+        <h2 className='h2'>rendez-vous</h2>
+        <h6 className='h6 italic'>(Actuellement: {nbEvt} résultat(s))</h6>
         <RdvFilter 
           onChangeKeyword={this.handleChangeKeyword}
           onChangeTopic={this.handleChangeTopic}

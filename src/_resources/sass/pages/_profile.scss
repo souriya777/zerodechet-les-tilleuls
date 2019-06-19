@@ -1,5 +1,6 @@
 .profile {
   @include common-content;
+  @include menu-content;
 
   &__body { 
     text-align: center; 

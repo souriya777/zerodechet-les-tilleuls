@@ -34,6 +34,8 @@
   color: $color-primary-text;
 }
 
+@mixin menu-content { padding-bottom: 7rem; }
+
 // POSITIONING
 @mixin logo-at-top {
   padding-top: .5rem;

@@ -44,6 +44,7 @@ class Stat extends Component {
     const { period } = this.state
     return (
       <div className='stat'>
+        <h2 className='h2'>Mes stats</h2>
         <div className='stat__action'>
           <SmartSelect
             options={[

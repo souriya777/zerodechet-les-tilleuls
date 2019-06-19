@@ -136,6 +136,26 @@ export const handleBecomeExpert = () => {
   }
 }
 
+export const handleSubEvt = id => {
+  console.log('handleSubEvt')
+  return async dispatch => {
+    await userAPI.subEvt(id)
+  }
+}
+
+export const handleUnsubEvt = id => {
+  console.log('handleUnsubEvt')
+  return async dispatch => {
+    await userAPI.unsubEvt(id)
+  }
+}
+
+export const handleWaitEvt = id => {
+  console.log('handleWaitEvt')
+  return async dispatch => {
+    await userAPI.waitEvt(id)
+  }
+}
 
 export const handleUpdateUser = user => {
   console.log('handleUpdateUser')

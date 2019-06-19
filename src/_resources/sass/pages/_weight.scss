@@ -1,5 +1,6 @@
 .weight {
   @include common-content;
+  @include menu-content;
 
   &__form {
     @include space-top;

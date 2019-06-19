@@ -14,6 +14,8 @@ import Rdv from '../rdv/Rdv'
 import Stat from '../stat/Stat'
 import Weight from '../weight/Weight'
 import UserProfile from '../user/UserProfile'
+import RdvDetail from '../rdv/RdvDetail'
+import Terms from '../info/Terms'
 
 const Content = ({ lightMode }) => { 
   // FIXME
@@ -39,10 +41,13 @@ const Content = ({ lightMode }) => {
         <Route path={ROUTES.signin} component={UserConnect} />
         <Route path={ROUTES.signup} component={UserConnect} />
         <Route path={ROUTES.resetPwd} component={UserResetPwd} />
+        <Route path={ROUTES.terms} component={Terms} />
+
 
 
         <Route path={tutoPath} component={Tuto} />
-        <Route path={ROUTES.rdv} component={Rdv} />
+        <Route exact path={ROUTES.rdv} component={Rdv} />
+        <Route path={`${ROUTES.rdv}/:id`} component={RdvDetail} />
         <Route path={ROUTES.weight} component={Weight} />
         <Route path={ROUTES.stat} component={Stat} />
         <Route path={ROUTES.profile} component={UserProfile} />
