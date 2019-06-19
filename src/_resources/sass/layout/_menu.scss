@@ -4,7 +4,7 @@
   background-color: $color-secondary;
   position: fixed;
   bottom: 0;
-  height: 5.5rem;
+  height: 6rem;
   padding: .5rem 0;
   
   &__list {
@@ -26,7 +26,8 @@
 
   &__item--active &__label { color: $color-accent; }
 
-  &__item--active svg { fill: $color-accent }
+  &__item--active svg,
+  &__item--active .user__avatar svg { fill: $color-accent }
 
 
   // special case (it's simplifier to modifiy "user photo" here than in "user scsss" file

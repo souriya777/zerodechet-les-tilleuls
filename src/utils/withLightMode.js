@@ -11,7 +11,8 @@ function withLightMode (WrappedComponent) {
     if (
       ROUTES.stat.startsWith(location.pathname) ||
       ROUTES.weight.startsWith(location.pathname) ||
-      ROUTES.profile.startsWith(location.pathname)
+      ROUTES.profile.startsWith(location.pathname) ||
+      location.pathname.startsWith(ROUTES.tuto)
     ) {
       lightMode = 'content--light'
     }

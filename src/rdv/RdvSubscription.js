@@ -1,24 +1,58 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
-import { handleSubEvt, handleUnsubEvt, handleWaitEvt } from '../user/userActions'
+import { handleSubRdv, handleUnsubRdv, handleWaitRdv } from './rdvActions'
 
 class RdvSubscription extends Component {
 
-  // handleSubEvtClick = () 
+  handleSubRdvClick = () => {
+    const { id, dispatch } = this.props
+    dispatch(handleSubRdv(id))
+  }
+
+  handleUnsubRdvClick = () => {
+    const { id, dispatch } = this.props
+    dispatch(handleUnsubRdv(id))
+  }
+
+  handleWaitRdvClick = () => {
+    const { id, dispatch } = this.props
+    dispatch(handleWaitRdv(id))
+  }
 
   render() {
-    const { id, isSubscribed, count, maxCount } = this.props
+    const { userSubscribed, wait4, count, maxCount } = this.props
 
     const diff = maxCount - count
-  
-    if (isSubscribed)
-      return <button className='btn btn--small rdv--unsub'>Se désinscrire</button>
+
+    if (userSubscribed) {
+      const lbl = wait4 
+        ? `Se désinscrire de la liste d'attente`
+        : 'Se désinscrire'
+
+      return <button 
+              className='btn btn--small rdv--unsub' 
+              onClick={this.handleUnsubRdvClick}
+            >
+              {lbl}
+            </button>
+    }
   
     if (diff >= 1) 
-      return <button className='btn btn--small rdv--sub'>S'inscrire</button>
+      return <button 
+              className='btn btn--small rdv--sub'
+              onClick={this.handleSubRdvClick}
+            >
+              S'inscrire
+            </button>
     else 
-      return <button className='btn btn--small rdv--wait'>Être sur liste d'attente</button>
+      return <button 
+              className='btn btn--small rdv--wait'
+              onClick={this.handleWaitRdvClick}
+            >
+              Être sur liste d'attente
+            </button>
   }
 }
 
-export default RdvSubscription
+export default connect()(RdvSubscription)

@@ -72,11 +72,11 @@
   // HACK chrome autofill
   &:-webkit-autofill {
     -webkit-text-fill-color: $color-secondary-text;
-    -webkit-box-shadow: 0 0 0 100px $color-secondary inset;
+    -webkit-box-shadow: 0 0 0 10rem $color-secondary inset;
   }
 
   .content--light &:-webkit-autofill {
     -webkit-text-fill-color: $color-primary-text;
-    -webkit-box-shadow: 0 0 0 100px $color-primary inset;
+    -webkit-box-shadow: 0 0 0 10rem $color-primary inset;
   }
 }

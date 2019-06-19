@@ -2,10 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { handleLoadStat } from './statActions'
-import { PERIOD, PERIOD_LABEL, DEFAUT_PERIOD } from './StatHelper'
+import { PERIOD_LABEL, DEFAUT_PERIOD } from './StatHelper'
 
-import SmartSelect from '../common-ui/SmartSelect'
+import HeaderTxt from '../common-ui/HeaderTxt'
+import SVGStat from '../common-ui/svg/SVGStat'
+import SVGHuman from '../common-ui/svg/SVGHuman'
 import StatGraph from './StatGraph'
+import StatChallenge from './StatChallenge'
+import StatSelect from './StatSelect'
 
 class Stat extends Component {
 
@@ -23,44 +27,44 @@ class Stat extends Component {
   componentDidMount() {
     const { uid } = this.props
     const { period } = this.state
-    if (uid) 
+    console.log('componentDidMount', uid)
+    if (uid) {
       this.loadData(uid, period)
+    }
   }
-
+  
   componentDidUpdate() {
     const { uid } = this.props
     const { period } = this.state
-    if (uid) 
+    console.log('componentDidUpdate', uid)
+    if (uid) {
       this.loadData(uid, period)
+    }
   }
 
   loadData(uid, period) {
     const { dispatch } = this.props
+    console.log('loadData');
     dispatch(handleLoadStat(uid, period))
   }
 
   render () {
-    console.log('render handleLoadStat', this.state.period)
     const { period } = this.state
+    const { nbPers } = this.props
+
     return (
       <div className='stat'>
-        <h2 className='h2'>Mes stats</h2>
-        <div className='stat__action'>
-          <SmartSelect
-            options={[
-              PERIOD_LABEL[PERIOD.WEEK], 
-              PERIOD_LABEL[PERIOD.MONTH], 
-              PERIOD_LABEL[PERIOD.TRIMESTER]
-            ]}
-            ids={[
-              PERIOD.WEEK, 
-              PERIOD.MONTH, 
-              PERIOD.TRIMESTER
-            ]}
-            placeholder='Période'
-            onChange={this.handleChangePeriod}
-          />
-        </div>
+        <HeaderTxt>
+          <SVGStat className='svg svg--dark' />
+          <div className='small-offset bloc-center'>Mes stats ({nbPers} <SVGHuman className='svg--dark'/>)</div>
+        </HeaderTxt>
+        <StatChallenge />
+        <div className='bloc'>
+          <h3 className='h3'>Mes pesées :</h3>
+        </div> 
+        <StatSelect 
+          onChangePeriod={this.handleChangePeriod} 
+        />
         <div className='stat__graph'>
           <StatGraph 
             periodLabel={PERIOD_LABEL[period]}
@@ -74,9 +78,11 @@ class Stat extends Component {
 const mapStateToProps = state => { 
   const { user } = state
   const uid = user ? user.uid : null
+  const nbPers = user ? user.nbPers : null
 
   return {
-    uid
+    uid,
+    nbPers,
   }
 }
 

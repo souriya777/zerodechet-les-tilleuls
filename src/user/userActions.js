@@ -28,7 +28,6 @@ const becomeExpert = () => {
 }
 
 const handleSignIn = (type, login, pwd) => {
-  console.log('handleSignIn')
   return async dispatch => {
     dispatch(showLoading())
 
@@ -71,7 +70,6 @@ export const handleSigninWithTwitter = () => {
 }
 
 export const handleSignup = (name, login, pwd) => {
-  console.log('handleSignup')
   return async dispatch => {
     dispatch(showLoading())
     try {
@@ -85,7 +83,6 @@ export const handleSignup = (name, login, pwd) => {
 }
 
 export const handleSignout = () => {
-  console.log('handleSignout')
   return async dispatch => {
     dispatch(showLoading())
     await userAPI.signout()
@@ -95,7 +92,6 @@ export const handleSignout = () => {
 }
 
 export const handleResetPwd = email => {
-  console.log('handleResetPwd')
   return async dispatch => {
     // dispatch(showLoading())
     await userAPI.resetPwd(email)
@@ -104,21 +100,18 @@ export const handleResetPwd = email => {
 }
 
 export const handleSetGoal = goal => {
-  console.log('handleSetGoal')
   return async dispatch => {
     await userAPI.setGoal(goal)
   }
 }
 
 export const handleSetCity = city => {
-  console.log('handleSetCity')
   return async dispatch => {
     await userAPI.setCity(city)
   }
 }
 
 export const handleSetNbPers = nb => {
-  console.log('handleSetNbPers')
   return async dispatch => {
     // dispatch(showLoading())
     await userAPI.setNbPers(nb)
@@ -127,7 +120,6 @@ export const handleSetNbPers = nb => {
 }
 
 export const handleBecomeExpert = () => {
-  console.log('handleBecomeExpert')
   return async dispatch => {
     // dispatch(showLoading())
     await userAPI.becomeExpert()
@@ -136,29 +128,7 @@ export const handleBecomeExpert = () => {
   }
 }
 
-export const handleSubEvt = id => {
-  console.log('handleSubEvt')
-  return async dispatch => {
-    await userAPI.subEvt(id)
-  }
-}
-
-export const handleUnsubEvt = id => {
-  console.log('handleUnsubEvt')
-  return async dispatch => {
-    await userAPI.unsubEvt(id)
-  }
-}
-
-export const handleWaitEvt = id => {
-  console.log('handleWaitEvt')
-  return async dispatch => {
-    await userAPI.waitEvt(id)
-  }
-}
-
 export const handleUpdateUser = user => {
-  console.log('handleUpdateUser')
   return async dispatch => {
     // dispatch(showLoading())
     try {

@@ -2,76 +2,103 @@
 
 Démo https://zerodechet-les-tilleuls.firebaseapp.com
 
-## leitmotiv (la mission)
-Moins de déchets pour retrouver sa nature.
+/!\ Optimisé pour une expérience sur smartphone !
 
 ## but (le pourquoi)
 Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en développant une application utile.
 
-## fonctionnalités (le quoi)
-- Aider les aventuriers du Défi Famille à réduire leurs déchets;
-- Mesurer leur progression
-[- Informer et être informé des bonnes pratiques;]
-- Organiser et participer à des échanges live (réunions, ateliers, newsletter...);
-
-## audience (qui)
+## audience (pour qui)
 - Les familles participant au défi, qui ont besoin d'une application simple et efficace pour gérer au quotidien leur production de déchet
-[- Les administrateurs pour la gestion des utilisateurs et des progressions.]
 
-## chiffres
-En 2016, nous avons produit 4,6 tonnes de déchets par habitant
+PROCHAINEMENT :
+- Les administrateurs pour la gestion des utilisateurs et des progressions.
 
-568kg/ménage
-"Le meilleur déchet est celui qu’on ne produit pas !"
-"Réutiliser plutôt que jeter"
+## fonctionnalités (le quoi)
+- Saisir les pesées des déchets
+- Mesurer la progression des utilisateurs de manière : hebdomadaire, mensuelle, trimestrielle
+- Proposer de participer à des échanges live (réunions, ateliers...)
+=> reprise de l'existant
 
-ADEME
-- de pratiquer un tri des plastiques plus important, qui peut être facilité par l’extension des consignes de tri à tout le territoire,
-- de favoriser le compostage et enfin de limiter le gaspillage alimentaire qui représente un coût de 16 milliards d’euros par an.
+PROCHAINEMENT :
+- Modifier ses informations personnelles (noms, nombre de personnes composant le foyer, l'objectif...)
+- Paramétrer son compte (recevoir des newsletter, des notifications...)
+- Fournir une assistance, un formulaire de contact et une FAQ
+- Proposer du Don alimentaire
+- Organiser un RDV directement depuis l'applicdation
+- Poster sur le blog
+- Accéder aux astuces
+- Inviter des amis
+
 
 # DESIGN
 
 ## terminaux cibles
-- PC (résolution standard 1366x768 => cf. https://www.w3schools.com/browsers/browsers_display.asp)
+J'ai choisi d'opter pour une stratégie "mobile-1st" car je n'avais pas à accès à toutes les fonctionnalités de l'application existante.
+
+De plus, cela me permettait de me concentrer sur les fonctionnalités essentielles
+
+Je suis donc partie du plus petit smartphone cible (iPhone 5) pour designer l'application.
+
+PROCHAINEMENT, support des :
 - tablettes
-- smartphones
+- PCs (résolution standard 1366x768 => cf. https://www.w3schools.com/browsers/browsers_display.asp)
 
 ## navigateurs cibles
-???? récent?
+Chrome, firefox, safari
 
 ## philosophie
-- responsive design en utilisant une stratégie "mobile-1st"
-iPhone 320px
-iPhone landscape 480px
-tables 600px
-standard website 992px
-iPad landscape 1024px
-wide website 1224px
-- le design doit être : "simple, efficace, beau et moderne"
+Le design doit être : 
+
+"simple et efficace... beau et moderne si possible"
+
+=> J'ai essayé de ne pas utiliser de librairies "toute faite" (eg. react-material...), j'ai privilégié le CSS...
+
+Ex. : 
+- les inputs de formulaire, 
+- l'effet "splash" sur le tout premier écran
+
+Par contre, pour certains effets visuel, j'ai utilisé des libraries tierces : 
+- *highcharts* : graphique des stats 
+=> rendu hyper beau, utilisation simplissime
+- *react-redux-loading* : la bar de "loading" sur le haut de l'écran 
+=> simple & efficace
+- *react-slick* : le slider des images
+=> il y a une pléthore de librairie, mais cette dernière est l'une des plus fluide et flexible à mon goût...
+- *react-transition-group* : l'effet "fade" quand on passe d'un écran à un autre
+=> standard, fait son job comme il faut
 
 ## typographies
-- titre : lato?
-- texte : ???
+Montserrat
 
 ## couleurs
-https://material.io/tools/color/#!/?view.left=0&view.right=0&primary.color=299d3c&secondary.color=9d2f29
-autre?
+Ma palette :
+- $color-primary: #fff;
+- $color-secondary: #7adf9e;
+- $color-secondary-dark: #29a956;
+- $color-accent: #5849e0;
+- $color-accent-light: #8075e7;
+- $color-major: #ec0000;
+- $color-grey: #555;
+- $color-grey-2: #e5e5e5;
+- $color-primary-text: #000;
+- $color-secondary-text: #fff;
+- $color-backgnd-popup: rgba(#000, .8);
+- $color-card-shadow: rgba(0, 0, 0, .2);
+- $color-workshop: #ffd618;
+- $color-workshop-full: - $color-major;
+- $color-event: #2dafe6;
+- $color-rdv-sub: - $color-secondary-dark;
+- $color-rdv-unsub: #e75338;
+- $color-rdv-wait: #e79238;
 
 ## médias (textes/images/vidéos/icônes/etc...)
-texte : reprise de l'existant zerodechet
-images : logo (reprise de l'existant zerodechet)
-vidéos:
-*nature promo : https://www.youtube.com/watch?v=pPODTlVRr5A
-icônes : pour chaque menu
-
-Images sur https://images.unsplash.com
-
-bernard-hermant-657000-unsplash.jpg
-evan-brockett-559924-unsplash.jpg
-laura-mitulla-1433381-unsplash.jpg
-nicole-honeywill-1086043-unsplash.jpg
-sylvie-tittel-743127-unsplash.jpg
-
+- texte : reprise de l'existant zerodechet + invention perso
+- images : créations perso + images libres de droits
+https://isorepublic.com/
+https://unsplash.com/
+- icônes : svg libres de droits
+https://icones8.fr/icons
+https://icomoon.io/app/#/select
 
 ## technologies
 - CSS (flexbox, grid, media queries)
@@ -79,7 +106,31 @@ sylvie-tittel-743127-unsplash.jpg
 
 # DÉVELOPPEMENT
 
-## installation
+## technologies
+- JS(ES+)
+- react 16.X
+- lib react : 
+
+## tools
+- maquettage : papier/crayon
+- usine de prod : Create React App
+- hosting/authentification : firebase
+- pré-processeur : node-sass (sass en react)
+- versionning: git / github
+- mon éditeur préféré :) : vs code
+- test + mock : jest
+- navigation : react-router
+- gestion de l'état de mon appliccation : redux
+- gestion des formulaires : formik + yup
+- manipulation des dates : moment
+- fonctions utilitaires : lodash
+
+## best practices
+- BEM (Block Element Modifier) : pour "normer" mes classes CSS
+- The 7-1 Pattern
+- KISS / DRY (j'ai essayé...)
+
+## installation en local
 1/ créer une base dans Firebase (firestore)
 
 2/ créer un fichier ".env" à la racine du projet (ex. votre-projet/.env)
@@ -99,30 +150,7 @@ REACT_APP_FIREBASE_MESSAGING_SENDER_ID=VOTRE_SENDER_ID
 
 4/ exécuter la commande "yarn" pour installer le projet
 
-## technologies
-- JS(ES+)
-- react 16.X, react-router
-
-## tools
-- papier/crayon (pour le maquettage)
-- Create React App (mon usine de production)
-- firebase (hosting)
-- node-sass (sass in react)
-- npm
-- git / github
-- Visual Studio Code + extensions (correction syntaxique, snippets, theme, refactoring)
-- jest, enzyme (test)
-
-## best practices
-- BEM (Block Element Modifier)
-- The 7-1 Pattern
-- KISS / DRY
-- redux : make state more predictable
-(1/ State Tree 2/Get 3/Listen 4/Update)
-separate UI logic from fetch data
-UI driving by state
-
-## useful links
+## liens utiles
 Fonts
 https://fonts.google.com
 
@@ -193,9 +221,10 @@ https://csswizardry.com/2011/09/writing-efficient-css-selectors/
 normalize accent
 https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
 
-#FOR ME
 Promise - async await
 https://javascript.info/async-await
 
-REDUX
-ACTION=what happened
+Udemy web developpeur notions
+
+Tyler Mc Ginnis
+https://tylermcginnis.com/

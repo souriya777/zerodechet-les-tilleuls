@@ -11,5 +11,4 @@ ROUTES.stat = '/stat'
 ROUTES.weight = '/weight'
 ROUTES.terms = '/terms'
 
-
 export default ROUTES

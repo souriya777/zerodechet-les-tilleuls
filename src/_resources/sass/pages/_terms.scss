@@ -1,3 +1,8 @@
 .terms {
   color: $color-primary-text;
+
+  &__links li {
+    display: inline-block;
+    margin-right: .1rem;
+  }
 }

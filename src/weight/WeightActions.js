@@ -26,7 +26,6 @@ const fetchLastStartDate = startDate => {
 }
 
 export const handleAddWeight = (uid, history, nbPers, startDate, endDate, recycled, norecycled) => {
-  console.log('handleAddWeight')
   return async (dispatch) => {
     dispatch(showLoading())
     try {
@@ -45,7 +44,6 @@ export const handleAddWeight = (uid, history, nbPers, startDate, endDate, recycl
 }
 
 export const handleRemoveAllWeight = () => {
-  console.log('handleRemoveAllWeight')
   return async (dispatch) => {
     dispatch(showLoading())
     try {
@@ -63,7 +61,6 @@ export const handleRemoveAllWeight = () => {
 }
 
 export const handleGetLastStartDate = uid => {
-  console.log('handleGetLastStartDate')
   return async (dispatch) => {
     dispatch(showLoading())
     try {

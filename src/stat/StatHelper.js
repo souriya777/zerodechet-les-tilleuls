@@ -44,3 +44,9 @@ export const avgHome = (recycled, norecycled, nbPers, nbDays) => {
     norecycled: avgNorecycled,
   }
 }
+
+export const convertGoalToAvg = (goal, avg) => 
+  Math.abs(avg - Math.floor(avg * goal / 100))
+
+export const convertAvgToGoal = (avgStat, cityAvg) => 
+  Math.floor(avgStat / cityAvg * 100)

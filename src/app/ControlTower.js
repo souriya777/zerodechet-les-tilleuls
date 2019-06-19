@@ -52,8 +52,8 @@ class ControlTower extends Component {
       } else {
         return (
           <Switch>
-            <Redirect from={[ROUTES.signin, ROUTES.signup, ROUTES.tuto]} to={ROUTES.stat} />
-            <Redirect exact from='/' to={ROUTES.stat} />
+            <Redirect from={[ROUTES.signin, ROUTES.signup, ROUTES.tuto]} to={ROUTES.rdv} />
+            <Redirect exact from='/' to={ROUTES.rdv} />
           </Switch>
         ) 
       }

@@ -1,5 +1,7 @@
 .stat {
-  color: inherit;
+  // color: inherit;
+  @include common-content;
+  @include menu-content;
   
   &__action { @include space-content }
 
