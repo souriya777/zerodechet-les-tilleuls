@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { unionWith }  from 'lodash/array'
+import { isEqual }  from 'lodash/lang'
 
 import { dateDiff, offsetDays } from '../utils/date-utils'
 import { filter, ALL_ID } from '../utils/filter-utils'
@@ -12,7 +14,7 @@ class Rdv extends Component {
 
   constructor(props) {
     super(props)
-    
+
     // hack to always have fresh rdv
     const diff = dateDiff(RDV_HARDCODED[0].when, new Date())
     
@@ -79,11 +81,13 @@ class Rdv extends Component {
     const { initialList } = this.state
 
     // filter by keyword
-    let fKeyword = initialList
+    let fKeyword
     if (keyword && keyword != '' && keyword != ALL_ID) {
       let fTitle = filter(initialList, 'title', keyword)
       let fWhere = filter(initialList, 'where', keyword)
-      fKeyword = fTitle.concat(fWhere)
+      fKeyword = unionWith(fTitle, fWhere, isEqual )
+    } else {
+      fKeyword = initialList
     }
     
     // filter by topic
