@@ -94,7 +94,7 @@ const getThisPeriodDate = (now, period = PERIOD.WEEK) => {
   }
 }
 
-export const resetTime = momentObj => 
+const resetTime = momentObj => 
   momentObj.hour(0).minute(0).second(0)
 
 export const dateDiff = (begin, end) => 
@@ -117,6 +117,9 @@ export const pastDays = (howMany, thisDay) => {
 
 export const canHappen = (date, now) => 
   moment(date).isSameOrAfter(resetTime(moment(now)))
+
+export const offsetDays = (date, nbDays) => 
+  moment(date).add(nbDays, 'd').toDate()
 
 export const lastYear = now => 
   moment(now).subtract(1, 'y').toDate()

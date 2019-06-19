@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { canHappen } from '../utils/date-utils'
+import { dateDiff, offsetDays } from '../utils/date-utils'
 import { filter, ALL_ID } from '../utils/filter-utils'
 import { RDV_HARDCODED } from './rdv-list-hardcoded'
 
@@ -12,9 +12,14 @@ class Rdv extends Component {
 
   constructor(props) {
     super(props)
+    
     // hack to always have fresh rdv
-    const now = new Date()
-    const initialList = RDV_HARDCODED.filter(e => canHappen(e.when, now))
+    const diff = dateDiff(RDV_HARDCODED[0].when, new Date())
+    
+    const initialList = RDV_HARDCODED.map(e => {
+      const newWhen = offsetDays(e.when, diff)
+      return Object.assign({}, e, { when: newWhen })
+    })
 
     this.state = {
       initialList,

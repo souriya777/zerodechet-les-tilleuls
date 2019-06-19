@@ -61,6 +61,7 @@ export const DAY_WITH_HOUR = {
   JUN_DAY_3_00H00: moment('2019-06-03T00:00'),
   JUN_DAY_5_00H44: moment('2019-06-05T00:44'),
   JUN_DAY_6_00H00: moment('2019-06-06T00:00'),
+  JUN_DAY_15_00H44: moment('2019-06-15T00:44'),
   JUN_DAY_22_10H30: moment('2019-06-22T10:30'),
 }
 

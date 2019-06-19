@@ -19,7 +19,7 @@ import {
   lastYear,
   isDefaultStartDate,
   canHappen,
-  resetTime,
+  offsetDays,
 } from './date-utils'
 import { WEEK, MONTH, TRIMESTER, DAY_WITH_HOUR, ANNUAL } from './common-test/common-data'
 
@@ -465,6 +465,32 @@ describe(`canHappen`, () => {
     `, () => {
     const result = canHappen('2019-06-18T18:00:00+02:00', ANNUAL.JUN_DAY_18)
     expect(result).toBeTruthy()
+  })
+  
+})
+
+describe(`offsetDays`, () => {
+
+  it(`
+    for: 
+      date=JUN_DAY_4
+      nbDays=2
+    returns
+      JUN_DAY_6
+  `, () => {
+    const myDate = offsetDays(ANNUAL.JUN_DAY_4.toDate(), 2)
+    expect(myDate).toEqual(ANNUAL.JUN_DAY_6.toDate())
+  })
+
+  it(`
+    for: 
+      date=JUN_DAY_5_00H44
+      nbDays=10
+    returns
+      JUN_DAY_15_00H44
+  `, () => {
+    const myDate = offsetDays(DAY_WITH_HOUR.JUN_DAY_5_00H44.toDate(), 10)
+    expect(myDate).toEqual(DAY_WITH_HOUR.JUN_DAY_15_00H44.toDate())
   })
   
 })

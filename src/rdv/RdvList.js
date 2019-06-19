@@ -17,6 +17,7 @@ class RdvList extends Component {
         {items.map(item => 
             <RdvItem 
               id={item.id}
+              key={item.id}
               title={item.title} 
               type={item.type} 
               where={item.where}
