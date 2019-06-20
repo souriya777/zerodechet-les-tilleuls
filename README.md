@@ -1,5 +1,8 @@
 # LE PROJET
 
+![preview](./preview.png)
+![preview](https://zerodechet-les-tilleuls.firebaseapp.com/preview.png)
+
 Démo https://zerodechet-les-tilleuls.firebaseapp.com
 
 /!\ Optimisé pour une expérience sur smartphone !
