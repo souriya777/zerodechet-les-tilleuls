@@ -1,6 +1,6 @@
 # LE PROJET
 
-![preview](https://zerodechet-les-tilleuls.firebaseapp.com/preview.png | width=150)
+![preview](https://zerodechet-les-tilleuls.firebaseapp.com/preview.png)
 
 Démo https://zerodechet-les-tilleuls.firebaseapp.com
 
