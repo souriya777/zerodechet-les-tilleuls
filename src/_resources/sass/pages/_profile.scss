@@ -16,4 +16,26 @@
   &__load-data,
   &__unload-data,
   &__signout { @include space-top; }
+
+  &__links {
+    font-size: 2rem;
+    margin-left: 1.6rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    // margin-bottom: 2rem;
+  }
+
+  &__role {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 2.2rem;
+  }
+
+  &__desc {
+    font-size: 1.4rem;
+    text-align: justify;
+  }
 }

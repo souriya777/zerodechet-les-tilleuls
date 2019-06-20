@@ -43,6 +43,7 @@ export const handleLoadCurrentStat = uid => {
 }
 
 export const handleLoadStat = (uid, period = DEFAUT_PERIOD) => {
+  console.log('handleLoadStat', period)
   return async dispatch => {
     dispatch(showLoading())
     let stat = null

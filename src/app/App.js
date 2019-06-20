@@ -21,7 +21,6 @@ import InfoWatcher from '../utils/InfoWatcher'
 
 /*
 TODO
-- bug saisie pesée
 - rdv place décrement/increment
 - comment, dès la 1ère pesée, calculer la "performance"
 - rajouter le bouton paramètre?
@@ -29,7 +28,6 @@ TODO
 - web responsive
 - tester lundi !!! quand il n'y a pas de données
 - documenter
-- publier mon CV
 
 // not vital :
 - PWA : invite Add To Screen

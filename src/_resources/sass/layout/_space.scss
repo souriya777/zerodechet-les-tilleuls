@@ -6,7 +6,9 @@ $border: .1rem solid $color-secondary-dark;
 
 #validation { @include space-top-big; }
 
+// FIXME refactor
 .bloc { margin-top: 3rem; }
+.bloc-bottom { margin-bottom: 2rem; }
 
 .bloc-center {
   display: flex;
