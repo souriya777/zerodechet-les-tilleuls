@@ -24,7 +24,7 @@ PROCHAINEMENT :
 - Paramétrer son compte (recevoir des newsletter, des notifications...)
 - Fournir une assistance, un formulaire de contact et une FAQ
 - Proposer du Don alimentaire
-- Organiser un RDV directement depuis l'applicdation
+- Organiser un RDV directement depuis l'application
 - Poster sur le blog
 - Accéder aux astuces
 - Inviter des amis
@@ -60,7 +60,7 @@ Ex. :
 Par contre, pour certains effets visuel, j'ai utilisé des libraries tierces : 
 - *highcharts* : graphique des stats 
 => rendu hyper beau, utilisation simplissime
-- *react-redux-loading* : la bar de "loading" sur le haut de l'écran 
+- *react-redux-loading* : la bar de chargement sur le haut de l'écran 
 => simple & efficace
 - *react-slick* : le slider des images
 => il y a une pléthore de librairie, mais cette dernière est l'une des plus fluide et flexible à mon goût...
@@ -94,11 +94,7 @@ Ma palette :
 ## médias (textes/images/vidéos/icônes/etc...)
 - texte : reprise de l'existant zerodechet + invention perso
 - images : créations perso + images libres de droits
-https://isorepublic.com/
-https://unsplash.com/
 - icônes : svg libres de droits
-https://icones8.fr/icons
-https://icomoon.io/app/#/select
 
 ## technologies
 - CSS (flexbox, grid, media queries)
@@ -109,7 +105,6 @@ https://icomoon.io/app/#/select
 ## technologies
 - JS(ES+)
 - react 16.X
-- lib react : 
 
 ## tools
 - maquettage : papier/crayon
@@ -120,7 +115,7 @@ https://icomoon.io/app/#/select
 - mon éditeur préféré :) : vs code
 - test + mock : jest
 - navigation : react-router
-- gestion de l'état de mon appliccation : redux
+- gestion de l'état de mon application : redux
 - gestion des formulaires : formik + yup
 - manipulation des dates : moment
 - fonctions utilitaires : lodash
@@ -128,7 +123,7 @@ https://icomoon.io/app/#/select
 ## best practices
 - BEM (Block Element Modifier) : pour "normer" mes classes CSS
 - The 7-1 Pattern
-- KISS / DRY (j'ai essayé...)
+- KISS / DRY
 
 ## installation en local
 1/ créer une base dans Firebase (firestore)
@@ -151,11 +146,19 @@ REACT_APP_FIREBASE_MESSAGING_SENDER_ID=VOTRE_SENDER_ID
 4/ exécuter la commande "yarn" pour installer le projet
 
 ## liens utiles
+Les Tilleuls & leur application Zero Déchet 
+https://les-tilleuls.coop/fr/products/zero-waste
+
 Fonts
 https://fonts.google.com
 
 Free photo
 https://isorepublic.com
+https://unsplash.com/
+
+Free SVG
+https://icones8.fr/icons
+https://icomoon.io/app/#/select
 
 BEM naming convention
 http://getbem.com/naming/
@@ -172,23 +175,14 @@ https://css-tricks.com/creating-svg-icon-system-react/
 react, react-router and code splitting (loading optimization)
 https://tylermcginnis.com/react-router-code-splitting/
 
-optimistic update in react
-https://medium.com/@_erikaybar/optimistic-ui-updates-in-react-9e139ffa2e45
-
 mobile 1st strategy
 https://www.uxpin.com/studio/blog/a-hands-on-guide-to-mobile-first-design/
 
-grid css ?
-https://markus.oberlehner.net/blog/building-a-good-old-12-column-css-grid-framework-with-css-grid-layout/
-
-Redux store ou React state?
+Redux STORE ou React STATE? (ou quand ne pas tout mettre dans le store Redux...)
 https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978
 
 Formik : librarie efficace pour gérer les formulaires
 https://jaredpalmer.com/formik/docs/overview
-
-great tutorial to use enzyme with react
-https://scotch.io/tutorials/testing-react-components-with-enzyme-and-jest
 
 les déchets en france
 http://www.cniid.org/Les-dechets-en-France-quelques-chiffres,151
@@ -203,13 +197,10 @@ http://webagility.com/posts/the-ultimate-list-of-hacks-for-chromes-forced-yellow
 
 https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
 
-iphone testing
+tester sur iPhone
 http://mobiletest.me
 
-js : how to check null or undefined?
-https://stackoverflow.com/questions/2559318/how-to-check-for-an-undefined-or-null-variable-in-javascript
-
-easily add react environmental variables
+Rajouter facilement mes variables FIREBASE dans REACT ENVIRONNEMENT VARIABLES
 https://medium.com/@vks18765/novice-guide-to-securing-api-and-firebase-key-in-create-react-app-and-deploying-it-on-heroku-df68c967973
 
 pourquoi est-ce difficile de styler un input[type=range]
@@ -218,13 +209,13 @@ https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
 css selecteur efficace
 https://csswizardry.com/2011/09/writing-efficient-css-selectors/
 
-normalize accent
+question épineuse JS : normaliser les accents... 
 https://stackoverflow.com/questions/990904/remove-accents-diacritics-in-a-string-in-javascript
 
-Promise - async await
-https://javascript.info/async-await
+question épineuse en JS : comment vérifier null or undefined?
+https://stackoverflow.com/questions/2559318/how-to-check-for-an-undefined-or-null-variable-in-javascript
 
-Udemy web developpeur notions
+Sites pour me former en développeur front React (HTML/JS/CSS/SASS/REACT/REACT ROUTER / REDUX) :
 
-Tyler Mc Ginnis
+https://www.udemy.com/
 https://tylermcginnis.com/
