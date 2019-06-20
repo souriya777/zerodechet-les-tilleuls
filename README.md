@@ -1,7 +1,6 @@
 # LE PROJET
 
-![preview](./preview.png)
-![preview](https://zerodechet-les-tilleuls.firebaseapp.com/preview.png)
+![preview](https://zerodechet-les-tilleuls.firebaseapp.com/preview.png | width=150)
 
 Démo https://zerodechet-les-tilleuls.firebaseapp.com
 
@@ -11,9 +10,10 @@ Démo https://zerodechet-les-tilleuls.firebaseapp.com
 Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en développant une application utile.
 
 ## audience (pour qui)
-- Les familles participant au défi, qui ont besoin d'une application simple et efficace pour gérer au quotidien leur production de déchet
+- Les familles participant au défi Zéro déchet 
+https://www.roubaixzerodechet.fr/
 
-PROCHAINEMENT :
+*PROCHAINEMENT :*
 - Les administrateurs pour la gestion des utilisateurs et des progressions.
 
 ## fonctionnalités (le quoi)
@@ -22,7 +22,7 @@ PROCHAINEMENT :
 - Proposer de participer à des échanges live (réunions, ateliers...)
 => reprise de l'existant
 
-PROCHAINEMENT :
+*PROCHAINEMENT :*
 - Modifier ses informations personnelles (noms, nombre de personnes composant le foyer, l'objectif...)
 - Paramétrer son compte (recevoir des newsletter, des notifications...)
 - Fournir une assistance, un formulaire de contact et une FAQ
@@ -42,7 +42,7 @@ De plus, cela me permettait de me concentrer sur les fonctionnalités essentiell
 
 Je suis donc partie du plus petit smartphone cible (iPhone 5) pour designer l'application.
 
-PROCHAINEMENT, support des :
+*PROCHAINEMENT :*
 - tablettes
 - PCs (résolution standard 1366x768 => cf. https://www.w3schools.com/browsers/browsers_display.asp)
 
@@ -52,13 +52,11 @@ Chrome, firefox, safari
 ## philosophie
 Le design doit être : 
 
-"simple et efficace... beau et moderne si possible"
+*"simple et efficace... beau et moderne si possible"*
 
-=> J'ai essayé de ne pas utiliser de librairies "toute faite" (eg. react-material...), j'ai privilégié le CSS...
+J'ai essayé de ne pas utiliser de librairies "toute faite" (eg. react-material...), j'ai privilégié le CSS...
 
-Ex. : 
-- les inputs de formulaire, 
-- l'effet "splash" sur le tout premier écran
+Ex. : les champs des formulaires, l'effet "splash" sur le tout premier écran
 
 Par contre, pour certains effets visuel, j'ai utilisé des libraries tierces : 
 - *highcharts* : graphique des stats 
@@ -115,13 +113,13 @@ Ma palette :
 - hosting/authentification : firebase
 - pré-processeur : node-sass (sass en react)
 - versionning: git / github
-- mon éditeur préféré :) : vs code
+- mon éditeur préféré 🙂: vs code
 - test + mock : jest
 - navigation : react-router
 - gestion de l'état de mon application : redux
 - gestion des formulaires : formik + yup
 - manipulation des dates : moment
-- fonctions utilitaires : lodash
+- manipulation des tableaux : lodash
 
 ## best practices
 - BEM (Block Element Modifier) : pour "normer" mes classes CSS
@@ -175,7 +173,7 @@ https://github.com/HugoGiraudel/sass-boilerplate/tree/master/stylesheets
 SVG "scalables" en react
 https://css-tricks.com/creating-svg-icon-system-react/
 
-react, react-router and code splitting (loading optimization)
+optimisation react-router : code splitting (lazy loading)
 https://tylermcginnis.com/react-router-code-splitting/
 
 mobile 1st strategy
@@ -220,5 +218,6 @@ https://stackoverflow.com/questions/2559318/how-to-check-for-an-undefined-or-nul
 
 Sites pour me former en développeur front React (HTML/JS/CSS/SASS/REACT/REACT ROUTER / REDUX) :
 
+https://reactjs.org
 https://www.udemy.com/
 https://tylermcginnis.com/
