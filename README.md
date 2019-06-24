@@ -6,8 +6,6 @@ Démo https://zerodechet-les-tilleuls.firebaseapp.com
 
 /!\ Optimisé pour une expérience sur smartphone !
 
-n.b. La partie "PROFIL" n'est pas encore implémentée 
-
 ## but (le pourquoi)
 Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en développant une application utile.
 
