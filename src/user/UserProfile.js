@@ -66,16 +66,19 @@ class UserProfile extends Component {
         <div className='bloc profile__links'>
           <UserProfileLink
             label='Infos personnelles'
+            extra='(non implémenté)'
             icon={SVGPerso}
             route={`${ROUTES.profile}/perso`}
           />
           <UserProfileLink
             label='Paramètres du compte'
+            extra='(non implémenté)'
             icon={SVGParam}
             route={`${ROUTES.profile}/param`}
           />
           <UserProfileLink
             label='Aide et assistance'
+            extra='(non implémenté)'
             icon={SVGHelp}
             route={`${ROUTES.profile}/help`}
           />
@@ -87,17 +90,19 @@ class UserProfile extends Component {
           <div className='profile__role'>Devenir acteur</div>
           <UserProfileLink
             label='Don alimentaire'
-            extra='Le don en nature est un acte de générosité très concret qui vous permet de donner des produits dès lors qu’ils sont consommables et utilisables.'
+            extra='(non implémenté) Le don en nature est un acte de générosité très concret qui vous permet de donner des produits dès lors qu’ils sont consommables et utilisables.'
             icon={SVGGift}
             route={`${ROUTES.profile}/gift`}
           />
           <UserProfileLink
             label='Proposer des rdv'
+            extra='(non implémenté)'
             icon={SVGRdv}
             route={`${ROUTES.profile}/rdv`}
           />
           <UserProfileLink
             label='Publier un article'
+            extra='(non implémenté)'
             icon={SVGAddPost}
             route={`${ROUTES.profile}/post`}
           />
@@ -109,17 +114,19 @@ class UserProfile extends Component {
           <div className='profile__role'>S'informer +</div>
           <UserProfileLink
             label='Mes astuces'
-            extra={`Retrouver toutes les astuces 80/20, vous permettant d'atteindre votre objectif, avec moins d'efforts...`}
+            extra={`(non implémenté) Retrouver toutes les astuces 80/20, vous permettant d'atteindre votre objectif, avec moins d'efforts...`}
             icon={SVGHint}
             route={`${ROUTES.profile}/hint`}
           />
           <UserProfileLink
             label='Visiter le blog'
+            extra='(non implémenté)'
             icon={SVGBlog}
             route={`${ROUTES.profile}/blog`}
           />
           <UserProfileLink
             label='Inviter des amis'
+            extra='(non implémenté)'
             icon={SVGFriend}
             route={`${ROUTES.profile}/friend`}
           />

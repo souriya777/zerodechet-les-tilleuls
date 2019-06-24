@@ -13,7 +13,7 @@ Mettre en oeuvre mes nouvelles connaissances en HTML, CSS, JS et React; tout en 
 - Les familles participant au défi Zéro déchet 
 https://www.roubaixzerodechet.fr/
 
-*PROCHAINEMENT :*
+*NON IMPLÉMENTÉ : *
 - Les administrateurs pour la gestion des utilisateurs et des progressions.
 
 ## fonctionnalités (le quoi)
@@ -22,7 +22,7 @@ https://www.roubaixzerodechet.fr/
 - Proposer de participer à des échanges live (réunions, ateliers...)
 => reprise de l'existant
 
-*PROCHAINEMENT :*
+*NON IMPLÉMENTÉ : *
 - Modifier ses informations personnelles (noms, nombre de personnes composant le foyer, l'objectif...)
 - Paramétrer son compte (recevoir des newsletter, des notifications...)
 - Fournir une assistance, un formulaire de contact et une FAQ
@@ -42,7 +42,7 @@ De plus, cela me permettait de me concentrer sur les fonctionnalités essentiell
 
 Je suis donc partie du plus petit smartphone cible (iPhone 5) pour designer l'application.
 
-*PROCHAINEMENT :*
+*NON IMPLÉMENTÉ : *
 - tablettes
 - PCs (résolution standard 1366x768 => cf. https://www.w3schools.com/browsers/browsers_display.asp)
 
@@ -58,9 +58,9 @@ J'ai essayé de ne pas utiliser de librairies "toute faite" (eg. react-material.
 
 Ex. : les champs des formulaires, l'effet "splash" sur le tout premier écran
 
-Par contre, pour certains effets visuel, j'ai utilisé des libraries tierces : 
+Par contre, pour certains effets visuels, j'ai utilisé des libraries tierces : 
 - *highcharts* : graphique des stats 
-=> rendu hyper beau, utilisation simplissime
+=> rendu très esthétique, utilisation simplissime
 - *react-redux-loading* : la bar de chargement sur le haut de l'écran 
 => simple & efficace
 - *react-slick* : le slider des images
@@ -93,8 +93,8 @@ Ma palette :
 - $color-rdv-wait: #e79238;
 
 ## médias (textes/images/vidéos/icônes/etc...)
-- texte : reprise de l'existant zerodechet + invention perso
-- images : créations perso + images libres de droits
+- texte : reprise de l'existant zerodechet + création perso
+- images : créations persos + images libres de droits
 - icônes : svg libres de droits
 
 ## technologies
@@ -123,6 +123,9 @@ Ma palette :
 
 ## best practices
 - BEM (Block Element Modifier) : pour "normer" mes classes CSS
+=> c'est un choix personnel, mais j'ai choisi de ne pas mettre de style directement dans les composants React...
+(choses que j'ai vu souvent sur le net)
+L'avantage est que le changement de "style" est plus facile je trouve...
 - The 7-1 Pattern
 - KISS / DRY
 
