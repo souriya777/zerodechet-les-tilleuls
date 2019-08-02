@@ -1,4 +1,4 @@
-import userAPI from './userAPI'
+import userAPI, { getAdultNames } from './userAPI'
 import { 
   EMAIL,
   PWD,
@@ -82,4 +82,51 @@ describe(`onAuthStateChanged`, () => {
     expect(callbackFn2).toHaveBeenCalledWith()
   })
   
+})
+
+describe(`getAdultNames`, () => {
+
+  it(`throw an Error('Argument "list" is missing.')
+      for list=undefined `, () => {
+      expect(getAdultNames).toThrow(new Error('Argument "list" is missing.'))
+  })
+
+  it(`
+    for: 
+      myArray=[
+        { name: 'Souriya', birthdate: '1984-05-08' },
+        { name: 'Solan', birthdate: '2013-04-04' },
+        { name: 'Sarah', birthdate: '2000-06-24' },
+      ]
+      majority (NOT_PROVIDED)
+    returns:
+      ['Souriya', 'Sarah']
+      `, () => {
+      const myArray = [
+        { name: 'Souriya', birthdate: '1984-05-08' },
+        { name: 'Solan', birthdate: '2013-04-04' },
+        { name: 'Sarah', birthdate: '2000-06-24' },
+      ]
+    expect(getAdultNames(myArray)).toEqual(['Souriya', 'Sarah'])
+  })
+
+  it(`
+    for: 
+      myArray=[
+        { name: 'Souriya', birthdate: '1984-05-08' },
+        { name: 'Solan', birthdate: '2013-04-04' },
+        { name: 'Sarah', birthdate: '2000-06-24' },
+      ]
+      majority=21
+    returns:
+      ['Souriya']
+      `, () => {
+      const myArray = [
+        { name: 'Souriya', birthdate: '1984-05-08' },
+        { name: 'Solan', birthdate: '2013-04-04' },
+        { name: 'Sarah', birthdate: '2000-06-24' },
+      ]
+      const majority = 21
+    expect(getAdultNames(myArray, majority)).toEqual(['Souriya'])
+  })
 })

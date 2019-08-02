@@ -1,6 +1,7 @@
 import UserFirebase from './userFirebase'
 
 import FirebaseException from '../utils/FirebaseException'
+import moment from 'moment'
 
 class UserAPI {
 
@@ -61,9 +62,20 @@ class UserAPI {
   becomeExpert = () => {
     UserFirebase.setExtraInfo('isNew', false)
   }
+
 }
 
 export default new UserAPI()
+
+export const getAdultNames = (list, majority = 18) => {
+  if (undefined === list) {
+    throw new Error('Argument "list" is missing.')
+  }
+
+  return list.filter((item) => moment().subtract(majority, 'years').isAfter(moment(item.birthdate)))
+    .map(item => item.name)
+}
+
 
 /////// PRIVATE METHODS
 const signin = async (type, login, pwd) => {
