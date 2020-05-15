@@ -4,11 +4,11 @@
   "private": true,
   "dependencies": {
     "enzyme-adapter-react-16": "^1.14.0",
-    "firebase": "^6.1.0",
+    "firebase": "^7.14.4",
     "formik": "^1.5.2",
     "highcharts": "^7.1.2",
     "moment": "^2.24.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "query-string": "^6.6.0",
     "react": "^16.8.6",
