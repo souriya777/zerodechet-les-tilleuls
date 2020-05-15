@@ -1,5 +1,5 @@
 import { showLoading, hideLoading } from 'react-redux-loading'
-import weightAPI from '../weight/weightAPI'
+import weightAPI from './weightAPI'
 import { setError } from '../utils/ErrorActions'
 import { setInfo } from '../utils/InfoActions'
 import { WEIGHT_MSG } from '../utils/InfoMsg'

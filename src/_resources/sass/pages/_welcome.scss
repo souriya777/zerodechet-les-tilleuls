@@ -44,25 +44,25 @@ $linear-gradient: linear-gradient(
     &--welcome {
       background-image: 
         $linear-gradient,
-        url(../img/welcome-900.jpg);
+        url(../../img/welcome-900.jpg);
     }
   
     &--why {
       background-image: 
         $linear-gradient,
-        url(../img/why-900.jpg);
+        url(../../img/why-900.jpg);
     }
   
     &--what {
       background-image: 
         $linear-gradient,
-        url(../img/what-900.jpg);
+        url(../../img/what-900.jpg);
     }
   
     &--how {
       background-image: 
         $linear-gradient,
-        url(../img/how-900.jpg);
+        url(../../img/how-900.jpg);
     }
   }
 }
